@@ -4,18 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menu Component demo</title>
-    <link rel="stylesheet" href="./index.css" />
+    <style>
+      html {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: contents;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .menu::part(content) {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        justify-content: center;
+      }
+      .menu::part(item) {
+        cursor: pointer;
+      }
+      .menu::part(item):focus {
+        color: red;
+      }
+    </style>
     <script type="module">
       import Menu from "./index.mjs";
       customElements.define("menu-component", Menu);
     </script>
   </head>
   <body>
-    <menu-component class="menu" id="menu">
+    <menu-component class="menu">
       <menu-item data-key="snake"
-        >External Page
+        >iFrame
         <template>
-          <iframe src="https://johnhenry.github.io" frameborder="0"></iframe>
+          <iframe src="/" frameborder="0"></iframe>
           <button
             onClick="this.dispatchEvent(new Event('end', { bubbles: true }));"
           >
@@ -87,6 +115,9 @@
         </template>
       </menu-item>
     </menu-component>
-    <script src="./navigation.mjs"></script>
+    <script>
+      import attach from "hash";
+      attach(document.querySelector(".menu"));
+    </script>
   </body>
 </html>
