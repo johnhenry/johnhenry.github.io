@@ -1,159 +1,89 @@
 import { html } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import "./string-prototype-warn.mjs";
+import "./negative-class.css";
+
 import { negater, scale, concat } from "./NegatableString.mjs";
 
 export default {
-  title: "JS Library/Negatable String/Demos",
+  title: "JS Library/Negatable String/Demo",
   argTypes: {
-    first: { control: "text" },
-    second: { control: "text" },
-    firstScalar: { control: { type: "range", min: -5, max: 5, step: 1 } },
-    secondScalar: { control: { type: "range", min: -5, max: 5, step: 1 } },
+    str0: { control: "text" },
+    str1: { control: "text" },
+    num0: { control: { type: "range", min: -5, max: 5, step: 1 } },
+    num1: { control: { type: "range", min: -5, max: 5, step: 1 } },
   },
 };
 
-const markup = [
-  '<span style="display: inline-block; color:red;transform: scaleX(-1)">',
-  "</span>",
-];
+const negativeMarkup = ['<span class="negative">', "</span>"];
 
-export const OnPage = ({ first, second, firstScalar, secondScalar }) => {
-  const f = negater(first);
-  const s = negater(second);
-  const fscaled = scale(f, firstScalar);
-  const sscaled = scale(s, secondScalar);
-  return html`<div>
-    <span title="${firstScalar} × ${first}">
-      "${unsafeHTML(fscaled.toString(...markup))}"
-    </span>
-    +
-    <span title="${secondScalar} × ${second}">
-      "${unsafeHTML(sscaled.toString(...markup))}"
-    </span>
+const { log } = console;
+
+const NEGATIVE_COLOR = "red";
+const POSITIVE_COLOR = "lightblue";
+export const ScaleAndAdd = ({ str0, str1, num0, num1 }) => {
+  const f = negater(str0);
+  const s = negater(str1);
+  const fscaled = scale(f, num0);
+  const sscaled = scale(s, num1);
+  const result = concat(fscaled, sscaled);
+  log(result.toString("~"));
+  log(...result.consoleIterator(NEGATIVE_COLOR, POSITIVE_COLOR));
+  return html`${num0} × "${unsafeHTML(f.toString(...negativeMarkup))}" + ${num1}
+    × "${unsafeHTML(s.toString(...negativeMarkup))}"
     <hr />
-    "${unsafeHTML(concat(fscaled, sscaled).toString(...markup))}"
-  </div>`;
+    "${unsafeHTML(fscaled.toString(...negativeMarkup))}" +
+    "${unsafeHTML(sscaled.toString(...negativeMarkup))}"
+    <hr />
+    "${unsafeHTML(result.toString(...negativeMarkup))}"`;
 };
-OnPage.args = {
-  first: "Hello World!",
-  firstScalar: 1,
-  second: scale("Hello World!", -1).toString("~"),
-  secondScalar: 1,
-};
-
-const onClick = () => {
-  const NEGATIVE_COLOR = "red";
-  const POSITIVE_COLOR = "lightblue";
-  ////
-  const REVERSED = scale("DESREVER", -1);
-  console.log(REVERSED.toString());
-  console.log(...REVERSED.consoleIterator(NEGATIVE_COLOR, POSITIVE_COLOR));
-  console.log(
-    ...REVERSED.toString().consoleIterator(NEGATIVE_COLOR, POSITIVE_COLOR)
-  );
-  console.log(REVERSED.toString("~"));
-
-  ////
-  console.log(
-    ...negater("mississippi").consoleIterator(NEGATIVE_COLOR, POSITIVE_COLOR)
-  );
-  console.log(
-    ...negater("m~iss~iss~ipp~i").consoleIterator(
-      NEGATIVE_COLOR,
-      POSITIVE_COLOR
-    )
-  );
-  console.log(
-    ...negater("mis~sis~sip~pi").consoleIterator(NEGATIVE_COLOR, POSITIVE_COLOR)
-  );
-  console.log(
-    ...negater("mi~ssi~ssi~ppi").consoleIterator(NEGATIVE_COLOR, POSITIVE_COLOR)
-  );
-  console.log(
-    ...negater("mi~ss~is~si~pp~i").consoleIterator(
-      NEGATIVE_COLOR,
-      POSITIVE_COLOR
-    )
-  );
-  console.log(
-    ...negater("1~-1", "-").consoleIterator(NEGATIVE_COLOR, POSITIVE_COLOR)
-  );
-  ////
-  const factor = 4;
-  const HELLO = "HELLO";
-  const OLLEH = scale(HELLO, -1);
-  // const GOODBYE = "GOODBYE";
-  const EYBDOOG = scale("GOODBYE", -1);
-
-  const [string0, ...colors0] = HELLO.consoleIterator(
-    NEGATIVE_COLOR,
-    POSITIVE_COLOR
-  );
-  const [string1, ...colors1] = EYBDOOG.consoleIterator(
-    NEGATIVE_COLOR,
-    POSITIVE_COLOR
-  );
-  const [string2, ...colors2] = scale(
-    concat(HELLO, EYBDOOG),
-    factor
-  ).consoleIterator(NEGATIVE_COLOR, POSITIVE_COLOR);
-  console.log(
-    `("${string0}" + "${string1}") * ${factor} => "${string2}"`,
-    ...colors0,
-    ...colors1,
-    ...colors2
-  );
-
-  const [stringB, ...colorsB] = OLLEH.consoleIterator(
-    NEGATIVE_COLOR,
-    POSITIVE_COLOR
-  );
-  const [stringC, ...colorsC] = scale(
-    concat(HELLO, OLLEH),
-    factor
-  ).consoleIterator(NEGATIVE_COLOR, POSITIVE_COLOR);
-  console.log(
-    `("${string0}" + "${stringB}") * ${factor} => "${stringC}"`,
-    ...colors0,
-    ...colorsB,
-    ...colorsC
-  );
-
-  console.log(
-    concat(scale("http://", -1), "http://www.google.com", true).toString()
-  );
-
-  const lordsprayer = `Our Father, who art in heaven,
-  hallowed be thy Name,
-  thy kingdom come,
-  thy will be done,
-  on earth as it is in heaven.
-  Give us this day our daily bread.
-  And forgive us our trespasses,
-  as we forgive those
-  who trespass against us.
-  And lead us not into temptation,
-  but deliver us from evil.
-  For thine is the kingdom,
-  and the power, and the glory,
-  for ever and ever. Amen.`;
-
-  const devilsprayer = scale(lordsprayer, -1);
-  console.log(lordsprayer);
-  console.log(...devilsprayer.consoleIterator(NEGATIVE_COLOR, POSITIVE_COLOR));
-  console.log(concat(lordsprayer, devilsprayer).toString());
+ScaleAndAdd.args = {
+  str0: "Hello World!",
+  num0: 1,
+  str1: scale("Hello World!", -1).toString("~"),
+  num1: 1,
 };
 
-export const Console = ({ onClick, label }) => {
-  return html`<label>
-    ${label}<button @click="${onClick}">click</button>
-  </label>`;
+const numToBinaryArray = (num, len, t = "~", f = "") => {
+  return num
+    .toString(2)
+    .padStart(len, 0)
+    .split("")
+    .map(Number)
+    .map((x) => (x ? t : f));
 };
-Console.args = {
-  onClick,
-  label: "Open console and click: ",
+
+const zip = (a0, a1) => {
+  return a0.map((item, i) => item + a1[i]);
 };
-Console.parameters = {
-  controls: { disable: true },
+
+const intersperse = function* (word, char = "~", after = false, before = true) {
+  const letters = word.split("");
+  if (after) {
+    letters.push("");
+  }
+  let x = 0;
+  if (!before) {
+    x = 2 ** (letters.length - 1);
+  }
+  for (let i = 0; i < 2 ** letters.length - x; i++) {
+    yield zip(numToBinaryArray(i, letters.length, char), letters).join("");
+  }
+};
+
+export const Permutations = ({ str0 }) => {
+  return html`<ol>
+    ${[...intersperse(str0, "~")].map(
+      (x) => html` <li>
+        "${x}" => "${unsafeHTML(negater(x).toString(...negativeMarkup))}"
+      </li>`
+    )}
+  </ol>`;
+};
+Permutations.args = {
+  str0: "mississippi",
+};
+
+Permutations.parameters = {
+  controls: { exclude: ["str1", "num0", "num1"] },
 };

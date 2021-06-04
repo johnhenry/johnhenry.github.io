@@ -1,0 +1,5 @@
+.negative {
+  display: inline-block;
+  color: red;
+  transform: scaleX(-1);
+}

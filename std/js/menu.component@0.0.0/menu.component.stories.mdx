@@ -1,5 +1,6 @@
 import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
 import { html } from "lit-html";
+import "./index.css";
 import MenuComponent from "./index.mjs";
 globalThis.customElements.define("menu-component", MenuComponent);
 
@@ -9,97 +10,81 @@ globalThis.customElements.define("menu-component", MenuComponent);
 
 <Preview>
   <Story name="Sample Menu">
-    {() => html` <style>
-        .menu::part(content) {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          place-items: center;
-          justify-content: center;
-        }
-        .menu::part(item) {
-          cursor: pointer;
-        }
-        .menu::part(item):focus {
-          color: red;
-        }
-      </style>
-      <menu-component class="menu" id="menu">
-        <menu-item data-key="snake"
-          >iFrame
-          <template>
-            <iframe src="/" frameborder="0"></iframe>
-            <button
-              onClick="this.dispatchEvent(new Event('end', { bubbles: true }));"
-            >
-              Back
-            </button>
-          </template>
-        </menu-item>
-        <menu-item data-end-event="over" role="radio">
-          Menu Demo - Custom Event
-          <template>
-            Clicking the button dispatches a non-default event, that's specified
-            by the menu-item's "data-end-event" property.
-            <button
-              onClick="this.dispatchEvent(new Event('over', { bubbles: true }));"
-            >
-              Dispatch "over" event.
-            </button>
-          </template>
-        </menu-item>
-        <menu-item>
-          Menu Demo - Automated Close
-          <template>
-            Upon loading an invisible image, this displays an alert. <br />Upon
-            closing said alert, this dispatches an "end" event returning you to
-            the previously menu.
-            <img
-              src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
-              onLoad="
+    {() => html` <menu-component class="menu" id="menu">
+      <menu-item data-key="snake"
+        >iFrame
+        <template>
+          <iframe src="/" frameborder="0"></iframe>
+          <button
+            onClick="this.dispatchEvent(new Event('end', { bubbles: true }));"
+          >
+            Back
+          </button>
+        </template>
+      </menu-item>
+      <menu-item data-end-event="over" role="radio">
+        Menu Demo - Custom Event
+        <template>
+          Clicking the button dispatches a non-default event, that's specified
+          by the menu-item's "data-end-event" property.
+          <button
+            onClick="this.dispatchEvent(new Event('over', { bubbles: true }));"
+          >
+            Dispatch "over" event.
+          </button>
+        </template>
+      </menu-item>
+      <menu-item>
+        Menu Demo - Automated Close
+        <template>
+          Upon loading an invisible image, this displays an alert. <br />Upon
+          closing said alert, this dispatches an "end" event returning you to
+          the previously menu.
+          <img
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
+            onLoad="
                 alert('Close me to return to previous menu.');
                 this.dispatchEvent(new Event('end', { bubbles:true }))"
-            />
-          </template>
-        </menu-item>
-        <menu-item>
-          Menu Demo - With Nested Menus
-          <template>
-            <menu-component class="menu" exportparts="item, content">
-              <menu-item>
-                Clicking the "Back" button dispatches the default "end" event --
-                returning you to the previous menu. Clicking this text takes you
-                deeper...
-                <template>
-                  <menu-component exportparts="item, content">
-                    <menu-item data-end-event="out">
+          />
+        </template>
+      </menu-item>
+      <menu-item>
+        Menu Demo - With Nested Menus
+        <template>
+          <menu-component class="menu" exportparts="item, content">
+            <menu-item>
+              Clicking the "Back" button dispatches the default "end" event --
+              returning you to the previous menu. Clicking this text takes you
+              deeper...
+              <template>
+                <menu-component exportparts="item, content">
+                  <menu-item data-end-event="out">
+                    Clicking the "Back" button dispatches the default "end"
+                    event -- returning you to the previous menu. Clicking this
+                    text takes you <b>even deeper</b>...
+                    <template>
                       Clicking the "Back" button dispatches the default "end"
-                      event -- returning you to the previous menu. Clicking this
-                      text takes you <b>even deeper</b>...
-                      <template>
-                        Clicking the "Back" button dispatches the default "end"
-                        event -- returning you to the previous menu. (Finite by
-                        design)
-                        <button
-                          onClick="this.dispatchEvent(new Event('out', { bubbles: true }));"
-                        >
-                          Back
-                        </button>
-                      </template>
-                    </menu-item>
-                    <menu-item>
-                      <button>Auto-Back 1</button>
-                    </menu-item>
-                  </menu-component>
-                </template>
-              </menu-item>
-              <menu-item>
-                <button>Auto-Back 0</button>
-              </menu-item>
-            </menu-component>
-          </template>
-        </menu-item>
-      </menu-component>`}
+                      event -- returning you to the previous menu. (Finite by
+                      design)
+                      <button
+                        onClick="this.dispatchEvent(new Event('out', { bubbles: true }));"
+                      >
+                        Back
+                      </button>
+                    </template>
+                  </menu-item>
+                  <menu-item>
+                    <button>Auto-Back 1</button>
+                  </menu-item>
+                </menu-component>
+              </template>
+            </menu-item>
+            <menu-item>
+              <button>Auto-Back 0</button>
+            </menu-item>
+          </menu-component>
+        </template>
+      </menu-item>
+    </menu-component>`}
   </Story>
 </Preview>
