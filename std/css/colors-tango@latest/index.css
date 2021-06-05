@@ -1,0 +1,128 @@
+/*https://sobac.com/sobac/tangocolors.htm*/
+:root {
+  --color-tango-butter-highlight: #fce94f;
+  --color-tango-butter-highlight-complement: #0316b0;
+  --color-tango-butter: #edd400;
+  --color-tango-butter-complement: #122bff;
+  --color-tango-butter-shadow: #c4a000;
+  --color-tango-butter-shadow-complement: #3b5fff;
+
+  --color-tango-orange-highlight: #fcaf3e;
+  --color-tango-orange-highlight-complement: #0350c1;
+  --color-tango-orange: #f57900;
+  --color-tango-orange-complement: #0a86ff;
+  --color-tango-orange-shadow: #ce5c00;
+  --color-tango-orange-shadow-complement: #31a3ff;
+
+  --color-tango-chocolate-highlight: #e9b96e;
+  --color-tango-chocolate-highlight-complement: #164691;
+  --color-tango-chocolate: #c17d11;
+  --color-tango-chocolate-complement: #3e82ee;
+  --color-tango-chocolate-shadow: #8f5902;
+  --color-tango-chocolate-shadow-complement: #70a6fd;
+
+  --color-tango-chameleon-highlight: #8ae232;
+  --color-tango-chameleon-highlight-complement: #751dcd;
+  --color-tango-chameleon: #73d216;
+  --color-tango-chameleon-complement: #8c2de9;
+  --color-tango-chameleon-shadow: #4e9a06;
+  --color-tango-chameleon-shadow-complement: #b165f9;
+
+  --color-tango-sky-highlight: #729fcf;
+  --color-tango-sky-highlight-complement: #8d6030;
+  --color-tango-sky: #3465a4;
+  --color-tango-sky-complement: #cb9a5b;
+  --color-tango-sky-shadow: #204a87;
+  --color-tango-sky-shadow-complement: #dfb578;
+
+  --color-tango-plum-highlight: #ad7fa8;
+  --color-tango-plum-highlight-complement: #528057;
+  --color-tango-plum: #75507b;
+  --color-tango-plum-complement: #8aaf84;
+  --color-tango-plum-shadow: #5c3566;
+  --color-tango-plum-shadow-complement: #a3ca99;
+
+  --color-tango-scarlet-highlight: #ef2920;
+  --color-tango-scarlet-highlight-complement: #10d6df;
+  --color-tango-scarlet: #cc0000;
+  --color-tango-scarlet-complement: #33ffff;
+  --color-tango-scarlet-shadow: #a40000;
+  --color-tango-scarlet-shadow-complement: #5bffff;
+
+  --color-tango-aluminium-highlight: #eeeeec;
+  --color-tango-aluminium-highlight-complement: #111113;
+  --color-tango-aluminium: #d3d7cf;
+  --color-tango-aluminium-complement: #2c2830;
+  --color-tango-aluminium-shadow: #babdb6;
+  --color-tango-aluminium-shadow-complement: #454249;
+
+  --color-tango-slate-highlight: #888a85;
+  --color-tango-slate-highlight-complement: #77757a;
+  --color-tango-slate: #555753;
+  --color-tango-slate-complement: #aaa8ac;
+  --color-tango-slate-shadow: #2e3436;
+  --color-tango-slate-shadow-complement: #d1cbc9;
+
+  --text-tango-butter-highlight: "#fce94f";
+  --text-tango-butter-highlight-complement: "#0316b0";
+  --text-tango-butter: "#edd400";
+  --text-tango-butter-complement: "#122bff";
+  --text-tango-butter-shadow: "#c4a000";
+  --text-tango-butter-shadow-complement: "#3b5fff";
+
+  --text-tango-orange-highlight: "#fcaf3e";
+  --text-tango-orange-highlight-complement: "#0350c1";
+  --text-tango-orange: "#f57900";
+  --text-tango-orange-complement: "#0a86ff";
+  --text-tango-orange-shadow: "#ce5c00";
+  --text-tango-orange-shadow-complement: "#31a3ff";
+
+  --text-tango-chocolate-highlight: "#e9b96e";
+  --text-tango-chocolate-highlight-complement: "#164691";
+  --text-tango-chocolate: "#c17d11";
+  --text-tango-chocolate-complement: "#3e82ee";
+  --text-tango-chocolate-shadow: "#8f5902";
+  --text-tango-chocolate-shadow-complement: "#70a6fd";
+
+  --text-tango-chameleon-highlight: "#8ae232";
+  --text-tango-chameleon-highlight-complement: "#751dcd";
+  --text-tango-chameleon: "#73d216";
+  --text-tango-chameleon-complement: "#8c2de9";
+  --text-tango-chameleon-shadow: "#4e9a06";
+  --text-tango-chameleon-shadow-complement: "#b165f9";
+
+  --text-tango-sky-highlight: "#729fcf";
+  --text-tango-sky-highlight-complement: "#8d6030";
+  --text-tango-sky: "#3465a4";
+  --text-tango-sky-complement: "#cb9a5b";
+  --text-tango-sky-shadow: "#204a87";
+  --text-tango-sky-shadow-complement: "#dfb578";
+
+  --text-tango-plum-highlight: "#ad7fa8";
+  --text-tango-plum-highlight-complement: "#528057";
+  --text-tango-plum: "#75507b";
+  --text-tango-plum-complement: "#8aaf84";
+  --text-tango-plum-shadow: "#5c3566";
+  --text-tango-plum-shadow-complement: "#a3ca99";
+
+  --text-tango-scarlet-highlight: "#ef2920";
+  --text-tango-scarlet-highlight-complement: "#10d6df";
+  --text-tango-scarlet: "#cc0000";
+  --text-tango-scarlet-complement: "#33ffff";
+  --text-tango-scarlet-shadow: "#a40000";
+  --text-tango-scarlet-shadow-complement: "#5bffff";
+
+  --text-tango-aluminium-highlight: "#eeeeec";
+  --text-tango-aluminium-highlight-complement: "#111113";
+  --text-tango-aluminium: "#d3d7cf";
+  --text-tango-aluminium-complement: "#2c2830";
+  --text-tango-aluminium-shadow: "#babdb6";
+  --text-tango-aluminium-shadow-complement: "#454249";
+
+  --text-tango-slate-highlight: "#888a85";
+  --text-tango-slate-highlight-complement: "#77757a";
+  --text-tango-slate: "#555753";
+  --text-tango-slate-complement: "#aaa8ac";
+  --text-tango-slate-shadow: "#2e3436";
+  --text-tango-slate-shadow-complement: "#d1cbc9";
+}

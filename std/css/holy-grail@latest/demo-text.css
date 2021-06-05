@@ -1,0 +1,15 @@
+.holy-grail > header::after {
+  content: "[header]";
+}
+.holy-grail > aside::after {
+  content: "[aside]";
+}
+.holy-grail > nav::after {
+  content: "[nav]";
+}
+.holy-grail > main::after {
+  content: "[main]";
+}
+.holy-grail > footer::after {
+  content: "[footer]";
+}
