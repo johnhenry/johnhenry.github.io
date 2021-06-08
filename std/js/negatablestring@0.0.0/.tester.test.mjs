@@ -3,13 +3,7 @@ import tester, { equal, ok, notok } from "../tester@0.0.0/index.mjs";
 
 // import library
 import "./string-prototype-warn.mjs";
-import {
-  negater,
-  scale,
-  concat,
-  equal as strEqual,
-  abs,
-} from "./NegatableString.mjs";
+import { negater, scale, concat, equal as strEqual, abs } from "./index.mjs";
 
 await tester("Normal Strings", function* () {
   const SAMPLE_STRING = "sample string";

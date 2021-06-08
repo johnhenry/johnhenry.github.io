@@ -1,11 +1,5 @@
 import "./string-prototype-warn.mjs";
-import {
-  negater,
-  scale,
-  concat,
-  equal as strEqual,
-  abs,
-} from "./NegatableString.mjs";
+import { negater, scale, concat, equal as strEqual, abs } from "./index.mjs";
 
 describe("Normal strings", () => {
   const SAMPLE_STRING = "sample string";

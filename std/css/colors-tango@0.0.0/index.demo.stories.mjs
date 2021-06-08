@@ -15,6 +15,7 @@ export default {
         "scarlet",
         "aluminium",
         "slate",
+        "",
       ],
       control: {
         type: "select",
@@ -116,3 +117,111 @@ export const Key = ({ name = "butter" } = { name: "butter" }) => {
     </div>`;
 };
 Key.args = { name: "butter" };
+
+// https://www.reddit.com/r/webdev/comments/npffn5/rick_and_morty_with_pure_css/
+// https://codepen.io/manz/pen/JjEqVaB
+// https://www.sassmeister.com/
+import "./rick-morty.css";
+
+export const RickAndMorty = ({ name = "butter" } = { name: "butter" }) => {
+  return html`<style>
+      :root {
+        --border-color: var(--color-tango-${name}-shadow, #4f5352);
+        --rick-skin-color: var(--color-tango-${name}-highlight, #ebe6e3);
+        --morty-skin-color: var(--color-tango-${name}-highlight, #f1daca);
+        --rick-hair-color: var(--color-tango-${name}, #bdcccf);
+        --morty-hair-color: var(--color-tango-${name}, #a68564);
+      }
+    </style>
+    <div class="rick-and-morty">
+      <div class="container">
+        <div class="rick-container">
+          <div class="head-container">
+            <div class="head">
+              <div class="brow-container">
+                <div class="brow"></div>
+              </div>
+              <div class="eyes-container">
+                <div class="left eye">
+                  <div class="pupil"></div>
+                </div>
+                <div class="right eye">
+                  <div class="pupil"></div>
+                </div>
+              </div>
+              <div class="eyebags-container">
+                <div class="left eyebag"></div>
+                <div class="right eyebag"></div>
+              </div>
+              <div class="nose"></div>
+              <div class="mouth-container">
+                <div class="mouth"></div>
+                <div class="spittle"></div>
+                <div class="spittle-arcs"></div>
+              </div>
+            </div>
+            <div class="ear-container">
+              <div class="left ear"></div>
+              <div class="right ear"></div>
+            </div>
+            <div class="hair-container">
+              <div class="hair"></div>
+            </div>
+            <div class="neck"></div>
+          </div>
+          <div class="body-container">
+            <div class="body">
+              <div class="shirt">
+                <div class="flaps-container">
+                  <div class="left flap"></div>
+                  <div class="right flap"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="morty-container">
+          <div class="head-container">
+            <div class="head">
+              <div class="brows-container">
+                <div class="left brow"></div>
+                <div class="right brow"></div>
+              </div>
+              <div class="eyes-container">
+                <div class="left eye">
+                  <div class="pupil"></div>
+                </div>
+                <div class="right eye">
+                  <div class="pupil"></div>
+                </div>
+              </div>
+              <div class="nose"></div>
+              <div class="mouth-container">
+                <div class="mouth"></div>
+              </div>
+            </div>
+            <div class="ear-container">
+              <div class="left ear"></div>
+              <div class="right ear"></div>
+            </div>
+            <div class="hair-container">
+              <div class="hair"></div>
+            </div>
+          </div>
+          <div class="body-container">
+            <div class="body"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="created">
+        <span>Created by</span>
+        <a href="https://manz.dev/"><h2>Manz.dev</h2></a>
+        <p>
+          on <a href="https://twitch.tv/ManzDev">Twitch</a> /
+          <a href="https://www.youtube.com/watch?v=ZWIgWulXQFg">Youtube</a>
+        </p>
+      </div>
+    </div>`;
+};
+RickAndMorty.args = { name: "" };

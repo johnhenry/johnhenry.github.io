@@ -1,0 +1,48 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
+import { html } from "lit-html";
+// import "./index.css";
+import GraphComponent from "./index.mjs";
+globalThis.customElements.define("graph-xy", GraphComponent);
+
+<Meta title="JS Components/Graph/Demo" />
+
+# Menu Component
+
+## Graph:Line
+
+<Preview>
+  <Story name="Line Mode">
+    {() => html`<graph-xy id="graph" start-x="0" start-y="0" mode="line">
+      <div data-x="10" data-y="10" />
+      <div data-x="20" data-y="20" />
+    </graph-xy>`}
+  </Story>
+</Preview>
+
+### Output
+
+```html
+<path d="m 0 0 l 10 10 l 20 20" />
+```
+
+## Graph:Object
+
+<Preview>
+  <Story name="Object Mode">
+    {() => html`<graph-xy id="graph" mode="object">
+      <div data-x="10" data-y="10" />
+      <div data-x="20" data-y="20" />
+    </graph-xy>`}
+  </Story>
+</Preview>
+
+```html
+<div>
+  <div style="position:absolute; top:10; left:10">
+    <? />
+  </div>
+  <div style="position:absolute; top:20; left:20">
+    <? />
+  </div>
+</div>
+```

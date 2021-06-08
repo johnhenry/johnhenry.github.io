@@ -1,4 +1,4 @@
-import { NegatableString } from "./NegatableString.mjs";
+import { NegatableString } from "./index.mjs";
 String.prototype.consoleIterator = function (...args) {
   return NegatableString.prototype.consoleIterator.apply(this, args);
 };

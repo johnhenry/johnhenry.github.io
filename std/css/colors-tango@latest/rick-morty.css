@@ -1,0 +1,790 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300,700&display=swap"); */
+:root {
+  --border-color: #4f5352;
+  --rick-skin-color: #ebe6e3;
+  --morty-skin-color: #f1daca;
+  --rick-hair-color: #bdcccf;
+  --morty-hair-color: #a68564;
+  --rick-spittle-color: #8bffc5;
+  --rick-shirt-color: #d2eaea;
+  --morty-shirt-color: #fffac0;
+  --rick-hair-shape: polygon(
+    15% 20%,
+    37% 32%,
+    49% 0%,
+    62% 32%,
+    83% 20%,
+    74% 43%,
+    89% 49%,
+    77% 62%,
+    88% 71%,
+    75% 77%,
+    82% 85%,
+    73% 84%,
+    73% 96%,
+    50% 86%,
+    25% 96%,
+    26% 84%,
+    17% 84%,
+    24% 77%,
+    10% 71%,
+    22% 62%,
+    9% 49%,
+    25% 42%
+  );
+  --custom-filter: drop-shadow(0 4px 0 var(--border-color))
+    drop-shadow(4px 0 0 var(--border-color))
+    drop-shadow(0 -4px 0 var(--border-color))
+    drop-shadow(-4px 0 0 var(--border-color));
+  --custom-filter-small: drop-shadow(0 2px 0 var(--border-color))
+    drop-shadow(2px 0 0 var(--border-color))
+    drop-shadow(0 -2px 0 var(--border-color))
+    drop-shadow(-2px 0 0 var(--border-color));
+}
+
+.rick-and-morty .container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.rick-and-morty .rick-container {
+  width: 300px;
+}
+.rick-and-morty .rick-container .head-container {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+}
+.rick-and-morty .rick-container .head-container .head {
+  width: 38%;
+  height: 60%;
+  border: 4px solid var(--border-color);
+  background: var(--rick-skin-color);
+  border-radius: 80px;
+  position: relative;
+  z-index: 2;
+  transform: translate(-2px, -15px);
+  display: flex;
+  justify-content: center;
+}
+.rick-and-morty .rick-container .head-container .head .brow-container {
+  width: 90%;
+  height: 25%;
+  transform: translate(0, 8px);
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  z-index: 1;
+}
+.rick-and-morty .rick-container .head-container .head .brow-container .brow {
+  width: 90%;
+  height: 20%;
+  background: var(--rick-hair-color);
+  border-radius: 25px;
+  border: 4px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .brow-container
+  .brow::before,
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .brow-container
+  .brow::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 80%;
+  height: 4px;
+  border-radius: 50px;
+  background: var(--border-color);
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .brow-container
+  .brow::before {
+  width: 30%;
+  transform: translate(0, -20px);
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .brow-container
+  .brow::after {
+  width: 65%;
+  transform: translate(0, -12px);
+}
+.rick-and-morty .rick-container .head-container .head .eyes-container {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  transform: translate(0, 42px);
+  display: flex;
+  justify-content: space-around;
+}
+.rick-and-morty .rick-container .head-container .head .eyes-container .eye {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-color);
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .eyes-container
+  .eye::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 50%;
+  background: var(--rick-skin-color);
+  border-bottom: 4px solid var(--border-color);
+  position: relative;
+  z-index: 4;
+  animation: closeEyes 2s linear infinite alternate;
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .eyes-container
+  .eye
+  .pupil {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border-color);
+  transform: translate(18px, -4px) rotate(25deg);
+  position: relative;
+  z-index: 1;
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .eyes-container
+  .eye
+  .pupil::before,
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .eyes-container
+  .eye
+  .pupil::after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 4px;
+  position: absolute;
+  border-radius: inherit;
+  background: inherit;
+  transform: translate(-3px, 3px) rotate(-30deg);
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .eyes-container
+  .eye
+  .pupil::after {
+  transform: translate(-3px, 3px) rotate(30deg);
+}
+.rick-and-morty .rick-container .head-container .head .eyebags-container {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  transform: translate(0, 51px);
+  display: flex;
+  justify-content: space-around;
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .eyebags-container
+  .eyebag {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid var(--border-color);
+  clip-path: polygon(0 80%, 100% 80%, 100% 100%, 0 100%);
+}
+.rick-and-morty .rick-container .head-container .head .nose {
+  position: absolute;
+  border: 3px solid var(--border-color);
+  width: 11px;
+  height: 20px;
+  border-top: 0;
+  border-radius: 0 0 25px 25px;
+  transform: translate(0, 90px);
+}
+.rick-and-morty .rick-container .head-container .head .mouth-container {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  transform: translate(0, 120px);
+  display: flex;
+  justify-content: center;
+}
+.rick-and-morty .rick-container .head-container .head .mouth-container .mouth {
+  border-top: 3px solid var(--border-color);
+  border-radius: 15px/8px;
+  width: 60%;
+  position: relative;
+  z-index: 2;
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .mouth::before,
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .mouth::after {
+  position: absolute;
+  content: "";
+  display: block;
+  border-bottom: 4px solid var(--border-color);
+  width: 15px;
+  height: 10px;
+  border-radius: 50%;
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .mouth::before {
+  transform: translate(-10px, -2px) rotate(85deg);
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .mouth::after {
+  transform: translate(64px, -2px) rotate(-85deg);
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .spittle {
+  position: absolute;
+  z-index: 0;
+  width: 30%;
+  height: 15%;
+  border-radius: 0 0 25px 25px;
+  background: var(--rick-spittle-color);
+  transform: translate(0, 2px);
+  filter: var(--custom-filter-small);
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .spittle::after,
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .spittle::before {
+  position: absolute;
+  content: "";
+  display: block;
+  background: inherit;
+  width: 10px;
+  height: 24px;
+  border-radius: inherit;
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .spittle::before {
+  transform: translate(2px, 0);
+  width: 26px;
+  height: 10px;
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .spittle::after {
+  transform: translate(14px, 0);
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .spittle-arcs {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .spittle-arcs::before,
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .spittle-arcs::after {
+  position: absolute;
+  content: "";
+  display: block;
+  background: var(--rick-spittle-color);
+  width: 4px;
+  height: 4px;
+  z-index: 5;
+  border: 3px solid var(--border-color);
+  border-radius: 40%;
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .spittle-arcs::before {
+  height: 8px;
+  transform: translate(-2px, 20px) rotate(-45deg);
+}
+.rick-and-morty
+  .rick-container
+  .head-container
+  .head
+  .mouth-container
+  .spittle-arcs::after {
+  transform: translate(40px, 20px);
+}
+.rick-and-morty .rick-container .head-container .ear-container {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  height: 30px;
+  transform: translate(-2px, -100px);
+}
+.rick-and-morty .rick-container .head-container .ear-container .ear {
+  width: 20px;
+  height: 30px;
+  background: var(--rick-skin-color);
+  border: 4px solid var(--border-color);
+  border-radius: 25px;
+}
+.rick-and-morty .rick-container .head-container .hair-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: var(--custom-filter);
+}
+.rick-and-morty .rick-container .head-container .hair-container .hair {
+  width: 100%;
+  height: 90%;
+  background: var(--rick-hair-color);
+  clip-path: var(--rick-hair-shape);
+}
+.rick-and-morty .rick-container .head-container .neck {
+  position: absolute;
+  width: 40px;
+  height: 25px;
+  border: 4px solid var(--border-color);
+  border-radius: 0 0 15px 15px/0 0 8px 8px;
+  background: var(--rick-skin-color);
+}
+.rick-and-morty .rick-container .body-container {
+  width: 100%;
+  height: 150px;
+  transform: translate(0, -12px);
+  display: flex;
+  justify-content: center;
+  filter: var(--custom-filter);
+}
+.rick-and-morty .rick-container .body-container .body {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  clip-path: polygon(20% 100%, 25% 25%, 50% 0, 75% 25%, 80% 100%);
+  display: flex;
+  justify-content: center;
+}
+.rick-and-morty .rick-container .body-container .body::before,
+.rick-and-morty .rick-container .body-container .body::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-left: 4px solid var(--border-color);
+  width: 5px;
+  height: 80px;
+}
+.rick-and-morty .rick-container .body-container .body::after {
+  transform: translate(-50px, 72px) rotate(4deg);
+}
+.rick-and-morty .rick-container .body-container .body::before {
+  transform: translate(55px, 72px) rotate(-4deg);
+}
+.rick-and-morty .rick-container .body-container .body .shirt {
+  width: 20%;
+  height: 100%;
+  background: var(--rick-shirt-color);
+  border: 4px solid var(--border-color);
+  border-radius: 30px 30px 0 0;
+  border-top: 0;
+  border-bottom: 0;
+}
+.rick-and-morty .rick-container .body-container .body .flaps-container {
+  width: 200%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  filter: var(--custom-filter);
+  position: relative;
+  z-index: 5;
+}
+.rick-and-morty .rick-container .body-container .body .flaps-container .flap {
+  background: #fff;
+  width: 35px;
+  height: 100%;
+  transform: translate(-38px, 0);
+  clip-path: polygon(0 65%, 100% 0, 100% 100%, 5% 100%, 0 90%, 85% 80%);
+}
+.rick-and-morty
+  .rick-container
+  .body-container
+  .body
+  .flaps-container
+  .flap.right {
+  transform: translate(-22px, 0) scale(-1, 1);
+}
+.rick-and-morty .morty-container {
+  width: 300px;
+  height: 250px;
+  transform: translateX(-100px);
+}
+.rick-and-morty .morty-container .head-container {
+  width: 100%;
+  height: 175px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+}
+.rick-and-morty .morty-container .head-container .head {
+  width: 45%;
+  height: 75%;
+  border: 4px solid var(--border-color);
+  background: var(--morty-skin-color);
+  border-radius: 80px;
+  position: relative;
+  z-index: 2;
+  transform: translate(-2px, -15px);
+  display: flex;
+  justify-content: center;
+}
+.rick-and-morty .morty-container .head-container .head .brows-container {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.rick-and-morty .morty-container .head-container .head .brows-container .brow {
+  width: 40px;
+  height: 35px;
+  border: 4px solid var(--border-color);
+  border-radius: 30%;
+  border-left: 0;
+  border-bottom: 0;
+  border-right: 0;
+  transform: translate(0, 25px);
+}
+.rick-and-morty
+  .morty-container
+  .head-container
+  .head
+  .brows-container
+  .brow.left {
+  border-top-right-radius: 0;
+}
+.rick-and-morty
+  .morty-container
+  .head-container
+  .head
+  .brows-container
+  .brow.right {
+  border-top-left-radius: 0;
+}
+.rick-and-morty .morty-container .head-container .head .eyes-container {
+  position: absolute;
+  width: 92%;
+  height: 50px;
+  transform: translate(0, 32px);
+  display: flex;
+  justify-content: space-around;
+}
+.rick-and-morty .morty-container .head-container .head .eyes-container .eye {
+  width: 45px;
+  height: 45px;
+  border: 4px solid var(--border-color);
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  clip-path: polygon(0 16%, 100% 16%, 100% 100%, 0 100%);
+}
+.rick-and-morty
+  .morty-container
+  .head-container
+  .head
+  .eyes-container
+  .eye::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 50%;
+  background: var(--morty-skin-color);
+  border-bottom: 4px solid var(--border-color);
+  position: relative;
+  z-index: 4;
+  animation: closeEyes 2s linear infinite alternate;
+}
+.rick-and-morty
+  .morty-container
+  .head-container
+  .head
+  .eyes-container
+  .eye
+  .pupil {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border-color);
+  transform: translate(18px, -4px) rotate(25deg);
+  position: relative;
+  z-index: 1;
+}
+.rick-and-morty
+  .morty-container
+  .head-container
+  .head
+  .eyes-container
+  .eye
+  .pupil::before,
+.rick-and-morty
+  .morty-container
+  .head-container
+  .head
+  .eyes-container
+  .eye
+  .pupil::after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 4px;
+  position: absolute;
+  border-radius: inherit;
+  background: inherit;
+  transform: translate(-3px, 3px) rotate(-30deg);
+}
+.rick-and-morty
+  .morty-container
+  .head-container
+  .head
+  .eyes-container
+  .eye
+  .pupil::after {
+  transform: translate(-3px, 3px) rotate(30deg);
+}
+.rick-and-morty .morty-container .head-container .head .nose {
+  position: absolute;
+  border: 4px solid var(--border-color);
+  width: 8px;
+  height: 12px;
+  border-top: 0;
+  border-radius: 0 0 25px 25px;
+  transform: translate(5px, 80px) rotate(-45deg);
+}
+.rick-and-morty .morty-container .head-container .head .mouth-container {
+  position: absolute;
+  border-left: 4px solid var(--border-color);
+  width: 6px;
+  height: 12px;
+  transform: translate(-5px, 105px);
+}
+.rick-and-morty
+  .morty-container
+  .head-container
+  .head
+  .mouth-container
+  .mouth::before,
+.rick-and-morty
+  .morty-container
+  .head-container
+  .head
+  .mouth-container
+  .mouth::after {
+  position: absolute;
+  content: "";
+  display: block;
+  border: 4px solid var(--border-color);
+  width: 6px;
+  height: 12px;
+  border-top: 0;
+  border-radius: 0 0 25px 25px;
+  transform: translate(-4px, 4px);
+}
+.rick-and-morty
+  .morty-container
+  .head-container
+  .head
+  .mouth-container
+  .mouth::after {
+  width: 6px;
+  height: 12px;
+  border-left: 0;
+  transform: translate(8px, -4px);
+}
+.rick-and-morty .morty-container .head-container .ear-container {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 170px;
+  height: 30px;
+  transform: translate(-2px, -60px);
+}
+.rick-and-morty .morty-container .head-container .ear-container .ear {
+  width: 20px;
+  height: 20px;
+  background: var(--morty-skin-color);
+  border: 6px solid var(--border-color);
+  border-radius: 50px;
+}
+.rick-and-morty .morty-container .head-container .hair-container {
+  position: absolute;
+  width: 50%;
+  height: 80%;
+  border: 6px solid var(--border-color);
+  background: var(--morty-hair-color);
+  transform: translate(-3px, -30px);
+  border-radius: 42% 50%/45% 50%;
+}
+.rick-and-morty .morty-container .body-container {
+  width: 300px;
+  height: 100px;
+  transform: translate(0, -12px);
+  display: flex;
+  justify-content: center;
+  filter: var(--custom-filter);
+}
+.rick-and-morty .morty-container .body-container .body {
+  width: 55%;
+  height: 200%;
+  background: var(--morty-shirt-color);
+  border-radius: 50% 50% 0 0;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  transform: translate(0, -25px);
+}
+.rick-and-morty .morty-container .body-container .body::before,
+.rick-and-morty .morty-container .body-container .body::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-left: 4px solid var(--border-color);
+  width: 5px;
+  height: 80px;
+}
+.rick-and-morty .morty-container .body-container .body::after {
+  transform: translate(-50px, 72px) rotate(4deg);
+}
+.rick-and-morty .morty-container .body-container .body::before {
+  transform: translate(55px, 72px) rotate(-4deg);
+}
+@keyframes closeEyes {
+  0%,
+  85% {
+    height: 50%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+.rick-and-morty .created {
+  background: url(https://assets.codepen.io/154065/internal/avatars/users/default.png),
+    linear-gradient(to bottom, #884ced, #ec1cce);
+  background-size: 75px 75px, cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 2em;
+}
+.rick-and-morty .created span,
+.rick-and-morty .created h2,
+.rick-and-morty .created p,
+.rick-and-morty .created a {
+  font-family: Montserrat;
+  margin: 0;
+}
+.rick-and-morty .created a,
+.rick-and-morty .created p,
+.rick-and-morty .created span {
+  color: #fff;
+}
+.rick-and-morty .created h2 {
+  font-weight: 700;
+  transform: translate(0, -4px);
+}
+.rick-and-morty .created a {
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+}
+.rick-and-morty .created a:hover {
+  color: #e6e82a;
+}
