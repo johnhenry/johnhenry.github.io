@@ -24,7 +24,8 @@
     "github:actions": "act --secret-file .github/workflows/.secrets",
     "test:tester": "node scripts/run-tester-tests.mjs",
     "jest": "jest --config=./config/jest.config.js",
-    "test:jest": "node --experimental-vm-modules node_modules/.bin/jest --config=./config/jest.config.js --watchAll --verbose",
+    "test:jest": "node --experimental-vm-modules node_modules/.bin/jest --config=./config/jest.config.js --verbose",
+    "test:jest:watch": "node --experimental-vm-modules node_modules/.bin/jest --config=./config/jest.config.js --watchAll --verbose",
     "test": "npm run test:jest -s",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
