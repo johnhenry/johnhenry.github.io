@@ -9,10 +9,17 @@
       })`<slot part=content /><style>*{color:red}</style>`;
     </script>
     <script type="module">
-      import createClass from "./complex.mjs";
+      import { shadowOpen } from "./index.mjs";
+      globalThis.customElements.define(
+        "blue-element",
+        shadowOpen`<slot part=content /><style>*{color:blue}</style>`
+      );
+    </script>
+    <script type="module">
+      import { constructSuperclass } from "./index.mjs";
       globalThis.customElements.define(
         "green-element",
-        class extends createClass({
+        class extends constructSuperclass({
           shadowHTML: `<slot part=content /><style>*{color:green}</style>`,
         }) {
           constructor() {
@@ -21,44 +28,58 @@
         }
       );
     </script>
-
     <style>
-      red-element.green::part(content) {
-        color: green;
+      .black::part(content) {
+        color: black;
       }
       .blue {
         color: blue;
       }
+      pre.style::before {
+        content: "<style> ";
+      }
+      pre.style::after {
+        content: " <\/style>";
+      }
     </style>
   </head>
   <body>
-    <div-tag></div-tag>
+    <h1>Components</h1>
+    <h2>Style in DOM</h2>
     <red-element>
-      By default the content would be colored red, as defined by the "style" tag
-      present in the shadow root.
-      <pre>
-  * { color: red; }
-      </pre>
+      This is a "&lt;red-element /&gt;". By default the content is red, as
+      defined by the "style" tag present in the shadow root.
+      <pre class="style">* {color:red}</pre>
     </red-element>
-    <red-element class="green">
-      This can be overridden by defining styles on the "::part(content)"
-      psudeo-element
-      <pre>
-  red-element.green::part(content) {
-    color: green;
-  }
-      </pre>
+    <hr />
+    <green-element>
+      This is a "&lt;green-element /&gt;". By default the content is green, as
+      defined by the "style" tag present in the shadow root.
+      <pre class="style">* {color:green}</pre>
+    </green-element>
+    <hr />
+    <blue-element>
+      This is a "&lt;blue-element /&gt;". By default the content is blue, as
+      defined by the "style" tag present in the shadow root.
+      <pre class="style">* {color:blue}</pre>
+    </blue-element>
+    <h2>Using "part" psuedo-element</h2>
+    <red-element class="black">
+      This is a "&lt;red-element /&gt;". By default the content is red, as
+      defined by the "style" tag present in the shadow root.
+      <pre class="style">* {color:red}</pre>
+      The color is overridden by defining styles on the "::part(content)"
+      psudeo-element.
+      <pre class="style">.black::part(content) {color: black}</pre>
     </red-element>
-    <red-element>
-      <div class="blue">
-        Additionally, elements passed in can be styled as normal
-        <pre>
-  .blue {
-    color: blue;
-  }
-        </pre>
-      </div>
-    </red-element>
-    <green-element> This is green </green-element>
+    <hr />
+    <h2>Using standard styles</h2>
+    <green-element>
+      This is a "&lt;green-element /&gt;". By default the content is green, as
+      defined by the "style" tag present in the shadow root.
+      <pre class="style">* {color:green}</pre>
+      Styles on children can be selectively overridden using standard methods:
+      <pre class="blue">.blue {color:blue}</pre>
+    </green-element>
   </body>
 </html>

@@ -32,12 +32,35 @@ const createElement =
     }
   };
 
-export const register =
+const register =
   (tagname, options) =>
   (strs, ...substs) =>
     globalThis.customElements.define(
       tagname,
       createElement(options)(strs, ...substs)
     );
-export const shadowOpen = createElement();
-export const shadowClosed = createElement({ shadowMode: "closed" });
+const shadowOpen = createElement();
+const shadowClosed = createElement({ shadowMode: "closed" });
+
+const constructSuperclass = (
+  { HTML = "", shadowHTML = "", shadowMode = "open" } = {
+    HTLM: "",
+    shadowHTML: "",
+    shadowMode: "open",
+  }
+) => {
+  return class extends HTMLElement {
+    constructor() {
+      super();
+      if (shadowHTML) {
+        const children = textToNodes(shadowHTML);
+        this.attachShadow({ mode: shadowMode }).append(...children);
+      }
+      if (HTML) {
+        const children = textToNodes(HTML);
+        this.append(...children);
+      }
+    }
+  };
+};
+export { register, shadowOpen, shadowClosed, constructSuperclass };
