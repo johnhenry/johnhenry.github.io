@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="module">
+      import { register } from "./index.mjs";
+      register("red-element", {
+        shadowMode: "closed",
+        useShadow: true,
+      })`<slot part=content /><style>*{color:red}</style>`;
+    </script>
+    <script type="module">
+      import createClass from "./complex.mjs";
+      globalThis.customElements.define(
+        "green-element",
+        class extends createClass({
+          shadowHTML: `<slot part=content /><style>*{color:green}</style>`,
+        }) {
+          constructor() {
+            super();
+          }
+        }
+      );
+    </script>
+
+    <style>
+      red-element.green::part(content) {
+        color: green;
+      }
+      .blue {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div-tag></div-tag>
+    <red-element>
+      By default the content would be colored red, as defined by the "style" tag
+      present in the shadow root.
+      <pre>
+  * { color: red; }
+      </pre>
+    </red-element>
+    <red-element class="green">
+      This can be overridden by defining styles on the "::part(content)"
+      psudeo-element
+      <pre>
+  red-element.green::part(content) {
+    color: green;
+  }
+      </pre>
+    </red-element>
+    <red-element>
+      <div class="blue">
+        Additionally, elements passed in can be styled as normal
+        <pre>
+  .blue {
+    color: blue;
+  }
+        </pre>
+      </div>
+    </red-element>
+    <green-element> This is green </green-element>
+  </body>
+</html>
