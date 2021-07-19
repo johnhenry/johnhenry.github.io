@@ -1,0 +1,23 @@
+#! /bin/bash
+DEFAULT_TYPE="text/plain"
+
+if [ $1 == "--help" ]; then
+  echo "creates and prefixes base64 representation of a file"
+  echo "usage:"
+  echo "  cat64 <path to file> [mime type=${DEFAULT_TYPE}]"
+  echo "  cat <path to file> | cat64 [mime type=${DEFAULT_TYPE}] -"
+else
+  for FINAL; do true; done # get final parameter https://stackoverflow.com/questions/1853946/getting-the-last-argument-passed-to-a-shell-script
+  if [ $FINAL == "-" ]; then # read from stdin if "_" detected as final parameter
+    TYPE=$1
+    CONTENT=/dev/stdin
+    if [ $TYPE == $FINAL ]; then # unset TYPE if first parameter is "-"
+      unset TYPE
+    fi
+  else
+    TYPE=$2
+    CONTENT=$1
+  fi
+  printf "data:${TYPE:-$DEFAULT_TYPE};base64," # print header
+  cat $CONTENT | base64 # print content converted to base64
+fi

@@ -2,9 +2,10 @@ const { HTMLElement } = globalThis;
 import textToNodes from "./textToNodes.js";
 const createElement =
   (
-    { shadowMode = "open", useShadow = true } = {
+    { shadowMode = "open", useShadow = true, baseElement = HTMLElement } = {
       shadowMode: "open",
       useShadow: true,
+      baseElement: HTMLElement,
     }
   ) =>
   (strs, ...substs) => {
@@ -14,7 +15,7 @@ const createElement =
         : substs.reduce((prev, cur, i) => prev + cur + strs[i + 1], strs[0]);
 
     if (useShadow) {
-      return class extends HTMLElement {
+      return class extends baseElement {
         constructor() {
           super();
           const children = textToNodes(str);
@@ -22,7 +23,7 @@ const createElement =
         }
       };
     } else {
-      return class extends HTMLElement {
+      return class extends baseElement {
         constructor() {
           super();
           const children = textToNodes(str);
@@ -33,23 +34,30 @@ const createElement =
   };
 
 const register =
-  (tagname, options) =>
+  (tagname, options, ...rest) =>
   (strs, ...substs) =>
     globalThis.customElements.define(
       tagname,
-      createElement(options)(strs, ...substs)
+      createElement(options)(strs, ...substs),
+      ...rest
     );
 const shadowOpen = createElement();
 const shadowClosed = createElement({ shadowMode: "closed" });
 
 const constructSuperclass = (
-  { HTML = "", shadowHTML = "", shadowMode = "open" } = {
+  {
+    HTML = "",
+    shadowHTML = "",
+    shadowMode = "open",
+    baseElement = HTMLElement,
+  } = {
     HTLM: "",
     shadowHTML: "",
     shadowMode: "open",
+    baseElement: HTMLElement,
   }
 ) => {
-  return class extends HTMLElement {
+  return class extends baseElement {
     constructor() {
       super();
       if (shadowHTML) {
