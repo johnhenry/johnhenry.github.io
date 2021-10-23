@@ -1,0 +1,41 @@
+:root {
+  --background-1: #584b4f;
+  --background-2: #343233;
+  --background-3: #2c2a2b;
+  --background-4: #efeae1;
+  --background-5: #3d3a3a;
+
+  --text-1: #efeae1;
+  --text-2: #efdab9;
+  --text-3: #8e8373;
+  --text-3-m: #786f63;
+  --text-4: #78b0a0;
+  --text-5: #ffd152;
+  --text-5-h: #ebac00;
+  --text-6: #574c4f;
+
+  --button-1: #ffd152;
+  --button-1-h: #ffc31f;
+
+  --button-2: #61efcd;
+  --button-2-h: #45edc6;
+
+  --highlight-1: #d36e2d;
+  --highlight-2: #d36e2d;
+  --highlight-3: #dda031;
+  --highlight-4: #78b09f;
+  --highlight-5: #649cc8;
+
+  --border-1: #1a191a;
+
+  --lowlight-1: #5c8875;
+  --lowlight-2: #a55523;
+
+  --box-shadow: 0 20px 30px #00000080;
+  --drop-shadow: 5px 5px 5px #00000080;
+  --text-padding: 0.5em 1em;
+  --button-border-radius: 5px;
+  --lines: ;
+  --header-height: 40px;
+  --footer-height: var(--header-height);
+}

@@ -1,0 +1,40 @@
+{
+  "name": "John Henry",
+  "start_url": "index.html",
+  "background_color": "#343233",
+  "theme_color": "#343233",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./image/iajh.512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./image/iajh.384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "./image/iajh.256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "./image/iajh.192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./image/iajh.128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./image/iajh.80.png",
+      "sizes": "80x80",
+      "type": "image/png"
+    }
+  ]
+}

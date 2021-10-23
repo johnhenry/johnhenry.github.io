@@ -1,0 +1,25 @@
+---
+const { prefix, page, start=''} = Astro.props;
+const { currentPage, lastPage, url } = page;
+const { prev, next }  = url;
+const nums = Array
+  .from(new Array(lastPage))
+  .map((_, i)=>i+1);
+const blank = (prefix) => (i) => (
+  <a href={
+      i === currentPage
+        ? null
+        : `${prefix}${i-1 ? (i) : ''}`  }>{i}</a>);
+const notBlank = (prefix) => (i) => (
+  <a href={
+      i === currentPage
+        ? null
+        : `${prefix}${i}`  }>{i}</a>);
+---
+<a href={prev}>{prev ? 'prev': null}</a>
+{nums
+  .map(
+    start
+        ? notBlank(prefix)
+        : blank(prefix))}
+<a href={next}>{next ? 'next': null}</a>

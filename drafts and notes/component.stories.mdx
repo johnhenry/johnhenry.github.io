@@ -1,0 +1,38 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Theories/Component Theory" />
+
+# Component Theory
+
+At the most basic level, a component is a piece of markup that represents combinations (permutations) of other pieces of markup.
+Also implicit within the component are associated _styles_ and _behavior_.
+
+## Class attribute
+
+Be as specific as possible as to what you want to style.
+Things not accounted for should be minimally affected.
+Use css modules.
+Use low specificity as to avoid conflicts.
+Style as little as possible.
+Avoid "greedy" css (high specificity, !important)
+Avoid conflicts.
+
+One way to identify an html element as a component it to give it a corresponding class attibute.
+
+```html
+<span class="name-of-component"> </span>
+```
+
+### Associating styles
+
+https://github.com/css-modules/css-modules
+https://css-tricks.com/css-modules-part-1-need/
+Styling by class attribute is a "first-class" feature of css.
+
+### Associating behaviors
+
+## Custom Tags
+
+### Associating styles
+
+### Associating behaviors

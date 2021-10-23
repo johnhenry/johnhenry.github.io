@@ -1,0 +1,46 @@
+---
+// Settings
+import {
+        SITE_FAVICON,
+        TAG_MANAGER_ID,
+        SITE_BASE_PATH,
+        SITE_FAVICON_TYPE,
+        SITE_SERVICE_WORKER} from '../SETTINGS.mjs';
+// Components
+import SEO from './SEO.astro';
+import SiteStyles from "./SiteStyles.astro";
+import SiteScripts from "./SiteScripts.astro";
+import ServiceWorkerScript from "./ServiceWorkerScript.astro";
+import externalStyles from '../external/styles.mjs';
+import externalScripts from '../external/scripts.mjs';
+import TagManagerHead from './TagManagerHead.astro';
+// Content
+const {
+  title,
+  author,
+  keywords,
+  canonical,
+  description,
+  base="" } = Astro.props;
+---
+<head>
+  {TAG_MANAGER_ID ? <TagManagerHead tmid="{TAG_MANAGER_ID}" /> : ''}
+  <SEO title={title} description={description} canonical={canonical} />
+  <meta name="theme-color" content="#343233">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content={keywords}>
+  <meta name="author" content={author}>
+  <base href={`${SITE_BASE_PATH}${base}`} />
+  <ServiceWorkerScript src={SITE_SERVICE_WORKER} />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href={SITE_FAVICON} type={SITE_FAVICON_TYPE} />
+  <SiteStyles hrefs={externalStyles} />
+  <link rel="stylesheet" href="/style/index.css"/>
+  <SiteScripts srcs={externalScripts} />
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/iajh.512.png" />
+  <link rel="apple-touch-icon" sizes="384x384" href="/images/iajh.384.png" />
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/iajh.256.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/images/iajh.192.png" />
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/iajh.128.png" />
+</head>

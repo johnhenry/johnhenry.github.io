@@ -1,0 +1,27 @@
+{
+  "name": "johnhenry.github.io",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "ensure-lib": "git clone git@github.com:johnhenry/lib.git src/lib",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "set:hash": "echo \"export default \\\"$(git rev-parse HEAD)\\\";\" > src/HASH.mjs",
+    "build:html": "astro build",
+    "build:sw": "mkdir -p dist/ && workbox generateSW config/workbox.config.js",
+    "build:wbn": "mkdir -p dist/ sh scripts/gen-bundle.sh http://localhost/",
+    "build:-sw": "npm run set:hash && npm run build:html && npm run build:sw",
+    "build:-wbn": "npm run set:hash && npm run build:html && npm run build:sw && npm run build:wbn",
+    "build": "npm run build:-sw",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "@astrojs/renderer-preact": "0.2.2",
+    "astro": "0.20.12",
+    "astro-seo": "0.3.12",
+    "workbox-cli": "6.3.0"
+  },
+  "dependencies": {
+    "preact": "10.5.15"
+  }
+}

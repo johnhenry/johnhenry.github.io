@@ -1,0 +1,18 @@
+.mouse-chaser {
+  --font-size: 12px;
+  position: absolute;
+  font-size: var(--font-size);
+  pointer-events: none;
+  left: calc(var(--mouse-x) * 1px + var(--window-scroll-horizontal, 0) * 1px);
+  top: calc(
+    var(--mouse-y) * 1px - calc(var(--font-size) * 2) +
+      var(--window-scroll-vertical, 0) * 1px
+  );
+  transition: 2s;
+  transition-timing-function: var(--ttf-bounce);
+  opacity: var(--mouse-magnorm);
+}
+.mouse-chaser::before {
+  content: "[ " var(--mouse-x-str) " : " var(--mouse-y-str) " ]";
+  opacity: var(--mouse-up, 0);
+}

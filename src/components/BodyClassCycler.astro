@@ -1,0 +1,30 @@
+---
+import { SITE_LIB_URL } from '../SETTINGS.mjs';
+const properties = Astro.props;
+properties.storageKey = properties['storage-key'];
+const {
+  global = 'cycleBodyClass',
+  storageKey="",
+  classes=[],
+  parent="window",
+  selector="body" } = properties;
+if(!storageKey){
+  throw new Error('storageKey is required');
+}
+const cycleScript = `
+<script type="module">
+  import localStorageCycler from "${SITE_LIB_URL}js/localstorage-cycler/0.0.0/index.mjs";
+  const key = '${storageKey}';
+  const values = [${classes.map((c)=>`"${c}"`).join(",")}];
+  const target = globalThis.document.querySelector("${selector}");
+  const emit = ({value, key, index}) => {
+    target.classList.remove(...values.filter(s=>s));
+    if(value){
+      target.classList.add(value);
+    }
+  }
+  ${parent}["${global}"] = localStorageCycler(key, emit, ...values);
+</script>
+`;
+---
+{cycleScript}

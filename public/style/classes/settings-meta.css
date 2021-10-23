@@ -1,0 +1,10 @@
+.settings-meta {
+  display: table;
+  width: 100%;
+  min-height: 75vh;
+  border-collapse: collapse;
+}
+.settings-meta td {
+  padding: 4px;
+  border: 1px dashed black;
+}
