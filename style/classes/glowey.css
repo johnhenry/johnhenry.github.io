@@ -1,0 +1,10 @@
+.glowey-background-container > *,
+.glowey-background {
+  transition: background-color 1s ease-in-out;
+  background-color: var(--background-5);
+}
+.glowey-background-container > *:hover,
+.glowey-background:hover {
+  transition: background-color 1.5s ease-in-out;
+  background-color: var(--background-1);
+}

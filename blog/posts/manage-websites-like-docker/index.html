@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head><title>John Henry -- Weblog: Manage Websites Like Docker</title><link rel="canonical" href="http://localhost:3000/undefined"><meta name="description" content="Manage static websites like you manage Docker images"><meta name="robots" content="index,follow"><meta name="theme-color" content="#343233"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta charset="utf-8"><meta name="keywords" content="programming"><meta name="author" content="John"><base href=""><link rel="manifest" href="/manifest.json"><link rel="icon" href="/image/iajh.png" type="image/png"><link rel="stylesheet" href="http://localhost:3001/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="/style/index.css"><link rel="stylesheet" href="/style/index.css"><script type="module" src="http://localhost:3001/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="http://localhost:3001/js/css-variables-scroll/0.0.0/index.mjs"></script><link rel="apple-touch-icon" sizes="512x512" href="/images/iajh.512.png"><link rel="apple-touch-icon" sizes="384x384" href="/images/iajh.384.png"><link rel="apple-touch-icon" sizes="256x256" href="/images/iajh.256.png"><link rel="apple-touch-icon" sizes="192x192" href="/images/iajh.192.png"><link rel="apple-touch-icon" sizes="128x128" href="/images/iajh.128.png"></head><body>
+<script type="module">
+  import localStorageCycler from "http://localhost:3001/js/localstorage-cycler/0.0.0/index.mjs";
+  const key = 'color-theme-preference';
+  const values = ["","color-theme-light","color-theme-dark"];
+  const target = globalThis.document.querySelector("body");
+  const emit = ({value, key, index}) => {
+    target.classList.remove(...values.filter(s=>s));
+    if(value){
+      target.classList.add(value);
+    }
+  }
+  window["cycleTheme"] = localStorageCycler(key, emit, ...values);
+</script>
+<header><a href="/#"><img src="/image/iajh.png" width="16" height="16" alt="logo">John Henry -- Weblog: Manage Websites Like Docker</a><nav><a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a></nav></header><section class="blog"><header>Manage Websites Like Docker</header><article><img width="360" height="210" loading="lazy" src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg" alt="Astro"><p class="publish-date"></p><header>Manage Websites Like Docker</header><div class="author"><p><a href="https://iamjohnhenry.com">John Henry</a></p></div><p><em>Author’s Note: This is based on <strong>Experimental</strong> technologies that aren’t quite ready for production. Nonetheless, the ideas presented in this article may turn out useful.</em></p><p>Did you know that you can manage static websites
+like you manage <a href="https://docker.com">Docker</a> images? Well, you can! but I’m sure you have a few more questions…</p><ul><li>What <em>exactly</em> do I mean by this?</li><li>Why would you want to?</li><li>How can you do it your self?</li></ul><p>To find answers,
+we will first take a simplified look
+at how management works with Docker.
+We will then learn how to create
+a similar process for static websites.</p><h2 id="process">Process</h2><p>At its most basic, Docker works like this:</p><ol><li>Create an image <a href="https://github.com/opencontainers/image-spec">(an OCI Image)</a>
+— a single artifact that is a representation of a file tree.</li><li>Publish the image to a registry <a href="https://github.com/opencontainers/distribution-spec">(an OCI Registry)</a>.</li><li>When necessary, retrieve said image from registry and use it.</li></ol><p>When we make static websites, the process is generally like this:</p><ol><li>Create a file tree.</li><li>When necessary, push file tree to a server.</li></ol><p>Both processes are simple,
+but the <strong>image</strong> from the former is key.
+The idea of having an entire website
+as a single artifact
+to be versioned, shared, and deployed
+in like an image is enticing.</p><h2 id="tutorial">Tutorial</h2><p>Now that we’ve covered the “what” and the “why”, let’s look at the “how”.</p><h3 id="prerequesites">Prerequesites</h3><p>In order to do this tutorial, you’ll need the following installed:</p><h4 id="go">go</h4><p>Two CLI tools are based on go,
+so we might as well get this
+out of the way first.</p><p>Install go according to <a href="https://golang.org/doc/install">instructions here</a>.</p><h4 id="gen-bundle">gen-bundle</h4><p>Install gen-bundle according to <a href="https://github.com/WICG/webpackage/tree/main/go/bundle">instructions here</a>.</p><pre class=" language-bash"><code class="language-bash"><span class="token comment"># Install wasm-to-oci https://github.com/engineerd/wasm-to-oci</span>
+go get -u github.com/WICG/webpackage/go/bundle/cmd/<span class="token punctuation">..</span>.
+</code></pre><h4 id="wasm-to-oci">wasm-to-oci</h4><p>Install wasm-to-oci according to <a href="https://github.com/engineerd/wasm-to-oci">instructions here</a>.</p><p>or run</p><pre class=" language-bash"><code class="language-bash"><span class="token comment"># Install wasm-to-oci https://github.com/engineerd/wasm-to-oci</span>
+go get -u github.com/WICG/webpackage/go/bundle/cmd/<span class="token punctuation">..</span>.
+</code></pre><h4 id="docker">Docker</h4><p>This is silly,
+but to authenticate wasm-to-oci,
+you need Docker.</p><p>This will hopefully change soon —
+I said this was “experimental”!</p><p>Install docker according to <a href="https://golang.org/doc/install">instructions here</a>.</p><h4 id="google-chrome">Google Chrome</h4><p>Install Google Chrome according to <a href="https://www.google.com/chrome/">instructions here</a>.</p><h4 id="a-github-account">a Github Account</h4><p>You’ll need a Github account to publish the artifact.</p><p><a href="https://github.com/">Sign up</a> and
+<a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry">set up your container registry</a>
+if you haven’t already.</p><h3 id="plan">Plan</h3><p>We want a process
+that mirrors the one
+outlined above for Docker:</p><ol><li>Convert a file tree into an “image-like” artifact. (using <code>gen-bungle</code>)</li><li>Publish said artifact to a registry. (Github via <code>wasm-to-oci</code>)</li><li>When necessary, retrieve said image from the registry and view it. (with <code>wasm-to-oci</code> and Google Chrome)</li></ol><h3 id="artifact">Artifact</h3><p>In place of an image,
+we use a <a href="https://web.dev/web-bundles/">web bundle</a>
+— an emerging format used to package entire websites.</p><h4 id="create-an-artifact">Create an artifact</h4><p>Create a empty folder named ‘hello-world’.</p><p>In it, place a file named ‘index.html’
+with the following contents:</p><pre class=" language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>My First Web Bundle<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    Hello, World! This is the first page!
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/next.html<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> See what's next... <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>and a file named ‘next.html’
+with the following contents:</p><pre class=" language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>My first bundle<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    Hello again, World! This is the second page!
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> See what (or who? 🤔) has come before...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>Outside of the hello-world folder, run the following command:</p><pre class=" language-bash"><code class="language-bash">gen-bundle -dir ./hello-world -baseURL http://localhost/ -o hello-world.wbn -primaryURL http://localhost/
+</code></pre><p>This creates a bundle file
+named “hello-world.wbn”.
+This is equivalent to a Docker image.
+(Note that when you interact with docker
+using commands like <code>build</code>, <code>push</code>, and <code>pull</code>,
+you do not interact with the image itself.)</p><h4 id="view-artifact">View Artifact</h4><p>To view the artifact,
+we need to enable
+the experimental
+“bundles” browser feature.</p><p>Using chorme, visit <code>chrome://flags/#web-bundles</code>.
+Enable the feature and restart your browser.</p><p>Open the <code>hello-world.wbn</code> file
+that you previoiusly created using Chrome.
+The url will look something like
+<code>file:///.../hello-world.wbn?http://localhost/</code>.</p><p>Notice that you can freely navigate
+between pages of the site —
+even though it’s just singe file!</p><p>You can probably imagine
+a few uses for this;
+and here are a few:</p><ol><li><p>Entire websites can be easily snapped-shotted
+and archived into a single file.</p></li><li><p>In the past, creating a test deployment for a site
+used to require spinning up a new server.
+Now you can do it by sharing a single file.</p></li></ol><h3 id="registry">Registry</h3><p>In place of a registry,
+how do we manage our bundles?
+The beautiful thing is that
+we can actually use an OCI registry!</p><p>OCI has a <a href="https://github.com/opencontainers/artifacts">goal</a>
+to enable the distribution
+of more cloud native artifacts.</p><p>There are no existing tools
+to push bundles (specificaly)
+to OCI registries.
+Fortunately, we can <del>abuse</del> use WASM to OCI
+— a tool for doing something
+similar with web assembly —
+for our purposes.</p><p>We’ll use GitHub as a OCI registry
+as it supports unknown images.
+Notably, Docker Hub does not support this.</p><h4 id="login-to-github-with-docker">Login to Github with Docker</h4><p>We will be docker to authenticate</p><p>First obtain a
+<a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">github access token</a>
+with, permissions to read and write to the registry.</p><p>User <code>docker login</code> to login to the github container registry at <code>ghcr.io</code>,</p><pre class=" language-bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token variable">$GITHUB_ACCESS_TOKEN</span> <span class="token operator">|</span> docker login ghcr.io -u <span class="token variable">$GITHUB_USERNAME</span> --password-stdin
+</code></pre><h4 id="pushing-and-pulling">Pushing and Pulling</h4><p>Push the bundle to the registry with:</p><pre class=" language-bash"><code class="language-bash">wasm-to-oci push ./hello-world.wbn ghcr.io/<span class="token variable">$GITHUB_USERNAME</span>/hello-world:0.0.0
+</code></pre><p>If the registry at <code>https://github.com/users/$GITHUB_USERNAME/packages/container/package/hello-world</code> doest not exist, it will be created automatically.</p><p>You can view and manage artifacts in your repository at <code>https://github.com/$GITHUB_USERNAME?tab=packages</code>.</p><pre class=" language-bash"><code class="language-bash">wasm-to-oci pull ghcr.io/<span class="token variable">$GITHUB_USERNAME</span>/hello-world:0.0.0 --out hello-world.test.wbn
+</code></pre><h3 id="whats-next">What’s next?</h3><p>There are still a few main things missing from this work flow:</p><ol><li><p>The <code>docker images</code> command provides a way to
+manage docker images locally.</p><p>I don’t currently have an equivalent
+for managing bundles
+or generic OCI images.</p></li><li><p>The <code>docker run</code> command provides way to
+to create a “running” container
+by combining an image with a linux kernel.</p><p>The equivalent would be
+hosting a bundle as a static asset
+such that a user can interact with it.</p></li><li><p>The <code>docker run</code> command provides way to
+to create a “running” container
+by combining an image with a linux kernel.</p><p>The equivalent would be
+hosting a bundle as a static asset
+such that a user can interact with it.</p></li></ol></article></section><span class="mouse-chaser"></span><footer><a href="#">© 2021 John</a><nav><a class="color-theme-toggler" onclick="window.cycleTheme()"></a></nav></footer></body></html>

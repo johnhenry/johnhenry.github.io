@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head><title>John Henry -- Weblog: My new website</title><link rel="canonical" href="http://localhost:3000/undefined"><meta name="description" content="A thorough guide to to the techniques and tools used to build my website"><meta name="robots" content="index,follow"><meta name="theme-color" content="#343233"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta charset="utf-8"><meta name="keywords" content="experiment,programming"><meta name="author" content="John"><base href=""><link rel="manifest" href="/manifest.json"><link rel="icon" href="/image/iajh.png" type="image/png"><link rel="stylesheet" href="http://localhost:3001/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="/style/index.css"><link rel="stylesheet" href="/style/index.css"><script type="module" src="http://localhost:3001/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="http://localhost:3001/js/css-variables-scroll/0.0.0/index.mjs"></script><link rel="apple-touch-icon" sizes="512x512" href="/images/iajh.512.png"><link rel="apple-touch-icon" sizes="384x384" href="/images/iajh.384.png"><link rel="apple-touch-icon" sizes="256x256" href="/images/iajh.256.png"><link rel="apple-touch-icon" sizes="192x192" href="/images/iajh.192.png"><link rel="apple-touch-icon" sizes="128x128" href="/images/iajh.128.png"></head><body>
+<script type="module">
+  import localStorageCycler from "http://localhost:3001/js/localstorage-cycler/0.0.0/index.mjs";
+  const key = 'color-theme-preference';
+  const values = ["","color-theme-light","color-theme-dark"];
+  const target = globalThis.document.querySelector("body");
+  const emit = ({value, key, index}) => {
+    target.classList.remove(...values.filter(s=>s));
+    if(value){
+      target.classList.add(value);
+    }
+  }
+  window["cycleTheme"] = localStorageCycler(key, emit, ...values);
+</script>
+<header><a href="/#"><img src="/image/iajh.png" width="16" height="16" alt="logo">John Henry -- Weblog: My new website</a><nav><a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a></nav></header><section class="blog"><header>My new website</header><article><img width="360" height="210" loading="lazy" src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg" alt="Astro"><p class="publish-date"></p><header>My new website</header><div class="author"><p><a href="https://iamjohnhenry.com">John Henry</a></p></div><p><em>Author’s Note: This is a <strong>Highly Opinionated</strong> guide. Your experiences and preferences may differ.</em></p><h2 id="introduction-and-openess">Introduction and Openess</h2><p>I’ve learned most of what I have
+by looking at what others have built before me.
+The ability to select “view source”
+from the browser’s context menu
+has been key to what I’ve been able to learn.
+as a developer.
+Being able to use and examine
+source code in public repositories
+has also been a boon.</p><p>With this in mind,
+I set out to create a website
+with components that are easy to extract
+and use in other projects.</p><p>To facilitate this,
+nearly all of the scripts and styles
+are published as importable modules
+located in the /lib/ directory.
+They can be imported
+directly into most modern web
+(or <a href="https://deno.land">deno</a>)
+applications without modification.
+They are uncompressed and feature comments.
+As such, they may not be suitable for production;
+but using modern tooling,
+you can get around this.
+They are also available in their
+<a href="http://github.johnhenry.io/lib">own github repository</a>
+where I am currently working
+on documentation detailing
+how you too can use these modules
+in your own applications.</p><h2 id="declarative-composable-html">Declarative Composable HTML</h2><p>Javascript and CSS both natively support
+importing modules, but HTML does not.
+Though we import scripts and styles directly;
+we use a static compiler in place of markup.</p><p>For this site, I use <a href="https://astro.build">Astro</a>
+as a framework to compose and compile HTML components
+written as “./astro” files.
+I don’t publish these directly at <a href="http://johnhenry.io/lib/">http://johnhenry.io/lib/</a>
+as you can’t simply pull them into an application
+in the same way you do javascript files;
+but they are available on
+<a href="https://github.com/johnhenry.github.io">this site’s github repository</a>
+and I may publish them elsewhere in the future.</p><p>HTML Tags are semantic components.
+Classes represent variations</p><h1 id="reset">reset</h1><h2 id="exceptions">Exceptions</h2><p>For the most part, I try to keep the style separate from the markup.
+That said, there are a few exceptions where I use the HTML structure</p><p>For example, for the buttons in the .widget components,
+I’ve wrapped each letter in a span then styled those as a flex-box for the desired effect.</p><h2 id="unansered-questions">Unansered Questions</h2><h2 id="future">Future</h2><p>Astro 21 — embed components into blog posts</p><p>/*</p><ul><li>style a component primarily by <strong>tag</strong> if it is reusable throughtout
+the application</li><li>add a <strong>class</strong> for slight variations
+<em>/
+/</em></li><li>style components primarily by <strong>class</strong> if its semantic interpretation goes beyond the set of built-in HTML tags
+*/</li></ul></article></section><span class="mouse-chaser"></span><footer><a href="#">© 2021 John</a><nav><a class="color-theme-toggler" onclick="window.cycleTheme()"></a></nav></footer></body></html>

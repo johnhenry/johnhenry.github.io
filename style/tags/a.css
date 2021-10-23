@@ -1,0 +1,88 @@
+/* normal a ("link") tag */
+a {
+  color: var(--text-5);
+  transition: color 1s ease-in-out;
+}
+
+a:hover,
+a:visited:hover {
+  color: var(--text-5-h);
+}
+
+a:active {
+  color: var(--text-5-h);
+}
+
+a:visited {
+  color: var(--text-4);
+}
+
+/* inverted link tag */
+a.link-inverted {
+  color: var(--text-4);
+}
+
+a.link-inverted:hover,
+a.link-inverted:visited:hover {
+  color: var(--text-4-h);
+}
+
+a:active {
+  color: var(--text-4-h);
+}
+
+a:visited {
+  color: var(--text-5);
+}
+
+a.link-contents {
+  display: contents;
+}
+
+a.link-untracked:visited {
+  color: var(--text-5);
+}
+
+a.link-inverted.link-untracked:visited {
+  color: var(--text-4);
+}
+
+.link-hidden-container > a,
+a.link-hidden {
+  color: inherit;
+}
+
+.link-hidden-container > a:hover,
+a.link-hidden:hover {
+  color: inherit;
+}
+
+.link-hidden-container > a:active,
+a.link-hidden:active {
+  color: inherit;
+}
+
+.link-hidden-container > a:visited,
+a.link-hidden:visited {
+  color: inherit;
+}
+
+.link-surprise-container > a,
+a.link-surprise {
+  color: inherit;
+}
+
+.link-surprise-container > a:visited,
+a.link-surprise:visited {
+  color: inherit;
+}
+
+.link-surprise-container > a:hover,
+a.link-surprise:hover {
+  color: var(--text-5);
+}
+
+.link-surprise-container > a:active,
+a.link-surprise:active {
+  color: var(--text-5);
+}

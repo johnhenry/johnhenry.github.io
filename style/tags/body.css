@@ -1,0 +1,86 @@
+body {
+  font-size: 16px;
+  width: 100vw;
+  background-color: var(--background-2);
+  color: var(--text-2);
+  font-family: var(--font-family);
+}
+
+body > :is(header, footer) {
+  width: 100vw;
+  position: fixed;
+  background-color: var(--background-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+body > :is(header, footer) nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: end;
+  flex: 1 0 auto;
+  padding: 0;
+}
+
+body > :is(header, footer) nav a {
+  display: inline-block;
+  padding: 8px;
+}
+
+body > :is(header, footer) > a {
+  color: var(--text-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+body > :is(header, footer) a:visited {
+  color: var(--text-1);
+}
+
+body > :is(header, footer) a :is(:visited, :hover) {
+  color: var(--text-5-h);
+}
+
+body > :is(header, footer) > a > img {
+  width: 16px;
+}
+
+body > header {
+  height: var(--header-height);
+  top: 0;
+  z-index: 1;
+  /*
+  Fixing the positon of the header and footer
+  gives them a stacking context (z-index: auto).
+  Giving somthing else a stacking context --
+  for example, by appling a filter
+  (see here for more: https://stackoverflow.com/questions/16148007/which-css-properties-create-a-stacking-context/16148341#16148341)
+    --
+  would cause it to appear above the header.
+  To solve this, we explicitly set the z-index
+  of the header to 1. This is not necessary for
+  the footer as it is placed after the content.
+  */
+}
+body > footer {
+  height: var(--footer-height);
+  bottom: 0;
+}
+
+body .color-theme-toggler::before {
+  content: "○"; /* ○ */
+}
+
+body.color-theme-dark .color-theme-toggler::before {
+  content: "☾";
+}
+
+body.color-theme-light .color-theme-toggler::before {
+  content: "☼";
+}
