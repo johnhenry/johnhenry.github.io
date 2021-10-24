@@ -1,0 +1,11 @@
+.mouse-chaser-toggler::before {
+  content: "☈"; /* */
+}
+
+.mouse-chaser-coordinates .mouse-chaser-toggler::before {
+  content: "◰";
+}
+
+.mouse-chaser-logo .mouse-chaser-toggler::before {
+  content: "jh";
+}
