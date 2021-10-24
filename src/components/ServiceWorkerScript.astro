@@ -3,9 +3,9 @@ const {src} = Astro.props;
 const script = src
   ? `<script>
       globalThis.addEventListener('load', () => {
-        globalThis.navigator.serviceWorker.register(${src});
+        globalThis.navigator.serviceWorker.register("${src}");
       });
     </script>`
-  : null
+  : null;
 ---
 {script}
