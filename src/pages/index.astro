@@ -42,7 +42,7 @@ Astro.fetchContent('./blog/posts/*.md'));
             {text.toUpperCase().split("").map((letter) => <span>{letter}</span>)}
             </a>
           {(text.toUpperCase()==='BLOG') ? <span class="tags">
-            {tags.map((tag, index) =><a class={index%2? 'link' : 'link-inverted'} href={`/blog/tags/${tag}`} title={`tag: ${tag}`}>{tag}</a>)}
+            {tags.map((tag, index) =><a class={index%2? 'link-untracked' : 'link-untracked link-inverted'} href={`/blog/tags/${tag}`} title={`tag: ${tag}`}>{tag}</a>)}
           </span> : null}
         </li>
         {(latest && text.toLowerCase() === "blog") ? <li class="blog">

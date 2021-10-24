@@ -40,14 +40,14 @@ const { byTag } =
   headerLinks={headerLinks}>
   <section class="blog-top">
     <header>
-      <JH path-class="glowey-fill"/>
+      <JH class="logo"/>
     </header>
     <header><p>[{tag}]</p></header>
     <p>This is the place where I muse about technology.</p>
   </section>
   {posts.map(({date, url, title, description, heroImage}) =>
   <section class="blog-preview">
-    <header><a href={url}><p>{date}</p>{title}</a></header>
+    <header><a class="link-untracked" href={url}><p>{date}</p>{title}</a></header>
     <article>
       <img src={heroImage}>
       <p>{description}</p>

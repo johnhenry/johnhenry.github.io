@@ -3,7 +3,7 @@
 }
 
 .color-theme-toggler::before {
-  content: "○"; /* ○ */
+  content: "◠"; /* ○ */
 }
 
 .color-theme-dark .color-theme-toggler::before {
@@ -11,5 +11,5 @@
 }
 
 .color-theme-light .color-theme-toggler::before {
-  content: "☼ (theme coming soon)";
+  content: "☼";
 }

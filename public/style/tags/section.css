@@ -122,7 +122,7 @@ section.projects > article {
   gap: 16px;
 }
 section.projects div {
-  border: 2px solid var(--text-1);
+  border: 2px solid var(--color-border-highlight);
   background-size: cover;
   width: 256px;
   height: 192px;
@@ -132,10 +132,18 @@ section.projects div :is(header, footer) {
   backdrop-filter: blur(2px);
 }
 section.projects div header {
-  background-image: linear-gradient(to bottom, var(--background-5), #00000000);
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-midground),
+    var(--translucency)
+  );
 }
 section.projects div footer {
-  background-image: linear-gradient(to top, var(--background-5), #00000000);
+  background-image: linear-gradient(
+    to top,
+    var(--color-midground),
+    var(--translucency)
+  );
 }
 /* blog variatns */
 section.blog-preview {
@@ -173,13 +181,7 @@ section.blog-top header {
 section.blog-top header svg {
   width: 64px;
   height: 64px;
-}
-
-section.blog-top header svg path {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: var(--text-5);
-  stroke-width: 0.5;
+  /*Todo: it might not be all that necessary to fix this size*/
 }
 
 section.blog-nav {

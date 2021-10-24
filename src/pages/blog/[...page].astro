@@ -45,7 +45,7 @@ export async function getStaticPaths({ paginate }) {
   </section>
   {page.data.map(({date, url, title, description, heroImage}) =>
   <section class="blog-preview">
-    <header><a href={url}><p>{date}</p>{title}</a></header>
+    <header><a class="link-untracked" href={url}><p>{date}</p>{title}</a></header>
     <article>
       <img src={heroImage}>
       <p>{description}</p>
