@@ -1,15 +1,15 @@
 body {
-  font-size: 16px;
+  font-size: var(--base-font-size);
   width: 100vw;
-  background-color: var(--background-2);
-  color: var(--text-2);
+  background-color: var(--color-background);
+  color: var(--color-text);
   font-family: var(--font-family);
 }
 
 body > :is(header, footer) {
   width: 100vw;
   position: fixed;
-  background-color: var(--background-1);
+  background-color: var(--color-foreground);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,7 +31,6 @@ body > :is(header, footer) nav a {
 }
 
 body > :is(header, footer) > a {
-  color: var(--text-1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,12 +38,14 @@ body > :is(header, footer) > a {
   font-size: 1rem;
 }
 
+body > :is(header, footer) a,
 body > :is(header, footer) a:visited {
-  color: var(--text-1);
+  color: var(--color-text);
 }
 
-body > :is(header, footer) a :is(:visited, :hover) {
-  color: var(--text-5-h);
+body > :is(header, footer) a:hover,
+body > :is(header, footer) a:active {
+  color: var(--color-text-highlight);
 }
 
 body > :is(header, footer) > a > img {
@@ -71,16 +72,4 @@ body > header {
 body > footer {
   height: var(--footer-height);
   bottom: 0;
-}
-
-body .color-theme-toggler::before {
-  content: "○"; /* ○ */
-}
-
-body.color-theme-dark .color-theme-toggler::before {
-  content: "☾";
-}
-
-body.color-theme-light .color-theme-toggler::before {
-  content: "☼";
 }

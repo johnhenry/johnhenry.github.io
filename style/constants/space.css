@@ -1,2 +1,18 @@
 :root {
+  --header-height: 40px;
+  --footer-height: var(--header-height);
+
+  --base-font-size: 16px;
+
+  --gap-quarter: 1px;
+  --gap-half: 4px;
+  --gap-standard: 8px;
+  --gap-double: 16px;
+  --gap-quad: 32px;
+
+  --padding-quarter: 2px;
+  --padding-half: 8px;
+  --padding-standard: 16px;
+  --padding-double: 32px;
+  --padding-quad: 64px;
 }

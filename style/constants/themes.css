@@ -1,0 +1,126 @@
+:root {
+  /* datk theme */
+  --color-background--dark: var(--earth-07);
+  --color-midground--dark: var(--earth-06);
+  --color-foreground--dark: var(--earth-05);
+
+  --color-text--dark: var(--earth-01);
+  --color-text--highlight--dark: var(--sun-01);
+  --color-text--deemphasize--dark: var(--earth-02);
+
+  --color-link--dark: var(--sun-01);
+  --color-link-interaction--dark: var(--earth-01);
+  --color-link-visited--dark: var(--grass-00);
+
+  --color-link-alt--dark: var(--uranium-00);
+  --color-link-alt--interaction--dark: var(--uranium-02);
+  --color-link-alt--visited--dark: var(--grass-00);
+
+  --color-border-highlight--dark: var(--earth-00);
+  --color-border-deemphasize--dark: var(--earth-09);
+
+  --translucency--dark: var(--color-utility-transparent--black);
+  --highlight--dark: var(--sun-01);
+}
+
+:root {
+  /* light theme */
+  --color-background--light: var(--earth-00);
+  --color-midground--light: var(--earth-00);
+  --color-foreground--light: var(--earth-00);
+
+  --color-text--light: var(--earth-07);
+  --color-text--highlight--light: var(--brick-00);
+  --color-text--deemphasize--light: var(--earth-02);
+
+  --color-link--light: var(--brick-00);
+  --color-link-interaction--light: var(--brick-02);
+  --color-link-visited--light: var(--grass-00);
+
+  --color-link-alt--light: var(--uranium-00);
+  --color-link-alt--interaction--light: var(--uranium-02);
+  --color-link-alt--visited--light: var(--brick-02);
+
+  --color-border-highlight--light: var(--earth-00);
+  --color-border-deemphasize--light: var(--earth-09);
+
+  --translucency--light: var(--color-utility-translucent--white);
+  --highlight--light: var(--brick-02);
+}
+
+/* apply dark theme by default */
+body,
+body.color-theme-dark {
+  --highlight: var(--highlight--dark);
+  --color-background: var(--color-background--dark);
+  --color-midground: var(--color-midground--dark);
+  --color-foreground: var(--color-foreground--dark);
+
+  --color-text: var(--color-text--dark);
+  --color-text--highlight: var(--color-text--highlight--dark);
+  --color-text--deemphasize: var(--color-text--deemphasize--dark);
+
+  --color-link: var(--color-link--dark);
+  --color-link-interaction: var(--color-link-interaction--dark);
+  --color-link-visited: var(--color-link-visited--dark);
+
+  --color-link-alt: var(--color-link-alt--dark);
+  --color-link-alt--interaction: var(--color-link-alt--interaction--dark);
+  --color-link-alt--visited: var(--color-link-alt--visited--dark);
+
+  --color-border-highlight: var(--color-border-highlight--dark);
+  --color-border-deemphasize: var(--color-border-deemphasize--dark);
+  --translucency: var(--translucency--dark);
+  --highlight: var(--highlight--dark);
+}
+/* apply light conditionally  */
+
+body.color-theme-light {
+  --color-background: var(--color-background--light);
+  --color-midground: var(--color-midground--light);
+  --color-foreground: var(--color-foreground--light);
+
+  --color-text: var(--color-text--light);
+  --color-text--highlight: var(--color-text--highlight--light);
+  --color-text--deemphasize: var(--color-text--deemphasize--light);
+
+  --color-link: var(--color-link--light);
+  --color-link-interaction: var(--color-link-interaction--light);
+  --color-link-visited: var(--color-link-visited--light);
+
+  --color-link-alt: var(--color-link-alt--light);
+  --color-link-alt--interaction: var(--color-link-alt--interaction--light);
+  --color-link-alt--visited: var(--color-link-alt--visited--light);
+
+  --color-border-highlight: var(--color-border-highlight--light);
+  --color-border-deemphasize: var(--color-border-deemphasize--light);
+
+  --translucency: var(--translucency--light);
+  --highlight: var(--highlight--light);
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    --color-background: var(--color-background--light);
+    --color-midground: var(--color-midground--light);
+    --color-foreground: var(--color-foreground--light);
+
+    --color-text: var(--color-text--light);
+    --color-text--highlight: var(--color-text--highlight--light);
+    --color-text--deemphasize: var(--color-text--deemphasize--light);
+
+    --color-link: var(--color-link--light);
+    --color-link-interaction: var(--color-link-interaction--light);
+    --color-link-visited: var(--color-link-visited--light);
+
+    --color-link-alt: var(--color-link-alt--light);
+    --color-link-alt--interaction: var(--color-link-alt--interaction--light);
+    --color-link-alt--visited: var(--color-link-alt--visited--light);
+
+    --color-border-highlight: var(--color-border-highlight--light);
+    --color-border-deemphasize: var(--color-border-deemphasize--light);
+
+    --translucency: var(--translucency--light);
+    --highlight: var(--highlight--light);
+  }
+}

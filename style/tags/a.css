@@ -1,70 +1,59 @@
 /* normal a ("link") tag */
+
 a {
-  color: var(--text-5);
+  color: var(--color-link);
   transition: color 1s ease-in-out;
 }
-
-a:hover,
-a:visited:hover {
-  color: var(--text-5-h);
-}
-
-a:active {
-  color: var(--text-5-h);
-}
-
 a:visited {
-  color: var(--text-4);
+  color: var(--color-link-visited);
+}
+a:active,
+a:hover {
+  color: var(--color-link-interaction);
 }
 
-/* inverted link tag */
-a.link-inverted {
-  color: var(--text-4);
+a.link-untracked {
+  color: var(--color-link);
 }
-
-a.link-inverted:hover,
-a.link-inverted:visited:hover {
-  color: var(--text-4-h);
-}
-
-a:active {
-  color: var(--text-4-h);
-}
-
-a:visited {
-  color: var(--text-5);
-}
-
-a.link-contents {
-  display: contents;
-}
-
 a.link-untracked:visited {
-  color: var(--text-5);
+  color: var(--color-link);
+}
+a.link-untracked:active,
+a.link-untracked:hover {
+  color: var(--color-link-interaction);
 }
 
+a.link-inverted {
+  color: var(--color-link-alt);
+}
+a.link-inverted:visited {
+  color: var(--color-link-alt-visited);
+}
+a.link-inverted:active,
+a.link-inverted:hover {
+  color: var(--color-link-alt-interaction);
+}
+
+a.link-inverted.link-untracked {
+  color: var(--color-link-alt);
+}
 a.link-inverted.link-untracked:visited {
-  color: var(--text-4);
+  color: var(--color-link-alt);
+}
+a.link-inverted.link-untracked:active,
+a.link-inverted.link-untracked:hover {
+  color: var(--color-link-alt-interaction);
 }
 
-.link-hidden-container > a,
-a.link-hidden {
-  color: inherit;
+a.link-surprise {
+  color: var(--color-text);
 }
-
-.link-hidden-container > a:hover,
-a.link-hidden:hover {
-  color: inherit;
+a.link-surprise:visited {
+  color: var(--color-text);
 }
-
-.link-hidden-container > a:active,
-a.link-hidden:active {
-  color: inherit;
-}
-
-.link-hidden-container > a:visited,
-a.link-hidden:visited {
-  color: inherit;
+a.link-surprise:active,
+a.link-surprise:hover {
+  color: var(--color-link-interaction);
 }
 
 .link-surprise-container > a,
@@ -79,10 +68,21 @@ a.link-surprise:visited {
 
 .link-surprise-container > a:hover,
 a.link-surprise:hover {
-  color: var(--text-5);
+  color: var(--color-link);
 }
 
 .link-surprise-container > a:active,
 a.link-surprise:active {
-  color: var(--text-5);
+  color: var(--color-link);
+}
+
+a.link-hidden {
+  color: inherit;
+}
+a.link-hidden:visited {
+  color: inherit;
+}
+a.link-hidden:active,
+a.link-hidden:hover {
+  color: inherit;
 }

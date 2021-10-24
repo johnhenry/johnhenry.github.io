@@ -5,10 +5,10 @@
 .logo path {
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke: var(--text-5);
+  stroke: var(--highlight);
   stroke-width: 0.5;
   fill-opacity: 0.0625;
-  fill: var(--text-5);
+  fill: var(--highlight);
   transition: fill-opacity 0.5s ease-in-out;
   cursor: pointer;
 }

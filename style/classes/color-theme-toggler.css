@@ -1,0 +1,15 @@
+.color-theme-toggler::before {
+  cursor: pointer;
+}
+
+.color-theme-toggler::before {
+  content: "◠"; /* ○ */
+}
+
+.color-theme-dark .color-theme-toggler::before {
+  content: "☾";
+}
+
+.color-theme-light .color-theme-toggler::before {
+  content: "☼";
+}

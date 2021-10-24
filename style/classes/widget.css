@@ -80,7 +80,8 @@
 }
 
 .mini-preview header {
-  color: var(--text-5);
+  font-weight: bold;
+  color: var(--color-text-highlight);
 }
 
 @media screen and (orientation: landscape) {
