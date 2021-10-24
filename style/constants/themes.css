@@ -19,7 +19,7 @@
   --color-border-highlight--dark: var(--earth-00);
   --color-border-deemphasize--dark: var(--earth-09);
 
-  --translucency--dark: var(--color-utility-transparent--black);
+  --translucency--dark: var(--color-utility-transparent-black);
   --highlight--dark: var(--sun-01);
 }
 
@@ -43,8 +43,7 @@
 
   --color-border-highlight--light: var(--earth-00);
   --color-border-deemphasize--light: var(--earth-09);
-
-  --translucency--light: var(--color-utility-translucent--white);
+  --translucency--light: var(--color-utility-translucent-white);
   --highlight--light: var(--brick-02);
 }
 
