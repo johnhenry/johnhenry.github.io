@@ -3,7 +3,7 @@
 }
 
 .color-theme-toggler::before {
-  content: "◠"; /* ○ */
+  content: "◌"; /* ○ ◓ ◠ */
 }
 
 .color-theme-dark .color-theme-toggler::before {
