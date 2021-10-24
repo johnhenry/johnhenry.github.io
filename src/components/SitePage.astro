@@ -1,10 +1,16 @@
 ---
-import SiteHead from "./SiteHead.astro";
-const {title, headerTitle = title, description, keywords, author, canonical, headerLinks, htmlClass, bodyClass, headerClass, footerClass } = Astro.props
+// Settings
 import { TAG_MANAGER_ID } from '../SETTINGS.mjs';
+// Components
+import SiteHead from "./SiteHead.astro";
 import GDPRRequest from './GDPRRequest.astro';
 import TagManagerBody from './TagManagerBody.astro';
 import BodyClassCycler from './BodyClassCycler.astro';
+// Content
+const {
+  title,
+  headerTitle = title,
+  description, keywords, author, canonical, headerLinks, htmlClass, bodyClass, headerClass, footerClass } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en" class={htmlClass}>
@@ -15,8 +21,8 @@ import BodyClassCycler from './BodyClassCycler.astro';
       storage-key="color-theme-preference"
       classes={[
       "",
-      "color-theme-light",
-      "color-theme-dark"]} />
+      "color-theme-dark",
+      "color-theme-light"]} />
     <header class={headerClass}>
       <a href="/#" ><img src="/image/iajh.png" width="16" height="16"  alt="logo" />{headerTitle}</a>
       <nav>

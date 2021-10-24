@@ -15,7 +15,7 @@ import SitePage from "../components/SitePage.astro";
 import projects from "../content/projects.mjs";
 import headerLinks from "../content/headerlinks.mjs";
 const { latest=undefined, tags=[] } = sortPosts(
-  Astro.fetchContent('./blog/posts/*.md'));
+Astro.fetchContent('./blog/posts/*.md'));
 ---
 <SitePage
   title={SITE_TITLE}
@@ -41,8 +41,8 @@ const { latest=undefined, tags=[] } = sortPosts(
             <a class={`link-untracked${!(index%2)?'':' link-inverted'}`} href={`${url}`}>
             {text.toUpperCase().split("").map((letter) => <span>{letter}</span>)}
             </a>
-          {(subs.length) ? <span class="tags">
-            {subs.map((tag, index) =><a class={index%2? 'link' : 'link-inverted'} href={`/blog/tags/${tag}`} title={`tag: ${tag}`}>{tag}</a>)}
+          {(text.toUpperCase()==='BLOG') ? <span class="tags">
+            {tags.map((tag, index) =><a class={index%2? 'link' : 'link-inverted'} href={`/blog/tags/${tag}`} title={`tag: ${tag}`}>{tag}</a>)}
           </span> : null}
         </li>
         {(latest && text.toLowerCase() === "blog") ? <li class="blog">

@@ -72,15 +72,3 @@ body > footer {
   height: var(--footer-height);
   bottom: 0;
 }
-
-body .color-theme-toggler::before {
-  content: "○"; /* ○ */
-}
-
-body.color-theme-dark .color-theme-toggler::before {
-  content: "☾";
-}
-
-body.color-theme-light .color-theme-toggler::before {
-  content: "☼";
-}
