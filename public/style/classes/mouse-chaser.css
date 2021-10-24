@@ -12,7 +12,12 @@
   transition-timing-function: var(--ttf-bounce);
   opacity: var(--mouse-magnorm);
 }
-.mouse-chaser::before {
+.mouse-chaser-coordinates .mouse-chaser::before {
   content: "[ " var(--mouse-x-str) " : " var(--mouse-y-str) " ]";
+  opacity: var(--mouse-up, 0);
+}
+
+.mouse-chaser-logo .mouse-chaser::before {
+  content: "JH";
   opacity: var(--mouse-up, 0);
 }

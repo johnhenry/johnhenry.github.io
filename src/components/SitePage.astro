@@ -23,6 +23,13 @@ const {
       "",
       "color-theme-dark",
       "color-theme-light"]} />
+    <BodyClassCycler
+      global="cycleMouseChaser"
+      storage-key="mouse-chaser-preference"
+      classes={[
+      "mouse-chaser-coordinates",
+      "mouse-chaser-logo",
+      ""]} />
     <header class={headerClass}>
       <a href="/#" ><img src="/image/iajh.png" width="16" height="16"  alt="logo" />{headerTitle}</a>
       <nav>
@@ -36,7 +43,14 @@ const {
     <footer class={footerClass}>
     <a href="#">© {new Date().getFullYear()}  {` ${author}`}</a>
       <!-- Todo: Astro whitespace may be fixed in Astro 0.21? -->
-      <nav><a class="color-theme-toggler" onclick="window.cycleTheme()" title="Click to toggle color theme."></a>
+      <nav>
+        <a href="#"
+          class="mouse-chaser-toggler"
+          onclick="event.preventDefault(),window.cycleMouseChaser()" title="Click to toggle mouse."></a>
+        <a href="#"
+          class="color-theme-toggler"
+          onclick="event.preventDefault(),window.cycleTheme()"
+          title="Click to toggle color theme."></a>
       </nav>
     </footer>
     {TAG_MANAGER_ID ? <GDPRRequest /> : null}
