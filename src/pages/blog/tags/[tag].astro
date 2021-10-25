@@ -32,7 +32,7 @@ const { byTag } =
 }
 ---
 <SitePage
-  title={title}
+  title={`Blog > [${tag}]`}
   description={SITE_DESCRIPTION}
   keywords={SITE_KEYWORDS}
   author={SITE_AUTHOR}
@@ -42,7 +42,11 @@ const { byTag } =
     <header>
       <JH class="logo"/>
     </header>
-    <header><p>[{tag}]</p></header>
+    <header>
+      <p>
+        [{tag}]
+      </p>
+    </header>
     <p>This is the place where I muse about technology.</p>
   </section>
   {posts.map(({date, url, title, description, heroImage}) =>

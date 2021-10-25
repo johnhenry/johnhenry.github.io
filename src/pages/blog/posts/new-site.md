@@ -1,7 +1,7 @@
 ---
 title: "My new website"
 description: A thorough guide to to the techniques and tools used to build my website
-author: "John"
+author: "John Henry"
 heroImage: "/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"
 alt: "Astro"
 layout: "../../../components/BlogPage.astro"

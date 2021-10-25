@@ -19,16 +19,16 @@ const {
     permalink,
     alt,
     tags } = Astro.props.content;
-const pageTitle = `${SITE_TITLE} -- Weblog: ${title}`;
 ---
-<SitePage title={pageTitle}
+<SitePage
+  title={`Blog > ${title}`}
   description={description}
   keywords={SITE_KEYWORDS.concat(tags)}
   author={author}
   canonical={SITE_CANONICAL_URL + permalink}
   headerLinks={headerLinks}>
   <section class="blog">
-    <header>{title}</header>
+    <header><p>{title}</p></header>
     <article>
       {heroImage && <img width="360" height="210" loading="lazy" src={heroImage} alt={alt} />}
       <p class="publish-date">{date}</p>

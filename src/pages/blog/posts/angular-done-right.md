@@ -2,7 +2,7 @@
 title: "Angular Done Right: Part 1"
 description: "The first in a series on how to use Angular 1.0"
 date: "1 August 2013"
-author: "John"
+author: "John Henry"
 heroImage: "/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"
 alt: "Astro"
 layout: "../../../components/BlogPage.astro"

@@ -2,6 +2,7 @@
 // Settings
 import {
         SITE_FAVICON,
+        SITE_TITLE,
         TAG_MANAGER_ID,
         SITE_BASE_PATH,
         SITE_FAVICON_TYPE,
@@ -16,16 +17,18 @@ import externalScripts from '../external/scripts.mjs';
 import TagManagerHead from './TagManagerHead.astro';
 // Content
 const {
-  title,
+  title=SITE_TITLE,
+  subtitle="",
   author,
   keywords,
   canonical,
   description,
   base="" } = Astro.props;
+const displayTitle = subtitle? `${title} : ${subtitle}`: title;
 ---
 <head>
   {TAG_MANAGER_ID ? <TagManagerHead tmid="{TAG_MANAGER_ID}" /> : ''}
-  <SEO title={title} description={description} canonical={canonical} />
+  <SEO title={displayTitle} description={description} canonical={canonical} />
   <meta name="theme-color" content="#343233">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">

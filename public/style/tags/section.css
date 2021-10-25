@@ -1,7 +1,8 @@
 /* base */
 section {
   --header-padding: 32px;
-  padding: var(--header-padding);
+  padding-left: var(--padding-standard);
+  padding-right: var(--padding-standard);
   padding-top: calc(var(--header-height) + var(--header-padding));
   padding-bottom: calc(var(--footer-height) + var(--header-padding));
   width: 100vw;
@@ -9,6 +10,12 @@ section {
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+@media (orientation: landscape) {
+  section {
+    padding-left: var(--padding-quad);
+    padding-right: var(--padding-quad);
+  }
 }
 
 section > * {

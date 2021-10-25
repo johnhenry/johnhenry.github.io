@@ -30,7 +30,7 @@ export async function getStaticPaths({ paginate }) {
 }
 ---
 <SitePage
-  title={title}
+  title={`Blog > #${page.currentPage}`}
   description={SITE_DESCRIPTION}
   keywords={SITE_KEYWORDS}
   author={SITE_AUTHOR}
@@ -39,7 +39,11 @@ export async function getStaticPaths({ paginate }) {
   <section class="blog-top">
     <header>
       <JH class="logo"/>
-      <p>John Henry's Blog</p>
+    </header>
+    <header>
+      <p>
+        Page: {page.currentPage}
+      </p>
     </header>
     <p>This is the place where I muse about technology.</p>
   </section>
