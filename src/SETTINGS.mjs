@@ -3,10 +3,10 @@ import HASH from "./HASH.mjs";
 const defaults = {
   SITE_AUTHOR: "John Henry",
   SITE_TITLE: "John Henry",
-  SITE_FAVICON: "/image/iajh.png",
+  SITE_FAVICON_PATH: "image/iajh.png",
   SITE_FAVICON_TYPE: "image/png",
   SITE_SERVICE_WORKER: "",
-  SITE_BASE_PATH: "",
+  SITE_BASE_PATH: "/",
   SITE_BLOG_PAGE_SIZE: 8,
   SITE_LIB_URL: "http://localhost:3001/",
   SITE_CANONICAL_URL: "http://localhost:3000/",
@@ -23,7 +23,8 @@ export const SITE_AUTHOR = process.env.SITE_AUTHOR || defaults.SITE_AUTHOR;
 
 export const SITE_TITLE = process.env.SITE_TITLE || defaults.SITE_TITLE;
 
-export const SITE_FAVICON = process.env.SITE_FAVICON || defaults.SITE_FAVICON;
+export const SITE_FAVICON_PATH =
+  process.env.SITE_FAVICON_PATH || defaults.SITE_FAVICON_PATH;
 
 export const SITE_FAVICON_TYPE =
   process.env.SITE_FAVICON_TYPE || defaults.SITE_FAVICON_TYPE;
@@ -55,3 +56,6 @@ export const TAG_MANAGER_ID =
 export const BUILD_DATE = process.env.BUILD_DATE || defaults.BUILD_DATE;
 export const BUILD_HASH = process.env.BUILD_HASH || defaults.BUILD_HASH;
 export const BUILD_META = process.env.BUILD_META || defaults.BUILD_META;
+
+//
+export const SITE_FAVICON = `${SITE_BASE_PATH}${SITE_FAVICON_PATH}`;

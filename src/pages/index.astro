@@ -1,11 +1,11 @@
 ---
 // Settings
 import {
-SITE_TITLE,
 SITE_AUTHOR,
 SITE_KEYWORDS,
 SITE_DESCRIPTION,
-SITE_CANONICAL_URL } from "../SETTINGS.mjs";
+SITE_CANONICAL_URL,
+SITE_BASE_PATH } from "../SETTINGS.mjs";
 // Utilities
 import sortPosts from "../utils/sort-posts.mjs";
 // Components
@@ -69,7 +69,7 @@ Astro.fetchContent('./blog/posts/*.md'));
     <header>Me</header>
     <article>
       <div>
-        <header><img src="/image/iajh.png" alt="logo"/></header>
+        <header><img src={`${SITE_BASE_PATH}image/iajh.png`} alt="logo"/></header>
         <article class="glowey-background">
           <p>Hi! My name is John.</p>
           <p>I'm a mathmetician, a scientist, and an engineer (yes, those are different things!). </p>
@@ -77,7 +77,7 @@ Astro.fetchContent('./blog/posts/*.md'));
         </article>
       </div>
       <div>
-        <header><img src="/image/iajh.png" alt="logo"/></header>
+        <header><img src={`${SITE_BASE_PATH}image/iajh.png`} alt="logo"/></header>
         <article class="glowey-background">
           <p>
             <a class="link-surprise" href="mailto:john@iamjohnhenry.com"

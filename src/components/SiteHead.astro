@@ -22,8 +22,7 @@ const {
   author,
   keywords,
   canonical,
-  description,
-  base="" } = Astro.props;
+  description} = Astro.props;
 const displayTitle = subtitle? `${title} : ${subtitle}`: title;
 ---
 <head>
@@ -34,16 +33,15 @@ const displayTitle = subtitle? `${title} : ${subtitle}`: title;
   <meta charset="utf-8">
   <meta name="keywords" content={keywords}>
   <meta name="author" content={author}>
-  <base href={`${SITE_BASE_PATH}${base}`} />
   <ServiceWorkerScript src={SITE_SERVICE_WORKER} />
-  <link rel="manifest" href="/manifest.json" />
+  <link rel="manifest" href={`${SITE_BASE_PATH}manifest.json` }/>
   <link rel="icon" href={SITE_FAVICON} type={SITE_FAVICON_TYPE} />
   <SiteStyles hrefs={externalStyles} />
-  <link rel="stylesheet" href="/style/index.css"/>
+  <link rel="stylesheet" href={`${SITE_BASE_PATH}style/index.css`}/>
   <SiteScripts srcs={externalScripts} />
-  <link rel="apple-touch-icon" sizes="512x512" href="/images/iajh.512.png" />
-  <link rel="apple-touch-icon" sizes="384x384" href="/images/iajh.384.png" />
-  <link rel="apple-touch-icon" sizes="256x256" href="/images/iajh.256.png" />
-  <link rel="apple-touch-icon" sizes="192x192" href="/images/iajh.192.png" />
-  <link rel="apple-touch-icon" sizes="128x128" href="/images/iajh.128.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href={`${SITE_BASE_PATH}image/iajh.512.png`} />
+  <link rel="apple-touch-icon" sizes="384x384" href={`${SITE_BASE_PATH}image/iajh.384.png`} />
+  <link rel="apple-touch-icon" sizes="256x256" href={`${SITE_BASE_PATH}image/iajh.256.png`} />
+  <link rel="apple-touch-icon" sizes="192x192" href={`${SITE_BASE_PATH}image/iajh.192.png`} />
+  <link rel="apple-touch-icon" sizes="128x128" href={`${SITE_BASE_PATH}image/iajh.128.png`} />
 </head>
