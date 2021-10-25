@@ -9,6 +9,7 @@
   margin: 16px;
   padding: 16px;
   border-radius: 16px;
+  overflow-y: scroll;
 }
 
 .blog-content div {
