@@ -1,5 +1,5 @@
 ---
-title: "Browses, Servers, and APIs"
+title: "Browsers, Servers, and APIs"
 description: "Using servers in the browsers"
 date: "1 May 2019"
 lastUpdate: "1 May 2019"

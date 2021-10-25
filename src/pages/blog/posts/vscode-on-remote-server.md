@@ -1,6 +1,6 @@
 ---
 title: "VS Code on a Remote Server"
-description: "How to run Visusual Studio Code on a remote server"
+description: "How to run Visual Studio Code on a remote server"
 date: "7 September 2019"
 lastUpdate: "2 October 2019"
 author: "John Henry"
