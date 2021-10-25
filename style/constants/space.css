@@ -3,15 +3,15 @@
   --header-height: calc(var(--base-font-size) * 2.5);
   --footer-height: var(--header-height);
 
-  --padding-standard: var(--base-font-size);
-  --padding-half: calc(var(--padding-standard) / 2);
-  --padding-quarter: calc(var(--padding-standard) / 4);
-  --padding-eighth: calc(var(--padding-standard) / 8);
-  --padding-double: calc(var(--padding-standard) * 2);
-  --padding-quad: calc(var(--padding-standard) * 4);
-  --padding-oct: calc(var(--padding-standard) * 8);
+  --padding: var(--base-font-size);
+  --padding-half: calc(var(--padding) / 2);
+  --padding-quarter: calc(var(--padding) / 4);
+  --padding-eighth: calc(var(--padding) / 8);
+  --padding-2x: calc(var(--padding) * 2);
+  --padding-4x: calc(var(--padding) * 4);
+  --padding-8x: calc(var(--padding) * 8);
 
-  --gap-standard: calc(var(--padding-standard) / 2);
+  --gap-standard: calc(var(--padding) / 2);
   --gap-half: calc(var(--gap-standard) / 2);
   --gap-quarter: calc(var(--gap-standard) / 4);
   --gap-eighth: calc(var(--gap-standard) / 8);
