@@ -36,14 +36,16 @@ const {
       ""]} />
     <header class={headerClass}>
       <a href="/#" ><img src="/image/iajh.png" width="32" height="32" alt="logo" />
-      <p class="hide-n-show-landscape-inline">{SITE_TITLE}{title}</p></a>
+      <p class="hide-n-show-landscape-inline">{SITE_TITLE}{' '}{title}</p></a>
       <nav class="hide show-landscape-flex">
         {headerLinks.map(({url, text}) => (
             <a href={`${url}`}>{text}</a>
           ))}
       </nav>
     </header>
+    <!-- the good stuff -->
     <slot />
+    <!-- the good stuff -->
     <span class="mouse-chaser" ></span>
     <footer class={footerClass}>
     <a href="#">© {new Date().getFullYear()}  {` ${author}`}</a>
