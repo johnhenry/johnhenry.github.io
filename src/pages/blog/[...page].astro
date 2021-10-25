@@ -37,15 +37,9 @@ export async function getStaticPaths({ paginate }) {
   canonical={SITE_CANONICAL_URL}
   headerLinks ={headerLinks}>
   <section class="blog-top">
-    <header>
-      <JH class="logo"/>
-    </header>
-    <header>
-      <p>
-        Page: {page.currentPage}
-      </p>
-    </header>
+    <header><JH class="logo"/></header>
     <p>This is the place where I muse about technology.</p>
+    <p>Page : {page.currentPage}</p>
   </section>
   {page.data.map(({date, url, title, description, heroImage}) =>
   <section class="blog-preview">

@@ -1,91 +1,80 @@
 .widget {
-  /* border: 0.5px solid #4e4b4d; */
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 0;
   width: 100%;
   white-space: break-spaces;
 }
+
 @media screen and (orientation: landscape) {
   .widget {
     width: 30vw;
   }
 }
 
-.widget li.blog-link .tags {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  gap: 8px;
-  padding: 16px;
-}
-
-.widget li.blog-link .tags a::before {
-  content: "[";
-}
-
-.widget li.blog-link .tags a::after {
-  content: "]";
-}
-
-.widget li.blog-link > a {
-  max-width: 80%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  font-size: 1.5rem;
-  gap: 8px;
-  flex: 1;
-  align-items: center;
-  padding: 8px;
-}
-
-.widget li {
-  min-height: 96px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.widget li:hover {
-  /* box-shadow: var(--box-shadow); */
-  text-shadow: var(--drop-shadow);
-}
-
-.widget li:first-child {
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-.widget li:last-child {
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-}
 .widget > * + * {
   border-top: inherit;
 }
-
-.widget li.blog a {
+.widget > * {
+  /* border: 0.5px solid #4e4b4d; */
+  max-width: 80%;
+  min-height: 96px;
   display: flex;
-  flex-direction: column;
-  flex: 1;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  text-align: center;
+  gap: 12px;
+  padding: 16px;
+}
+.widget > *:hover {
+  text-shadow: var(--drop-shadow);
+}
+.widget > *:first-child {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.widget > *:last-child {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.widget > * > * {
   height: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  gap: 8px;
+  align-items: center;
+  flex: 0 0 auto;
 }
-
-.mini-preview header {
+.widget > * header {
   font-weight: bold;
-  color: var(--color-text-highlight);
+  color: var(--color-text--highlight);
 }
 
-@media screen and (orientation: landscape) {
-  .widget li.blog-link > a {
-    font-size: 2rem;
-  }
+.widget .tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 8px;
+}
+.widget .tags a {
+  display: unset;
+}
+.widget .tags a::before {
+  content: "[";
+}
+.widget .tags a::after {
+  content: "]";
+}
+.widget .blog-preview a {
+  flex-direction: column;
+}
+.widget .tags > a,
+.widget .blog-preview > a {
+  font-size: inherit;
+}
+.widget .blog-preview > * {
+  width: 100%;
+  align-content: stretch;
 }

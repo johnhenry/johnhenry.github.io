@@ -35,28 +35,33 @@ Astro.fetchContent('./blog/posts/*.md'));
         onclick="event.preventDefault(),window.cycleMouseChaser()"
         />
       <ul class="widget glowey-background-container">
-          {
-            headerLinks.map(({url, text, subs=[]}, index) => (
+          {headerLinks.map(({url, text}, index) => (
         <>
-        <li class="blog-link">
-            <a class={`link-untracked${!(index%2)?'':' link-inverted'}`} href={`${url}`}>
-            {text.toUpperCase().split("").map((letter) => <span>{letter}</span>)}
-            </a>
-          {(text.toUpperCase()==='BLOG') ? <span class="tags">
-            {tags.map((tag, index) =><a class={index%2? 'link-untracked' : 'link-untracked link-inverted'} href={`/blog/tags/${tag}`} title={`tag: ${tag}`}>{tag}</a>)}
-          </span> : null}
+        <li class={`link-untracked${!(index%2)?'':' link-inverted'}`}>
+
+            {text.toUpperCase().split("").map((letter) => <a href={`${url}`}>{letter}</a>)}
+
         </li>
-        {(latest && text.toLowerCase() === "blog") ? <li class="blog">
-          <a class="mini-preview link-hidden" href="{latest.url}">
-              <header>
-                {latest.title}
-              </header>
-              <p>{latest.description}</p>
-          </a>
-        </li>:null}
-        </>
-            ))
-          }
+        {(index===0) ? <>
+          <li class="tags">{ tags.map((tag, index) =>
+            <a
+            class={
+                index % 2 ?
+                  'link-untracked' :
+                  'link-untracked link-inverted'}
+            href={`/blog/tags/${tag}`}
+            title={`tag: ${tag}`}> {tag}</a>)}
+          </li>
+          {(latest) ?
+            <li class="blog-preview">
+              <a class="link-hidden" href="{latest.url}">
+                <header>{latest.title}</header>
+                <p>{latest.description}</p>
+              </a>
+            </li> : null}
+          </>
+          : null}
+        </>))}
       </ul>
     </article>
   </section>
