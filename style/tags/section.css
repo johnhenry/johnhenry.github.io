@@ -80,6 +80,10 @@ section.me > article {
   padding-right: 6.25%;
 }
 
+section.me article article > p {
+  padding: var(--padding-quarter);
+}
+
 section.me div {
   flex-direction: column;
   align-self: start;
@@ -155,12 +159,6 @@ section.projects div footer {
   );
 }
 
-section.blog > article {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 64px;
-}
 section.blog-top {
   min-height: 0;
   display: flex;
@@ -176,6 +174,9 @@ section.blog-top header {
   justify-content: space-evenly;
   align-items: center;
   gap: 12px;
+}
+section.blog-top img {
+  border-radius: 32px;
 }
 
 section.blog-top header svg {
@@ -206,11 +207,19 @@ section.blog-preview header {
   gap: 16px;
 }
 
+section.blog-preview img {
+  border-radius: 8px;
+}
+
 section.blog-preview article {
   justify-content: space-around;
   align-items: baseline;
   display: flex;
   flex-direction: column;
+}
+
+section.blog-preview article header {
+  font-size: 1.5rem;
 }
 
 @media screen and (orientation: landscape) {
@@ -221,9 +230,14 @@ section.blog-preview article {
   }
 }
 
-/* section.blog-preview header {
-  font-size: 2rem;
-} */
 section.blog-preview img {
   width: 192px;
+}
+
+section.blog > article {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 64px;
+  border-radius: 16px;
 }

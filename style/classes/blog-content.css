@@ -1,0 +1,35 @@
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.blog-content pre {
+  background-color: var(--color-midground);
+  margin: 16px;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.blog-content div {
+  display: unset;
+  display: flex;
+  gap: 8px;
+}
+
+.blog-content p {
+  line-height: 1.5;
+}
+
+.blog-content {
+  max-width: 80%;
+}
+
+.blog-content img {
+  border-radius: 8px;
+}
+
+img + .blog-content em {
+  display: block;
+  text-align: center;
+}
