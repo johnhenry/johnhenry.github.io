@@ -197,7 +197,7 @@ section.blog-nav {
 /* blog variatns */
 section.blog-preview {
   min-height: 0;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 section.blog-preview header {
@@ -216,6 +216,7 @@ section.blog-preview article {
   align-items: baseline;
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
 section.blog-preview article header {
@@ -227,6 +228,7 @@ section.blog-preview article header {
     --padding-side: calc(var(--padding) * 16);
     padding-left: var(--padding-side);
     padding-right: var(--padding-side);
+    flex-direction: row;
   }
 }
 
