@@ -1,7 +1,7 @@
 /* base */
 section {
   --header-padding: 32px;
-  --padding-side: var(--padding-double, var(--header-padding));
+  --padding-side: var(--padding-2x, var(--header-padding));
   padding-left: var(--padding-side);
   padding-right: var(--padding-side);
   padding-top: calc(var(--header-height) + var(--header-padding));
@@ -14,7 +14,7 @@ section {
 }
 @media (orientation: landscape) {
   section {
-    --padding-side: var(--padding-quad);
+    --padding-side: var(--padding-4x);
     padding-left: var(--padding-side);
     padding-right: var(--padding-side);
   }
