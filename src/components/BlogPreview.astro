@@ -1,0 +1,18 @@
+---
+const {url, date, title, heroImage, description, author="", tags=[]} = Astro.props;
+---
+<section class="blog-preview glowey-background">
+  <header>
+    {date}
+    <img src={heroImage}>
+  </header>
+  <article>
+    <header>
+      <a class="link-untracked" href={url}>
+        <p></p>{title}
+      </a>
+    </header>
+    <p>{description}</p>
+    <footer><a href={url}>Read more</a></footer>
+  </article>
+</section>

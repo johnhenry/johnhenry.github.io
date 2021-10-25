@@ -11,7 +11,7 @@ import {
 import sortPosts from "../../utils/sort-posts.mjs";
 // Components
 import JH from "../../components/jh/index.astro";
-
+import BlogPreview from "../../components/BlogPreview.astro";
 import SitePage from "../../components/SitePage.astro";
 import Pagination from "../../components/Pagination.astro";
 // Content
@@ -41,15 +41,16 @@ export async function getStaticPaths({ paginate }) {
     <p>This is the place where I muse about technology.</p>
     <p>Page : {page.currentPage}</p>
   </section>
-  {page.data.map(({date, url, title, description, heroImage}) =>
-  <section class="blog-preview">
-    <header><a class="link-untracked" href={url}><p>{date}</p>{title}</a></header>
-    <article>
-      <img src={heroImage}>
-      <p>{description}</p>
-    </article>
-    <footer><a href={url}>Read more</a></footer>
-  </section>)}
+  {page.data.map(({date, url, title, description, heroImage, author, tags}) =>
+  <BlogPreview
+  url={url}
+  date={date}
+  title={title}
+  heroImage={heroImage}
+  description={description}
+  author={author}
+  tags={tags}
+/>)}
   {page.lastPage > 1 ?
   <section class="blog-nav"><Pagination prefix="/blog/" page={page} /></section> : ''}
 </SitePage>

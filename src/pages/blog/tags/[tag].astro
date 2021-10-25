@@ -11,6 +11,7 @@ import sortPosts from "../../../utils/sort-posts.mjs";
 // Components
 import JH from "../../../components/jh/index.astro";
 import SitePage from "../../../components/SitePage.astro";
+import BlogPreview from "../../../components/BlogPreview.astro";
 // Content;
 import headerLinks from "../../../content/headerlinks.mjs";
 const { tag } = Astro.request.params;
@@ -49,13 +50,14 @@ const { byTag } =
     </header>
     <p>This is the place where I muse about technology.</p>
   </section>
-  {posts.map(({date, url, title, description, heroImage}) =>
-  <section class="blog-preview">
-    <header><a class="link-untracked" href={url}><p>{date}</p>{title}</a></header>
-    <article>
-      <img src={heroImage}>
-      <p>{description}</p>
-    </article>
-    <footer><a href={url}>Read more</a></footer>
-  </section>)}
+  {posts.map(({date, url, title, description, heroImage, author, tags}) =>
+  <BlogPreview
+  url={url}
+  date={date}
+  title={title}
+  heroImage={heroImage}
+  description={description}
+  author={author}
+  tags={tags}
+/>)}
 </SitePage>
