@@ -1,18 +1,21 @@
 :root {
-  --header-height: 40px;
+  --base-font-size: 16px;
+  --header-height: calc(var(--base-font-size) * 2.5);
   --footer-height: var(--header-height);
 
-  --base-font-size: 16px;
+  --padding-standard: var(--base-font-size);
+  --padding-half: calc(var(--padding-standard) / 2);
+  --padding-quarter: calc(var(--padding-standard) / 4);
+  --padding-eighth: calc(var(--padding-standard) / 8);
+  --padding-double: calc(var(--padding-standard) * 2);
+  --padding-quad: calc(var(--padding-standard) * 4);
+  --padding-oct: calc(var(--padding-standard) * 8);
 
-  --gap-quarter: 1px;
-  --gap-half: 4px;
-  --gap-standard: 8px;
-  --gap-double: 16px;
-  --gap-quad: 32px;
-
-  --padding-quarter: 2px;
-  --padding-half: 8px;
-  --padding-standard: 16px;
-  --padding-double: 32px;
-  --padding-quad: 64px;
+  --gap-standard: calc(var(--padding-standard) / 2);
+  --gap-half: calc(var(--gap-standard) / 2);
+  --gap-quarter: calc(var(--gap-standard) / 4);
+  --gap-eighth: calc(var(--gap-standard) / 8);
+  --gap-double: calc(var(--gap-standard) * 2);
+  --gap-quad: calc(var(--gap-standard) * 4);
+  --gap-oct: calc(var(--gap-standard) * 8);
 }

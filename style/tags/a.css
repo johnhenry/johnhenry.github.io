@@ -12,14 +12,19 @@ a:hover {
   color: var(--color-link-interaction);
 }
 
-a.link-untracked {
+a.link-untracked,
+.link-untracked > * {
   color: var(--color-link);
 }
-a.link-untracked:visited {
+a.link-untracked:visited,
+.link-untracked > *:visited {
   color: var(--color-link);
 }
+
 a.link-untracked:active,
-a.link-untracked:hover {
+a.link-untracked:hover,
+.link-untracked > *:active,
+.link-untracked > *:hover {
   color: var(--color-link-interaction);
 }
 
@@ -34,14 +39,18 @@ a.link-inverted:hover {
   color: var(--color-link-alt-interaction);
 }
 
-a.link-inverted.link-untracked {
+a.link-inverted.link-untracked,
+.link-inverted.link-untracked > * {
   color: var(--color-link-alt);
 }
-a.link-inverted.link-untracked:visited {
+a.link-inverted.link-untracked:visited,
+.link-inverted.link-untracked > *:visited {
   color: var(--color-link-alt);
 }
 a.link-inverted.link-untracked:active,
-a.link-inverted.link-untracked:hover {
+a.link-inverted.link-untracked:hover,
+.link-inverted.link-untracked > *:active,
+.link-inverted.link-untracked > *:hover {
   color: var(--color-link-alt-interaction);
 }
 
