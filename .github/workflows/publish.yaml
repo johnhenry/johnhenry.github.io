@@ -32,6 +32,7 @@ jobs:
           BUILD_HASH: ${{ secrets.BUILD_HASH }}
           TAG_MANAGER_ID: ${{ secrets.TAG_MANAGER_ID }}
           SITE_SERVICE_WORKER: ${{ secrets.SITE_SERVICE_WORKER }}
+          SITE_BASE_PATH: ${{secrets.SITE_BASE_PATH}}
         run: npm run build
 
       - name: Deploy 🚀
