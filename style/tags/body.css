@@ -15,19 +15,22 @@ body > :is(header, footer) {
   justify-content: space-between;
   padding-left: 16px;
   padding-right: 16px;
+  font-size: 1.25rem;
 }
 
 body > :is(header, footer) nav {
   display: inline-flex;
   align-items: center;
-  justify-content: end;
+  /* use "flex-end" instead of "end" for safari/iOS */
+  justify-content: flex-end;
   flex: 1 0 auto;
   padding: 0;
+  gap: 16px;
 }
 
 body > :is(header, footer) nav a {
   display: inline-block;
-  padding: 8px;
+  padding: 16px 18px; /* for mobile touch target size */
 }
 
 body > :is(header, footer) > a {
@@ -49,7 +52,7 @@ body > :is(header, footer) a:active {
 }
 
 body > :is(header, footer) > a > img {
-  width: 16px;
+  width: 32px;
 }
 
 body > header {
@@ -72,4 +75,23 @@ body > header {
 body > footer {
   height: var(--footer-height);
   bottom: 0;
+}
+
+@media screen and (orientation: landscape) {
+  body > :is(header, footer) {
+    font-size: inherit;
+  }
+  body > :is(header, footer) nav {
+    gap: 0;
+  }
+  body > :is(header, footer) > a > img {
+    width: 16px;
+    height: 16px;
+  }
+  body > header {
+    height: calc(var(--header-height) / 2);
+  }
+  body > footer {
+    height: calc(var(--footer-height) / 2);
+  }
 }
