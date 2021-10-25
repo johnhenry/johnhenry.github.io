@@ -1,6 +1,6 @@
 ---
 // Settings
-import { TAG_MANAGER_ID, SITE_TITLE } from '../SETTINGS.mjs';
+import { TAG_MANAGER_ID, SITE_TITLE, SITE_BASE_PATH } from '../SETTINGS.mjs';
 // Components
 import SiteHead from "./SiteHead.astro";
 import GDPRRequest from './GDPRRequest.astro';
@@ -35,7 +35,7 @@ const {
       "mouse-chaser-coordinates",
       ""]} />
     <header class={headerClass}>
-      <a href="/#" ><img src="/image/iajh.png" width="32" height="32" alt="logo" />
+      <a href="/#" ><img src={`${SITE_BASE_PATH}image/iajh.png`} width="32" height="32" alt="logo" />
       <p class="hide-n-show-landscape-inline">{SITE_TITLE}{' '}{title}</p></a>
       <nav class="hide show-landscape-flex">
         {headerLinks.map(({url, text}) => (
