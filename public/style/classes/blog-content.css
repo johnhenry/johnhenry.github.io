@@ -22,7 +22,13 @@
 }
 
 .blog-content {
-  max-width: 80%;
+  max-width: 100%;
+}
+
+@media screen and (orientation: landscape) {
+  .blog-content {
+    max-width: 80%;
+  }
 }
 
 .blog-content img {
