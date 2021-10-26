@@ -19,7 +19,7 @@
 <script type="module">
   import localStorageCycler from "https://johnhenry.github.io/lib/js/localstorage-cycler/0.0.0/index.mjs";
   const key = 'mouse-chaser-preference';
-  const values = ["mouse-chaser-logo","mouse-chaser-coordinates",""];
+  const values = ["","mouse-chaser-logo","mouse-chaser-coordinates"];
   const target = globalThis.document.querySelector("body");
   const emit = ({value, key, index}) => {
     target.classList.remove(...values.filter(s=>s));

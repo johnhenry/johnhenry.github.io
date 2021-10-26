@@ -18,4 +18,7 @@
   --gap-double: calc(var(--gap-standard) * 2);
   --gap-quad: calc(var(--gap-standard) * 4);
   --gap-oct: calc(var(--gap-standard) * 8);
+
+  --header-padding: 32px;
+  --padding-side: var(--padding-2x, var(--header-padding));
 }
