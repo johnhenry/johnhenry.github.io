@@ -4,12 +4,47 @@
   gap: 32px;
 }
 
+.blog-content :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: bold;
+}
+
+.blog-content h1 {
+  font-size: 2rem;
+}
+
+.blog-content h2 {
+  font-size: 1.8rem;
+}
+
+.blog-content h3 {
+  font-size: 1.6rem;
+}
+
+.blog-content h4 {
+  font-size: 1.4rem;
+}
+
+.blog-content h5 {
+  font-size: 1.2rem;
+}
+
+.blog-content h6 {
+  font-size: 1rem;
+}
+
+.blog-content code:not(pre code) {
+  background-color: var(--color-midground);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  line-break: anywhere;
+}
+
 .blog-content pre {
   background-color: var(--color-midground);
-  margin: 16px;
-  padding: 16px;
-  border-radius: 16px;
+  padding: 1rem;
+  border-radius: 0.5rem;
   overflow-y: scroll;
+  margin: 1rem 0;
 }
 
 .blog-content div {
@@ -34,9 +69,34 @@
 
 .blog-content img {
   border-radius: 8px;
+  display: block;
+  margin: 0 auto;
 }
 
-img + .blog-content em {
+.blog-content img + em {
   display: block;
   text-align: center;
+  font-size: 0.8rem;
+}
+
+.blog-content :is(ol, ul) {
+  padding-left: 2rem;
+}
+.blog-content :is(ol, ul) li {
+  padding: 4px;
+}
+.blog-content :is(ol, ul) li::marker {
+  /* padding: 4px; */
+}
+.blog-content ol {
+  list-style: decimal;
+}
+.blog-content ul {
+  list-style: "-";
+}
+.blog-content strong {
+  font-weight: bold;
+}
+.blog-content em {
+  font-style: italic;
 }

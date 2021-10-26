@@ -2,45 +2,74 @@
 title: "Manage Websites Like Docker"
 description: Manage static websites like you manage Docker images
 author: "John Henry"
+date: "26 October 2021"
 heroImage: "/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"
-alt: "Astro"
+alt: ""
 layout: "../../../components/BlogPage.astro"
 tags: ["programming"]
 ---
 
-_Author’s Note: This is based on **Experimental** technologies that aren't quite ready for production. Nonetheless, the ideas presented in this article may turn out useful._
+_Author’s Note: This is based on **experimental** technologies that aren't quite ready for production. Nonetheless, I believe the ideas presented in this article will be useful in the near future._
 
 Did you know that you can manage static websites
-like you manage [Docker](https://docker.com) images? Well, you can! but I'm sure you have a few more questions...
+like you manage images with [Docker](https://docker.com)? You can!
 
-- What _exactly_ do I mean by this?
-- Why would you want to?
-- How can you do it your self?
+But I'm sure you have a few more questions, like:
+
+- What do I mean by "like Docker"?
+- Why would you want to do such a thing?
+- How can you do it yourself?
 
 To find answers,
-we will first take a simplified look
+we will first take a _simplified_ look
 at how management works with Docker.
 We will then learn how to create
 a similar process for static websites.
 
-## Process
+## Workflow
 
 At its most basic, Docker works like this:
 
 1. Create an image [(an OCI Image)](https://github.com/opencontainers/image-spec)
-   -- a single artifact that is a representation of a file tree.
+   -- a single artifact that represents a file tree.
+   ```bash
+   docker build -t registry/image:0.0.0 -f - . <<EOF
+   FROM nginx:latest
+   EOF
+   ```
 2. Publish the image to a registry [(an OCI Registry)](https://github.com/opencontainers/distribution-spec).
-3. When necessary, retrieve said image from registry and use it.
+   ```bash
+   docker push registry/image:0.0.0
+   ```
+3. When necessary, retrieve said image from the registry to use it.
+   ```bash
+   docker run -it --rm -p 8080:80 registry/image:0.0.0
+   # Note:`docker run` pulls the image from the registry if not locally available
+   ```
 
-When we make static websites, the process is generally like this:
+When we make static websites, the process is similarly simple:
 
 1. Create a file tree.
-2. When necessary, push file tree to a server.
 
-Both processes are simple,
-but the **image** from the former is key.
-The idea of having an entire website
-as a single artifact
+   ```bash
+   npm run build
+   ...
+   # There are countless technologies -- atom, webpack, rollup, etc. --
+   # that can be used to create a static website.
+   ```
+
+2. When necessary, push file tree to a server.
+   ```bash
+   npm run publish
+   ...
+   # There are similarly a number of options for publishing.
+   # ftp and git (when configured with hooks) are viable options.
+   ```
+
+While both processes are simple,
+the idea of an **image** from the Docker
+workflow is key.
+An entire website as a single artifact
 to be versioned, shared, and deployed
 in like an image is enticing.
 
@@ -50,13 +79,12 @@ Now that we've covered the "what" and the "why", let's look at the "how".
 
 ### Prerequesites
 
-In order to do this tutorial, you'll need the following installed:
+In order complete do this tutorial, you'll need the following installed:
 
 #### go
 
 Two CLI tools are based on go,
-so we might as well get this
-out of the way first.
+so we might as well get this out of the way first.
 
 Install go according to [instructions here](https://golang.org/doc/install).
 
@@ -71,9 +99,7 @@ go get -u github.com/WICG/webpackage/go/bundle/cmd/...
 
 #### wasm-to-oci
 
-Install wasm-to-oci according to [instructions here](https://github.com/engineerd/wasm-to-oci).
-
-or run
+Install wasm-to-oci according to [instructions here](https://github.com/engineerd/wasm-to-oci), or run:
 
 ```bash
 # Install wasm-to-oci https://github.com/engineerd/wasm-to-oci
@@ -82,7 +108,7 @@ go get -u github.com/WICG/webpackage/go/bundle/cmd/...
 
 #### Docker
 
-This is silly,
+This is silly;
 but to authenticate wasm-to-oci,
 you need Docker.
 
@@ -139,7 +165,7 @@ with the following contents:
 </html>
 ```
 
-and a file named 'next.html'
+Place another file named 'next.html'
 with the following contents:
 
 ```html
@@ -164,28 +190,29 @@ gen-bundle -dir ./hello-world -baseURL http://localhost/ -o hello-world.wbn -pri
 This creates a bundle file
 named "hello-world.wbn".
 This is equivalent to a Docker image.
-(Note that when you interact with docker
-using commands like `build`, `push`, and `pull`,
-you do not interact with the image itself.)
+(Note that when you interact with docker,
+you use commands like `build`, `push`, and `pull`.
+You do not ususually interact directly
+with image files themselves.)
 
 #### View Artifact
 
 To view the artifact,
 we need to enable
 the experimental
-"bundles" browser feature.
+"web bundles" browser feature.
 
-Using chorme, visit `chrome://flags/#web-bundles`.
+Using Chrome, visit `chrome://flags/#web-bundles`.
 Enable the feature and restart your browser.
 
-Open the `hello-world.wbn` file
-that you previoiusly created using Chrome.
+Using Chrome, open the `hello-world.wbn` file
+that you previoiusly created.
 The url will look something like
 `file:///.../hello-world.wbn?http://localhost/`.
 
 Notice that you can freely navigate
 between pages of the site --
-even though it's just singe file!
+even though it's just single file!
 
 You can probably imagine
 a few uses for this;
@@ -223,7 +250,7 @@ Notably, Docker Hub does not support this.
 
 #### Login to Github with Docker
 
-We will be docker to authenticate
+We will use Docker )only\_ to authenticate
 
 First obtain a
 [github access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
@@ -243,7 +270,9 @@ Push the bundle to the registry with:
 wasm-to-oci push ./hello-world.wbn ghcr.io/$GITHUB_USERNAME/hello-world:0.0.0
 ```
 
-If the registry at `https://github.com/users/$GITHUB_USERNAME/packages/container/package/hello-world` doest not exist, it will be created automatically.
+If the registry at
+`https://github.com/users/$GITHUB_USERNAME/packages/container/package/hello-world`
+doest not exist, it will be created automatically.
 
 You can view and manage artifacts in your repository at `https://github.com/$GITHUB_USERNAME?tab=packages`.
 
@@ -277,3 +306,11 @@ There are still a few main things missing from this work flow:
    The equivalent would be
    hosting a bundle as a static asset
    such that a user can interact with it.
+
+4. The `docker build` incrementally builds
+   images from other, protypal images.
+
+   The equivalent would be
+   a templating system that can pull
+   existing static in websites,
+   and modify them to make new ones.

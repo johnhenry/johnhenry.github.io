@@ -55,7 +55,7 @@ Astro.fetchContent('./blog/posts/*.md'));
           {(latest) ?
             <li class="blog-preview">
               <a class="link-hidden" href="{latest.url}">
-                <header>{latest.title}</header>
+                <header>Latest: {latest.title}</header>
                 <p>{latest.description}</p>
               </a>
             </li> : null}
