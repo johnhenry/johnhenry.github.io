@@ -5,7 +5,7 @@ const image =
 export default [
   {
     title: "Bash Command Line tools",
-    description: "A collection of tools I i find useful.",
+    description: "A collection of tools that I find useful.",
     href: "https://johnhenry.github.io/lib/bash",
     image,
   },
