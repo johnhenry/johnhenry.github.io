@@ -1,10 +1,6 @@
-import { SITE_LIB_URL } from "../SETTINGS.mjs";
-const image =
-  "https://johnhenry.github.io/vendor/img/www.pexels.com/pixabay/turned-on-computer-monitor-displaying-text-300.jpg";
-
-const image2 =
-  "https://johnhenry.github.io/vendor/img/_/bufka.karolina/cat-in-sun.jpg";
-
+import { SITE_LIB_URL, SITE_BASE_PATH } from "../SETTINGS.mjs";
+const image = `${SITE_BASE_PATH}vendor/img/www.pexels.com/pixabay/turned-on-computer-monitor-displaying-text-300.jpg`;
+const image2 = `${SITE_BASE_PATH}personal/image/bufka.karolina/cat-in-sun.jpg`;
 export default [
   {
     title: "Bash Command Line tools",
