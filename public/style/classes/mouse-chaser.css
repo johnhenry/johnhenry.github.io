@@ -1,4 +1,6 @@
 .mouse-chaser {
+  /* https://stackoverflow.com/a/29786350/1290781 */
+  --ttf-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --font-size: 0.75rem;
   position: absolute;
   font-size: var(--font-size);
@@ -12,9 +14,14 @@
   transition-timing-function: var(--ttf-bounce);
   opacity: var(--mouse-magnorm);
 }
+
 .mouse-chaser-coordinates .mouse-chaser::before {
   content: "[ " var(--mouse-x-str) " : " var(--mouse-y-str) " ]";
   opacity: var(--mouse-up, 0);
+}
+
+.mouse-chaser-logo .mouse-chaser {
+  transition: 0.5s;
 }
 
 .mouse-chaser-logo .mouse-chaser::before {
