@@ -1,0 +1,55 @@
+---
+// Settings
+import {
+SITE_AUTHOR,
+SITE_KEYWORDS,
+SITE_DESCRIPTION,
+SITE_CANONICAL_URL } from "../../SETTINGS.mjs";
+// Utilities
+// Components
+import SitePage from "../../components/SitePage.astro";
+// Content
+import headerLinks from "../../content/headerlinks.mjs";
+const { syntax } = Astro.props;
+// Misc.
+export function getStaticPaths() {
+
+    return [{
+      params: { template: "html" },
+      props: { syntax: "<slot></slot>"}
+    },
+    {
+      params: {template: "js"},
+      props: {syntax: "${ templated }"}
+    },
+    {
+      params: { template: "mustache" },
+      props: { syntax: "{{ templated }}"}
+    },
+    {
+      params: {template: "erb"},
+      props: {syntax: "&lt;%= templated %&gt;"}
+    },
+    {
+      params: {template: "nunchucks"},
+      props: {syntax: "{%= templated %}"}
+    },
+    {
+      params: {template: "php"},
+      props: {syntax: "&lt;?= templated ?&gt;"}
+    },
+    {
+      params: {template: "jsrender"},
+      props: {syntax: "{: templated }"}
+    },
+    { params: { template: "react"},
+      props: { syntax: "{ templated }" }
+    }];
+}
+---
+<SitePage
+  description={SITE_DESCRIPTION}
+  keywords={SITE_KEYWORDS}
+  author={SITE_AUTHOR}
+  canonical={SITE_CANONICAL_URL}
+  headerLinks={headerLinks}>{syntax}</SitePage>

@@ -16,7 +16,6 @@ import BlogPreview from "../../../components/BlogPreview.astro";
 import headerLinks from "../../../content/headerlinks.mjs";
 const { tag } = Astro.request.params;
 const { posts } = Astro.props;
-const title = `${SITE_TITLE} Blog: ${tag}`;
 // Misc.
 export function getStaticPaths() {
 const { byTag } =
