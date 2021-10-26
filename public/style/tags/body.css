@@ -95,3 +95,17 @@ body > footer {
     height: calc(var(--footer-height) / 2);
   }
 }
+
+body > section {
+  padding-top: var(--header-padding);
+  padding-bottom: var(--header-padding);
+  padding-left: var(--padding-side);
+  padding-right: var(--padding-side);
+}
+body > section:first-of-type {
+  padding-top: calc(var(--header-height) + var(--header-padding));
+}
+
+body > section:last-of-type {
+  padding-bottom: calc(var(--footer-height) + var(--header-padding));
+}
