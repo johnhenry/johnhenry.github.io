@@ -4,7 +4,7 @@ const {url, date, title, heroImage, description, author="", tags=[]} = Astro.pro
 <section class="blog-preview glowey-background">
   <header>
     {date}
-    <img src={heroImage}>
+    <a class="link-contents" href={url}><img src={heroImage}></a>
   </header>
   <article>
     <header>

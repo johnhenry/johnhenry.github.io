@@ -2,6 +2,9 @@ import { SITE_LIB_URL } from "../SETTINGS.mjs";
 const image =
   "https://johnhenry.github.io/vendor/img/www.pexels.com/pixabay/turned-on-computer-monitor-displaying-text-300.jpg";
 
+const image2 =
+  "https://johnhenry.github.io/vendor/img/_/bufka.karolina/cat-in-sun.jpg";
+
 export default [
   {
     title: "Bash Command Line tools",
@@ -13,7 +16,7 @@ export default [
     title: "Standard Library -- set of components for building applications.",
     description: "Click here",
     href: SITE_LIB_URL,
-    image,
+    image: image2,
   },
   {
     title: "Forsnaken -- Multiplayer snake game",
@@ -25,7 +28,7 @@ export default [
     title: "HTML Builder",
     description: "Build HTML with components",
     href: "https://johnhenry.github.io/htmlbuilder",
-    image,
+    image: image2,
   },
   {
     title: "Blog",

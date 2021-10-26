@@ -32,6 +32,7 @@ Astro.fetchContent('./blog/posts/*.md'));
         animation-duration="30s"
         animation-iteration-count="infinite"
         animation-timing-function="linear"
+        path-onclick="event.preventDefault(),window.cycleMouseChaser()"
         />
       <ul class="widget glowey-background-container">
           {headerLinks.map(({url, text}, index) => (

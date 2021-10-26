@@ -95,3 +95,7 @@ a.link-hidden:active,
 a.link-hidden:hover {
   color: inherit;
 }
+
+a.link-contents {
+  display: contents;
+}
