@@ -6,7 +6,7 @@
 <script type="module">
   import localStorageCycler from "https://johnhenry.github.io/lib/js/localstorage-cycler/0.0.0/index.mjs";
   const key = 'color-theme-preference';
-  const values = ["","color-theme-dark","color-theme-light"];
+  const values = ["color-theme-dark","","color-theme-light"];
   const target = globalThis.document.querySelector("body");
   const emit = ({value, key, index}) => {
     target.classList.remove(...values.filter(s=>s));
