@@ -9,7 +9,7 @@ import BodyClassCycler from './BodyClassCycler.astro';
 // Content
 const {
   title,
-  description, keywords, author, canonical, headerLinks, htmlClass, bodyClass, headerClass, footerClass } = Astro.props;
+  description, keywords, author, canonical, headerLinks, htmlClass, headerClass, footerClass } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en" class={htmlClass}>
@@ -19,21 +19,21 @@ const {
     keywords={keywords}
     author={author}
     canonical={canonical} ></SiteHead>
-  <body class={bodyClass}>
-    <BodyClassCycler
-      global="cycleTheme"
-      storage-key="color-theme-preference"
-      classes={[
-      "color-theme-dark",
-      "",
-      "color-theme-light"]} />
-    <BodyClassCycler
-      global="cycleMouseChaser"
-      storage-key="mouse-chaser-preference"
-      classes={[
-      "",
-      "mouse-chaser-logo",
-      "mouse-chaser-coordinates"]} />
+  <BodyClassCycler
+    global="cycleTheme"
+    storage-key="color-theme-preference"
+    classes={[
+    "color-theme-dark",
+    "",
+    "color-theme-light"]} />
+  <BodyClassCycler
+    global="cycleMouseChaser"
+    storage-key="mouse-chaser-preference"
+    classes={[
+    "",
+    "mouse-chaser-logo",
+    "mouse-chaser-coordinates"]} />
+  <body class="color-theme-dark">
     <header class={headerClass}>
       <a href="/#" ><img src={`${SITE_BASE_PATH}image/iajh.png`} width="32" height="32" alt="logo" />
       <p class="hide-n-show-landscape-inline">{SITE_TITLE}{' '}{title}</p></a>
