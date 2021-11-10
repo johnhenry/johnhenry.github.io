@@ -76,3 +76,8 @@
   width: 100%;
   align-content: stretch;
 }
+@media screen and (orientation: Landscape) {
+  .widget .tags {
+    font-size: 0.75rem;
+  }
+}
