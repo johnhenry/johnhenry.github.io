@@ -34,7 +34,8 @@ Astro.fetchContent('./blog/posts/*.md'));
         animation-timing-function="linear"
         path-onclick="event.preventDefault(),window.cycleMouseChaser()"
         />
-      <ul class="widget glowey-background-container">
+      <!--TODO: Crash Start -->
+      <!-- <ul class="widget glowey-background-container">
           {headerLinks.map(({url, text}, index) => (
         <>
         <li class={`link-untracked${!(index%2)?'':' link-inverted'}`}>
@@ -62,7 +63,8 @@ Astro.fetchContent('./blog/posts/*.md'));
           </>
           : null}
         </>))}
-      </ul>
+      </ul> -->
+      <!--TODO: Crash End? -->
     </article>
   </section>
   <section id="me" class="me">
