@@ -22,7 +22,7 @@
     "workbox-cli": "6.3.0"
   },
   "dependencies": {
-    "astro": "^0.21.0",
+    "astro": "^0.21.6",
     "preact": "10.5.15"
   }
 }
