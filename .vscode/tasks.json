@@ -1,13 +1,4 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-    {
-      "type": "npm",
-      "script": "build",
-      "group": "build",
-      "problemMatcher": [],
-      "label": "npm: build",
-      "detail": "npm run build:versions && npm run build-storybook"
-    }
-  ]
+  "version": "2.0.0",
+  "tasks": []
 }
