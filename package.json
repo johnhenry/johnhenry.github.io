@@ -14,17 +14,15 @@
     "build:-sw": "npm run set:hash && npm run build:html && npm run reset:hash  && npm run build:sw",
     "build:-wbn": "npm run set:hash && npm run build:html && npm run reset:hash && npm run build:sw && npm run build:wbn",
     "build": "npm run build:-sw",
-    "preview": "astro preview",
-    "lint": "prettier --write . "
+    "preview": "astro preview"
   },
   "devDependencies": {
     "@astrojs/renderer-preact": "0.2.2",
-    "astro": "^0.21.10",
+    "astro": "0.20.12",
     "astro-seo": "0.3.12",
-    "preact": "10.5.15",
     "workbox-cli": "6.3.0"
   },
   "dependencies": {
-    "prettier": "^2.5.0"
+    "preact": "10.5.15"
   }
 }
