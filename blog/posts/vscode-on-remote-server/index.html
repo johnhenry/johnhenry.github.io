@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="en">
+  <head>
   
-  
-<!-- { title ? <title>{title}</title> : null }
+  <!-- { title ? <title>{title}</title> : null }
 
 { canonical ? (
 	<link 
@@ -20,34 +20,32 @@
 <meta
 	name="robots"
 	content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
-> -->
-
-<!-- { generateOpenGraphBasicTags(props) }
+> --><!-- { generateOpenGraphBasicTags(props) }
 { generateOpenGraphOptionalTags(props) }
 { generateOpenGraphImageTags(props) }
 { generateOpenGraphArticleTags(props) }
 { generateTwitterTags(props) } -->
-
   <meta name="theme-color" content="#343233">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <meta name="keywords" content="programming,experimenting">
+  <meta name="keywords" content="fun,math,engineering,science,experiments,programming,programming,experimenting">
   <meta name="author" content="John Henry">
   
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" href="/image/iajh.png" type="image/png">
+  <link rel="manifest" href="https://johnhenry.github.io/manifest.json">
+  <link rel="icon" href="https://johnhenry.github.io/image/iajh.png" type="image/png">
   
-<link rel="stylesheet" href="http://localhost:3001/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/hide-n-show/0.0.0/landscape.css">
-  <link rel="stylesheet" href="/style/index.css">
-  <script>;</script>
-<script type="module" src="http://localhost:3001/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="http://localhost:3001/js/css-variables-scroll/0.0.0/index.mjs"></script>
-  <link rel="apple-touch-icon" sizes="512x512" href="/image/iajh.512.png">
-  <link rel="apple-touch-icon" sizes="384x384" href="/image/iajh.384.png">
-  <link rel="apple-touch-icon" sizes="256x256" href="/image/iajh.256.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="/image/iajh.192.png">
-  <link rel="apple-touch-icon" sizes="128x128" href="/image/iajh.128.png">
-</head><body>
-  <script type="module">let SITE_LIB_URL = "http://localhost:3001/";
+<link rel="stylesheet" href="https://johnhenry.github.io/lib/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/hide-n-show/0.0.0/landscape.css">
+  <link rel="stylesheet" href="https://johnhenry.github.io/style/index.css">
+  &lt;script&gt;;&lt;/script&gt;
+<script type="module" src="https://johnhenry.github.io/lib/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/css-variables-scroll/0.0.0/index.mjs"></script>
+  <link rel="apple-touch-icon" sizes="512x512" href="https://johnhenry.github.io/image/iajh.512.png">
+  <link rel="apple-touch-icon" sizes="384x384" href="https://johnhenry.github.io/image/iajh.384.png">
+  <link rel="apple-touch-icon" sizes="256x256" href="https://johnhenry.github.io/image/iajh.256.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="https://johnhenry.github.io/image/iajh.192.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="https://johnhenry.github.io/image/iajh.128.png">
+
+</head>
+  <script type="module">let SITE_LIB_URL = "https://johnhenry.github.io/lib/";
 let storageKey = "color-theme-preference";
 let classes = ["color-theme-dark","","color-theme-light"];
 let selector = "body";
@@ -65,7 +63,7 @@ const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0
   }
   globalThis[global] = localStorageCycler(key, emit, ...values);
 </script>
-  <script type="module">let SITE_LIB_URL = "http://localhost:3001/";
+  <script type="module">let SITE_LIB_URL = "https://johnhenry.github.io/lib/";
 let storageKey = "mouse-chaser-preference";
 let classes = ["","mouse-chaser-logo","mouse-chaser-coordinates"];
 let selector = "body";
@@ -83,9 +81,9 @@ const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0
   }
   globalThis[global] = localStorageCycler(key, emit, ...values);
 </script>
-  
+  <body class="color-theme-dark">
     <header>
-      <a href="/#"><img src="/image/iajh.png" width="32" height="32" alt="logo">
+      <a href="/#"><img src="https://johnhenry.github.io/image/iajh.png" width="32" height="32" alt="logo">
       <p class="hide-n-show-landscape-inline">John Henry Blog -- VS Code on a Remote Server</p></a>
       <nav class="hide show-landscape-flex">
         <a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a>
@@ -108,7 +106,7 @@ const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0
 </ul><h2 id="pre-requisites">Pre-Requisites</h2><p>This tutorial assumes that you are already famaliar with using <a href="https://en.wikipedia.org/wiki/Secure_Shell">secure shell (SSH)</a>.</p><p>You <em>should</em> at least be famaliar with logging into a remote server using <a href="https://www.ssh.com/ssh/key/">key-based authentication</a>.</p><h2 id="method-1--code-server">Method 1 : code-server</h2><p><a href="https://github.com/cdr/code-server">Code-server</a> creates a web server with an instance of a web version of Visual Studio Code that you can access via a browser.</p><ol start="0">
 <li>Install code-server on your server.</li>
 <li>Access server’s CL via SSH.</li>
-<li>On server, run <code is:raw="">code-server &lt;path to workspace or directory&gt;</code>.</li>
+<li>On server, run <code>code-server &#x3C;path to workspace or directory></code>.</li>
 <li>
 You can access server’s FS and CL through password-secured web interface at 
 <serveraddress>
@@ -116,7 +114,7 @@ You can access server’s FS and CL through password-secured web interface at
 </serveraddress></li>
 </ol><h2 id="method-2--sshcode">Method 2 : sshcode</h2><p><a href="https://github.com/cdr/sshcode">Sshcode</a> works similarly to code-server (it’s actually built on top of it) but uses a client program to set up the web server. Additionally, if you’re using chrome, it will open a customized window with Visual Studio Code keybinding in tact.</p><ol start="0">
 <li>Install chrome and sshcode on client</li>
-<li>On client, run <code is:raw="">sshcode &lt;user&gt;@&lt;serveraddress&gt;</code></li>
+<li>On client, run <code>sshcode &#x3C;user>@&#x3C;serveraddress></code></li>
 <li>Access server’s FS and CL through chrome window.</li>
 </ol><h2 id="method-3--visual-studio-code">Method 3 : Visual Studio Code</h2><ol start="0">
 <li>Install <a href="https://code.visualstudio.com/">Visual Studio Code</a> on client</li>
@@ -150,5 +148,5 @@ From extenison menu, connect
     </footer>
     
     
-  
-</body></html>
+  </body>
+</html>

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html><head></head><body><h1 id="component-inheritence">Component Inheritence</h1>
+<!DOCTYPE html>
+
+<h1 id="component-inheritence">Component Inheritence</h1>
 <p>This is Part 1 in a series.
 We learn what it takes to create a framework
 in which we build components using
@@ -24,51 +26,51 @@ to strip <strong>all</strong> styles associated with the HTML.</p>
 <p>A <em>class</em> is a basic object that acts as a blueprint
 to crete other objects.</p>
 <p>In javascript we create a class with a number of
-property definitions<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>.</p>
-<pre class="language-javascript"><code is:raw="" class="language-javascript"><span class="token keyword">const</span> House <span class="token operator">=</span> <span class="token keyword">class</span> <span class="token punctuation"></span>
-  <span class="token comment">// "House" is like a blueprint for an actual house</span>
-  <span class="token function">constructor</span><span class="token punctuation">(</span>color <span class="token operator">=</span> <span class="token string">"red"</span><span class="token punctuation">)</span> <span class="token punctuation"></span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span>
-  <span class="token punctuation"></span></code>
-  <span class="token function">paint</span><span class="token punctuation">(</span><span class="token parameter">color</span><span class="token punctuation">)</span> <span class="token punctuation"></span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span>
-  <span class="token punctuation"></span></pre>
-  <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation"></span>
-    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>color<span class="token punctuation">;</span>
-  <span class="token punctuation"></span>
-<span class="token punctuation"></span><span class="token punctuation">;</span>
+property definitions<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup>.</p>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">House</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">class</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">// &quot;House&quot; is like a blueprint for an actual house</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">constructor</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">color</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&quot;red&quot;</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.color </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> color;</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">paint</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">color</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.color </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> color;</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">getColor</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.color;</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
+<span class="line"><span style="color: #C9D1D9">};</span></span></code></pre>
 <p>In a way, <em>selectors</em> in CSS behave like classes.</p>
-<pre class="language-css"><code is:raw="" class="language-css"><span class="token selector">section</span> <span class="token punctuation"></span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--color<span class="token punctuation">,</span> red<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation"></span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">background-color</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">var</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">--color</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">red</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
 <h3 id="instantiation-and-application">Instantiation and application</h3>
 <p>Most languages use the “new” keyword to create
 an “instance” of the class.
 This is an object with the properties defined by the class.</p>
-<pre class="language-javascript"><code is:raw="" class="language-javascript"><span class="token keyword">const</span> house <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Class</span><span class="token punctuation">(</span><span class="token string">"red"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "house" is like the actual house</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>house<span class="token punctuation">.</span><span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs "red"</span>
-house<span class="token punctuation">.</span><span class="token function">paint</span><span class="token punctuation">(</span><span class="token string">"blue"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>house<span class="token punctuation">.</span><span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs "blue"</span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">house</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">new</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">Class</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&quot;red&quot;</span><span style="color: #C9D1D9">); </span><span style="color: #8B949E">// &quot;house&quot; is like the actual house</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(house.</span><span style="color: #D2A8FF">getColor</span><span style="color: #C9D1D9">()); </span><span style="color: #8B949E">// logs &quot;red&quot;</span></span>
+<span class="line"><span style="color: #C9D1D9">house.</span><span style="color: #D2A8FF">paint</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&quot;blue&quot;</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(house.</span><span style="color: #D2A8FF">getColor</span><span style="color: #C9D1D9">()); </span><span style="color: #8B949E">// logs &quot;blue&quot;</span></span></code></pre>
 <p>Rather than creating a new object,
 properties defined by a selector are
 automatically applied to HTML elements
 that they match.</p>
-<pre class="language-html"><code is:raw="" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">&gt;</span></span>This has a red background<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">--color</span><span class="token punctuation">:</span>blue</span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span>This has a blue background<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;This has a red background&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">style</span><span style="color: #C9D1D9">=</span><span style="color: #A5D6FF">&quot;</span><span style="color: #C9D1D9">--color:blue&quot;</span><span style="color: #C9D1D9">&gt;This has a blue background&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span></code></pre>
 <h3 id="extension">Extension</h3>
 <p>Classes can be “extended”.</p>
-<pre class="language-javascript"><code is:raw="" class="language-javascript"><span class="token keyword">class</span> <span class="token class-name">BigRedHouse</span> <span class="token keyword">extends</span> <span class="token class-name">House</span> <span class="token keyword">class</span> <span class="token punctuation"></span>
-  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation"></span>
-    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token string">"red"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>isBig <span class="token operator">===</span> <span class="token boolean">true</span>
-  <span class="token punctuation"></span></code>
-<span class="token punctuation"></span></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">class</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">BigRedHouse</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">extends</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">House</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">class</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">constructor</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #79C0FF">super</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&quot;red&quot;</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.isBig </span><span style="color: #FF7B72">===</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">true</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
 <p>Property definitons from the original class
 are included in the new class.
 We say the properties are “inherited”.</p>
-<pre class="language-javascript"><code is:raw="" class="language-javascript"><span class="token keyword">const</span> bigRedHouse <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigRedHouse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bigRedHouse<span class="token punctuation">.</span><span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs "red"</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bigRedHouse<span class="token punctuation">.</span>isBig<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs "true"</span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">bigRedHouse</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">new</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">BigRedHouse</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(bigRedHouse.</span><span style="color: #D2A8FF">getColor</span><span style="color: #C9D1D9">()); </span><span style="color: #8B949E">// logs &quot;red&quot;</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(bigRedHouse.isBig); </span><span style="color: #8B949E">// logs &quot;true&quot;</span></span></code></pre>
 <p>Some CSS preprocessors use a similar
 <a href="https://sass-lang.com/documentation/at-rules/extend">concept of extension</a>,
 This is not a feature of uncompiled CSS,
@@ -80,81 +82,81 @@ as a “CSS class”.)</p>
 <p>Placing two selectors together (with no space between)
 creates a new selector.
 Both selectors much match an element to be applied.</p>
-<pre class="language-css"><code is:raw="" class="language-css"><span class="token selector">section</span> <span class="token punctuation"></span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-<span class="token punctuation"></span></code>
-
-<span class="token selector">section.big</span> <span class="token punctuation"></span>
-  <span class="token property">font-size</span><span class="token punctuation">:</span> 2rem<span class="token punctuation">;</span>
-<span class="token punctuation"></span></pre>
-<pre class="language-html"><code is:raw="" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">&gt;</span></span>This has a red background<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>big<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>This has a red background and big text.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">background-color</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">red</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7EE787">section</span><span style="color: #79C0FF">.big</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">font-size</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">2</span><span style="color: #FF7B72">rem</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;This has a red background&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">class</span><span style="color: #C9D1D9">=</span><span style="color: #A5D6FF">&quot;big&quot;</span><span style="color: #C9D1D9">&gt;This has a red background and big text.&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span></code></pre>
 <p>Chains of objects can inherit from eachother.</p>
-<pre class="language-css"><code is:raw="" class="language-css"><span class="token selector">section.big.fancy_blue</span> <span class="token punctuation"></span>
-  <span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
-<span class="token punctuation"></span></code></pre>
-<pre class="language-html"><code is:raw="" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>big fancy_blue<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-  This has a blue background and big italicized text.
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #7EE787">section</span><span style="color: #79C0FF">.big.fancy_blue</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">font-style</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">italic</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">background-color</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">blue</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">class</span><span style="color: #C9D1D9">=</span><span style="color: #A5D6FF">&quot;big fancy_blue&quot;</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  This has a blue background and big italicized text.</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span></code></pre>
 <h2 id="type-mixins">Type: Mixins</h2>
 <p>Mixins are a way to give an object with properties directly.
 They are less formal and there is not sanctioned syntax
 in javascript.</p>
-<p>We can use <code is:raw="">Object.assign</code> to give an object properties.</p>
-<pre class="language-javascript"><code is:raw="" class="language-javascript"><span class="token keyword">const</span> collegeStudent <span class="token operator">=</span> <span class="token punctuation"></span>
-  <span class="token literal-property property">canRead</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token punctuation"></span></code>
-<span class="token keyword">const</span> surgeon <span class="token operator">=</span> <span class="token punctuation"></span>
-  <span class="token function">preformSurgery</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation"></span>
-    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0.9</span> <span class="token string">"success"</span> <span class="token operator">:</span> <span class="token string">"..."</span><span class="token punctuation">;</span>
-  <span class="token punctuation"></span></pre>
-<span class="token punctuation"></span>
-
-<span class="token keyword">const person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>person<span class="token punctuation">,</span> surgeon<span class="token punctuation">,</span> collegeStudent<span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>canRead<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs "true"</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">preformSurgery</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs "success" (I hope)</span>
+<p>We can use <code>Object.assign</code> to give an object properties.</p>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">collegeStudent</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  canRead:</span><span style="color: #79C0FF">true</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span>
+<span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">surgeon</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">preformSurgery</span><span style="color: #C9D1D9">(){</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">Math</span><span style="color: #C9D1D9">.</span><span style="color: #79C0FF">random</span><span style="color: #C9D1D9">() </span><span style="color: #FF7B72">&gt;</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">0.9</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&quot;success&quot;</span><span style="color: #C9D1D9"> : </span><span style="color: #A5D6FF">&quot;...&quot;</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">person</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">new</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">Person</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #79C0FF">Object</span><span style="color: #C9D1D9">.</span><span style="color: #D2A8FF">assign</span><span style="color: #C9D1D9">(person, surgeon, collegeStudent);</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(person.canRead); </span><span style="color: #8B949E">// logs &quot;true&quot;</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(person.</span><span style="color: #D2A8FF">preformSurgery</span><span style="color: #C9D1D9">()); </span><span style="color: #8B949E">// logs &quot;success&quot; (I hope)</span></span></code></pre>
 <p>Notice that with mixins, an object can inherit from multiple objects
 without them having to inherit from one another.</p>
 <p>Recall the styles and markup from the previous “Extension” section:</p>
-<pre class="language-css"><code is:raw="" class="language-css"><span class="token selector">section</span> <span class="token punctuation"></span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-<span class="token punctuation"></span></code>
-
-<span class="token selector">section.big</span> <span class="token punctuation"></span>
-  <span class="token property">font-size</span><span class="token punctuation">:</span> 2rem<span class="token punctuation">;</span>
-<span class="token punctuation"></span></pre>
-<span class="token selector">section.big.fancy_blue</span> <span class="token punctuation"></span>
-  <span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
-<span class="token punctuation"></span></span>
-<pre class="language-html"><code is:raw="" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">&gt;</span></span>This has a red background<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>big<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>This has a red background and big text.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>big fancy_blue<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-  This has a blue background and big italicized text.
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">background-color</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">red</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7EE787">section</span><span style="color: #79C0FF">.big</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">font-size</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">2</span><span style="color: #FF7B72">rem</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span>
+<span class="line"><span style="color: #7EE787">section</span><span style="color: #79C0FF">.big.fancy_blue</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">font-style</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">italic</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">background-color</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">blue</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;This has a red background&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">class</span><span style="color: #C9D1D9">=</span><span style="color: #A5D6FF">&quot;big&quot;</span><span style="color: #C9D1D9">&gt;This has a red background and big text.&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">class</span><span style="color: #C9D1D9">=</span><span style="color: #A5D6FF">&quot;big fancy_blue&quot;</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  This has a blue background and big italicized text.</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span></code></pre>
 <p>We used the selectors together forming a heirchy,
 but we could have split them apart.
 This would allow them to apply to additional
 elements outside of said heirachy, in additon to the ones we defined</p>
-<pre class="language-css"><code is:raw="" class="language-css"><span class="token selector">section</span> <span class="token punctuation"></span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-<span class="token punctuation"></span></code>
-<span class="token selector">.big</span> <span class="token punctuation"></span>
-  <span class="token property">font-size</span><span class="token punctuation">:</span> 2rem<span class="token punctuation">;</span>
-<span class="token punctuation"></span></pre>
-<span class="token selector">.fancy_blue <span class="token punctuation"></span>
-  <span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
-<span class="token punctuation"></span></span>
-<pre class="language-html"><code is:raw="" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">&gt;</span></span>This has a red background<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>big<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>This has a red background and big text.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>big fancy_blue<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-  This has a blue background and big italicized text.
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>big<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>This has big text, but no background defined.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fancy_blue<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>This has a blue background and italicized, but regular sized text.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">background-color</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">red</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span>
+<span class="line"><span style="color: #79C0FF">.big</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">font-size</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">2</span><span style="color: #FF7B72">rem</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span>
+<span class="line"><span style="color: #79C0FF">.fancy_blue</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">font-style</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">italic</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">background-color</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">blue</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;This has a red background&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">class</span><span style="color: #C9D1D9">=</span><span style="color: #A5D6FF">&quot;big&quot;</span><span style="color: #C9D1D9">&gt;This has a red background and big text.&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">class</span><span style="color: #C9D1D9">=</span><span style="color: #A5D6FF">&quot;big fancy_blue&quot;</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  This has a blue background and big italicized text.</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">div</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">class</span><span style="color: #C9D1D9">=</span><span style="color: #A5D6FF">&quot;big&quot;</span><span style="color: #C9D1D9">&gt;This has big text, but no background defined.&lt;/</span><span style="color: #7EE787">div</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">class</span><span style="color: #C9D1D9">=</span><span style="color: #A5D6FF">&quot;fancy_blue&quot;</span><span style="color: #C9D1D9">&gt;This has a blue background and italicized, but regular sized text.&lt;/</span><span style="color: #7EE787">div</span><span style="color: #C9D1D9">&gt;</span></span></code></pre>
 <p>Defining CSS selectors separately
 allows properties associated
 with multiple to be mixed in
@@ -168,25 +170,25 @@ When we attempt to access properties on the new object,
 if they do not exist; the request is proxied to the prototype.
 Objects that exist on on object’s prototype, but not on the object itself,
 are considered “inherited”.</p>
-<p>In javascript, we use object <code is:raw="">Object.create</code> to create an object,
+<p>In javascript, we use object <code>Object.create</code> to create an object,
 with another object as it’s prototype.</p>
-<pre class="language-javascript"><code is:raw="" class="language-javascript"><span class="token keyword">const</span> John <span class="token operator">=</span> <span class="token punctuation"></span>
-  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"John"</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
-  <span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation"></span>
-    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
-  <span class="token punctuation"></span></code><span class="token punctuation">,</span>
-<span class="token punctuation"></span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> clone <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>John<span class="token punctuation">)</span><span class="token punctuation">;</span>
-clone<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"N'Hoj"</span><span class="token punctuation">;</span>
-clone<span class="token punctuation">.</span>isEvil <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>John<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs "30"</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>clone<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs "30"</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>John<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs "John"</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>clone<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs "N'Hoj"</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">!</span>John<span class="token punctuation">.</span>isEvil<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs "false"</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">!</span>clone<span class="token punctuation">.</span>isEvil<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs "true"</span></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">John</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  name: </span><span style="color: #A5D6FF">&quot;John&quot;</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">  age: </span><span style="color: #79C0FF">30</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">sayName</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.name;</span></span>
+<span class="line"><span style="color: #C9D1D9">  },</span></span>
+<span class="line"><span style="color: #C9D1D9">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">clone</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">Object</span><span style="color: #C9D1D9">.</span><span style="color: #D2A8FF">create</span><span style="color: #C9D1D9">(John);</span></span>
+<span class="line"><span style="color: #C9D1D9">clone.name </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&quot;N&#39;Hoj&quot;</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">clone.isEvil </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">true</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(John.age); </span><span style="color: #8B949E">// logs &quot;30&quot;</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(clone.age); </span><span style="color: #8B949E">// logs &quot;30&quot;</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(John.</span><span style="color: #D2A8FF">sayName</span><span style="color: #C9D1D9">()); </span><span style="color: #8B949E">// logs &quot;John&quot;</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(clone.</span><span style="color: #D2A8FF">sayName</span><span style="color: #C9D1D9">()); </span><span style="color: #8B949E">// logs &quot;N&#39;Hoj&quot;</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">!!</span><span style="color: #C9D1D9">John.isEvil); </span><span style="color: #8B949E">// logs &quot;false&quot;</span></span>
+<span class="line"><span style="color: #C9D1D9">console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">!!</span><span style="color: #C9D1D9">clone.isEvil); </span><span style="color: #8B949E">// logs &quot;true&quot;</span></span></code></pre>
 <p>When not defined by a selector targeting an element,
 some CSS properties assume a default value.
 Others take on the value of their parent.</p>
@@ -195,17 +197,17 @@ properties are inherited.
 Checkout <a href="https://stackoverflow.com/a/5612360/1290781">this stackoverflow answer</a>
 for guidance.</p>
 <p>In this case elements inherit properties from thier parent elements.</p>
-<pre class="language-css"><code is:raw="" class="language-css"><span class="token selector">section</span> <span class="token punctuation"></span>
-  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-<span class="token punctuation"></span></code></pre>
-<pre class="language-html"><code is:raw="" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">&gt;</span></span>
-  Text in this section is red as defined.
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>Text is here is red because it's inherited from above.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">color</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">red</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  Text in this section is red as defined.</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">div</span><span style="color: #C9D1D9">&gt;Text is here is red because it&#39;s inherited from above.&lt;/</span><span style="color: #7EE787">div</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span></code></pre>
 <h2 id="summary">Summary</h2>
 <p>Once cleard of initial styles, HTML elements can be applied</p>
-<pre class="language-null"><code is:raw="" class="language-null">1. via style selector or directly
-2. via</code></pre>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">1. via style selector or directly</span></span>
+<span class="line"><span style="color: #c9d1d9">2. via</span></span></code></pre>
 <h2 id="problems">Problems</h2>
 <p>A lot of problems stem from misunderstanings of
 css specificity and inheritence.</p>
@@ -220,12 +222,12 @@ it’s said to inherit the</p>
 and how you can structure your style sheets
 to avoid shooing yousself in the foot.</p>
 <h2 id="footnotes">Footnotes</h2>
-<section data-footnotes="" class="footnotes"><h2 id="footnote-label" class="sr-only">Footnotes</h2>
+<section data-footnotes class="footnotes"><h2 id="footnote-label" class="sr-only">Footnotes</h2>
 <ol>
 <li id="user-content-fn-1">
 <p>not “properties”,
 though we often use these interchangeably
-when dealing whit chasses) <a href="#user-content-fnref-1" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+when dealing whit chasses) <a href="#user-content-fnref-1" data-footnote-backref class="data-footnote-backref" aria-label="Back to content">↩</a></p>
 </li>
 </ol>
-</section></body></html>
+</section>

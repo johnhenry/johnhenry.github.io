@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="en">
+  <head>
   
-  
-<!-- { title ? <title>{title}</title> : null }
+  <!-- { title ? <title>{title}</title> : null }
 
 { canonical ? (
 	<link 
@@ -20,34 +20,32 @@
 <meta
 	name="robots"
 	content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
-> -->
-
-<!-- { generateOpenGraphBasicTags(props) }
+> --><!-- { generateOpenGraphBasicTags(props) }
 { generateOpenGraphOptionalTags(props) }
 { generateOpenGraphImageTags(props) }
 { generateOpenGraphArticleTags(props) }
 { generateTwitterTags(props) } -->
-
   <meta name="theme-color" content="#343233">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <meta name="keywords" content="programming,semantics">
+  <meta name="keywords" content="fun,math,engineering,science,experiments,programming,programming,semantics">
   <meta name="author" content="John Henry">
   
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" href="/image/iajh.png" type="image/png">
+  <link rel="manifest" href="https://johnhenry.github.io/manifest.json">
+  <link rel="icon" href="https://johnhenry.github.io/image/iajh.png" type="image/png">
   
-<link rel="stylesheet" href="http://localhost:3001/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/hide-n-show/0.0.0/landscape.css">
-  <link rel="stylesheet" href="/style/index.css">
-  <script>;</script>
-<script type="module" src="http://localhost:3001/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="http://localhost:3001/js/css-variables-scroll/0.0.0/index.mjs"></script>
-  <link rel="apple-touch-icon" sizes="512x512" href="/image/iajh.512.png">
-  <link rel="apple-touch-icon" sizes="384x384" href="/image/iajh.384.png">
-  <link rel="apple-touch-icon" sizes="256x256" href="/image/iajh.256.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="/image/iajh.192.png">
-  <link rel="apple-touch-icon" sizes="128x128" href="/image/iajh.128.png">
-</head><body>
-  <script type="module">let SITE_LIB_URL = "http://localhost:3001/";
+<link rel="stylesheet" href="https://johnhenry.github.io/lib/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/hide-n-show/0.0.0/landscape.css">
+  <link rel="stylesheet" href="https://johnhenry.github.io/style/index.css">
+  &lt;script&gt;;&lt;/script&gt;
+<script type="module" src="https://johnhenry.github.io/lib/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/css-variables-scroll/0.0.0/index.mjs"></script>
+  <link rel="apple-touch-icon" sizes="512x512" href="https://johnhenry.github.io/image/iajh.512.png">
+  <link rel="apple-touch-icon" sizes="384x384" href="https://johnhenry.github.io/image/iajh.384.png">
+  <link rel="apple-touch-icon" sizes="256x256" href="https://johnhenry.github.io/image/iajh.256.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="https://johnhenry.github.io/image/iajh.192.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="https://johnhenry.github.io/image/iajh.128.png">
+
+</head>
+  <script type="module">let SITE_LIB_URL = "https://johnhenry.github.io/lib/";
 let storageKey = "color-theme-preference";
 let classes = ["color-theme-dark","","color-theme-light"];
 let selector = "body";
@@ -65,7 +63,7 @@ const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0
   }
   globalThis[global] = localStorageCycler(key, emit, ...values);
 </script>
-  <script type="module">let SITE_LIB_URL = "http://localhost:3001/";
+  <script type="module">let SITE_LIB_URL = "https://johnhenry.github.io/lib/";
 let storageKey = "mouse-chaser-preference";
 let classes = ["","mouse-chaser-logo","mouse-chaser-coordinates"];
 let selector = "body";
@@ -83,9 +81,9 @@ const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0
   }
   globalThis[global] = localStorageCycler(key, emit, ...values);
 </script>
-  
+  <body class="color-theme-dark">
     <header>
-      <a href="/#"><img src="/image/iajh.png" width="32" height="32" alt="logo">
+      <a href="/#"><img src="https://johnhenry.github.io/image/iajh.png" width="32" height="32" alt="logo">
       <p class="hide-n-show-landscape-inline">John Henry Blog -- HTML Tags for Data</p></a>
       <nav class="hide show-landscape-flex">
         <a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a>
@@ -109,15 +107,18 @@ as generic containers.
 We might follow up an h3 tag with a few h1s
 to achieve a desired style.</p><p>It’s great that we can do this on the web
 without having our browsers throw errors like
-<code is:raw="">&lt;div&gt; in &lt;li&gt; *not allowed*. aborting render. upsetting user.</code>;
+<code>&#x3C;div> in &#x3C;li> *not allowed*. aborting render. upsetting user.</code>;
 but when displaying data in documents, it may be useful</p><h2 id="collections-ul--li">Collections: ul + li</h2><p>Sets</p><h2 id="ordered-collections-ol--li">Ordered Collections: ol + li</h2><p>Arrays, Vectors</p><h2 id="typed-collections-table--trthtd">Typed Collections: table + tr,(th?),td</h2><p>Typed Array, Matrix,</p><h2 id="key-value-pairs-dldtdd">Key-Value Pairs: dl+dt,dd</h2><p>Maps, Dictionaries, Generic Objects</p><h2 id="linked-list-tree--a--details--summary">Linked List, Tree : a | details + summary</h2><p>This is probably going to seem crazy when compared
 to the other items, but you will likely find it intuitive.</p><p>The idean of “linking” objets exists
 in most languages, though it may not be a
 first-class concept.</p><p>For instance, in JavaScript you can “link”
 two objects by giving one a reference
-to the other.</p><pre class="language-javascript"><code is:raw="" class="language-javascript"><span class="token keyword">const</span> objectA <span class="token operator">=</span> <span class="token punctuation"></span><span class="token punctuation"></span></code><span class="token punctuation">;</span>
-<span class="token keyword">const</span> objectB <span class="token operator">=</span> <span class="token punctuation"></span><span class="token punctuation"></span></pre><span class="token punctuation">;</span>
-a<span class="token punctuation">[</span><span class="token string">"b"</span><span class="token punctuation">]</span><span class="token operator">=</span> objectB<span class="token punctuation">;</span><span class="token comment">// b is now linked to a</span><span class="token comment">// as it can be rererenced</span><span class="token comment">// via</span>
+to the other.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">objectA</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> {};</span></span>
+<span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">objectB</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> {};</span></span>
+<span class="line"><span style="color: #C9D1D9">a[</span><span style="color: #A5D6FF">&quot;b&quot;</span><span style="color: #C9D1D9">] </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> objectB;</span></span>
+<span class="line"><span style="color: #8B949E">// b is now linked to a</span></span>
+<span class="line"><span style="color: #8B949E">// as it can be rererenced</span></span>
+<span class="line"><span style="color: #8B949E">// via</span></span></code></pre>
     </article>
     <a class="link-untracked" href="/blog">back to blog</a>
   </section>
@@ -133,5 +134,5 @@ a<span class="token punctuation">[</span><span class="token string">"b"</span><s
     </footer>
     
     
-  
-</body></html>
+  </body>
+</html>
