@@ -26,9 +26,15 @@ export default [
     image,
   },
   {
+    title: "Actually Serverless",
+    description: "Simulate a cluster of servers within your browser",
+    href: "https://johnhenry.github.io/actually-serverless",
+    image: `${SITE_BASE_PATH}personal/image/bufka.karolina/cat-on-chair.jpg`,
+  },
+  {
     title: "Blog",
     description: "Thoughts and musings",
     href: "https://johnhenry.github.io/blog",
-    image: `${SITE_BASE_PATH}personal/image/bufka.karolina/cat-on-chair.jpg`,
+    image,
   },
 ];
