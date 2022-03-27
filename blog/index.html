@@ -1,27 +1,180 @@
-<!DOCTYPE html><html lang="en"><head><title>John Henry : Blog -- #1</title><link rel="canonical" href="https://johnhenry.github.io/"><meta name="description" content="John Henry's Person Portfolio and Blog"><meta name="robots" content="index,follow"><meta name="theme-color" content="#343233"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta charset="utf-8"><meta name="keywords" content="fun,math,engineering,science,experiments,programming"><meta name="author" content="John Henry"><link rel="manifest" href="https://johnhenry.github.io/manifest.json"><link rel="icon" href="https://johnhenry.github.io/image/iajh.png" type="image/png"><link rel="stylesheet" href="https://johnhenry.github.io/lib/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/hide-n-show/0.0.0/landscape.css"><link rel="stylesheet" href="https://johnhenry.github.io/style/index.css"><script type="module" src="https://johnhenry.github.io/lib/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/css-variables-scroll/0.0.0/index.mjs"></script><link rel="apple-touch-icon" sizes="512x512" href="https://johnhenry.github.io/image/iajh.512.png"><link rel="apple-touch-icon" sizes="384x384" href="https://johnhenry.github.io/image/iajh.384.png"><link rel="apple-touch-icon" sizes="256x256" href="https://johnhenry.github.io/image/iajh.256.png"><link rel="apple-touch-icon" sizes="192x192" href="https://johnhenry.github.io/image/iajh.192.png"><link rel="apple-touch-icon" sizes="128x128" href="https://johnhenry.github.io/image/iajh.128.png"><script type="module">
-  import localStorageCycler from "https://johnhenry.github.io/lib/js/localstorage-cycler/0.0.0/index.mjs";
-  const key = 'color-theme-preference';
-  const values = ["color-theme-dark","","color-theme-light"];
-  const target = globalThis.document.querySelector("body");
-  const emit = ({value, key, index}) => {
-    target.classList.remove(...values.filter(s=>s));
-    if(value){
-      target.classList.add(value);
-    }
-  }
-  window["cycleTheme"] = localStorageCycler(key, emit, ...values);
-</script><script type="module">
-  import localStorageCycler from "https://johnhenry.github.io/lib/js/localstorage-cycler/0.0.0/index.mjs";
-  const key = 'mouse-chaser-preference';
-  const values = ["","mouse-chaser-logo","mouse-chaser-coordinates"];
-  const target = globalThis.document.querySelector("body");
-  const emit = ({value, key, index}) => {
-    target.classList.remove(...values.filter(s=>s));
-    if(value){
-      target.classList.add(value);
-    }
-  }
-  window["cycleMouseChaser"] = localStorageCycler(key, emit, ...values);
-</script></head>
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+<!-- { title ? <title>{title}</title> : null }
 
-<body class="color-theme-dark"><header><a href="/#"><img src="https://johnhenry.github.io/image/iajh.png" width="32" height="32" alt="logo"><p class="hide-n-show-landscape-inline">John Henry Blog -- #1</p></a><nav class="hide show-landscape-flex"><a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a></nav></header><section class="blog-top"><header><svg class="logo astro-sZTeIQzh" width="67.733" height="67.733" version="1.1" viewBox="0 0 67.733 67.733" xmlns="http://www.w3.org/2000/svg" onclick=""><path d="m27.252 12.435v23.019a6.6146 6.6146 0 0 1-6.6146 6.6146 6.6146 6.6146 0 0 1-6.6146-6.6146h-13.229a19.844 19.844 0 0 0 19.844 19.844 19.844 19.844 0 0 0 19.192-14.817h13.881v14.817h13.229v-42.862h-13.229v14.817h-13.229v-14.817z" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="268.402" onclick=""></path></svg></header><p>This is the place where I muse about technology.</p><p>Page : 1</p></section><section class="blog-preview glowey-background"><header>4 November 2021<a class="link-contents" href="/blog/posts/semantics-vs-accessibility"><img src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"></a></header><article><header><a class="link-untracked" href="/blog/posts/semantics-vs-accessibility"><p>Semantics Versus Accessibility</p></a></header><p>We explore an issue plaguing modern development and propose a solution</p><footer><a href="/blog/posts/semantics-vs-accessibility">Read more</a></footer></article></section><section class="blog-preview glowey-background"><header>26 October 2021<a class="link-contents" href="/blog/posts/manage-websites-like-docker"><img src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"></a></header><article><header><a class="link-untracked" href="/blog/posts/manage-websites-like-docker"><p>Manage Websites Like Docker</p></a></header><p>Manage static websites like you manage Docker images</p><footer><a href="/blog/posts/manage-websites-like-docker">Read more</a></footer></article></section><section class="blog-preview glowey-background"><header>7 September 2019<a class="link-contents" href="/blog/posts/vscode-on-remote-server"><img src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"></a></header><article><header><a class="link-untracked" href="/blog/posts/vscode-on-remote-server"><p>VS Code on a Remote Server</p></a></header><p>How to run Visual Studio Code on a remote server</p><footer><a href="/blog/posts/vscode-on-remote-server">Read more</a></footer></article></section><section class="blog-preview glowey-background"><header>1 May 2019<a class="link-contents" href="/blog/posts/browsers-servers-and-apis"><img src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"></a></header><article><header><a class="link-untracked" href="/blog/posts/browsers-servers-and-apis"><p>Browsers, Servers, and APIs</p></a></header><p>Using servers in the browsers</p><footer><a href="/blog/posts/browsers-servers-and-apis">Read more</a></footer></article></section><section class="blog-preview glowey-background"><header>1 August 2013<a class="link-contents" href="/blog/posts/angular-done-right"><img src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"></a></header><article><header><a class="link-untracked" href="/blog/posts/angular-done-right"><p>Angular Done Right: Part 1</p></a></header><p>The first in a series on how to use Angular 1.0</p><footer><a href="/blog/posts/angular-done-right">Read more</a></footer></article></section><span class="mouse-chaser"></span><footer><a href="#">© 2022 John Henry</a><nav><a href="#" class="mouse-chaser-toggler" onclick="event.preventDefault(),window.cycleMouseChaser()" title="Click to toggle mouse."></a><a href="#" class="color-theme-toggler" onclick="event.preventDefault(),window.cycleTheme()" title="Click to toggle color theme."></a></nav></footer></body></html>
+{ canonical ? (
+	<link 
+		rel="canonical"
+		href={canonical}
+	/>
+) : null}
+
+{ description ? (
+	<meta
+  	name="description"
+  	content={description}
+  />
+) : null }
+
+<meta
+	name="robots"
+	content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
+> -->
+
+<!-- { generateOpenGraphBasicTags(props) }
+{ generateOpenGraphOptionalTags(props) }
+{ generateOpenGraphImageTags(props) }
+{ generateOpenGraphArticleTags(props) }
+{ generateTwitterTags(props) } -->
+
+  <meta name="theme-color" content="#343233">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="">
+  <meta name="author" content="John Henry">
+  
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/image/iajh.png" type="image/png">
+  
+<link rel="stylesheet" href="http://localhost:3001/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/hide-n-show/0.0.0/landscape.css">
+  <link rel="stylesheet" href="/style/index.css">
+  <script>;</script>
+<script type="module" src="http://localhost:3001/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="http://localhost:3001/js/css-variables-scroll/0.0.0/index.mjs"></script>
+  <link rel="apple-touch-icon" sizes="512x512" href="/image/iajh.512.png">
+  <link rel="apple-touch-icon" sizes="384x384" href="/image/iajh.384.png">
+  <link rel="apple-touch-icon" sizes="256x256" href="/image/iajh.256.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/image/iajh.192.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="/image/iajh.128.png">
+</head><body>
+  <script type="module">let SITE_LIB_URL = "http://localhost:3001/";
+let storageKey = "color-theme-preference";
+let classes = ["color-theme-dark","","color-theme-light"];
+let selector = "body";
+let global = "cycleTheme";
+
+const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0.0.0/index.mjs`).then(m => m.default);
+  const key = `${storageKey}`;
+  const values = classes;
+  const target = globalThis.document.querySelector(`${selector}`);
+  const emit = ({value, key, index}) => {
+    target.classList.remove(...values.filter(s=>s));
+    if(value){
+      target.classList.add(value);
+    }
+  }
+  globalThis[global] = localStorageCycler(key, emit, ...values);
+</script>
+  <script type="module">let SITE_LIB_URL = "http://localhost:3001/";
+let storageKey = "mouse-chaser-preference";
+let classes = ["","mouse-chaser-logo","mouse-chaser-coordinates"];
+let selector = "body";
+let global = "cycleMouseChaser";
+
+const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0.0.0/index.mjs`).then(m => m.default);
+  const key = `${storageKey}`;
+  const values = classes;
+  const target = globalThis.document.querySelector(`${selector}`);
+  const emit = ({value, key, index}) => {
+    target.classList.remove(...values.filter(s=>s));
+    if(value){
+      target.classList.add(value);
+    }
+  }
+  globalThis[global] = localStorageCycler(key, emit, ...values);
+</script>
+  
+    <header>
+      <a href="/#"><img src="/image/iajh.png" width="32" height="32" alt="logo">
+      <p class="hide-n-show-landscape-inline">John Henry Blog -- #1</p></a>
+      <nav class="hide show-landscape-flex">
+        <a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a>
+      </nav>
+    </header>
+    <!-- the good stuff -->
+    <section class="blog-top">
+    <header><svg class="logo" width="67.733" height="67.733" version="1.1" viewBox="0 0 67.733 67.733" xmlns="http://www.w3.org/2000/svg" onclick="">
+  
+  <path d="m27.252 12.435v23.019a6.6146 6.6146 0 0 1-6.6146 6.6146 6.6146 6.6146 0 0 1-6.6146-6.6146h-13.229a19.844 19.844 0 0 0 19.844 19.844 19.844 19.844 0 0 0 19.192-14.817h13.881v14.817h13.229v-42.862h-13.229v14.817h-13.229v-14.817z" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="268.402" onclick=""></path>
+</svg>
+</header>
+    <p>This is the place where I muse about technology.</p>
+    <p>Page : 1</p>
+  </section><section class="blog-preview glowey-background">
+  <header>
+    4 November 2021
+    <a class="link-contents" href="/blog/posts/semantics-vs-accessibility"><img src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"></a>
+  </header>
+  <article>
+    <header>
+      <a class="link-untracked" href="/blog/posts/semantics-vs-accessibility">
+        <p>Semantics Versus Accessibility</p>
+      </a>
+    </header>
+    <p>We explore an issue plaguing modern development and propose a solution</p>
+    <footer><a href="/blog/posts/semantics-vs-accessibility">Read more</a></footer>
+  </article>
+</section>
+<section class="blog-preview glowey-background">
+  <header>
+    26 October 2021
+    <a class="link-contents" href="/blog/posts/manage-websites-like-docker"><img src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"></a>
+  </header>
+  <article>
+    <header>
+      <a class="link-untracked" href="/blog/posts/manage-websites-like-docker">
+        <p>Manage Websites Like Docker</p>
+      </a>
+    </header>
+    <p>Manage static websites like you manage Docker images</p>
+    <footer><a href="/blog/posts/manage-websites-like-docker">Read more</a></footer>
+  </article>
+</section>
+<section class="blog-preview glowey-background">
+  <header>
+    7 September 2019
+    <a class="link-contents" href="/blog/posts/vscode-on-remote-server"><img src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"></a>
+  </header>
+  <article>
+    <header>
+      <a class="link-untracked" href="/blog/posts/vscode-on-remote-server">
+        <p>VS Code on a Remote Server</p>
+      </a>
+    </header>
+    <p>How to run Visual Studio Code on a remote server</p>
+    <footer><a href="/blog/posts/vscode-on-remote-server">Read more</a></footer>
+  </article>
+</section>
+<section class="blog-preview glowey-background">
+  <header>
+    1 May 2019
+    <a class="link-contents" href="/blog/posts/browsers-servers-and-apis"><img src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"></a>
+  </header>
+  <article>
+    <header>
+      <a class="link-untracked" href="/blog/posts/browsers-servers-and-apis">
+        <p>Browsers, Servers, and APIs</p>
+      </a>
+    </header>
+    <p>Using servers in the browsers</p>
+    <footer><a href="/blog/posts/browsers-servers-and-apis">Read more</a></footer>
+  </article>
+</section>
+<section class="blog-nav"><a></a>
+<a>1</a><a href="/blog/2">2</a>
+<a href="/blog/2/">next</a></section>
+    <!-- the good stuff -->
+    <span class="mouse-chaser"></span>
+    <footer>
+    <a href="#">© 2022   John Henry</a>
+      <!-- Todo: Astro whitespace may be fixed in Astro 0.21? -->
+      <nav>
+        <a href="#" class="mouse-chaser-toggler" onclick="event.preventDefault(),window.cycleMouseChaser()" title="Click to toggle mouse."></a>
+        <a href="#" class="color-theme-toggler" onclick="event.preventDefault(),window.cycleTheme()" title="Click to toggle color theme."></a>
+      </nav>
+    </footer>
+    
+    
+  
+
+</body></html>

@@ -31,7 +31,7 @@
   <meta name="theme-color" content="#343233">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <meta name="keywords" content="experiment,programming">
+  <meta name="keywords" content="">
   <meta name="author" content="John Henry">
   
   <link rel="manifest" href="/manifest.json">
@@ -86,76 +86,38 @@ const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0
   
     <header>
       <a href="/#"><img src="/image/iajh.png" width="32" height="32" alt="logo">
-      <p class="hide-n-show-landscape-inline">John Henry Blog -- My new website</p></a>
+      <p class="hide-n-show-landscape-inline">John Henry Blog -- #2</p></a>
       <nav class="hide show-landscape-flex">
         <a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a>
       </nav>
     </header>
     <!-- the good stuff -->
     <section class="blog-top">
-    <header><p>My new website</p></header>
-    <a class="link-untracked" href="/blog">back to blog</a>
-    <img width="360" height="210" loading="lazy" src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg" alt="Astro">
-    <article class="blog-content">
-      <p class="publish-date"></p>
-      <h1>My new website</h1>
-      <div class="author">
-        <p><a href="#">John Henry</a></p>
-      </div>
-      <p><em>Author’s Note: This is a <strong>Highly Opinionated</strong> guide. Your experiences and preferences may differ.</em></p><h2 id="introduction-and-openess">Introduction and Openess</h2><p>I’ve learned most of what I have
-by looking at what others have built before me.
-The ability to select “view source”
-from the browser’s context menu
-has been key to what I’ve been able to learn.
-as a developer.
-Being able to use and examine
-source code in public repositories
-has also been a boon.</p><p>With this in mind,
-I set out to create a website
-with components that are easy to extract
-and use in other projects.</p><p>To facilitate this,
-nearly all of the scripts and styles
-are published as importable modules
-located in the /lib/ directory.
-They can be imported
-directly into most modern web
-(or <a href="https://deno.land">deno</a>)
-applications without modification.
-They are uncompressed and feature comments.
-As such, they may not be suitable for production;
-but using modern tooling,
-you can get around this.
-They are also available in their
-<a href="http://github.johnhenry.io/lib">own github repository</a>
-where I am currently working
-on documentation detailing
-how you too can use these modules
-in your own applications.</p><h2 id="declarative-composable-html">Declarative Composable HTML</h2><p>Javascript and CSS both natively support
-importing modules, but HTML does not.
-Though we import scripts and styles directly;
-we use a static compiler in place of markup.</p><p>For this site, I use <a href="https://astro.build">Astro</a>
-as a framework to compose and compile HTML components
-written as “./astro” files.
-I don’t publish these directly at <a href="http://johnhenry.io/lib/">http://johnhenry.io/lib/</a>
-as you can’t simply pull them into an application
-in the same way you do javascript files;
-but they are available on
-<a href="https://github.com/johnhenry.github.io">this site’s github repository</a>
-and I may publish them elsewhere in the future.</p><p>HTML Tags are semantic components.
-Classes represent variations</p><h1 id="reset">reset</h1><h2 id="exceptions">Exceptions</h2><p>For the most part, I try to keep the style separate from the markup.
-That said, there are a few exceptions where I use the HTML structure</p><p>For example, for the buttons in the .widget components,
-I’ve wrapped each letter in a span then styled those as a flex-box for the desired effect.</p><h2 id="unansered-questions">Unansered Questions</h2><h2 id="future">Future</h2><p>Astro 21 — embed components into blog posts</p><p>/*</p><ul>
-<li>style a component primarily by <strong>tag</strong> if it is reusable throughtout
-the application</li>
-<li>add a <strong>class</strong> for slight variations
-<em>/
-/</em></li>
-<li>style components primarily by <strong>class</strong> if its semantic interpretation goes beyond the set of built-in HTML tags
-*/</li>
-</ul>
-    </article>
-    <a class="link-untracked" href="/blog">back to blog</a>
-  </section>
+    <header><svg class="logo" width="67.733" height="67.733" version="1.1" viewBox="0 0 67.733 67.733" xmlns="http://www.w3.org/2000/svg" onclick="">
+  
+  <path d="m27.252 12.435v23.019a6.6146 6.6146 0 0 1-6.6146 6.6146 6.6146 6.6146 0 0 1-6.6146-6.6146h-13.229a19.844 19.844 0 0 0 19.844 19.844 19.844 19.844 0 0 0 19.192-14.817h13.881v14.817h13.229v-42.862h-13.229v14.817h-13.229v-14.817z" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="268.402" onclick=""></path>
+</svg>
+</header>
+    <p>This is the place where I muse about technology.</p>
+    <p>Page : 2</p>
+  </section><section class="blog-preview glowey-background">
+  <header>
+    1 August 2013
+    <a class="link-contents" href="/blog/posts/angular-done-right"><img src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"></a>
+  </header>
+  <article>
+    <header>
+      <a class="link-untracked" href="/blog/posts/angular-done-right">
+        <p>Angular Done Right: Part 1</p>
+      </a>
+    </header>
+    <p>The first in a series on how to use Angular 1.0</p>
+    <footer><a href="/blog/posts/angular-done-right">Read more</a></footer>
+  </article>
+</section>
+<section class="blog-nav"><a href="/blog/">prev</a>
+<a href="/blog/">1</a><a>2</a>
+<a></a></section>
     <!-- the good stuff -->
     <span class="mouse-chaser"></span>
     <footer>
@@ -169,4 +131,5 @@ the application</li>
     
     
   
+
 </body></html>

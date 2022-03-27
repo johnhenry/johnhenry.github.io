@@ -1,63 +1,151 @@
-<!DOCTYPE html><html lang="en"><head><title>John Henry : Blog -- Angular Done Right: Part 1</title><link rel="canonical" href="https://johnhenry.github.io/undefined"><meta name="description" content="The first in a series on how to use Angular 1.0"><meta name="robots" content="index,follow"><meta name="theme-color" content="#343233"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta charset="utf-8"><meta name="keywords" content="fun,math,engineering,science,experiments,programming,programming"><meta name="author" content="John Henry"><link rel="manifest" href="https://johnhenry.github.io/manifest.json"><link rel="icon" href="https://johnhenry.github.io/image/iajh.png" type="image/png"><link rel="stylesheet" href="https://johnhenry.github.io/lib/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/hide-n-show/0.0.0/landscape.css"><link rel="stylesheet" href="https://johnhenry.github.io/style/index.css"><script type="module" src="https://johnhenry.github.io/lib/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/css-variables-scroll/0.0.0/index.mjs"></script><link rel="apple-touch-icon" sizes="512x512" href="https://johnhenry.github.io/image/iajh.512.png"><link rel="apple-touch-icon" sizes="384x384" href="https://johnhenry.github.io/image/iajh.384.png"><link rel="apple-touch-icon" sizes="256x256" href="https://johnhenry.github.io/image/iajh.256.png"><link rel="apple-touch-icon" sizes="192x192" href="https://johnhenry.github.io/image/iajh.192.png"><link rel="apple-touch-icon" sizes="128x128" href="https://johnhenry.github.io/image/iajh.128.png"><script type="module">
-  import localStorageCycler from "https://johnhenry.github.io/lib/js/localstorage-cycler/0.0.0/index.mjs";
-  const key = 'color-theme-preference';
-  const values = ["color-theme-dark","","color-theme-light"];
-  const target = globalThis.document.querySelector("body");
-  const emit = ({value, key, index}) => {
-    target.classList.remove(...values.filter(s=>s));
-    if(value){
-      target.classList.add(value);
-    }
-  }
-  window["cycleTheme"] = localStorageCycler(key, emit, ...values);
-</script><script type="module">
-  import localStorageCycler from "https://johnhenry.github.io/lib/js/localstorage-cycler/0.0.0/index.mjs";
-  const key = 'mouse-chaser-preference';
-  const values = ["","mouse-chaser-logo","mouse-chaser-coordinates"];
-  const target = globalThis.document.querySelector("body");
-  const emit = ({value, key, index}) => {
-    target.classList.remove(...values.filter(s=>s));
-    if(value){
-      target.classList.add(value);
-    }
-  }
-  window["cycleMouseChaser"] = localStorageCycler(key, emit, ...values);
-</script></head>
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+<!-- { title ? <title>{title}</title> : null }
 
-<body class="color-theme-dark"><header><a href="/#"><img src="https://johnhenry.github.io/image/iajh.png" width="32" height="32" alt="logo"><p class="hide-n-show-landscape-inline">John Henry Blog -- Angular Done Right: Part 1</p></a><nav class="hide show-landscape-flex"><a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a></nav></header><section class="blog-top"><header><p>Angular Done Right: Part 1</p></header><a class="link-untracked" href="/blog">back to blog</a><img width="360" height="210" loading="lazy" src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg" alt="Astro"><article class="blog-content"><p class="publish-date">1 August 2013</p><h1>Angular Done Right: Part 1</h1><div class="author"><p><a href="#">John Henry</a></p></div><p><em>Originally Published: <a href="https://medium.com/@iamjohnhenry/angular-done-right-part-1-binding-and-directives-6112a43aa1dc">https://medium.com/@iamjohnhenry/angular-done-right-part-1-binding-and-directives-6112a43aa1dc</a></em></p><p>Author’s Note: While I no longer program heavily using angular, in favor of using smaller, more modular libraries, the reader will find the ideas presented in this series useful.</p><p>Angular is hard, right?</p><p>Well, one thing that’s for sure is that Angular is a massive. It’s a full application framework made of components including directives, controllers, services, and much much more. It’s shrouded in strange new concepts such as “<em>Dependency Injection</em>” and “<em>Transclausion</em>”. Despite it’s overall allure, anyone creating an angular app for the first time must accept that he or she is in for a steep learning curve due before being able to build anything fun or useful.</p><p>That’s the approach that most tutorials on the web take. In this series we take different approach. We’ll gradually build upon the most basic concepts in angular; first introducing the bare minimum needed to build an application and building upon it as we go along.</p><h3 id="installing-angular">Installing Angular</h3><p>We’ll start with a very basic HTML page. Create a basic html page with the following code inside:</p><pre class=" language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+{ canonical ? (
+	<link 
+		rel="canonical"
+		href={canonical}
+	/>
+) : null}
+
+{ description ? (
+	<meta
+  	name="description"
+  	content={description}
+  />
+) : null }
+
+<meta
+	name="robots"
+	content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
+> -->
+
+<!-- { generateOpenGraphBasicTags(props) }
+{ generateOpenGraphOptionalTags(props) }
+{ generateOpenGraphImageTags(props) }
+{ generateOpenGraphArticleTags(props) }
+{ generateTwitterTags(props) } -->
+
+  <meta name="theme-color" content="#343233">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="programming">
+  <meta name="author" content="John Henry">
+  
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/image/iajh.png" type="image/png">
+  
+<link rel="stylesheet" href="http://localhost:3001/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="http://localhost:3001/css/hide-n-show/0.0.0/landscape.css">
+  <link rel="stylesheet" href="/style/index.css">
+  <script>;</script>
+<script type="module" src="http://localhost:3001/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="http://localhost:3001/js/css-variables-scroll/0.0.0/index.mjs"></script>
+  <link rel="apple-touch-icon" sizes="512x512" href="/image/iajh.512.png">
+  <link rel="apple-touch-icon" sizes="384x384" href="/image/iajh.384.png">
+  <link rel="apple-touch-icon" sizes="256x256" href="/image/iajh.256.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/image/iajh.192.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="/image/iajh.128.png">
+</head><body>
+  <script type="module">let SITE_LIB_URL = "http://localhost:3001/";
+let storageKey = "color-theme-preference";
+let classes = ["color-theme-dark","","color-theme-light"];
+let selector = "body";
+let global = "cycleTheme";
+
+const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0.0.0/index.mjs`).then(m => m.default);
+  const key = `${storageKey}`;
+  const values = classes;
+  const target = globalThis.document.querySelector(`${selector}`);
+  const emit = ({value, key, index}) => {
+    target.classList.remove(...values.filter(s=>s));
+    if(value){
+      target.classList.add(value);
+    }
+  }
+  globalThis[global] = localStorageCycler(key, emit, ...values);
+</script>
+  <script type="module">let SITE_LIB_URL = "http://localhost:3001/";
+let storageKey = "mouse-chaser-preference";
+let classes = ["","mouse-chaser-logo","mouse-chaser-coordinates"];
+let selector = "body";
+let global = "cycleMouseChaser";
+
+const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0.0.0/index.mjs`).then(m => m.default);
+  const key = `${storageKey}`;
+  const values = classes;
+  const target = globalThis.document.querySelector(`${selector}`);
+  const emit = ({value, key, index}) => {
+    target.classList.remove(...values.filter(s=>s));
+    if(value){
+      target.classList.add(value);
+    }
+  }
+  globalThis[global] = localStorageCycler(key, emit, ...values);
+</script>
+  
+    <header>
+      <a href="/#"><img src="/image/iajh.png" width="32" height="32" alt="logo">
+      <p class="hide-n-show-landscape-inline">John Henry Blog -- Angular Done Right: Part 1</p></a>
+      <nav class="hide show-landscape-flex">
+        <a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a>
+      </nav>
+    </header>
+    <!-- the good stuff -->
+    <section class="blog-top">
+    <header><p>Angular Done Right: Part 1</p></header>
+    <a class="link-untracked" href="/blog">back to blog</a>
+    <img width="360" height="210" loading="lazy" src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg" alt="Astro">
+    <article class="blog-content">
+      <p class="publish-date">1 August 2013</p>
+      <h1>Angular Done Right: Part 1</h1>
+      <div class="author">
+        <p><a href="#">John Henry</a></p>
+      </div>
+      <p><em>Originally Published: <a href="https://medium.com/@iamjohnhenry/angular-done-right-part-1-binding-and-directives-6112a43aa1dc">https://medium.com/@iamjohnhenry/angular-done-right-part-1-binding-and-directives-6112a43aa1dc</a></em></p><p>Author’s Note: While I no longer program heavily using angular, in favor of using smaller, more modular libraries, the reader will find the ideas presented in this series useful.</p><p>Angular is hard, right?</p><p>Well, one thing that’s for sure is that Angular is a massive. It’s a full application framework made of components including directives, controllers, services, and much much more. It’s shrouded in strange new concepts such as “<em>Dependency Injection</em>” and “<em>Transclausion</em>”. Despite it’s overall allure, anyone creating an angular app for the first time must accept that he or she is in for a steep learning curve due before being able to build anything fun or useful.</p><p>That’s the approach that most tutorials on the web take. In this series we take different approach. We’ll gradually build upon the most basic concepts in angular; first introducing the bare minimum needed to build an application and building upon it as we go along.</p><h3 id="installing-angular">Installing Angular</h3><p>We’ll start with a very basic HTML page. Create a basic html page with the following code inside:</p><pre class="language-html"><code is:raw="" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
-</code></pre><p>The next thing that you need to do is to download and include the angular.js file. You can download it directly from the <a href="https://angularjs.org/">Angular JS homepage</a>, or, if you perfer, using the <a href="http://bower.io/">Bower package manager</a>. I won’t go into specifics, on how exactly how to do that, but having made it this far, I doubt that you’ll have any trouble :).</p><p>Once you’ve included the angular file in your app, your file should look something like this:</p><pre class=" language-html"><code class="language-html">    <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">doctype</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre><p>The next thing that you need to do is to download and include the angular.js file. You can download it directly from the <a href="https://angularjs.org/">Angular JS homepage</a>, or, if you perfer, using the <a href="http://bower.io/">Bower package manager</a>. I won’t go into specifics, on how exactly how to do that, but having made it this far, I doubt that you’ll have any trouble :).</p><p>Once you’ve included the angular file in your app, your file should look something like this:</p><pre class="language-html"><code is:raw="" class="language-html">    <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">doctype</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>”path/to/angular.js”</span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
-</code></pre><h3 id="bootstrapping">Bootstrapping</h3><p><strong>Bootstraping</strong> is a term used for connecting your angular application to the web page. Don’t get it confused with the popular <a href="http://getbootstrap.com/">UI framework</a>.</p><p>There are two ways of bootstrapping an application. The easiest and most reliable way is to add the <strong>ng-app *</strong>directive* to an html element. That element and all of it’s children will be part of your angular app.</p><p>“<em>What are directives?</em>”, you must be wondering… Well, for now, just think of them as attibues that you can add to your html that let your app interact with angular. We’ll learn more about directives very soon, and in a later part of the series.</p><p>We could put it on any element — the <strong></strong> tag; a <strong></strong></p><div> tag — but lets go ahead and put it on the top level “html” element. This way, the entire page will be available to our application.<p></p><pre class=" language-html"><code class="language-html">    <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">doctype</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre><h3 id="bootstrapping">Bootstrapping</h3><p><strong>Bootstraping</strong> is a term used for connecting your angular application to the web page. Don’t get it confused with the popular <a href="http://getbootstrap.com/">UI framework</a>.</p><p>There are two ways of bootstrapping an application. The easiest and most reliable way is to add the <strong>ng-app *</strong>directive* to an html element. That element and all of it’s children will be part of your angular app.</p><p>“<em>What are directives?</em>”, you must be wondering… Well, for now, just think of them as attibues that you can add to your html that let your app interact with angular. We’ll learn more about directives very soon, and in a later part of the series.</p><p>We could put it on any element — the <strong></strong> tag; a <strong></strong></p><div> tag — but lets go ahead and put it on the top level “html” element. This way, the entire page will be available to our application.<p></p>
+<pre class="language-html"><code is:raw="" class="language-html">    <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">doctype</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">ng-app</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>”path/to/angular.js”</span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
-</code></pre><p>There is another way to bootstrap your application (it actually uses the <a href="https://docs.angularjs.org/api/ng/function/angular.bootstrap">angular.bootstrap</a> method!), but I have found it to be much more error-prone, so I wont at least into that method… at least not today.</p><h3 id="binding">Binding</h3><p>— ng-model and ng-bind</p><p>Now that you’ve set up the application, binding data is the simplest thing that you can do in angular. Try modifying your html to look like this:</p><pre class=" language-html"><code class="language-html">    <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">doctype</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre>
+<p>There is another way to bootstrap your application (it actually uses the <a href="https://docs.angularjs.org/api/ng/function/angular.bootstrap">angular.bootstrap</a> method!), but I have found it to be much more error-prone, so I wont at least into that method… at least not today.</p>
+<h3 id="binding">Binding</h3>
+<p>— ng-model and ng-bind</p>
+<p>Now that you’ve set up the application, binding data is the simplest thing that you can do in angular. Try modifying your html to look like this:</p>
+<pre class="language-html"><code is:raw="" class="language-html">    <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">doctype</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">ng-app</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span> <span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>”input”</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">ng-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>”input”</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>”path/to/angular.js”</span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
-</code></pre><p>You’ve added two new directives. The** ng-model ***directives* allows you to bind a variable to a standard html element that receives user input. This can be either an input element, a textarea element, or select element. (If you’re familiar with jQuery, this might remind you of the <a href="http://api.jquery.com/val/">val</a> method.)</p><p>The <strong>ng-bind</strong> directive does something similar, but but it works by replacing the inner html of any html element with the bound variable. (If you’re familiar with jQuery, this might remind you of the <a href="http://api.jquery.com/html/">html</a> method.)</p><p><strong>input</strong> is the name that we have chosen for the name of the variable to be bound, but we could have chosen pretty much anything.</p><p>Note: the variables exist within the scope of the application and not on the page. A variable defined within javascript will not be bound. We’ll learn exactly “where” these variables live in a later chapter on controllers and scope.</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre>
+<p>You’ve added two new directives. The** ng-model ***directives* allows you to bind a variable to a standard html element that receives user input. This can be either an input element, a textarea element, or select element. (If you’re familiar with jQuery, this might remind you of the <a href="http://api.jquery.com/val/">val</a> method.)</p>
+<p>The <strong>ng-bind</strong> directive does something similar, but but it works by replacing the inner html of any html element with the bound variable. (If you’re familiar with jQuery, this might remind you of the <a href="http://api.jquery.com/html/">html</a> method.)</p>
+<p><strong>input</strong> is the name that we have chosen for the name of the variable to be bound, but we could have chosen pretty much anything.</p>
+<p>Note: the variables exist within the scope of the application and not on the page. A variable defined within javascript will not be bound. We’ll learn exactly “where” these variables live in a later chapter on controllers and scope.</p>
+<pre class="language-html"><code is:raw="" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
   <span class="token keyword">var</span> input <span class="token operator">=</span> “Sorry<span class="token punctuation">,</span> <span class="token constant">I</span>’m not available <span class="token keyword">for</span> binding<span class="token punctuation">.</span>”
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
-</code></pre><p>You can also use the double curly braces syntax, <code>“{{input}}”</code>, instead of <strong>ng-bind</strong> to add binding anywhere without the need for an HTML element:</p><pre class=" language-html"><code class="language-html">    <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">doctype</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre>
+<p>You can also use the double curly braces syntax, <code is:raw="">“[[input]]”</code>, instead of <strong>ng-bind</strong> to add binding anywhere without the need for an HTML element:</p>
+<pre class="language-html"><code is:raw="" class="language-html">    <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">doctype</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">ng-app</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span> <span class="token punctuation">&gt;</span></span>
-     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>”input”</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">&gt;</span></span>{{input}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>”input”</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">&gt;</span></span>[[input]]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>”path/to/angular.js”</span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
-</code></pre><p>If you open the page in a browser, you will see an empty box, and when you type box, you’ll see that it’s bound to the span right next to it.</p><p>This might be useful for, say, a form:</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre>
+<p>If you open the page in a browser, you will see an empty box, and when you type box, you’ll see that it’s bound to the span right next to it.</p>
+<p>This might be useful for, say, a form:</p>
+<pre class="language-html"><code is:raw="" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">&gt;</span></span>
   Name:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”user.name”<span class="token punctuation">"</span></span> <span class="token attr-name">ng-required</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”true”<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
   Favorite Color:
@@ -67,7 +155,7 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”green”<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Green<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”blue”<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Blue<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token selector">”background-color:</span><span class="token punctuation">{</span><span class="token punctuation">{</span>user.color<span class="token punctuation">}</span><span class="token punctuation">}</span>”</span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">”background-color</span><span class="token punctuation">:</span>[[user.color]]”</span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
@@ -75,39 +163,75 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span> <span class="token attr-name">ng-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”user.name<span class="token punctuation">"</span></span> <span class="token attr-name">||</span> <span class="token attr-name">‘Blank’”</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">&gt;</span></span>
   and your favorite color is
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span> <span class="token attr-name">ng-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”user.color”<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">&gt;</span></span>.
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-</code></pre><p>Notice that the <strong>user.name</strong> and the <strong>user.color</strong> properties are bound to other parts of the form.</p><p>You may have spotted the <strong>ng-required</strong> directive on the input tag. That’s prevents a form from being submitted unless the required value is filled out. Try submitting the form below without typing in a name. (Be Warned: This may not work in all browsers.)</p><p>It’s also useful to be able to perform calculations on the page. Here’s a simple tip calculator. It a bit off (check out those rounding errors!), but it starts to show you what you can do with an angular app.</p><pre class=" language-html"><code class="language-html">    Bill: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>”bill”</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span></code></pre>
+<p>Notice that the <strong>user.name</strong> and the <strong>user.color</strong> properties are bound to other parts of the form.</p>
+<p>You may have spotted the <strong>ng-required</strong> directive on the input tag. That’s prevents a form from being submitted unless the required value is filled out. Try submitting the form below without typing in a name. (Be Warned: This may not work in all browsers.)</p>
+<p>It’s also useful to be able to perform calculations on the page. Here’s a simple tip calculator. It a bit off (check out those rounding errors!), but it starts to show you what you can do with an angular app.</p>
+<pre class="language-html"><code is:raw="" class="language-html">    Bill: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>”bill”</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>
     Tip Percentage: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>”number”</span> <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>”tip”</span><span class="token punctuation">&gt;</span></span> %
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>
-    Total: $&lt;span ng-bind=”(1 + (tip/100) ) * bill”&gt;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
-</code></pre><h3 id="a-few-more-directives">A Few More Directives</h3><p>— Showing and Hiding Elements with ng-if, ng-show, ng-hide</p><p>Conveniently, attaching the <strong>ng-model</strong> to a checkbox or radio allows you to bind to its <strong>checked</strong> property rather than it’s value.</p><pre class=" language-html"><code class="language-html">&lt;input type="”checkbox”" ng-init="”checked" ="true”" ng-model="”checked”" /&gt;
+    Total: $&lt;span ng-bind=”(1 + (tip/100) ) * bill”&gt;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span></code></pre>
+<h3 id="a-few-more-directives">A Few More Directives</h3>
+<p>— Showing and Hiding Elements with ng-if, ng-show, ng-hide</p>
+<p>Conveniently, attaching the <strong>ng-model</strong> to a checkbox or radio allows you to bind to its <strong>checked</strong> property rather than it’s value.</p>
+<pre class="language-html"><code is:raw="" class="language-html">&lt;input type="”checkbox”" ng-init="”checked" ="true”" ng-model="”checked”" /&gt;
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">ng-show</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”checked”<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>The box is checked<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">ng-hide</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”checked”<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>The box is not checked<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">ng-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”checked”<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> :) <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
-</code></pre><p>And we can use this fact to demonstrate a few new directives.</p><p>Although I’m not using for it’s single recommended <a href="https://docs.angularjs.org/api/ng/directive/ngInit">use case</a>, the <strong>ng-init</strong>
-directive allows you to initialize a variable’s value — otherwise it starts off as empty.</p><p>The <strong>ng-if</strong>, <strong>ng-show</strong>, and <strong>ng-hide</strong> directives work to show and hide an element. The difference is that <strong>ng-if</strong> will remove an element from the page, if not visible, while <strong>ng-show</strong> and <strong>ng-hide</strong> will simply hide it.</p><p>— Repeating Elements with ng-repeat</p><p>A final useful directive is the <strong>ng-repeat</strong> directive that allows one to iterate through collections.</p><pre class=" language-html"><code class="language-html">&lt;ul
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">ng-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”checked”<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> :) <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span></code></pre>
+<p>And we can use this fact to demonstrate a few new directives.</p>
+<p>Although I’m not using for it’s single recommended <a href="https://docs.angularjs.org/api/ng/directive/ngInit">use case</a>, the <strong>ng-init</strong>
+directive allows you to initialize a variable’s value — otherwise it starts off as empty.</p>
+<p>The <strong>ng-if</strong>, <strong>ng-show</strong>, and <strong>ng-hide</strong> directives work to show and hide an element. The difference is that <strong>ng-if</strong> will remove an element from the page, if not visible, while <strong>ng-show</strong> and <strong>ng-hide</strong> will simply hide it.</p>
+<p>— Repeating Elements with ng-repeat</p>
+<p>A final useful directive is the <strong>ng-repeat</strong> directive that allows one to iterate through collections.</p>
+<pre class="language-html"><code is:raw="" class="language-html">&lt;ul
   ng-init="”beatles"
   ="["
-  {name
+  [name
   :
-  ‘John’},
-  {name
+  ‘John’],
+  [name
   :
-  ‘Paul’},
-  {name
+  ‘Paul’],
+  [name
   :
-  ‘George’},
-  {name
+  ‘George’],
+  [name
   :
-  ‘Ringo’}
+  ‘Ringo’]
   ]”
 &gt;
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">ng-repeat</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”beatle<span class="token punctuation">"</span></span> <span class="token attr-name">in</span> <span class="token attr-name">beatles”</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">ng-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”$index”<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">ng-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”beatle.name”<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
-</code></pre><p>You’ll notice that in addition to the <strong><em>beatle</em></strong> property, the **ng-repeat **directive also provides a <strong><em>$index</em></strong> property that can also be bound to the application. This **<em>$index</em> **is equal to the index of the iteration.</p><p>— Modifying data with filters</p><p>Just for the heck of it, let’s take a sneak preview of filters.</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">ng-repeat</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”beatle<span class="token punctuation">"</span></span> <span class="token attr-name">in</span> <span class="token attr-name">beatles</span> <span class="token attr-name">|</span> <span class="token attr-name"><span class="token namespace">orderBy:</span>’name’”</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span></code></pre>
+<p>You’ll notice that in addition to the <strong><em>beatle</em></strong> property, the **ng-repeat **directive also provides a <strong><em>$index</em></strong> property that can also be bound to the application. This **<em>$index</em> **is equal to the index of the iteration.</p>
+<p>— Modifying data with filters</p>
+<p>Just for the heck of it, let’s take a sneak preview of filters.</p>
+<pre class="language-html"><code is:raw="" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">ng-repeat</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”beatle<span class="token punctuation">"</span></span> <span class="token attr-name">in</span> <span class="token attr-name">beatles</span> <span class="token attr-name">|</span> <span class="token attr-name"><span class="token namespace">orderBy:</span>’name’”</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">ng-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”$index”<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">ng-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>”beatle.name”<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-</code></pre><p><strong>orderBy</strong> may look similar to a directive, but it’s not, it’s a filter. Filters work within certain directives to modify the data within them. This particular one changes the order of items within an array. You can read more about this and other available filters <a href="https://docs.angularjs.org/api/ng/filter">here</a>. Like directives, filters are one of the nine or so components that make up an angular app and can be woven together with the others to make powerful applications.</p><p>Filters, like Directives, are one of the core components of angular. And we’ll learn a lot more about them in an upcoming entry.</p><h3 id="conclusion">Conclusion</h3><p>With just few basic built built in components, you can start creating interesting apps with barely any code. I’ll be back soon with another update to this series, but in the meantime, start using Angular to make something cool!</p></div></article><a class="link-untracked" href="/blog">back to blog</a></section><span class="mouse-chaser"></span><footer><a href="#">© 2022 John Henry</a><nav><a href="#" class="mouse-chaser-toggler" onclick="event.preventDefault(),window.cycleMouseChaser()" title="Click to toggle mouse."></a><a href="#" class="color-theme-toggler" onclick="event.preventDefault(),window.cycleTheme()" title="Click to toggle color theme."></a></nav></footer></body></html>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span></code></pre>
+<p><strong>orderBy</strong> may look similar to a directive, but it’s not, it’s a filter. Filters work within certain directives to modify the data within them. This particular one changes the order of items within an array. You can read more about this and other available filters <a href="https://docs.angularjs.org/api/ng/filter">here</a>. Like directives, filters are one of the nine or so components that make up an angular app and can be woven together with the others to make powerful applications.</p>
+<p>Filters, like Directives, are one of the core components of angular. And we’ll learn a lot more about them in an upcoming entry.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>With just few basic built built in components, you can start creating interesting apps with barely any code. I’ll be back soon with another update to this series, but in the meantime, start using Angular to make something cool!</p>
+
+</div>
+    </article>
+    <a class="link-untracked" href="/blog">back to blog</a>
+  </section>
+    <!-- the good stuff -->
+    <span class="mouse-chaser"></span>
+    <footer>
+    <a href="#">© 2022   John Henry</a>
+      <!-- Todo: Astro whitespace may be fixed in Astro 0.21? -->
+      <nav>
+        <a href="#" class="mouse-chaser-toggler" onclick="event.preventDefault(),window.cycleMouseChaser()" title="Click to toggle mouse."></a>
+        <a href="#" class="color-theme-toggler" onclick="event.preventDefault(),window.cycleTheme()" title="Click to toggle color theme."></a>
+      </nav>
+    </footer>
+    
+    
+  
+</body></html>
