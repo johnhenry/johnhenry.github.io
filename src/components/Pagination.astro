@@ -4,22 +4,17 @@ const { currentPage, lastPage, url } = page;
 const { prev, next }  = url;
 const nums = Array
   .from(new Array(lastPage))
-  .map((_, i)=>i+1);
-const blank = (prefix) => (i) => (
-  <a href={
-      i === currentPage
-        ? null
-        : `${prefix}${i-1 ? (i) : ''}`  }>{i}</a>);
-const notBlank = (prefix) => (i) => (
-  <a href={
-      i === currentPage
-        ? null
-        : `${prefix}${i}`  }>{i}</a>);
----
+  .map((_, i)=>i+1);---
 <a href={prev}>{prev ? 'prev': null}</a>
 {nums
-  .map(
+  .map((i)=>(
     start
-        ? notBlank(prefix)
-        : blank(prefix))}
+        ? <a href={
+      i === currentPage
+        ? null
+        : `${prefix}${i}`  }>{i}</a>
+        : <a href={
+      i === currentPage
+        ? null
+        : `${prefix}${i-1 ? (i) : ''}`  }>{i}</a>))}
 <a href={next}>{next ? 'next': null}</a>

@@ -94,13 +94,13 @@ Note: the variables exist within the scope of the application and not on the pag
 </script>
 ```
 
-You can also use the double curly braces syntax, `“{{input}}”`, instead of **ng-bind** to add binding anywhere without the need for an HTML element:
+You can also use the double curly braces syntax, `“[[input]]”`, instead of **ng-bind** to add binding anywhere without the need for an HTML element:
 
 ```html
     <!doctype html>
     <html ng-app>
      <body >
-     <input ng-model=”input”><span>{{input}}</span>
+     <input ng-model=”input”><span>[[input]]</span>
      <script src=”path/to/angular.js”></script>
      </body>
     </html>
@@ -121,7 +121,7 @@ This might be useful for, say, a form:
     <option value="”green”">Green</option>
     <option value="”blue”">Blue</option>
   </select>
-  <div style="”background-color:{{user.color}}”"></div>
+  <div style="”background-color:[[user.color]]”"></div>
   <button>Submit</button>
 </form>
 <p>
@@ -174,18 +174,18 @@ A final useful directive is the **ng-repeat** directive that allows one to itera
 <ul
   ng-init="”beatles"
   ="["
-  {name
+  [name
   :
-  ‘John’},
-  {name
+  ‘John’],
+  [name
   :
-  ‘Paul’},
-  {name
+  ‘Paul’],
+  [name
   :
-  ‘George’},
-  {name
+  ‘George’],
+  [name
   :
-  ‘Ringo’}
+  ‘Ringo’]
   ]”
 >
   <li ng-repeat="”beatle" in beatles”>
