@@ -19,12 +19,11 @@
   },
   "devDependencies": {
     "@astrojs/renderer-preact": "0.2.2",
-    "astro-seo": "0.3.12",
     "preact": "10.5.15",
     "workbox-cli": "6.3.0"
   },
   "dependencies": {
-    "astro": "^0.22.20",
+    "astro": "^0.25.2",
     "prettier": "^2.5.0"
   }
 }
