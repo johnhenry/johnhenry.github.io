@@ -7,7 +7,7 @@ const defaults = {
   SITE_FAVICON_TYPE: "image/png",
   SITE_SERVICE_WORKER: "",
   SITE_BASE_PATH: "/",
-  SITE_BLOG_PAGE_SIZE: 8,
+  SITE_BLOG_PAGE_SIZE: 4,
   SITE_LIB_URL: "http://localhost:3001/",
   SITE_CANONICAL_URL: "http://localhost:3000/",
   SITE_DESCRIPTION: "John Henry's Person Portfolio and Blog",
