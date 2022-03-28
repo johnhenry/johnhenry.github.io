@@ -50,15 +50,12 @@ export default (
         `${percentage} {stroke-dashoffset: ${numericStops[index] * length};}`
     )
     .join(" ");
-  const style = (
-    <style
-      innerHTML={`
-      @keyframes ${animationName} {${frames}}`}
-    ></style>
-  );
   return (
     <>
-      {style}
+      <style
+        textContent={`
+      @keyframes ${animationName} {${frames}}`}
+      />
       <svg
         class={`${props.class}`}
         width="67.733"
