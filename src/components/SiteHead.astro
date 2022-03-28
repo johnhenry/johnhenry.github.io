@@ -26,7 +26,7 @@ const {
 const displayTitle = subtitle? `${title} : ${subtitle}`: title;
 ---
 <head>
-  {TAG_MANAGER_ID ? <TagManagerHead tmid="{TAG_MANAGER_ID}" /> : ''}
+  {TAG_MANAGER_ID ? <TagManagerHead tmid={TAG_MANAGER_ID} /> : ''}
   <SEO title={displayTitle} description={description} canonical={canonical} />
   <meta name="theme-color" content="#343233">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
