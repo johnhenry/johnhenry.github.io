@@ -5,8 +5,7 @@ import {
         SITE_TITLE,
         TAG_MANAGER_ID,
         SITE_BASE_PATH,
-        SITE_FAVICON_TYPE,
-        SITE_SERVICE_WORKER} from '../SETTINGS.mjs';
+        SITE_FAVICON_TYPE} from '../SETTINGS.mjs';
 // Components
 import SEO from './SEO.astro';
 import SiteStyles from "./SiteStyles.astro";
@@ -22,7 +21,8 @@ const {
   author,
   keywords,
   canonical,
-  description} = Astro.props;
+  description,
+  serviceWorkerScript} = Astro.props;
 const displayTitle = subtitle? `${title} : ${subtitle}`: title;
 ---
 <head>
@@ -33,7 +33,7 @@ const displayTitle = subtitle? `${title} : ${subtitle}`: title;
   <meta charset="utf-8">
   <meta name="keywords" content={keywords}>
   <meta name="author" content={author}>
-  <ServiceWorkerScript src={""} />
+  <ServiceWorkerScript src={serviceWorkerScript} />
   <link rel="manifest" href={`${SITE_BASE_PATH}manifest.json` }/>
   <link rel="icon" href={SITE_FAVICON} type={SITE_FAVICON_TYPE} />
   <SiteStyles hrefs={externalStyles} />
