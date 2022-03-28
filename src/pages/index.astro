@@ -5,7 +5,7 @@ SITE_AUTHOR,
 SITE_KEYWORDS,
 SITE_DESCRIPTION,
 SITE_CANONICAL_URL,
-SITE_BASE_PATH } from "../SETTINGS.mjs";
+SITE_BASE_PATH, SITE_SERVICE_WORKER } from "../SETTINGS.mjs";
 // Utilities
 import sortPosts from "../utils/sort-posts.mjs";
 // Components
@@ -23,7 +23,8 @@ Astro.fetchContent('./blog/posts/*.md'));
   keywords={SITE_KEYWORDS}
   author={SITE_AUTHOR}
   canonical={SITE_CANONICAL_URL}
-  headerLinks={headerLinks}>
+  headerLinks={headerLinks}
+  serviceWorkerScript={SITE_SERVICE_WORKER}>
   <section class="hero">
     <article>
       <JH class="logo"

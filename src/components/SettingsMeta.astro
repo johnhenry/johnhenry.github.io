@@ -2,7 +2,7 @@
 import * as SETTINGS from '../SETTINGS.mjs';
 import DEFAULTS from '../SETTINGS.mjs';
 // Todo: "import DEFAULTS, * as SETTINGS from '../SETTINGS.mjs'";
-// causes SETTINGS to reset w/o awarness of the process.env variables.
+// causes SETTINGS to reset w/o awarness of the import.meta variables.
 const {class:className=null} = Astro.props;
 ---
 <table class={className} >
@@ -15,7 +15,7 @@ const {class:className=null} = Astro.props;
   {Object.keys(DEFAULTS).map((key) => (
     <tr>
       <td>{key}</td>
-      { [DEFAULTS[key], process.env[key], SETTINGS[key]  ].map((value) => (<td>{
+      { [DEFAULTS[key], import.meta.env[key], SETTINGS[key]  ].map((value) => (<td>{
 Array.isArray(value)
     ? <ul>{value.map(v=><li>{v}</li>)}</ul>
     : typeof value === "string" ?

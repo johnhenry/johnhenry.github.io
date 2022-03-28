@@ -9,7 +9,7 @@ import BodyClassCycler from './BodyClassCycler.astro';
 // Content
 const {
   title,
-  description, keywords, author, canonical, headerLinks, htmlClass, headerClass, footerClass } = Astro.props;
+  description, keywords, author, canonical, headerLinks, htmlClass, headerClass, footerClass, serviceWorkerScript } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en" class={htmlClass}>
@@ -18,7 +18,8 @@ const {
     description={description}
     keywords={keywords}
     author={author}
-    canonical={canonical} ></SiteHead>
+    canonical={canonical}
+    serviceWorkerScript={serviceWorkerScript} ></SiteHead>
   <BodyClassCycler
     global="cycleTheme"
     storage-key="color-theme-preference"
