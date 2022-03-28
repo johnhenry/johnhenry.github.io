@@ -19,43 +19,44 @@ const defaults = {
 };
 export default defaults;
 
-export const SITE_AUTHOR = process.env.SITE_AUTHOR || defaults.SITE_AUTHOR;
+export const SITE_AUTHOR = import.meta.env.SITE_AUTHOR || defaults.SITE_AUTHOR;
 
-export const SITE_TITLE = process.env.SITE_TITLE || defaults.SITE_TITLE;
+export const SITE_TITLE = import.meta.env.SITE_TITLE || defaults.SITE_TITLE;
 
 export const SITE_FAVICON_PATH =
-  process.env.SITE_FAVICON_PATH || defaults.SITE_FAVICON_PATH;
+  import.meta.env.SITE_FAVICON_PATH || defaults.SITE_FAVICON_PATH;
 
 export const SITE_FAVICON_TYPE =
-  process.env.SITE_FAVICON_TYPE || defaults.SITE_FAVICON_TYPE;
+  import.meta.env.SITE_FAVICON_TYPE || defaults.SITE_FAVICON_TYPE;
 
 export const SITE_SERVICE_WORKER =
-  process.env.SITE_SERVICE_WORKER || defaults.SITE_SERVICE_WORKER;
+  import.meta.env.SITE_SERVICE_WORKER || defaults.SITE_SERVICE_WORKER;
 
 export const SITE_BASE_PATH =
-  process.env.SITE_BASE_PATH || defaults.SITE_BASE_PATH;
+  import.meta.env.SITE_BASE_PATH || defaults.SITE_BASE_PATH;
 
 export const SITE_BLOG_PAGE_SIZE =
-  Number(process.env.SITE_BLOG_PAGE_SIZE) || defaults.SITE_BLOG_PAGE_SIZE;
+  Number(import.meta.env.SITE_BLOG_PAGE_SIZE) || defaults.SITE_BLOG_PAGE_SIZE;
 
-export const SITE_LIB_URL = process.env.SITE_LIB_URL || defaults.SITE_LIB_URL;
+export const SITE_LIB_URL =
+  import.meta.env.SITE_LIB_URL || defaults.SITE_LIB_URL;
 
 export const SITE_CANONICAL_URL =
-  process.env.SITE_CANONICAL_URL || defaults.SITE_CANONICAL_URL;
+  import.meta.env.SITE_CANONICAL_URL || defaults.SITE_CANONICAL_URL;
 
 export const SITE_DESCRIPTION =
-  process.env.SITE_DESCRIPTION || defaults.SITE_DESCRIPTION;
+  import.meta.env.SITE_DESCRIPTION || defaults.SITE_DESCRIPTION;
 
-export const SITE_KEYWORDS = process.env.SITE_KEYWORDS
-  ? process.env.SITE_KEYWORDS.split(",")
+export const SITE_KEYWORDS = import.meta.env.SITE_KEYWORDS
+  ? import.meta.env.SITE_KEYWORDS.split(",")
   : defaults.SITE_KEYWORDS;
 
 export const TAG_MANAGER_ID =
-  process.env.TAG_MANAGER_ID || defaults.TAG_MANAGER_ID;
+  import.meta.env.TAG_MANAGER_ID || defaults.TAG_MANAGER_ID;
 
-export const BUILD_DATE = process.env.BUILD_DATE || defaults.BUILD_DATE;
-export const BUILD_HASH = process.env.BUILD_HASH || defaults.BUILD_HASH;
-export const BUILD_META = process.env.BUILD_META || defaults.BUILD_META;
+export const BUILD_DATE = import.meta.env.BUILD_DATE || defaults.BUILD_DATE;
+export const BUILD_HASH = import.meta.env.BUILD_HASH || defaults.BUILD_HASH;
+export const BUILD_META = import.meta.env.BUILD_META || defaults.BUILD_META;
 
 //
 export const SITE_FAVICON = `${SITE_BASE_PATH}${SITE_FAVICON_PATH}`;
