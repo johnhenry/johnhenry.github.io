@@ -14,14 +14,14 @@ import SitePage from "../../../components/SitePage.astro";
 import BlogPreview from "../../../components/BlogPreview.astro";
 // Content;
 import headerLinks from "../../../content/headerlinks.mjs";
-const { tag } = Astro.request.params;
+const { tag } = Astro.params;
 const { posts } = Astro.props;
 // Misc.
-export function getStaticPaths() {
+export async function getStaticPaths() {
 const { byTag } =
     sortPosts(
-      Astro
-      .fetchContent('../posts/*.md'));
+      await Astro
+      .glob('../posts/*.md'));
     return byTag.map(([tag, posts]) => ({
       params: { tag },
       props: {
@@ -49,7 +49,7 @@ const { byTag } =
     </header>
     <p>This is the place where I muse about technology.</p>
   </section>
-  {posts.map(({date, url, title, description, heroImage, author, tags}) =>
+  {posts.map(({frontmatter:{date, url, title, description, heroImage, author, tags}}) =>
   <BlogPreview
   url={url}
   date={date}

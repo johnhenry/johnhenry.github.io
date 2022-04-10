@@ -15,8 +15,9 @@ import SitePage from "../components/SitePage.astro";
 // Content
 import projects from "../content/projects.mjs";
 import headerLinks from "../content/headerlinks.mjs";
+const glob = await Astro.glob('./blog/posts/*.md');
 const { latest=undefined, tags=[] } = sortPosts(
-Astro.fetchContent('./blog/posts/*.md'));
+await Astro.glob('./blog/posts/*.md'));
 ---
 <SitePage
   description={SITE_DESCRIPTION}
@@ -56,9 +57,9 @@ Astro.fetchContent('./blog/posts/*.md'));
           </li>
           {(latest) ?
             <li class="blog-preview">
-              <a class="link-hidden" href={latest.url}>
-                <header>Latest: {latest.title}</header>
-                <p>{latest.description}</p>
+              <a class="link-hidden" href={latest.frontmatter.url}>
+                <header>Latest: {latest.frontmatter.title}</header>
+                <p>{latest.frontmatter.description}</p>
               </a>
             </li> : null}
           </>

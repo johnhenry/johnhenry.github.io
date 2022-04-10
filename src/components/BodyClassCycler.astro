@@ -12,7 +12,7 @@ if(!storageKey){
   throw new Error('storageKey is required');
 }
 ---
-<script type="module" define:vars={{SITE_LIB_URL, storageKey, classes, selector, global}}>
+<script type="module" is:inline define:vars={{SITE_LIB_URL, storageKey, classes, selector, global}} >
 const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0.0.0/index.mjs`).then(m => m.default);
   const key = `${storageKey}`;
   const values = classes;

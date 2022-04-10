@@ -1,7 +1,7 @@
 ---
 const { src } = Astro.props;
 ---
-{src ? <script define:vars={{src}}>
+{src ? <script is:inline define:vars={{src}}>
   globalThis.addEventListener('load', () => {
         globalThis.navigator.serviceWorker.register(src);
     });

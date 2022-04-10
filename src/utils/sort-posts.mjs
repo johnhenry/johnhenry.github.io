@@ -1,11 +1,13 @@
 export default (posts) => {
   const sorted = posts
-    .filter((b) => b.date)
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+    .filter((b) => b.frontmatter.date)
+    .sort(
+      (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+    );
   const tags = new Set();
   const byTag = {};
   for (const post of sorted) {
-    for (const tag of post.tags) {
+    for (const tag of post.frontmatter.tags) {
       tags.add(tag);
       if (byTag[tag]) {
         byTag[tag].push(post);

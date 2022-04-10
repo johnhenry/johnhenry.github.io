@@ -4,5 +4,5 @@ const {srcs=[], critical=";"} = Astro.props;
 {critical ?
 "<script>" + critical +"</script>" : null}
 {srcs.map(src=>
-  <script type="module" src={src} ></script>)
+  <script type="module" src={src} is:inline ></script>)
 }
