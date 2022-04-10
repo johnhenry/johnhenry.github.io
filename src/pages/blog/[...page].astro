@@ -24,8 +24,8 @@ const { page } = Astro.props;
 export async function getStaticPaths({ paginate }) {
   const { sorted } =
         sortPosts(
-          Astro
-          .fetchContent('./posts/*.md'));
+          await Astro
+          .glob('./posts/*.md'));
   return paginate(sorted, { pageSize: SITE_BLOG_PAGE_SIZE });
 }
 ---
@@ -41,7 +41,7 @@ export async function getStaticPaths({ paginate }) {
     <p>This is the place where I muse about technology.</p>
     <p>Page : {page.currentPage}</p>
   </section>
-  {page.data.map(({date, url, title, description, heroImage, author, tags}) =>
+  {page.data.map(({frontmatter:{date, url, title, description, heroImage, author, tags}}) =>
   <BlogPreview
   url={url}
   date={date}

@@ -5,7 +5,7 @@ const DEFAULT_MESSAGE = 'Accept all cookies?';
 const { message, accept, decline } = Astro.props;
 ---
 
-<script type="module">
+<script type="module" is:inline>
   /* Consent Buddy -- should be extracted */
   const DEFAULT_LOCAL_STORAGE_KEY = "consent-buddy";
   const DEFAULT_LOCAL_STORAGE_VALUE_REJECTED = "-";
