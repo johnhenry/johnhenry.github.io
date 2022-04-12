@@ -3,6 +3,7 @@
 import {
         SITE_FAVICON,
         SITE_TITLE,
+        SITE_LIB_URL,
         TAG_MANAGER_ID,
         SITE_BASE_PATH,
         SITE_FAVICON_TYPE} from '../SETTINGS.mjs';
@@ -44,4 +45,5 @@ const displayTitle = subtitle? `${title} : ${subtitle}`: title;
   <link rel="apple-touch-icon" sizes="256x256" href={`${SITE_BASE_PATH}image/iajh.256.png`} />
   <link rel="apple-touch-icon" sizes="192x192" href={`${SITE_BASE_PATH}image/iajh.192.png`} />
   <link rel="apple-touch-icon" sizes="128x128" href={`${SITE_BASE_PATH}image/iajh.128.png`} />
+  <define-component name="animate-paths" src={`${SITE_LIB_URL}js/animate-paths.component/0.0.0/index.mjs`}></define-component>
 </head>

@@ -15,7 +15,6 @@ import SitePage from "../components/SitePage.astro";
 // Content
 import projects from "../content/projects.mjs";
 import headerLinks from "../content/headerlinks.mjs";
-const glob = await Astro.glob('./blog/posts/*.md');
 const { latest=undefined, tags=[] } = sortPosts(
 await Astro.glob('./blog/posts/*.md'));
 ---
@@ -28,15 +27,7 @@ await Astro.glob('./blog/posts/*.md'));
   serviceWorkerScript={SITE_SERVICE_WORKER}>
   <section class="hero">
     <article>
-      <JH class="logo"
-        stops="[-1, -1, 0, 0, 1]"
-        intervals="[1, 2, 2, 2]"
-        animate
-        animation-duration="30s"
-        animation-iteration-count="infinite"
-        animation-timing-function="linear"
-        path-onclick="event.preventDefault(),window.cycleMouseChaser()"
-        />
+      <JH class="logo"/>
       <ul class="widget glowey-background-container">
           {headerLinks.map(({url, text}, index) => (
         <>
