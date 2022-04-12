@@ -49,7 +49,7 @@ const { byTag } =
     </header>
     <p>This is the place where I muse about technology.</p>
   </section>
-  {posts.map(({frontmatter:{date, url, title, description, heroImage, author, tags}}) =>
+  {posts.map(({url, frontmatter:{date, title, description, heroImage, author, tags}}) =>
   <BlogPreview
   url={url}
   date={date}
