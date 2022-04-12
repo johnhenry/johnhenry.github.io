@@ -54,12 +54,12 @@ section.hero > article > * {
   justify-self: center;
 }
 
-section.hero > article > .logo {
+section.hero > article .logo {
   width: 75vw;
   height: 75vw;
 }
 @media (orientation: landscape) {
-  section.hero > article > .logo {
+  section.hero > article .logo {
     width: 512px;
     height: 512px;
     width: 40vw;

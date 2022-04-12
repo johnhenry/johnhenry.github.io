@@ -1,3 +1,7 @@
+.until-window-load {
+  visibility: hidden;
+}
+
 .logo {
   filter: drop-shadow(var(--drop-shadow));
 }
