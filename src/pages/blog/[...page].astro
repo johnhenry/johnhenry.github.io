@@ -41,7 +41,7 @@ export async function getStaticPaths({ paginate }) {
     <p>This is the place where I muse about technology.</p>
     <p>Page : {page.currentPage}</p>
   </section>
-  {page.data.map(({url, frontmatter:{date, url, title, description, heroImage, author, tags}}) =>
+  {page.data.map(({url, frontmatter:{date, title, description, heroImage, author, tags}}) =>
   <BlogPreview
   url={url}
   date={date}
