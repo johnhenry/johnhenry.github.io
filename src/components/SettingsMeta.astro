@@ -15,7 +15,7 @@ const {class:className=null} = Astro.props;
   {Object.keys(DEFAULTS).map((key) => (
     <tr>
       <td>{key}</td>
-      { [DEFAULTS[key], import.meta.env[key], SETTINGS[key]  ].map((value) => (<td>{
+      { [DEFAULTS[key], import.meta.env[`PUBLIC_${key}`], SETTINGS[key]  ].map((value) => (<td>{
 Array.isArray(value)
     ? <ul>{value.map(v=><li>{v}</li>)}</ul>
     : typeof value === "string" ?
