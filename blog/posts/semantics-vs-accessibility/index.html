@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="en">
+  <head>
+  
+  <!-- { title ? <title>{title}</title> : null }
+
+{ canonical ? (
+	<link 
+		rel="canonical"
+		href={canonical}
+	/>
+) : null}
+
+{ description ? (
+	<meta
+  	name="description"
+  	content={description}
+  />
+) : null }
+
+<meta
+	name="robots"
+	content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
+> --><!-- { generateOpenGraphBasicTags(props) }
+{ generateOpenGraphOptionalTags(props) }
+{ generateOpenGraphImageTags(props) }
+{ generateOpenGraphArticleTags(props) }
+{ generateTwitterTags(props) } -->
+  <meta name="theme-color" content="#343233">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="experimenting">
+  <meta name="author" content="John Henry">
+  
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/image/iajh.png" type="image/png">
+  
+<link rel="stylesheet" href="https://johnhenry.github.io/lib/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/hide-n-show/0.0.0/landscape.css">
+  <link rel="stylesheet" href="/style/index.css">
+  &lt;script&gt;;&lt;/script&gt;
+<script type="module" src="https://johnhenry.github.io/lib/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/css-variables-scroll/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/until-window-load/0.0.0/global.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/define-component.component/0.0.0/global.mjs"></script>
+  <link rel="apple-touch-icon" sizes="512x512" href="/image/iajh.512.png">
+  <link rel="apple-touch-icon" sizes="384x384" href="/image/iajh.384.png">
+  <link rel="apple-touch-icon" sizes="256x256" href="/image/iajh.256.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/image/iajh.192.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="/image/iajh.128.png">
+  
+</head><define-component name="animate-paths" src="https://johnhenry.github.io/lib/js/animate-paths.component/0.0.0/index.mjs"></define-component>
+
+  <script type="module">let SITE_LIB_URL = "https://johnhenry.github.io/lib/";
+let storageKey = "color-theme-preference";
+let classes = ["color-theme-dark","","color-theme-light"];
+let selector = "body";
+let global = "cycleTheme";
+
+const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0.0.0/index.mjs`).then(m => m.default);
+  const key = `${storageKey}`;
+  const values = classes;
+  const target = globalThis.document.querySelector(`${selector}`);
+  const emit = ({value, key, index}) => {
+    target.classList.remove(...values.filter(s=>s));
+    if(value){
+      target.classList.add(value);
+    }
+  }
+  globalThis[global] = localStorageCycler(key, emit, ...values);
+</script>
+  <script type="module">let SITE_LIB_URL = "https://johnhenry.github.io/lib/";
+let storageKey = "mouse-chaser-preference";
+let classes = ["","mouse-chaser-logo","mouse-chaser-coordinates"];
+let selector = "body";
+let global = "cycleMouseChaser";
+
+const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0.0.0/index.mjs`).then(m => m.default);
+  const key = `${storageKey}`;
+  const values = classes;
+  const target = globalThis.document.querySelector(`${selector}`);
+  const emit = ({value, key, index}) => {
+    target.classList.remove(...values.filter(s=>s));
+    if(value){
+      target.classList.add(value);
+    }
+  }
+  globalThis[global] = localStorageCycler(key, emit, ...values);
+</script>
+  <body class="color-theme-dark">
+    <header>
+      <a href="/#"><img src="/image/iajh.png" width="32" height="32" alt="logo">
+      <p class="hide-n-show-landscape-inline">John Henry Blog -- Semantics Versus Accessibility</p></a>
+      <nav class="hide show-landscape-flex">
+        <a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a>
+      </nav>
+    </header>
+    <!-- the good stuff -->
+    <section class="blog-top">
+    <header><p>Semantics Versus Accessibility</p></header>
+    <a class="link-untracked" href="/blog">back to blog</a>
+    <img width="360" height="210" loading="lazy" src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg" alt="Astro">
+    <article class="blog-content">
+      <p class="publish-date">4 November 2021</p>
+      <h1>Semantics Versus Accessibility</h1>
+      <div class="author">
+        <p><a href="#">John Henry</a></p>
+      </div>
+      <p>Long ago,
+while trying to shoehorn
+new accessibility standards
+into an existing website,
+I ran into an interesting problem.</p><p>Kevin Powell’s video on a <a href="https://www.youtube.com/watch?v=NexL5_Vdoq8&ab_channel=KevinPowell">common HTML mistake</a> reminded me of it.</p><h2 id="semantics-for-accessibility">Semantics for Accessibility</h2><p>According to <a href="https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">current standards</a>
+HTML heading elements must appear
+in a hierarchy within a web page.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">body</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">h1</span><span style="color: #C9D1D9">&gt;The first Thanksgiving&lt;/</span><span style="color: #7EE787">h1</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">h2</span><span style="color: #C9D1D9">&gt;Leaving England&lt;/</span><span style="color: #7EE787">h2</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">      Due to certain &quot;differences&quot;, the pilgrims decided to leave england...</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;/</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">      &lt;</span><span style="color: #7EE787">h2</span><span style="color: #C9D1D9">&gt;Getting on the boat&lt;/</span><span style="color: #7EE787">h2</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">      &lt;</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;The Mayflower was a mighty ship...&lt;/</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">h2</span><span style="color: #C9D1D9">&gt;Crossing the sea&lt;/</span><span style="color: #7EE787">h2</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;...&lt;/</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">body</span><span style="color: #C9D1D9">&gt;</span></span></code></pre><p>This allows screen readers
+to recognize content and
+describe it to the user of a website.</p><h2 id="the-problem">The Problem</h2><p>Modern component-based design would have us
+create components that are unaware of their containers.</p><p>Semantically, a top level heading within a component shouldn’t depend upon the headings of its ancestors.</p><p>You would be tempted do this:</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">body</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">h1</span><span style="color: #C9D1D9">&gt;The first Thanksgiving&lt;/</span><span style="color: #7EE787">h1</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">h1</span><span style="color: #C9D1D9">&gt;Leaving England&lt;/</span><span style="color: #7EE787">h1</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">      Due to certain &quot;differences&quot;, the pilgrims decided to leave england...</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;/</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">      &lt;</span><span style="color: #7EE787">h1</span><span style="color: #C9D1D9">&gt;Getting on the boat&lt;/</span><span style="color: #7EE787">h1</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">      &lt;</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;The Mayflower was a mighty ship...&lt;/</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">h1</span><span style="color: #C9D1D9">&gt;Crossing the sea&lt;/</span><span style="color: #7EE787">h1</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;...&lt;/</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">body</span><span style="color: #C9D1D9">&gt;</span></span></code></pre><p>isolating the semantics of the sections heading.</p><p>In fact, there was a proposal
+to allow this —
+the “Document Outline Algorithm”.
+Sadly, it was <a href="https://adrianroselli.com/2016/08/there-is-no-document-outline-algorithm.html">never implemented</a>.</p><p>But, in the case of HTML headings; if a section has a heading of “h2”,
+it must be the child of a section with an “h1”.
+A section with an “h3”
+must have a parent with and “h2” and so on.</p><p>The problem arises in that <em>using sensical <strong>semantics</strong> to create components is at odds with how screenreaders interpret <strong>accessibility</strong> cues in HTML</em>… or…</p><p><strong>Semantics Versus Accessibility</strong>.</p><p>(That’s the name of the <del>movie</del> post!)</p><h2 id="the-solution">The Solution</h2><p>We can mitigate this by passing
+a bit of context to components to
+indicate hierarchical positioning.</p><p>We will do this using <a href="https://astro.build">Astro</a>,
+though the concept should be translatable
+to other environments.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E">---</span></span>
+<span class="line"><span style="color: #8B949E">// file:///./boring-section.astro</span></span>
+<span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">parentLevel</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> Astro.props.paerentLevel </span><span style="color: #FF7B72">||</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">0</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">currentLevel</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> Astro.props.currentLevel </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> parentLevel </span><span style="color: #FF7B72">+</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #8B949E">---</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">style</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">color</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">black</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">font-style</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">normal</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">style</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">h{currentLevel}</span><span style="color: #C9D1D9">&gt;Boring Section&lt;/</span><span style="color: #7EE787">h{currentLevel}</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">slot</span><span style="color: #C9D1D9"> /&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span></code></pre><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E">---</span></span>
+<span class="line"><span style="color: #8B949E">// file:///./fancy-section.astro</span></span>
+<span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">parentLevel</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> Astro.props.paerentLevel </span><span style="color: #FF7B72">||</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">0</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">currentLevel</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> Astro.props.currentLevel </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> parentLevel </span><span style="color: #FF7B72">+</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #8B949E">---</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">style</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #79C0FF">color</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">pink</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #79C0FF">font-style</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">italic</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">style</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">h{currentLevel}</span><span style="color: #C9D1D9">&gt;Fancy Section&lt;/</span><span style="color: #7EE787">h{currentLevel}</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">slot</span><span style="color: #C9D1D9"> /&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span></code></pre><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E">---</span></span>
+<span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> BoringSection </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&quot;./boring-section.astro&quot;</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> FancySection </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&quot;./fancy-section.astro&quot;</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #8B949E">---</span></span>
+<span class="line"><span style="color: #C9D1D9">---</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">body</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">BoringSection</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">FancySection</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">parentLevel</span><span style="color: #C9D1D9">={</span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">}&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">      Hello, Earl!</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;/</span><span style="color: #7EE787">FancySection</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;/</span><span style="color: #7EE787">BoringSection</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">body</span><span style="color: #C9D1D9">&gt;</span></span></code></pre><p>This will produce the following HTML:</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">body</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">h1</span><span style="color: #C9D1D9">&gt;Fancy Section&lt;/</span><span style="color: #7EE787">h1</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">      &lt;</span><span style="color: #7EE787">h2</span><span style="color: #C9D1D9">&gt;Boring Section&lt;/</span><span style="color: #7EE787">h2</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">      &lt;</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;Hello, Earl!&lt;/</span><span style="color: #7EE787">p</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">    &lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">body</span><span style="color: #C9D1D9">&gt;</span></span></code></pre><p>You can use a utility function
+to make the code a bit cleaner a bit cleaner.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E">// file:///./get-level.mjs</span></span>
+<span class="line"><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> (Astro) </span><span style="color: #FF7B72">=&gt;</span><span style="color: #FFA657"> (</span><span style="color: #C9D1D9">Astro</span><span style="color: #FFA657">.</span><span style="color: #C9D1D9">props</span><span style="color: #FFA657">.</span><span style="color: #C9D1D9">parentLevel</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">||</span><span style="color: #FFA657"> </span><span style="color: #79C0FF">0</span><span style="color: #FFA657">) </span><span style="color: #FF7B72">+</span><span style="color: #FFA657"> </span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">;</span></span></code></pre><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E">---</span></span>
+<span class="line"><span style="color: #8B949E">// file:///./boring-section.astro</span></span>
+<span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> getLevel </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&quot;./get-level.mjs&quot;</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">currentLevel</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">getLevel</span><span style="color: #C9D1D9">(Astro);</span></span>
+<span class="line"><span style="color: #8B949E">---</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">style</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #7EE787">section</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">color</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">black</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #79C0FF">font-style</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">normal</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">style</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">h{currentLevel}</span><span style="color: #C9D1D9">&gt;Boring Section&lt;/</span><span style="color: #7EE787">h{currentLevel}</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">slot</span><span style="color: #C9D1D9"> /&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">section</span><span style="color: #C9D1D9">&gt;</span></span></code></pre><p>Still, this is not ideal
+as the developer is required
+to manually pass the parentLevel property
+through to each child.</p><p>Using nested, indexed for loops may help,
+but I can already imagine being convoluted.</p><p>The <a href="https://reactjs.org/docs/context.html">React Context API</a> and the
+<a href="https://v3.vuejs.org/guide/component-provide-inject.htm">Vue Provide/Inject API</a>
+may also provide solutions.
+Hopefully we can explore these in the future.</p>
+    </article>
+    <a class="link-untracked" href="/blog">back to blog</a>
+  </section>
+    <!-- the good stuff -->
+    <span class="mouse-chaser"></span>
+    <footer>
+    <a href="#">© 2022   John Henry</a>
+      <!-- Todo: Astro whitespace may be fixed in Astro 0.21? -->
+      <nav>
+        <a href="#" class="mouse-chaser-toggler" onclick="event.preventDefault(),window.cycleMouseChaser()" title="Click to toggle mouse."></a>
+        <a href="#" class="color-theme-toggler" onclick="event.preventDefault(),window.cycleTheme()" title="Click to toggle color theme."></a>
+      </nav>
+    </footer>
+    
+    
+  </body>
+</html>
