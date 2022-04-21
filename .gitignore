@@ -1,6 +1,7 @@
 # build output
 dist
 dist.wbn
+ssr
 
 # dependencies
 node_modules/
