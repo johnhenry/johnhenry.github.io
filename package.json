@@ -9,10 +9,13 @@
     "start": "astro dev",
     "set:hash": "echo \"export default \\\"$(git rev-parse HEAD)\\\";\" > src/HASH.mjs",
     "build:html": "astro build",
+    "build:deno": "astro build --config ./astro.deno.config.mjs",
     "build:sw": "mkdir -p dist/ && workbox generateSW config/workbox.config.js",
     "build:wbn": "mkdir -p dist/ sh scripts/gen-bundle.sh http://localhost/",
     "build:-sw": "npm run set:hash && npm run build:html && npm run reset:hash  && npm run build:sw",
+    "build:deno:-sw": "npm run set:hash && npm run build:deno && npm run reset:hash  && npm run build:sw",
     "build:-wbn": "npm run set:hash && npm run build:html && npm run reset:hash && npm run build:sw && npm run build:wbn",
+    "build:deno:-wbn": "npm run set:hash && npm run build:html && npm run reset:hash && npm run build:sw && npm run build:wbn",
     "build": "npm run build:-sw",
     "preview": "astro preview",
     "lint": "prettier --write . "
