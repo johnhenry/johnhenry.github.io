@@ -21,7 +21,8 @@
     "workbox-cli": "6.3.0"
   },
   "dependencies": {
-    "astro": "^1.0.0-beta.5",
+    "@astrojs/deno": "^0.1.1",
+    "astro": "^1.0.0-beta.14",
     "prettier": "^2.5.0"
   }
 }
