@@ -11,5 +11,5 @@ export default defineConfig({
     plugins: [],
   },
   adapter: deno(),
-  outDir: "./ssr/deno",
+  outDir: "./dist/deno",
 });
