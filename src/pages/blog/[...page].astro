@@ -1,12 +1,6 @@
 ---
 // Settings
-import {
-  SITE_TITLE,
-  SITE_KEYWORDS,
-  SITE_DESCRIPTION,
-  SITE_AUTHOR,
-  SITE_CANONICAL_URL,
-  SITE_BLOG_PAGE_SIZE} from "../../SETTINGS.mjs";
+import { SITE_BLOG_PAGE_SIZE } from "../../SETTINGS.mjs";
 // Utilities
 import sortPosts from "../../utils/sort-posts.mjs";
 // Components
@@ -15,10 +9,6 @@ import BlogPreview from "../../components/BlogPreview.astro";
 import SitePage from "../../components/SitePage.astro";
 import Pagination from "../../components/Pagination.astro";
 // Content
-import headerLinks from "../../content/headerlinks.mjs";
-
-const title = `${SITE_TITLE} -- Blog`;
-
 const { page } = Astro.props;
 // Misc.
 export async function getStaticPaths({ paginate }) {
@@ -30,12 +20,8 @@ export async function getStaticPaths({ paginate }) {
 }
 ---
 <SitePage
-  title={`Blog -- #${page.currentPage}`}
-  description={SITE_DESCRIPTION}
-  keywords={SITE_KEYWORDS}
-  author={SITE_AUTHOR}
-  canonical={SITE_CANONICAL_URL}
-  headerLinks ={headerLinks}>
+  subtitle={`Blog -- #${page.currentPage}`}
+  >
   <section class="blog-top">
     <header><JH class="logo"/></header>
     <p>This is the place where I muse about technology.</p>

@@ -1,13 +1,13 @@
 ---
 // Settings
 // Components
-import SEO from './SEO.astro';
-import SiteStyles from "./SiteStyles.astro";
-import SiteScripts from "./SiteScripts.astro";
-import ServiceWorkerScript from "./ServiceWorkerScript.astro";
-import TagManagerHead from './TagManagerHead.astro';
 import AppleTouchIconLinks from './AppleTouchIconLinks.astro';
 import DefineWebComponents from './DefineWebComponents.astro';
+import MiscellaneousMeta from './MiscellaneousMeta.astro';
+import ServiceWorkerScript from "./ServiceWorkerScript.astro";
+import SiteScripts from "./SiteScripts.astro";
+import SiteStyles from "./SiteStyles.astro";
+import TagManagerHead from './TagManagerHead.astro';
 const DEFAULT_FAVICON="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=";
 const DEFAULT_FAVICON_TYPE="image/x-icon";
 // Content
@@ -15,15 +15,10 @@ const {
   title,
   titleJoiner=" : ",
   subtitle="",
-  author,
-  keywords,
   canonical,
-  description,
   serviceWorkerScript,
-  themeColor="#ffffff",
   charSet="utf-8",
   manifest,
-  mobileView=true,
   favicon=DEFAULT_FAVICON,
   faviconType=DEFAULT_FAVICON_TYPE,
   tmid,
@@ -32,17 +27,19 @@ const {
   externalScripts=[],
   externalStyles=[],
   criticalScripts="",
-  criticalStyles=""} = Astro.props;
+  criticalStyles="",
+  meta} = Astro.props;
 const displayTitle = subtitle? `${title}${titleJoiner}${subtitle}`: title;
 ---
 <head>
   {tmid ? <TagManagerHead tmid={tmid} /> : ''}
-  <SEO title={displayTitle} description={description} canonical={canonical} />
-  {themeColor && <meta name="theme-color" content={themeColor}>}
-  {mobileView && <meta name="viewport" content="width=device-width, initial-scale=1.0">}
+  {displayTitle && <title>{displayTitle}</title>}
+  <link
+		rel="canonical"
+		href={canonical}
+	/>
   {charSet && <meta charset={charSet}>}
-  {keywords && <meta name="keywords" content={keywords}>}
-  {author && <meta name="author" content={author}>}
+  {meta && <MiscellaneousMeta info={meta} />}
   <ServiceWorkerScript src={serviceWorkerScript} />
   {manifest && <link rel="manifest" href={manifest}/>}
   <link rel="icon" href={favicon} type={faviconType} />
@@ -50,4 +47,5 @@ const displayTitle = subtitle? `${title}${titleJoiner}${subtitle}`: title;
   <SiteScripts srcs={externalScripts} critical={criticalScripts}/>
   <AppleTouchIconLinks icons={appleTouchIcons} />
   <DefineWebComponents components={webComponents} />
+  <slot />
 </head>

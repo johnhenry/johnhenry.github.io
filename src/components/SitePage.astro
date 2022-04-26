@@ -1,82 +1,58 @@
 ---
 // Settings
-import { TAG_MANAGER_ID, SITE_TITLE, SITE_BASE_PATH, SITE_FAVICON, SITE_FAVICON_TYPE } from '../SETTINGS.mjs';
 // Components
-import SiteHead from "./SiteHead.astro";
-import GDPRRequest from './GDPRRequest.astro';
-import TagManagerBody from './TagManagerBody.astro';
+import {SITE_TITLE, TAG_MANAGER_ID, SITE_FAVICON, SITE_FAVICON_TYPE, SITE_CANONICAL_URL, SITE_DESCRIPTION, SITE_KEYWORDS, SITE_AUTHOR} from "../SETTINGS.mjs";
 import ClassCycler from './ClassCycler.astro';
+import headerLinks from "../content/headerlinks.mjs";
 // Content
 import externalStyles from '../external/styles.mjs';
 import externalScripts from '../external/scripts.mjs';
 import webComponents from '../external/components.mjs';
 import appleTouchIcons from '../external/apple-touch-icons.mjs';
-
-const {
-  title,
-  description, keywords, author, canonical, headerLinks, htmlClass, headerClass, footerClass, serviceWorkerScript } = Astro.props;
+import metaOptions from '../external/meta.mjs';
+import GenericPage from "./GenericPage/index.astro";
+import AppContainer from "./AppContainer.astro";
+const { subtitle='', author=SITE_AUTHOR, headerClass, footerClass, tmid, canonical=SITE_CANONICAL_URL, description=SITE_DESCRIPTION,  keywords=SITE_KEYWORDS} = Astro.props;
+const props = {
+...Astro.props,
+canonical,
+description,
+keywords,
+author,
+externalStyles,
+externalScripts,
+webComponents,
+appleTouchIcons,
+metaOptions,
+title: SITE_TITLE,
+favicon: SITE_FAVICON,
+faviconType: SITE_FAVICON_TYPE,
+tmid: TAG_MANAGER_ID,
+headerLinks
+}
 ---
-<!DOCTYPE html>
-<html lang="en" class={htmlClass}>
-  <SiteHead
-    title={SITE_TITLE}
-    subtitle={title}
-    description={description}
-    keywords={keywords}
-    author={author}
-    canonical={canonical}
-    serviceWorkerScript={serviceWorkerScript}
-    manifest={`${SITE_BASE_PATH}manifest.json`}
-    favicon={SITE_FAVICON}
-    faviconType={SITE_FAVICON_TYPE}
-    tmid={TAG_MANAGER_ID}
-    appleTouchIcons={appleTouchIcons}
-    webComponents={webComponents}
-    externalStyles={externalStyles}
-    externalScripts={externalScripts}
-    themeColor="#343233"/>
-  <ClassCycler
+<GenericPage {...props}>
+  <ClassCycler slot="head"
     global="cycleTheme"
     storage-key="color-theme-preference"
     classes={[
     "color-theme-dark",
     "",
     "color-theme-light"]} />
-  <ClassCycler
+  <ClassCycler slot="head"
     global="cycleMouseChaser"
     storage-key="mouse-chaser-preference"
     classes={[
     "",
     "mouse-chaser-logo",
     "mouse-chaser-coordinates"]} />
-  <body class="color-theme-dark">
-    <header class={headerClass}>
-      <a href="/#" ><img src={`${SITE_BASE_PATH}image/iajh.png`} width="32" height="32" alt="logo" />
-      <p class="hide-n-show-landscape-inline">{SITE_TITLE}{' '}{title}</p></a>
-      <nav class="hide show-landscape-flex">
-        {headerLinks.map(({url, text}) => (
-            <a href={`${url}`}>{text}</a>
-          ))}
-      </nav>
-    </header>
-    <!-- the good stuff -->
-    <slot />
-    <!-- the good stuff -->
-    <span class="mouse-chaser" ></span>
-    <footer class={footerClass}>
-    <a href="#">© {new Date().getFullYear()}  {` ${author}`}</a>
-      <!-- Todo: Astro whitespace may be fixed in Astro 0.21? -->
-      <nav>
-        <a href="#"
-          class="mouse-chaser-toggler"
-          onclick="event.preventDefault(),window.cycleMouseChaser()" title="Click to toggle mouse."></a>
-        <a href="#"
-          class="color-theme-toggler"
-          onclick="event.preventDefault(),window.cycleTheme()"
-          title="Click to toggle color theme."></a>
-      </nav>
-    </footer>
-    {TAG_MANAGER_ID ? <GDPRRequest /> : null}
-    {TAG_MANAGER_ID ? <TagManagerBody tmid={`${TAG_MANAGER_ID}`} /> : null}
-  </body>
-</html>
+  <AppContainer
+    headerClass={headerClass}
+    footerClass={footerClass}
+    title={SITE_TITLE}
+    subtitle={subtitle}
+    author={author}
+    tmid={tmid}>
+    <slot></slot>
+  </AppContainer>
+</GenericPage>

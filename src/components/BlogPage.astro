@@ -1,31 +1,32 @@
 ---
 //Settings
 import {
-  SITE_AUTHOR,
-  SITE_KEYWORDS,
-  SITE_CANONICAL_URL} from "../SETTINGS.mjs";
+SITE_AUTHOR,
+SITE_KEYWORDS,
+SITE_CANONICAL_URL} from "../SETTINGS.mjs";
 // Utilites
 // Components
 import SitePage from "./SitePage.astro";
 // Content
 import headerLinks from "../content/headerlinks.mjs";
 const {
-    title,
     description,
     date,
     author,
     heroImage,
     permalink,
     alt,
+    title,
     tags } = Astro.props.content;
 ---
 <SitePage
-  title={`Blog -- ${title}`}
+  subtitle={`Blog -- ${title}`}
   description={description}
   keywords={SITE_KEYWORDS.concat(tags)}
   author={author}
   canonical={SITE_CANONICAL_URL + permalink}
-  headerLinks={headerLinks}>
+  headerLinks={headerLinks}
+  >
   <section class="blog-top">
     <header><p>{title}</p></header>
     <a class="link-untracked" href="/blog">back to blog</a>

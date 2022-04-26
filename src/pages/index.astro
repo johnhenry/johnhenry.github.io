@@ -1,16 +1,10 @@
 ---
 // Settings
-import {
-SITE_AUTHOR,
-SITE_KEYWORDS,
-SITE_DESCRIPTION,
-SITE_CANONICAL_URL,
-SITE_BASE_PATH, SITE_SERVICE_WORKER } from "../SETTINGS.mjs";
+import {SITE_BASE_PATH, SITE_SERVICE_WORKER} from "../SETTINGS.mjs";
 // Utilities
 import sortPosts from "../utils/sort-posts.mjs";
 // Components
 import JH from "../components/jh/index.astro";
-
 import SitePage from "../components/SitePage.astro";
 // Content
 import projects from "../content/projects.mjs";
@@ -19,12 +13,9 @@ const { latest=undefined, tags=[] } = sortPosts(
 await Astro.glob('./blog/posts/*.md'));
 ---
 <SitePage
-  description={SITE_DESCRIPTION}
-  keywords={SITE_KEYWORDS}
-  author={SITE_AUTHOR}
-  canonical={SITE_CANONICAL_URL}
-  headerLinks={headerLinks}
-  serviceWorkerScript={SITE_SERVICE_WORKER}>
+  serviceWorkerScript={SITE_SERVICE_WORKER}
+  manifest={`${SITE_BASE_PATH}manifest.json`}
+>
   <section class="hero">
     <article>
       <JH class="logo"/>
@@ -32,9 +23,7 @@ await Astro.glob('./blog/posts/*.md'));
           {headerLinks.map(({url, text}, index) => (
         <>
         <li class={`link-untracked${!(index%2)?'':' link-inverted'}`}>
-
             {text.toUpperCase().split("").map((letter) => <a href={`${url}`}>{letter}</a>)}
-
         </li>
         {(index===0) ? <>
           <li class="tags">{ tags.map((tag, index) =>
@@ -48,7 +37,7 @@ await Astro.glob('./blog/posts/*.md'));
           </li>
           {(latest) ?
             <li class="blog-preview">
-              <a class="link-hidden" href={latest.frontmatter.url}>
+              <a class="link-hidden" href={latest.url}>
                 <header>Latest: {latest.frontmatter.title}</header>
                 <p>{latest.frontmatter.description}</p>
               </a>

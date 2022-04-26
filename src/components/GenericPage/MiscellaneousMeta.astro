@@ -1,0 +1,28 @@
+---
+const {info} = Astro.props;
+const run = function * (object, prefix=[]){
+  for (const [key, value] of Object.entries(object)) {
+    if(key === "*") {
+      yield [
+        prefix,
+        value,
+      ];
+    }
+    else if(typeof value === "object"){
+      yield * run(value,  prefix.concat(key));
+    }
+    else {
+      yield [
+        prefix.concat(key),
+        value,
+      ];
+    }
+  }
+};
+---
+{[...run(info)].map(([property, content]) => {
+    return (
+      <meta property={property.join(':')} content={content}/>)
+})}
+
+

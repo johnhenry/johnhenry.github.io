@@ -1,11 +1,5 @@
 ---
 // Settings
-import {
-  SITE_TITLE,
-  SITE_KEYWORDS,
-  SITE_DESCRIPTION,
-  SITE_AUTHOR,
-  SITE_CANONICAL_URL} from "../../../SETTINGS.mjs";
 // Utilities
 import sortPosts from "../../../utils/sort-posts.mjs";
 // Components
@@ -13,7 +7,6 @@ import JH from "../../../components/jh/index.astro";
 import SitePage from "../../../components/SitePage.astro";
 import BlogPreview from "../../../components/BlogPreview.astro";
 // Content;
-import headerLinks from "../../../content/headerlinks.mjs";
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 // Misc.
@@ -32,12 +25,9 @@ const { byTag } =
 }
 ---
 <SitePage
-  title={`Blog -- [${tag}]`}
-  description={SITE_DESCRIPTION}
-  keywords={SITE_KEYWORDS}
-  author={SITE_AUTHOR}
-  canonical={SITE_CANONICAL_URL}
-  headerLinks={headerLinks}>
+  subtitle={`Blog -- [${tag}]`}
+  description={`#${tag}`}
+  >
   <section class="blog-top">
     <header>
       <JH class="logo"/>
