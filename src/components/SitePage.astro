@@ -1,12 +1,17 @@
 ---
 // Settings
-import { TAG_MANAGER_ID, SITE_TITLE, SITE_BASE_PATH } from '../SETTINGS.mjs';
+import { TAG_MANAGER_ID, SITE_TITLE, SITE_BASE_PATH, SITE_FAVICON, SITE_FAVICON_TYPE } from '../SETTINGS.mjs';
 // Components
 import SiteHead from "./SiteHead.astro";
 import GDPRRequest from './GDPRRequest.astro';
 import TagManagerBody from './TagManagerBody.astro';
-import BodyClassCycler from './BodyClassCycler.astro';
+import ClassCycler from './ClassCycler.astro';
 // Content
+import externalStyles from '../external/styles.mjs';
+import externalScripts from '../external/scripts.mjs';
+import webComponents from '../external/components.mjs';
+import appleTouchIcons from '../external/apple-touch-icons.mjs';
+
 const {
   title,
   description, keywords, author, canonical, headerLinks, htmlClass, headerClass, footerClass, serviceWorkerScript } = Astro.props;
@@ -14,20 +19,30 @@ const {
 <!DOCTYPE html>
 <html lang="en" class={htmlClass}>
   <SiteHead
+    title={SITE_TITLE}
     subtitle={title}
     description={description}
     keywords={keywords}
     author={author}
     canonical={canonical}
-    serviceWorkerScript={serviceWorkerScript} ></SiteHead>
-  <BodyClassCycler
+    serviceWorkerScript={serviceWorkerScript}
+    manifest={`${SITE_BASE_PATH}manifest.json`}
+    favicon={SITE_FAVICON}
+    faviconType={SITE_FAVICON_TYPE}
+    tmid={TAG_MANAGER_ID}
+    appleTouchIcons={appleTouchIcons}
+    webComponents={webComponents}
+    externalStyles={externalStyles}
+    externalScripts={externalScripts}
+    themeColor="#343233"/>
+  <ClassCycler
     global="cycleTheme"
     storage-key="color-theme-preference"
     classes={[
     "color-theme-dark",
     "",
     "color-theme-light"]} />
-  <BodyClassCycler
+  <ClassCycler
     global="cycleMouseChaser"
     storage-key="mouse-chaser-preference"
     classes={[

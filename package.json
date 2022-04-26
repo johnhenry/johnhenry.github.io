@@ -9,7 +9,7 @@
     "start": "astro dev",
     "set:hash": "echo \"export default \\\"$(git rev-parse HEAD)\\\";\" > src/HASH.mjs",
     "build:html": "astro build",
-    "build:deno": "astro build --config ./astro.deno.config.mjs",
+    "build:deno": "astro build --config ./astro.config/deno.mjs",
     "build:sw": "mkdir -p dist/ && workbox generateSW config/workbox.config.js",
     "build:wbn": "mkdir -p dist/ sh scripts/gen-bundle.sh http://localhost/",
     "build:-sw": "npm run set:hash && npm run build:html && npm run reset:hash  && npm run build:sw",
@@ -24,8 +24,8 @@
     "workbox-cli": "6.3.0"
   },
   "dependencies": {
-    "@astrojs/deno": "^0.1.1",
-    "astro": "^1.0.0-beta.14",
+    "@astrojs/deno": "^0.1.2",
+    "astro": "^1.0.0-beta.17",
     "prettier": "^2.5.0"
   }
 }

@@ -1,0 +1,14 @@
+---
+import { SITE_LIB_URL } from '../SETTINGS.mjs';
+const properties = Astro.props;
+properties.storageKey = properties.storageKey ?? properties['storage-key'];
+const {
+  global = 'cycleClass',
+  storageKey="",
+  classes=[],
+  selector="body" } = properties;
+---
+<script type="module" is:inline define:vars={{SITE_LIB_URL, storageKey, classes, selector, global}} >
+const classCycler = await import(`${SITE_LIB_URL}js/localstorage-class-cycler/0.0.0/index.mjs`).then(m => m.default);
+globalThis[global] = classCycler(document.querySelector(selector), storageKey, ...classes );
+</script>

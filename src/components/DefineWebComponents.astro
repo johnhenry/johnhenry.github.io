@@ -1,0 +1,7 @@
+---
+const {components} = Astro.props;
+---
+{components.map(([name, href]) => {
+    return (
+      <define-component name={name} src={href} ></define-component>)
+})}

@@ -1,49 +1,53 @@
 ---
 // Settings
-import {
-        SITE_FAVICON,
-        SITE_TITLE,
-        SITE_LIB_URL,
-        TAG_MANAGER_ID,
-        SITE_BASE_PATH,
-        SITE_FAVICON_TYPE} from '../SETTINGS.mjs';
 // Components
 import SEO from './SEO.astro';
 import SiteStyles from "./SiteStyles.astro";
 import SiteScripts from "./SiteScripts.astro";
 import ServiceWorkerScript from "./ServiceWorkerScript.astro";
-import externalStyles from '../external/styles.mjs';
-import externalScripts from '../external/scripts.mjs';
 import TagManagerHead from './TagManagerHead.astro';
+import AppleTouchIconLinks from './AppleTouchIconLinks.astro';
+import DefineWebComponents from './DefineWebComponents.astro';
+const DEFAULT_FAVICON="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=";
+const DEFAULT_FAVICON_TYPE="image/x-icon";
 // Content
 const {
-  title=SITE_TITLE,
+  title,
+  titleJoiner=" : ",
   subtitle="",
   author,
   keywords,
   canonical,
   description,
-  serviceWorkerScript} = Astro.props;
-const displayTitle = subtitle? `${title} : ${subtitle}`: title;
+  serviceWorkerScript,
+  themeColor="#ffffff",
+  charSet="utf-8",
+  manifest,
+  mobileView=true,
+  favicon=DEFAULT_FAVICON,
+  faviconType=DEFAULT_FAVICON_TYPE,
+  tmid,
+  appleTouchIcons=[],
+  webComponents=[],
+  externalScripts=[],
+  externalStyles=[],
+  criticalScripts="",
+  criticalStyles=""} = Astro.props;
+const displayTitle = subtitle? `${title}${titleJoiner}${subtitle}`: title;
 ---
 <head>
-  {TAG_MANAGER_ID ? <TagManagerHead tmid={TAG_MANAGER_ID} /> : ''}
+  {tmid ? <TagManagerHead tmid={tmid} /> : ''}
   <SEO title={displayTitle} description={description} canonical={canonical} />
-  <meta name="theme-color" content="#343233">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="utf-8">
-  <meta name="keywords" content={keywords}>
-  <meta name="author" content={author}>
+  {themeColor && <meta name="theme-color" content={themeColor}>}
+  {mobileView && <meta name="viewport" content="width=device-width, initial-scale=1.0">}
+  {charSet && <meta charset={charSet}>}
+  {keywords && <meta name="keywords" content={keywords}>}
+  {author && <meta name="author" content={author}>}
   <ServiceWorkerScript src={serviceWorkerScript} />
-  <link rel="manifest" href={`${SITE_BASE_PATH}manifest.json` }/>
-  <link rel="icon" href={SITE_FAVICON} type={SITE_FAVICON_TYPE} />
-  <SiteStyles hrefs={externalStyles} />
-  <link rel="stylesheet" href={`${SITE_BASE_PATH}style/index.css`}/>
-  <SiteScripts srcs={externalScripts} />
-  <link rel="apple-touch-icon" sizes="512x512" href={`${SITE_BASE_PATH}image/iajh.512.png`} />
-  <link rel="apple-touch-icon" sizes="384x384" href={`${SITE_BASE_PATH}image/iajh.384.png`} />
-  <link rel="apple-touch-icon" sizes="256x256" href={`${SITE_BASE_PATH}image/iajh.256.png`} />
-  <link rel="apple-touch-icon" sizes="192x192" href={`${SITE_BASE_PATH}image/iajh.192.png`} />
-  <link rel="apple-touch-icon" sizes="128x128" href={`${SITE_BASE_PATH}image/iajh.128.png`} />
-  <define-component name="animate-paths" src={`${SITE_LIB_URL}js/animate-paths.component/0.0.0/index.mjs`}></define-component>
+  {manifest && <link rel="manifest" href={manifest}/>}
+  <link rel="icon" href={favicon} type={faviconType} />
+  <SiteStyles hrefs={externalStyles} critical={criticalStyles}/>
+  <SiteScripts srcs={externalScripts} critical={criticalScripts}/>
+  <AppleTouchIconLinks icons={appleTouchIcons} />
+  <DefineWebComponents components={webComponents} />
 </head>
