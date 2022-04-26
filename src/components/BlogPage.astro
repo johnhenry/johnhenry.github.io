@@ -1,7 +1,6 @@
 ---
 //Settings
 import {
-SITE_AUTHOR,
 SITE_KEYWORDS,
 SITE_CANONICAL_URL} from "../SETTINGS.mjs";
 // Utilites
@@ -35,7 +34,7 @@ const {
       <p class="publish-date">{date}</p>
       <h1>{title}</h1>
       <div class="author">
-        <p><a href="#">{SITE_AUTHOR}</a></p>
+        <p><a href="#">{author}</a></p>
       </div>
       <slot />
     </article>
