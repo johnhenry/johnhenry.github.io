@@ -1,50 +1,23 @@
 <!DOCTYPE html><html lang="en">
   <head>
   
-  <!-- { title ? <title>{title}</title> : null }
-
-{ canonical ? (
-	<link 
-		rel="canonical"
-		href={canonical}
-	/>
-) : null}
-
-{ description ? (
-	<meta
-  	name="description"
-  	content={description}
-  />
-) : null }
-
-<meta
-	name="robots"
-	content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
-> --><!-- { generateOpenGraphBasicTags(props) }
-{ generateOpenGraphOptionalTags(props) }
-{ generateOpenGraphImageTags(props) }
-{ generateOpenGraphArticleTags(props) }
-{ generateTwitterTags(props) } -->
-  <meta name="theme-color" content="#343233">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Henry</title>
+  <link rel="canonical" href="https://johnhenry.github.io/">
   <meta charset="utf-8">
-  <meta name="keywords" content="">
-  <meta name="author" content="John Henry">
+  <meta property="robots" content="index, follow"><meta property="theme-color" content="#343233"><meta property="viewport" content="width=device-width, initial-scale=1.0"><meta property="description" content="John Henry's Person Portfolio and Blog"><meta property="author" content="John Henry">
+
+
+
   
   <link rel="manifest" href="https://johnhenry.github.io/manifest.json">
   <link rel="icon" href="https://johnhenry.github.io/image/iajh.png" type="image/png">
   
-<link rel="stylesheet" href="https://johnhenry.github.io/lib/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/hide-n-show/0.0.0/landscape.css">
-  <link rel="stylesheet" href="https://johnhenry.github.io/style/index.css">
-  &lt;script&gt;;&lt;/script&gt;
-<script type="module" src="https://johnhenry.github.io/lib/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/css-variables-scroll/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/until-window-load/0.0.0/global.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/define-component.component/0.0.0/global.mjs"></script>
-  <link rel="apple-touch-icon" sizes="512x512" href="https://johnhenry.github.io/image/iajh.512.png">
-  <link rel="apple-touch-icon" sizes="384x384" href="https://johnhenry.github.io/image/iajh.384.png">
-  <link rel="apple-touch-icon" sizes="256x256" href="https://johnhenry.github.io/image/iajh.256.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="https://johnhenry.github.io/image/iajh.192.png">
-  <link rel="apple-touch-icon" sizes="128x128" href="https://johnhenry.github.io/image/iajh.128.png">
+<link rel="stylesheet" href="https://johnhenry.github.io/lib/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/hide-n-show/0.0.0/landscape.css"><link rel="stylesheet" href="https://johnhenry.github.io/style/index.css">
   
-</head><define-component name="animate-paths" src="https://johnhenry.github.io/lib/js/animate-paths.component/0.0.0/index.mjs"></define-component>
+<script type="module" src="https://johnhenry.github.io/lib/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/css-variables-scroll/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/until-window-load/0.0.0/global.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/define-component.component/0.0.0/global.mjs"></script>
+  <link rel="apple-touch-icon" sizes="512x512" href="https://johnhenry.github.io/image/iajh.512.png"><link rel="apple-touch-icon" sizes="384x384" href="https://johnhenry.github.io/image/iajh.384.png"><link rel="apple-touch-icon" sizes="256x256" href="https://johnhenry.github.io/image/iajh.256.png"><link rel="apple-touch-icon" sizes="192x192" href="https://johnhenry.github.io/image/iajh.192.png"><link rel="apple-touch-icon" sizes="128x128" href="https://johnhenry.github.io/image/iajh.128.png">
+
+  <define-component name="animate-paths" src="https://johnhenry.github.io/lib/js/animate-paths.component/0.0.0/index.mjs"></define-component>
 
   <script type="module">let SITE_LIB_URL = "https://johnhenry.github.io/lib/";
 let storageKey = "color-theme-preference";
@@ -52,46 +25,29 @@ let classes = ["color-theme-dark","","color-theme-light"];
 let selector = "body";
 let global = "cycleTheme";
 
-const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0.0.0/index.mjs`).then(m => m.default);
-  const key = `${storageKey}`;
-  const values = classes;
-  const target = globalThis.document.querySelector(`${selector}`);
-  const emit = ({value, key, index}) => {
-    target.classList.remove(...values.filter(s=>s));
-    if(value){
-      target.classList.add(value);
-    }
-  }
-  globalThis[global] = localStorageCycler(key, emit, ...values);
-</script>
-  <script type="module">let SITE_LIB_URL = "https://johnhenry.github.io/lib/";
+const classCycler = await import(`${SITE_LIB_URL}js/localstorage-class-cycler/0.0.0/index.mjs`).then(m => m.default);
+globalThis[global] = classCycler(document.querySelector(selector), storageKey, ...classes );
+</script><script type="module">let SITE_LIB_URL = "https://johnhenry.github.io/lib/";
 let storageKey = "mouse-chaser-preference";
 let classes = ["","mouse-chaser-logo","mouse-chaser-coordinates"];
 let selector = "body";
 let global = "cycleMouseChaser";
 
-const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0.0.0/index.mjs`).then(m => m.default);
-  const key = `${storageKey}`;
-  const values = classes;
-  const target = globalThis.document.querySelector(`${selector}`);
-  const emit = ({value, key, index}) => {
-    target.classList.remove(...values.filter(s=>s));
-    if(value){
-      target.classList.add(value);
-    }
-  }
-  globalThis[global] = localStorageCycler(key, emit, ...values);
+const classCycler = await import(`${SITE_LIB_URL}js/localstorage-class-cycler/0.0.0/index.mjs`).then(m => m.default);
+globalThis[global] = classCycler(document.querySelector(selector), storageKey, ...classes );
 </script>
+
+</head>
   <body class="color-theme-dark">
-    <header>
-      <a href="/#"><img src="https://johnhenry.github.io/image/iajh.png" width="32" height="32" alt="logo">
-      <p class="hide-n-show-landscape-inline">John Henry </p></a>
-      <nav class="hide show-landscape-flex">
-        <a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a>
-      </nav>
-    </header>
-    <!-- the good stuff -->
-    <section class="hero">
+  <header>
+    <a href="/#"><img src="https://johnhenry.github.io/image/iajh.png" width="32" height="32" alt="logo">
+    <p class="hide-n-show-landscape-inline">John Henry </p></a>
+    <nav class="hide show-landscape-flex">
+      <a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a>
+    </nav>
+  </header>
+  <!-- the good stuff -->
+  <section class="hero">
     <article>
       <animate-paths class="until-load" stops="[-1, -1, 0, 0, 1]" intervals="[1, 2, 2, 2]" animate="true" frac="1" animation-duration="30s" animation-iteration-count="infinite" animation-timing-function="linear" path-onclick="event.preventDefault(),window.cycleMouseChaser()">
     <svg class="logo until-window-load" width="67.733" height="67.733" version="1.1" viewBox="0 0 67.733 67.733" xmlns="http://www.w3.org/2000/svg">
@@ -103,23 +59,17 @@ const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0
 </animate-paths>
       <ul class="widget glowey-background-container">
           <li class="link-untracked">
-
             <a href="/blog">B</a><a href="/blog">L</a><a href="/blog">O</a><a href="/blog">G</a>
-
         </li><li class="tags"><a class="link-untracked link-inverted" href="/blog/tags/experimenting" title="tag: experimenting"> experimenting</a><a class="link-untracked" href="/blog/tags/programming" title="tag: programming"> programming</a>
           </li><li class="blog-preview">
-              <a class="link-hidden">
+              <a class="link-hidden" href="/blog/posts/semantics-vs-accessibility">
                 <header>Latest: Semantics Versus Accessibility</header>
                 <p>We explore an issue plaguing modern development and propose a solution</p>
               </a>
             </li><li class="link-untracked link-inverted">
-
             <a href="/#me">M</a><a href="/#me">E</a>
-
         </li><li class="link-untracked">
-
             <a href="/#projects">P</a><a href="/#projects">R</a><a href="/#projects">O</a><a href="/#projects">J</a><a href="/#projects">E</a><a href="/#projects">C</a><a href="/#projects">T</a><a href="/#projects">S</a>
-
         </li>
       </ul>
     </article>
@@ -185,17 +135,18 @@ const localStorageCycler = await import(`${SITE_LIB_URL}js/localstorage-cycler/0
         </a>
     </article>
   </section>
-    <!-- the good stuff -->
-    <span class="mouse-chaser"></span>
-    <footer>
-    <a href="#">© 2022   John Henry</a>
-      <!-- Todo: Astro whitespace may be fixed in Astro 0.21? -->
-      <nav>
-        <a href="#" class="mouse-chaser-toggler" onclick="event.preventDefault(),window.cycleMouseChaser()" title="Click to toggle mouse."></a>
-        <a href="#" class="color-theme-toggler" onclick="event.preventDefault(),window.cycleTheme()" title="Click to toggle color theme."></a>
-      </nav>
-    </footer>
-    
-    
-  </body>
+  <!-- the good stuff -->
+  <span class="mouse-chaser"></span>
+  <footer>
+  <a href="#">© 2022   John Henry</a>
+    <!-- Todo: Astro whitespace may be fixed in Astro 0.21? -->
+    <nav>
+      <a href="#" class="mouse-chaser-toggler" onclick="event.preventDefault(),window.cycleMouseChaser()" title="Click to toggle mouse."></a>
+      <a href="#" class="color-theme-toggler" onclick="event.preventDefault(),window.cycleTheme()" title="Click to toggle color theme."></a>
+    </nav>
+  </footer>
+  
+  
+</body>
+
 </html>
