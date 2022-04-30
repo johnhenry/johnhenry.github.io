@@ -21,7 +21,7 @@
     "lint": "prettier --write . "
   },
   "devDependencies": {
-    "workbox-cli": "6.3.0"
+    "workbox-cli": "^6.5.3"
   },
   "dependencies": {
     "@astrojs/deno": "^0.1.2",
