@@ -8,7 +8,7 @@ const defaults = {
   SITE_SERVICE_WORKER: "",
   SITE_BASE_PATH: "/",
   SITE_BLOG_PAGE_SIZE: 4,
-  SITE_LIB_URL: "http://localhost:3001/",
+  SITE_LIB_URL: "lib/",
   SITE_CANONICAL_URL: "https://johnhenry.github.io/",
   SITE_DESCRIPTION: "John Henry's Person Portfolio and Blog",
   SITE_KEYWORDS: [],

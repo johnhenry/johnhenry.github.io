@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import { SITE_CANONICAL_URL } from "./SETTINGS.mjs";
 
 import deno from "@astrojs/deno";
 
@@ -8,7 +9,7 @@ import sitemap from "@astrojs/sitemap";
 /** @type {import('astro').AstroUserConfig} */
 
 export default defineConfig({
-  site: "https://johnhenry.github.io/",
+  site: SITE_CANONICAL_URL,
   integrations: [sitemap()],
   vite: {
     plugins: [],
