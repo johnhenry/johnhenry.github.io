@@ -33,6 +33,7 @@ jobs:
           PUBLIC_TAG_MANAGER_ID: ${{ secrets.PUBLIC_TAG_MANAGER_ID }}
           PUBLIC_SITE_SERVICE_WORKER: ${{ secrets.PUBLIC_SITE_SERVICE_WORKER }}
           PUBLIC_SITE_BASE_PATH: ${{secrets.PUBLIC_SITE_BASE_PATH}}
+          PUBLIC_SITE_CDN_URL: ${{ secrets.PUBLIC_SITE_CDN_URL }}
         run: npm run build
 
       - name: Deploy Static 🚀
