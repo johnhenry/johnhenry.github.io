@@ -1,6 +1,6 @@
 ---
 // Settings
-import {SITE_BASE_PATH, SITE_SERVICE_WORKER} from "../SETTINGS.mjs";
+import {SITE_BASE_PATH, SITE_CDN_URL, SITE_SERVICE_WORKER} from "../SETTINGS.mjs";
 // Utilities
 import sortPosts from "../utils/sort-posts.mjs";
 // Components
@@ -52,7 +52,7 @@ await Astro.glob('./blog/posts/*.md'));
     <header>Me</header>
     <article>
       <div>
-        <header><img src={`${SITE_BASE_PATH}image/iajh.png`} alt="logo"/></header>
+        <header><img src={`${SITE_CDN_URL}image/iajh.png`} alt="logo"/></header>
         <article class="glowey-background">
           <p>Hi! My name is John.</p>
           <p>I'm a mathmetician, a scientist, and an engineer (yes, those are different things!). </p>
@@ -60,7 +60,7 @@ await Astro.glob('./blog/posts/*.md'));
         </article>
       </div>
       <div>
-        <header><img src={`${SITE_BASE_PATH}image/iajh.png`} alt="logo"/></header>
+        <header><img src={`${SITE_CDN_URL}image/iajh.png`} alt="logo"/></header>
         <article class="glowey-background">
           <p>
             <a class="link-surprise" href="mailto:john@iamjohnhenry.com"

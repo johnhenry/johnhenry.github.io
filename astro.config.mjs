@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config"; // @ts-check
 // import { SITE_CANONICAL_URL } from "./src/SETTINGS.mjs";
-import { SITE_LIB_URL, SITE_CANONICAL_URL } from "./astro.config/SETTINGS.mjs";
+import { SITE_LIB_URL, SITE_CANONICAL_URL } from "./astro.config/DEFAULTS.mjs";
 
 /** @type {import('astro').AstroUserConfig} */
 

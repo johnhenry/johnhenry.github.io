@@ -1,22 +1,4 @@
-import HASH from "./HASH.mjs";
-
-const defaults = {
-  SITE_AUTHOR: "John Henry",
-  SITE_TITLE: "John Henry",
-  SITE_FAVICON_PATH: "image/iajh.png",
-  SITE_FAVICON_TYPE: "image/png",
-  SITE_SERVICE_WORKER: "",
-  SITE_BASE_PATH: "/",
-  SITE_BLOG_PAGE_SIZE: 4,
-  SITE_LIB_URL: "lib/",
-  SITE_CANONICAL_URL: "https://johnhenry.github.io/",
-  SITE_DESCRIPTION: "John Henry's Person Portfolio and Blog",
-  SITE_KEYWORDS: [],
-  TAG_MANAGER_ID: "",
-  BUILD_DATE: new Date().toISOString(),
-  BUILD_HASH: HASH,
-  BUILD_META: "",
-};
+import * as defaults from "./DEFAULTS.mjs";
 export default defaults;
 
 export const SITE_AUTHOR =
@@ -37,6 +19,10 @@ export const SITE_SERVICE_WORKER =
 export const SITE_BASE_PATH =
   import.meta.env.PUBLIC_SITE_BASE_PATH || defaults.SITE_BASE_PATH;
 
+export const SITE_CDN_URL =
+  import.meta.env.PUBLIC_SITE_CDN_URL || defaults.SITE_CDN_URL;
+
+SITE_CDN_URL;
 export const SITE_BLOG_PAGE_SIZE =
   Number(import.meta.env.PUBLIC_SITE_BLOG_PAGE_SIZE) ||
   defaults.SITE_BLOG_PAGE_SIZE;

@@ -1,13 +1,13 @@
 ---
 // Settings
 // Components
-import {SITE_BASE_PATH} from "../SETTINGS.mjs";
+import {SITE_CDN_URL} from "../SETTINGS.mjs";
 import GDPRRequest from './GDPRRequest.astro';
 import TagManagerBody from './GenericPage/TagManagerBody.astro';
 import headerLinks from "../content/headerlinks.mjs";
 // Content
 const { title, subtitle, headerClass, footerClass, author, tmid} = Astro.props;
-const headerLogo = `${SITE_BASE_PATH}image/iajh.png`;
+const headerLogo = `${SITE_CDN_URL}image/iajh.png`;
 ---
 <body class="color-theme-dark">
   <header class={headerClass}>
