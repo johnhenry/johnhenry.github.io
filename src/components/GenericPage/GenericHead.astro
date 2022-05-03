@@ -8,32 +8,29 @@ import ServiceWorkerScript from "./ServiceWorkerScript.astro";
 import SiteScripts from "./SiteScripts.astro";
 import SiteStyles from "./SiteStyles.astro";
 import TagManagerHead from './TagManagerHead.astro';
-const DEFAULT_FAVICON="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=";
-const DEFAULT_FAVICON_TYPE="image/x-icon";
+
 // Content
 const {
-  title,
-  titleJoiner=" : ",
-  subtitle="",
+  titles,
+  titleJoiner,
   canonical,
   serviceWorkerScript,
-  charSet="utf-8",
+  charSet,
   manifest,
-  favicon=DEFAULT_FAVICON,
-  faviconType=DEFAULT_FAVICON_TYPE,
+  favicon,
+  faviconType,
   tmid,
-  appleTouchIcons=[],
-  webComponents=[],
-  externalScripts=[],
-  externalStyles=[],
-  criticalScripts="",
-  criticalStyles="",
+  appleTouchIcons,
+  webComponents,
+  externalScripts,
+  externalStyles,
+  criticalScripts,
+  criticalStyles,
   meta} = Astro.props;
-const displayTitle = subtitle? `${title}${titleJoiner}${subtitle}`: title;
 ---
 <head>
   {tmid ? <TagManagerHead tmid={tmid} /> : ''}
-  {displayTitle && <title>{displayTitle}</title>}
+  {titles.length && <title>{titles.join(titleJoiner)}</title>}
   <link
 		rel="canonical"
 		href={canonical}

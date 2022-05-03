@@ -12,7 +12,14 @@ import appleTouchIcons from '../external/apple-touch-icons.mjs';
 import metaOptions from '../external/meta.mjs';
 import GenericPage from "./GenericPage/index.astro";
 import AppContainer from "./AppContainer.astro";
-const { subtitle='', author=SITE_AUTHOR, headerClass, footerClass, tmid, canonical=SITE_CANONICAL_URL, description=SITE_DESCRIPTION,  keywords=SITE_KEYWORDS} = Astro.props;
+const {
+  subtitle,
+  headerClass,
+  footerClass,
+  author=SITE_AUTHOR,
+  tmid=TAG_MANAGER_ID,
+  canonical=SITE_CANONICAL_URL, description=SITE_DESCRIPTION,  keywords=SITE_KEYWORDS} = Astro.props;
+
 const props = {
 ...Astro.props,
 canonical,
@@ -23,15 +30,21 @@ externalStyles,
 externalScripts,
 webComponents,
 appleTouchIcons,
-metaOptions,
-title: SITE_TITLE,
-favicon: SITE_FAVICON,
-faviconType: SITE_FAVICON_TYPE,
-tmid: TAG_MANAGER_ID,
 headerLinks
 }
+const titles = [SITE_TITLE];
+if(subtitle){
+  titles.push(subtitle)
+}
 ---
-<GenericPage {...props}>
+<GenericPage
+  {...props}
+  titleJoiner=" : "
+  titles={titles}
+  favicon={SITE_FAVICON}
+  faviconType={SITE_FAVICON_TYPE}
+  meta={metaOptions}
+  >
   <ClassCycler slot="head"
     global="cycleTheme"
     storage-key="color-theme-preference"
@@ -49,8 +62,7 @@ headerLinks
   <AppContainer
     headerClass={headerClass}
     footerClass={footerClass}
-    title={SITE_TITLE}
-    subtitle={subtitle}
+    title={titles.join(" ")}
     author={author}
     tmid={tmid}>
     <slot></slot>

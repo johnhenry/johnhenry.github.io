@@ -1,0 +1,11 @@
+{
+  "name": "astro-plain",
+  "version": "0.0.0",
+  "description": "Generic, batteries-included prototype for Astro pages",
+  "main": "index.astro",
+  "scripts": {
+    "test": ""
+  },
+  "author": "",
+  "license": "ISC"
+}

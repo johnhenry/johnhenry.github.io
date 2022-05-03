@@ -6,13 +6,13 @@ import GDPRRequest from './GDPRRequest.astro';
 import TagManagerBody from './GenericPage/TagManagerBody.astro';
 import headerLinks from "../content/headerlinks.mjs";
 // Content
-const { title, subtitle, headerClass, footerClass, author, tmid} = Astro.props;
+const { title, headerClass, footerClass, author, tmid} = Astro.props;
 const headerLogo = `${SITE_CDN_URL}image/iajh.png`;
 ---
 <body class="color-theme-dark">
   <header class={headerClass}>
     <a href="/#" >{headerLogo && <img src={headerLogo} width="32" height="32" alt="logo" />}
-    <p class="hide-n-show-landscape-inline">{title}{' '}{subtitle}</p></a>
+    <p class="hide-n-show-landscape-inline">{title}</p></a>
     <nav class="hide show-landscape-flex">
       {headerLinks.map(({url, text}) => (
           <a href={`${url}`}>{text}</a>

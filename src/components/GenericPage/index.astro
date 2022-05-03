@@ -2,17 +2,38 @@
 // Settings
 // Components
 import GenericHead from "./GenericHead.astro";
+import {DEFAULT_FAVICON, DEFAULT_FAVICON_TYPE, DEFAULT_LANG, DEFAULT_CHARSET} from "./defaults.mjs";
+
 // Content
 const {
-  title,
-  subtitle='',
-  description, keywords, author, canonical, htmlClass, serviceWorkerScript, favicon, faviconType, tmid, manifest, externalStyles, externalScripts, webComponents, appleTouchIcons, metaOptions, lang="en" } = Astro.props;
+  titles=[],
+  titleJoiner=' : ',
+  charSet=DEFAULT_CHARSET,
+  description="",
+  keywords="",
+  author="",
+  canonical="",
+  htmlClass="",
+  serviceWorkerScript="",
+  favicon=DEFAULT_FAVICON,
+  faviconType=DEFAULT_FAVICON_TYPE,
+  tmid="",
+  manifest="",
+  criticalStyles="",
+  criticalScripts="",
+  externalStyles=[],
+  externalScripts=[],
+  appleTouchIcons=[],
+  webComponents=[],
+  meta={},
+  lang=DEFAULT_LANG } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang={lang} class={htmlClass}>
   <GenericHead
-    title={title}
-    subtitle={subtitle}
+    charSet={charSet}
+    titles={titles}
+    titleJoiner={titleJoiner}
     author={author}
     canonical={canonical}
     serviceWorkerScript={serviceWorkerScript}
@@ -24,10 +45,13 @@ const {
     webComponents={webComponents}
     externalStyles={externalStyles}
     externalScripts={externalScripts}
-    meta={{...metaOptions,
+    criticalStyles={criticalStyles}
+    criticalScripts={criticalScripts}
+    meta={{
       description,
       keywords,
-      author,}}>
+      author,
+      ...meta}}>
   <slot name="head"></slot>
   </GenericHead>
   <slot></slot>
