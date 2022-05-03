@@ -2,7 +2,6 @@
 // Settings
 // Components
 import {SITE_TITLE, TAG_MANAGER_ID, SITE_FAVICON, SITE_FAVICON_TYPE, SITE_CANONICAL_URL, SITE_DESCRIPTION, SITE_KEYWORDS, SITE_AUTHOR} from "../SETTINGS.mjs";
-import ClassCycler from './ClassCycler.astro';
 import headerLinks from "../content/headerlinks.mjs";
 // Content
 import externalStyles from '../external/styles.mjs';
@@ -45,20 +44,23 @@ if(subtitle){
   faviconType={SITE_FAVICON_TYPE}
   meta={metaOptions}
   >
-  <ClassCycler slot="head"
+      <class-cycler
+    selector = "body"
+    slot="head"
     global="cycleTheme"
     storage-key="color-theme-preference"
-    classes={[
-    "color-theme-dark",
+    classes={[ "color-theme-dark",
     "",
-    "color-theme-light"]} />
-  <ClassCycler slot="head"
+    "color-theme-light"].join(",")}
+  ></class-cycler>
+    <class-cycler slot="head"
     global="cycleMouseChaser"
     storage-key="mouse-chaser-preference"
     classes={[
     "",
     "mouse-chaser-logo",
-    "mouse-chaser-coordinates"]} />
+    "mouse-chaser-coordinates"].join(",")}
+  ></class-cycler>
   <AppContainer
     headerClass={headerClass}
     footerClass={footerClass}
