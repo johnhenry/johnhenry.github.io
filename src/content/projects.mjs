@@ -1,11 +1,11 @@
-import { SITE_LIB_URL, SITE_BASE_PATH } from "../SETTINGS.mjs";
-const image = `${SITE_BASE_PATH}vendor/img/www.pexels.com/pixabay/turned-on-computer-monitor-displaying-text-300.jpg`;
+import { SITE_LIB_URL, SITE_CDN_URL } from "../SETTINGS.mjs";
+const image = `${SITE_CDN_URL}vendor/img/www.pexels.com/pixabay/turned-on-computer-monitor-displaying-text-300.jpg`;
 export default [
   {
     title: "Bash Command Line tools",
     description: "A collection of tools that I find useful.",
     href: "https://johnhenry.github.io/lib/bash",
-    image: `${SITE_BASE_PATH}personal/image/bufka.karolina/cat-in-sun.jpg`,
+    image: `${SITE_CDN_URL}personal/image/bufka.karolina/cat-in-sun.jpg`,
   },
   {
     title: "Standard Library -- set of components for building applications.",
@@ -17,7 +17,7 @@ export default [
     title: "Forsnaken -- Multiplayer snake game",
     description: "A modular snake game",
     href: "https://johnhenry.github.io/forsnaken",
-    image: `${SITE_BASE_PATH}personal/image/bufka.karolina/cat-in-towel.jpg`,
+    image: `${SITE_CDN_URL}personal/image/bufka.karolina/cat-in-towel.jpg`,
   },
   {
     title: "HTML Builder",
@@ -29,7 +29,7 @@ export default [
     title: "Actually Serverless",
     description: "Simulate a cluster of servers within your browser",
     href: "https://johnhenry.github.io/actually-serverless",
-    image: `${SITE_BASE_PATH}personal/image/bufka.karolina/cat-on-chair.jpg`,
+    image: `${SITE_CDN_URL}personal/image/bufka.karolina/cat-on-chair.jpg`,
   },
   {
     title: "Blog",
