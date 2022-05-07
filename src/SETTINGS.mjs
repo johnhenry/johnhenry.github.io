@@ -51,4 +51,4 @@ export const BUILD_META =
   import.meta.env.PUBLIC_BUILD_META || defaults.BUILD_META;
 
 //
-export const SITE_FAVICON = `/${SITE_FAVICON_PATH}`;
+export const SITE_FAVICON = `${SITE_BASE_PATH}${SITE_FAVICON_PATH}`;
