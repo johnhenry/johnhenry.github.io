@@ -10,7 +10,7 @@ import webComponents from '../external/components.mjs';
 import appleTouchIcons from '../external/apple-touch-icons.mjs';
 import metaOptions from '../external/meta.mjs';
 import GenericPage from "astro-plain";
-import AppContainer from "./AppContainer.astro";
+import SiteBody from "./SiteBody.astro";
 const {
   subtitle,
   headerClass,
@@ -39,7 +39,7 @@ if(subtitle){
 <GenericPage
   {...props}
   titleJoiner=" : "
-  titles={titles}
+  title={titles}
   favicon={SITE_FAVICON}
   faviconType={SITE_FAVICON_TYPE}
   meta={metaOptions}
@@ -61,12 +61,12 @@ if(subtitle){
     "mouse-chaser-logo",
     "mouse-chaser-coordinates"].join(",")}
   ></class-cycler>
-  <AppContainer
+  <SiteBody
     headerClass={headerClass}
     footerClass={footerClass}
     title={titles.join(" ")}
     author={author}
     tmid={tmid}>
     <slot></slot>
-  </AppContainer>
+  </SiteBody>
 </GenericPage>

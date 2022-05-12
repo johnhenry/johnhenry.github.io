@@ -6,7 +6,8 @@
     "ensure-lib": "git clone git@github.com:johnhenry/lib.git src/lib",
     "reset:hash": "echo \"export default \\\"\\\";\" > src/HASH.mjs",
     "dev": "astro dev",
-    "start": "astro dev",
+    "start:local": "astro dev",
+    "start": "PUBLIC_SITE_LIB_URL=https://johnhenry.github.io/lib/ astro dev",
     "set:hash": "echo \"export default \\\"$(git rev-parse HEAD)\\\";\" > src/HASH.mjs",
     "build:html": "astro build",
     "build:deno": "astro build --config ./astro.config/deno.mjs",
@@ -27,7 +28,7 @@
   "dependencies": {
     "@astrojs/deno": "^0.1.2",
     "astro": "^1.0.0-beta.20",
-    "astro-plain": "^0.0.4",
+    "astro-plain": "^0.0.5",
     "prettier": "^2.5.0"
   }
 }
