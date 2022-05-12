@@ -9,6 +9,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Creating summary
+        run: |
+          echo "# Site Map" > $GITHUB_STEP_SUMMARY
+
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
 
@@ -51,7 +55,8 @@ jobs:
         with:
           branch: static # The branch the action should deploy to.
           folder: dist/static # The folder the action should deploy.
-      - name: Adding markdown
+
+      - name: Finalizing summary
         run: |
           echo "# Site Map" > $GITHUB_STEP_SUMMARY
           echo '```xml' >> $GITHUB_STEP_SUMMARY
