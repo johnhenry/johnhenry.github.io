@@ -98,7 +98,10 @@ body > footer {
 }
 
 body > section {
-  padding-top: var(--header-padding);
+  scroll-snap-align: center;
+  padding-top: calc(
+    1.5 * var(--header-padding)
+  ); /*TODO: find better calculation*/
   padding-bottom: var(--header-padding);
   padding-left: var(--padding-side);
   padding-right: var(--padding-side);
