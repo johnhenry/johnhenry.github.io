@@ -53,5 +53,7 @@ jobs:
           folder: dist/static # The folder the action should deploy.
       - name: Adding markdown
         run: |
-          echo "# Site Map" >> $GITHUB_STEP_SUMMARY
+          echo "# Site Map" > $GITHUB_STEP_SUMMARY
+          echo '```xml' >> $GITHUB_STEP_SUMMARY
           cat dist/static/sitemap.xml >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
