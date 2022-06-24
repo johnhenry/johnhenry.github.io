@@ -51,7 +51,7 @@ There are two ways of bootstrapping an application. The easiest and most reliabl
 
 “_What are directives?_”, you must be wondering… Well, for now, just think of them as attibues that you can add to your html that let your app interact with angular. We’ll learn more about directives very soon, and in a later part of the series.
 
-We could put it on any element — the **<body>** tag; a **<div>** tag — but lets go ahead and put it on the top level “html” element. This way, the entire page will be available to our application.
+We could put it on any element — the **`<body>`** tag; a **`<div>`** tag — but lets go ahead and put it on the top level “html” element. This way, the entire page will be available to our application.
 
 ```html
     <!doctype html>

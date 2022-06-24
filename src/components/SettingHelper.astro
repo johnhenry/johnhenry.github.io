@@ -1,0 +1,10 @@
+---
+const {value} = Astro.props;
+---
+<td>{
+Array.isArray(value)
+    ? <ul>{value.map(v=><li>{v}</li>)}</ul>
+    : typeof value === "string" ?
+      (`"`+value+`"`)
+      : value
+        }</td>

@@ -32,7 +32,7 @@ You _should_ at least be famaliar with logging into a remote server using [key-b
 0. Install code-server on your server.
 1. Access server's CL via SSH.
 2. On server, run `code-server <path to workspace or directory>`.
-3. You can access server's FS and CL through password-secured web interface at <serveraddress>:8443
+3. You can access server's FS and CL through password-secured web interface at `<serveraddress>:8443`
 
 ## Method 2 : sshcode
 
@@ -46,7 +46,7 @@ You _should_ at least be famaliar with logging into a remote server using [key-b
 
 0. Install [Visual Studio Code](https://code.visualstudio.com/) on client
 1. Install [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension
-2. From extenison menu, connect <user>@<serveraddress>
+2. From extenison menu, connect `<user>@<serveraddress>`
 3. Access server's FS and CL through Visual Studio Code
 4. From extension menu, tunnel ports from server to client.
 
