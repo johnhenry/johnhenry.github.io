@@ -33,7 +33,7 @@ via JavaScript and CSS are explicitly encouraged.
 Though Astro supports them,
 component libraries and frameworks
 that require a build steps ([Solid](), [React](), [Vue](),...)
-are discouraged in favor of native [WebComponents](),
+are discouraged in favor of native [WebComponents]() and [Native DOM Trees]()
 which have widespread support.
 
 Likewise, preprocessors ([sass](), [postcss](), [babel](),...) are discouraged in favor of moder web standards.

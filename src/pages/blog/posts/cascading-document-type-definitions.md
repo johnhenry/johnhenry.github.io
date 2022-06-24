@@ -47,7 +47,7 @@ or as a separate file
 
 file://list.dtd
 
-```dtd
+```
 <!DOCTYPE ul [
 <!ELEMENT ul (li)>
 <!ATTLIST ul class CDATA "list">

@@ -22,13 +22,13 @@
     "lint": "prettier --write . "
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^0.1.0",
-    "workbox-cli": "^6.5.3"
+    "@astrojs/sitemap": "^0.1.0"
   },
   "dependencies": {
     "@astrojs/deno": "^0.1.2",
-    "astro": "^1.0.0-beta.20",
+    "astro": "^1.0.0-beta.56",
     "astro-plain": "^0.0.5",
-    "prettier": "^2.5.0"
+    "prettier": "^2.5.0",
+    "workbox-cli": "^6.5.3"
   }
 }
