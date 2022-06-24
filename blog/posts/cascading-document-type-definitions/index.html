@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html><html lang="en">
+  <head>
+  
+  <title>John Henry : Blog -- Cascading Document Type Definitions</title>
+  <link rel="canonical" href="https://johnhenry.github.io/undefined">
+  <meta charset="utf-8">
+  <meta property="description" content="Cascadin"><meta 0="e" 1="x" 2="p" 3="e" 4="r" 5="i" 6="m" 7="e" 8="n" 9="t" programming="keywords"><meta property="author" content="John Henry"><meta property="robots" content="index, follow"><meta property="theme-color" content="#343233"><meta property="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  
+  
+  <link rel="icon" href="https://johnhenry.github.io/image/iajh.png" type="image/png">
+  
+<link rel="stylesheet" href="https://johnhenry.github.io/lib/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/hide-n-show/0.0.0/landscape.css"><link rel="stylesheet" href="https://dte59pvkgd75m.cloudfront.net/style/index.css">
+  
+<script type="module" src="https://johnhenry.github.io/lib/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/css-variables-scroll/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/until-window-load/0.0.0/global.mjs"></script>
+  <link rel="apple-touch-icon" sizes="512x512" href="https://dte59pvkgd75m.cloudfront.net/image/iajh.512.png"><link rel="apple-touch-icon" sizes="384x384" href="https://dte59pvkgd75m.cloudfront.net/image/iajh.384.png"><link rel="apple-touch-icon" sizes="256x256" href="https://dte59pvkgd75m.cloudfront.net/image/iajh.256.png"><link rel="apple-touch-icon" sizes="192x192" href="https://dte59pvkgd75m.cloudfront.net/image/iajh.192.png"><link rel="apple-touch-icon" sizes="128x128" href="https://dte59pvkgd75m.cloudfront.net/image/iajh.128.png">
+
+  <script type="module">let components = [["animate-paths","https://johnhenry.github.io/lib/js/animate-paths.component/0.0.0/index.mjs"],["class-cycler","https://johnhenry.github.io/lib/js/class-cycler.component/0.0.0/index.mjs"]];
+
+  for (const [name, href, exportName="default"] of components){
+    const elementClass = await import(href).then(module => module[exportName]);
+    globalThis.customElements.define(name, elementClass);
+  }
+</script>
+
+
+
+
+
+  <class-cycler selector="body" slot="head" global="cycleTheme" storage-key="color-theme-preference" classes="color-theme-dark,,color-theme-light"></class-cycler><class-cycler slot="head" global="cycleMouseChaser" storage-key="mouse-chaser-preference" classes=",mouse-chaser-logo,mouse-chaser-coordinates"></class-cycler>
+</head><body class="color-theme-dark">
+  <header>
+    <a href="/#"><img src="https://dte59pvkgd75m.cloudfront.net/image/iajh.png" width="32" height="32" alt="logo">
+    <p class="hide-n-show-landscape-inline">John Henry Blog -- Cascading Document Type Definitions</p></a>
+    <nav class="hide show-landscape-flex">
+      <a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a>
+    </nav>
+  </header>
+  <!-- the good stuff -->
+  <section class="blog-top">
+    <header><p>Cascading Document Type Definitions</p></header>
+    <a class="link-untracked" href="/blog">back to blog</a>
+    <img width="360" height="210" loading="lazy" src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg" alt="Astro">
+    <article class="blog-content">
+      <p class="publish-date">18 June 2022</p>
+      <h1>Cascading Document Type Definitions</h1>
+      <div class="author">
+        <p><a href="#">John Henry</a></p>
+      </div>
+      <p>(or “To DTD or not To DTD, Why do we ask thes questions?” )</p><p>As a web developer,
+I would like a way to validate
+the structure of HTML files and components
+against some standard.
+DTDs fail to address this problem due to lack of support in the ecosystem.
+Rather than addressing DTD’s shortcomings,
+I’ve created a new language using a famaliar syntax.</p><h3 id="what-are-dtds">What are DTDs</h3><p>DTDs or <a href="https://en.wikipedia.org/wiki/Document_type_definition">Document Type Definition</a>s are a way to define a structure for HTML and XML documents. You may have already seen them used by browsers to define HTML documents:</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">&lt;!</span><span style="color: #7EE787">DOCTYPE</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">html</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">html</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  ...</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">html</span><span style="color: #C9D1D9">&gt;</span></span></code></pre><p>They can be used to define partial HTML documents as well.
+Either inline:</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">&lt;!</span><span style="color: #7EE787">DOCTYPE</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">ul</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">[</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">&lt;!ELEMENT</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">ul</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">(li)</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #FFA198; font-style: italic">&lt;</span><span style="color: #C9D1D9">!ATTLIST ul class CDATA &quot;list&quot;&gt;</span></span>
+<span class="line"><span style="color: #FFA198; font-style: italic">&lt;</span><span style="color: #C9D1D9">!ELEMENT li (#PCDATA)&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">]&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">ul</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">class</span><span style="color: #C9D1D9">=</span><span style="color: #A5D6FF">&quot;list&quot;</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">li</span><span style="color: #C9D1D9">&gt;&lt;/</span><span style="color: #7EE787">li</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">ul</span><span style="color: #C9D1D9">&gt;</span></span></code></pre><p>or as a separate file</p><p>file://list.dtd</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">&lt;!DOCTYPE ul [</span></span>
+<span class="line"><span style="color: #c9d1d9">&lt;!ELEMENT ul (li)&gt;</span></span>
+<span class="line"><span style="color: #c9d1d9">&lt;!ATTLIST ul class CDATA &quot;list&quot;&gt;</span></span>
+<span class="line"><span style="color: #c9d1d9">&lt;!ELEMENT li (#PCDATA)&gt;</span></span>
+<span class="line"><span style="color: #c9d1d9">]&gt;</span></span></code></pre><p>file://list.html</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">ul</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">class</span><span style="color: #C9D1D9">=</span><span style="color: #A5D6FF">&quot;list&quot;</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #7EE787">li</span><span style="color: #C9D1D9">&gt;&lt;/</span><span style="color: #7EE787">li</span><span style="color: #C9D1D9">&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">ul</span><span style="color: #C9D1D9">&gt;</span></span></code></pre><h3 id="the-problem-with-dtds">The Problem with DTDs</h3><p>There isn’t simply a <em>good</em> way to validate DTDs in <em>modern</em> workflows.</p><p>The only solutions that I could find includes either:</p><ul>
+<li>connecting to a webservice — either directly or usign a cli;</li>
+<li>or having java installed somewhere on your machine.</li>
+</ul><p>Neither of these fit into the workflow of a modern web developer.</p><h3 id="the-solution-cdtds">The Solution: CDTDs</h3><p>My initial goal was to create valadator
+that would turn a DTD into a series of CSS queries.
+These would then be used to validate an HTML string.</p><p>It became apparent that with a few tweeks,
+I could use the queries themselves.</p><p>Developers can use <a href="https://github.com/johnhenry/cdtd">Cascading Document Type Definitions</a> to validate HTML documents using pre-defined schema.</p><p>The language is basically <a href="https://www.w3.org/TR/css-nesting-1/">Nested CSS</a>, but without attributes.</p><p>I’ve created a <a href="https://www.npmjs.com/package/cdtd">package</a>
+that includes a CLI tool to both:</p><ul>
+<li>validates an HTML based on a given CDTD</li>
+<li>generates CSS or HTML from a given CDTD</li>
+</ul><p>This is still very much a work in progress. The way this works may occasionally seem counter intuitive. There are still questions as to how this <em>should</em> work.</p><p>Let me know what you think. Pull requests are welcome!</p>
+    </article>
+    <a class="link-untracked" href="/blog">back to blog</a>
+  </section>
+  <!-- the good stuff -->
+  <span class="mouse-chaser"></span>
+  <footer>
+  <a href="https://github.com/johnhenry/johnhenry.github.io" target="_blank">© 2022   John Henry</a>
+  <a href="https://github.com/johnhenry/johnhenry" target="_blank">/profile</a>
+  <a href="https://github.com/johnhenry/lib" target="_blank">/lib</a>
+    <!-- Todo: Astro whitespace may be fixed in Astro 0.21? -->
+    <nav>
+      <a href="#" class="mouse-chaser-toggler" onclick="event.preventDefault(),window.cycleMouseChaser()" title="Click to toggle mouse."></a>
+      <a href="#" class="color-theme-toggler" onclick="event.preventDefault(),window.cycleTheme()" title="Click to toggle color theme."></a>
+    </nav>
+  </footer>
+  
+  
+</body>
+
+</html>

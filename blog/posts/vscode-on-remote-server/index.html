@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!DOCTYPE html><!DOCTYPE html><html lang="en">
   <head>
   
@@ -30,7 +31,6 @@
 
 
   <class-cycler selector="body" slot="head" global="cycleTheme" storage-key="color-theme-preference" classes="color-theme-dark,,color-theme-light"></class-cycler><class-cycler slot="head" global="cycleMouseChaser" storage-key="mouse-chaser-preference" classes=",mouse-chaser-logo,mouse-chaser-coordinates"></class-cycler>
-
 </head><body class="color-theme-dark">
   <header>
     <a href="/#"><img src="https://dte59pvkgd75m.cloudfront.net/image/iajh.png" width="32" height="32" alt="logo">
@@ -56,25 +56,16 @@
 </ul><h2 id="pre-requisites">Pre-Requisites</h2><p>This tutorial assumes that you are already famaliar with using <a href="https://en.wikipedia.org/wiki/Secure_Shell">secure shell (SSH)</a>.</p><p>You <em>should</em> at least be famaliar with logging into a remote server using <a href="https://www.ssh.com/ssh/key/">key-based authentication</a>.</p><h2 id="method-1--code-server">Method 1 : code-server</h2><p><a href="https://github.com/cdr/code-server">Code-server</a> creates a web server with an instance of a web version of Visual Studio Code that you can access via a browser.</p><ol start="0">
 <li>Install code-server on your server.</li>
 <li>Access server’s CL via SSH.</li>
-<li>On server, run <code>code-server &#x3C;path to workspace or directory></code>.</li>
-<li>
-You can access server’s FS and CL through password-secured web interface at 
-<serveraddress>
-:8443
-</serveraddress></li>
+<li>On server, run <code>code-server &lt;path to workspace or directory&gt;</code>.</li>
+<li>You can access server’s FS and CL through password-secured web interface at <code>&lt;serveraddress&gt;:8443</code></li>
 </ol><h2 id="method-2--sshcode">Method 2 : sshcode</h2><p><a href="https://github.com/cdr/sshcode">Sshcode</a> works similarly to code-server (it’s actually built on top of it) but uses a client program to set up the web server. Additionally, if you’re using chrome, it will open a customized window with Visual Studio Code keybinding in tact.</p><ol start="0">
 <li>Install chrome and sshcode on client</li>
-<li>On client, run <code>sshcode &#x3C;user>@&#x3C;serveraddress></code></li>
+<li>On client, run <code>sshcode &lt;user&gt;@&lt;serveraddress&gt;</code></li>
 <li>Access server’s FS and CL through chrome window.</li>
 </ol><h2 id="method-3--visual-studio-code">Method 3 : Visual Studio Code</h2><ol start="0">
 <li>Install <a href="https://code.visualstudio.com/">Visual Studio Code</a> on client</li>
 <li>Install <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH</a> extension</li>
-<li>
-From extenison menu, connect 
-<user>
-@
-<serveraddress>
-</serveraddress></user></li>
+<li>From extenison menu, connect <code>&lt;user&gt;@&lt;serveraddress&gt;</code></li>
 <li>Access server’s FS and CL through Visual Studio Code</li>
 <li>From extension menu, tunnel ports from server to client.</li>
 </ol><h2 id="next-steps">Next Steps</h2><p>To supplement the above methods, you may want to learn about:</p><ul>
