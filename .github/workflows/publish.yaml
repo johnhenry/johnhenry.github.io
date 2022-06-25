@@ -38,7 +38,7 @@ jobs:
           PUBLIC_SITE_BASE_PATH: ${{secrets.PUBLIC_SITE_BASE_PATH}}
           PUBLIC_SITE_CDN_URL: ${{ secrets.PUBLIC_SITE_CDN_URL }}
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_PROD_TOKEN }}
-        run: npm run build:doppler
+        run: npm run build:doppler && dist/.nojekyll
 
       - name: Deploy Public 🚀
         uses: jakejarvis/s3-sync-action@master
