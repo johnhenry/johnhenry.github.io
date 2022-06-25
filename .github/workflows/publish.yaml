@@ -12,6 +12,11 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
 
+      - name: Install Doppler 🏣
+        uses: dopplerhq/cli-action@v1
+      env:
+        DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+
       - name: Setup node 🔧
         uses: actions/setup-node@v2
         with:
@@ -34,7 +39,7 @@ jobs:
           PUBLIC_SITE_SERVICE_WORKER: ${{ secrets.PUBLIC_SITE_SERVICE_WORKER }}
           PUBLIC_SITE_BASE_PATH: ${{secrets.PUBLIC_SITE_BASE_PATH}}
           PUBLIC_SITE_CDN_URL: ${{ secrets.PUBLIC_SITE_CDN_URL }}
-        run: npm run build
+        run: npm run build:doppler
 
       - name: Deploy Public 🚀
         uses: jakejarvis/s3-sync-action@master
