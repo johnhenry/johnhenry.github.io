@@ -1,12 +1,12 @@
 ---
 title: "Cascading Document Type Definitions"
-description: "Cascadin"
+description: "An introduction to CDTDs"
 date: "18 June 2022"
 author: "John Henry"
 heroImage: "/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"
 alt: "Astro"
 layout: "../../../components/BlogPage.astro"
-tags: ["programming", "experiment"]
+tags: ["programming", "experimenting"]
 ---
 
 (or "To DTD or not To DTD, Why do we ask thes questions?" )
