@@ -8,7 +8,7 @@ import externalStyles from '../external/styles.mjs';
 import externalScripts from '../external/scripts.mjs';
 import webComponents from '../external/components.mjs';
 import appleTouchIcons from '../external/apple-touch-icons.mjs';
-import metaOptions from '../external/meta.mjs';
+import defaultMeta from '../external/meta.mjs';
 import GenericPage from "astro-plain";
 import SiteBody from "./SiteBody.astro";
 const {
@@ -17,7 +17,8 @@ const {
   footerClass,
   author=SITE_AUTHOR,
   tmid=TAG_MANAGER_ID,
-  canonical=SITE_CANONICAL_URL, description=SITE_DESCRIPTION,  keywords=SITE_KEYWORDS} = Astro.props;
+  canonical=SITE_CANONICAL_URL, description=SITE_DESCRIPTION,  keywords=SITE_KEYWORDS,
+  meta={}} = Astro.props;
 
 const props = {
 ...Astro.props,
@@ -42,7 +43,7 @@ if(subtitle){
   title={titles}
   favicon={SITE_FAVICON}
   faviconType={SITE_FAVICON_TYPE}
-  meta={metaOptions}
+  meta={{defaultMeta, ...meta}}
   >
     <class-cycler
     selector = "body"
