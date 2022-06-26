@@ -1,3 +1,29 @@
+# Components
+
+What is a component?
+A component is a set of markup associated
+with a specific set of behaviors --
+incuding everyghing from mouse clicks to visusal representation.
+They are an essential part of declarative programming.
+
+## HTML
+
+## HTML Components
+
+## CSS
+
+### CSS Modules
+
+### CSS MODELS
+
+## Native Dom Components
+
+### JSX
+
+### Attribute Based
+
+- HTMX
+
 # Component Inheritence
 
 This is Part 1 in a series.
