@@ -5,13 +5,74 @@ A component is a set of markup associated
 with a specific set of behaviors —
 incuding everyghing from mouse clicks to visusal representation.
 They are an essential part of declarative programming.</p>
-<h2 id="html">HTML</h2>
+<p>A component’s properties are not meant
+for said component’s children.
+They may tell a component how to arrange
+a group of generic children within itself,
+but only on rare occasions should a component
+be aware of it’s children’s content.</p>
+<h2 id="html-elements">HTML Elements</h2>
+<p>HTML elements are the simplest components on the web.
+They consist of basic element tags.</p>
+<p>It’s important to understand what already exists.</p>
 <h2 id="html-components">HTML Components</h2>
+<p>Facts</p>
+<p>Pros:</p>
+<ul>
+<li>encapsulation</li>
+<li></li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>importing is akward (can be fixed)</li>
+<li>always creates outer element.
+<ul>
+<li>can extend components to remove this
+<ul>
+<li>safari does not support this
+<ul>
+<li>…without a polyfill</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://minze.dev/api/#version-1">https://minze.dev/api/#version-1</a></p>
 <h2 id="css">CSS</h2>
+<p>CSS is used to add (and remove) visual (and interactive )
+behaviors to existing html components.</p>
+<p>CSS components are represented by selectors and properties are added to them.</p>
 <h3 id="css-modules">CSS Modules</h3>
-<h3 id="css-models">CSS MODELS</h3>
-<h2 id="native-dom-components">Native Dom Components</h2>
+<h3 id="css-models">CSS Models</h3>
+<p>Enhance existing CSS selectors by providing
+Javascipt-driven custom properties
+on the DOM.</p>
+<h2 id="native-dom-components">Native DOM Components</h2>
+<p>Facts:</p>
+<ul>
+<li>Uses document api (document.addChild, etc.)</li>
+</ul>
+<p>Pros:</p>
+<p>Cons:</p>
+<ul>
+<li>Cumbersom API
+<ul>
+<li>Specifically adding children/attributes is
+separate from construction.</li>
+<li>Specifically, can add children in bulk,
+but modifying them in bulk</li>
+</ul>
+</li>
+</ul>
 <h3 id="jsx">JSX</h3>
+<p>Many frameworks use Javascript for XML (JSX).
+This is an XML-like language within avascript
+that can be used to transform a XML into nested functions
+that produce DOM elements</p>
+<pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">(</span><span style="color: #FFA657">tagname</span><span style="color: #FF7B72">:</span><span style="color: #79C0FF">string</span><span style="color: #C9D1D9">, {</span><span style="color: #FFA657">children</span><span style="color: #C9D1D9">, }</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9">{[string]</span><span style="color: #FF7B72">:</span><span style="color: #79C0FF">any</span><span style="color: #C9D1D9">, </span><span style="color: #FFA657">children</span><span style="color: #FF7B72">:</span><span style="color: #FFA657">Element</span><span style="color: #C9D1D9">[]})</span><span style="color: #FF7B72">:=&gt;</span><span style="color: #C9D1D9"> Element</span></span>
+<span class="line"></span></code></pre>
 <h3 id="attribute-based">Attribute Based</h3>
 <ul>
 <li>HTMX</li>
