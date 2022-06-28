@@ -6,19 +6,81 @@ with a specific set of behaviors --
 incuding everyghing from mouse clicks to visusal representation.
 They are an essential part of declarative programming.
 
-## HTML
+A component's properties are not meant
+for said component's children.
+They may tell a component how to arrange
+a group of generic children within itself,
+but only on rare occasions should a component
+be aware of it's children's content.
+
+## HTML Elements
+
+HTML elements are the simplest components on the web.
+They consist of basic element tags.
+
+It's important to understand what already exists.
 
 ## HTML Components
 
+Facts
+
+Pros:
+
+- encapsulation
+-
+
+Cons:
+
+- importing is akward (can be fixed)
+- always creates outer element.
+  - can extend components to remove this
+    - safari does not support this
+      - ...without a polyfill
+
+https://minze.dev/api/#version-1
+
 ## CSS
+
+CSS is used to add (and remove) visual (and interactive )
+behaviors to existing html components.
+
+CSS components are represented by selectors and properties are added to them.
 
 ### CSS Modules
 
-### CSS MODELS
+### CSS Models
 
-## Native Dom Components
+Enhance existing CSS selectors by providing
+Javascipt-driven custom properties
+on the DOM.
+
+## Native DOM Components
+
+Facts:
+
+- Uses document api (document.addChild, etc.)
+
+Pros:
+
+Cons:
+
+- Cumbersom API
+  - Specifically adding children/attributes is
+    separate from construction.
+  - Specifically, can add children in bulk,
+    but modifying them in bulk
 
 ### JSX
+
+Many frameworks use Javascript for XML (JSX).
+This is an XML-like language within avascript
+that can be used to transform a XML into nested functions
+that produce DOM elements
+
+```typescript
+(tagname:string, {children, }:{[string]:any, children:Element[]}):=> Element
+
+```
 
 ### Attribute Based
 
