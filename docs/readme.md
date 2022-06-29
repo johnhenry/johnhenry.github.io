@@ -24,21 +24,13 @@ This site is published at [https://johnhenry.github.io/) via the [static branch]
 
 ### Devcontainer
 
-To use the devcontainer, clone this repo along with submodules:
-
-```bash
-git clone --recurse-submodules <path to this repo>
-```
-
-To add submodules,
-from within the repo run:
-
-```bash
-git submodule update --init --recursive
-```
+A devcontainer pointing to 
+https://github.com/johnhenry/devcontainer.node.zsh/pkgs/container/node_zsh_doppler
+is configured for development
 
 You can run devcontainers using
 
 - [VSCode](https://code.visualstudio.com/docs/remote/containers)
 - [Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)
 - [CLI](https://github.com/devcontainers/cli)
+- [Docker](https://docs.docker.com/desktop/dev-environments/)
