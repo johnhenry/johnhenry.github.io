@@ -21,6 +21,7 @@ graph LR
 ```
 
 <hr />
+
 ```mermaid
 graph LR
   E[Static: *.html,...]
@@ -38,7 +39,9 @@ graph LR
   C==>D
   D==>E
 ```
+
 <hr />
+
 ```mermaid
 graph LR
   Z[Static: *.html,...]
