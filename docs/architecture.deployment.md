@@ -15,6 +15,7 @@ graph LR
     A==CI/API==>C["Static Host @ Github Pages"];
     B-.HTTP.->D["CDN @ Cloudfront"];
     D-.HTTP.->C;
+    G["Config @ Doppler"]==CI/API==>C;
   end
   F["johnhenry.github.io/lib"]
   F-.->C
@@ -79,4 +80,4 @@ Mirrors of this site can be found here:
 - []() [Google]()
 
 Github Actions can be replaced with other continuous integration systems. [nektos/act](github.com/nektos/act) can be installed on a server and can probably run the actions with few tweeks. (This is not tested).
-```
+
