@@ -5,7 +5,7 @@ author: "John Henry"
 heroImage: "/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"
 alt: "Astro"
 layout: "../../../components/BlogPage.astro"
-tags: ["experiment", "programming"]
+tags: ["experimenting", "programming"]
 ---
 
 _Author’s Note: This is a **Highly Opinionated** guide. Your experiences and preferences may differ._

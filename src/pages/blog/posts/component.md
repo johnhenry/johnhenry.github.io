@@ -1,3 +1,10 @@
+1. Build HTML APP
+2. Extend individual components with CSS
+3. Extend individual components with JS
+   1. Extend CSS with JS (CSS custom Property Sets)
+   2. Extend HTML with JS (Web Component Extensions)
+   3. Extend HTML with JS (Targeting DOM Elements)
+
 # Components
 
 What is a component?

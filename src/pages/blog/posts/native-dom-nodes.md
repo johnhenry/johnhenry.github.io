@@ -5,7 +5,7 @@ author: "John Henry"
 heroImage: "/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"
 alt: "Astro"
 layout: "../../../components/BlogPage.astro"
-tags: ["experiment", "programming"]
+tags: ["experimenting", "programming"]
 ---
 
 Native DOM Nodes have been around [since before the beginning of time](https://people.apache.org/~jim/NewArchitect/webtech/1999/02/beyo/index.html). Why don't we use them more often in direct development?

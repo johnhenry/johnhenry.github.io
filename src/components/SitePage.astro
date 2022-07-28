@@ -45,23 +45,6 @@ if(subtitle){
   faviconType={SITE_FAVICON_TYPE}
   meta={{defaultMeta, ...meta}}
   >
-    <class-cycler
-    selector = "body"
-    slot="head"
-    global="cycleTheme"
-    storage-key="color-theme-preference"
-    classes={[ "color-theme-dark",
-    "",
-    "color-theme-light"].join(",")}
-  ></class-cycler>
-  <class-cycler slot="head"
-    global="cycleMouseChaser"
-    storage-key="mouse-chaser-preference"
-    classes={[
-    "",
-    "mouse-chaser-logo",
-    "mouse-chaser-coordinates"].join(",")}
-  ></class-cycler>
   <SiteBody
     headerClass={headerClass}
     footerClass={footerClass}

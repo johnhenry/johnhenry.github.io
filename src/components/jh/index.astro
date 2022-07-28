@@ -10,7 +10,7 @@ import JH from "./jh.optimized.svg.astro";
     animation-duration="30s"
     animation-iteration-count="infinite"
     animation-timing-function="linear"
-    path-onclick="event.preventDefault(),window.cycleMouseChaser()"
+    path-onclick="globalThis.document.querySelector('.mouse-chaser-toggler').click()"
     child-class="logo"
   ><JH/>
 </animate-paths>
