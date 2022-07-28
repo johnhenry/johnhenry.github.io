@@ -28,8 +28,12 @@ body > :is(header, footer) nav {
   gap: 16px;
 }
 
-body > :is(header, footer) nav a {
+body > :is(header, footer) nav :is(a, button) {
   display: inline-block;
+  color: inherit;
+  background-color: inherit;
+  border: inherit;
+  font: inherit;
   padding: 16px 18px; /* for mobile touch target size */
 }
 
