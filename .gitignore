@@ -2,6 +2,9 @@
 dist
 dist.wbn
 
+# astro generated types
+.astro/
+
 # dependencies
 node_modules/
 .snowpack/

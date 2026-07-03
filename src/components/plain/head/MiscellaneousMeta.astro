@@ -1,0 +1,121 @@
+---
+
+type twitterMeta = {
+  card?: string,
+  url?: string,
+  title?: string,
+  description?: string,
+  image?: string,
+}
+
+type ogMeta = {
+  type?: string,
+  url?: string,
+  title?: string,
+  description?: string,
+  image?: string,
+}
+
+type Info = {
+    title?: string,
+    description?: string,
+    image?: string,
+    twitter?:twitterMeta,
+    og?: ogMeta
+}
+type twitterMetaProps = {
+  ogMeta: true,
+  title:string, description:string, image: string,
+  info?: Info,
+  twitterMeta?: boolean
+}
+
+type ogMetaProps = {
+  twitterMeta?: boolean,
+  title:string, description:string, image: string,
+  info?: Info,
+  ogMeta: true,
+}
+
+type Props = {
+  info?:Info,
+  twitterMeta?: boolean,
+  ogMeta?: boolean,
+} | twitterMetaProps | ogMetaProps;
+
+const { info, twitterMeta, ogMeta }:Props = Astro.props;
+
+const metaData:Info = {...info};
+const genMetaTwitter = ({title, description, image}:Info, card="summary_large_image",url=Astro.url.href  )=>{
+
+  return {
+    card,
+    url,
+    title,
+    description,
+    image: new URL(image as string, Astro.url).href
+  }
+};
+const genMetaOG = ({title, description, image}:Info, type:string="website", url:string=Astro.url.href )=>{
+  return {
+    type,
+    url,
+    title,
+    description,
+    image: new URL(image as string, url).href
+  }
+};
+
+if(twitterMeta){
+  metaData.twitter = genMetaTwitter(info!);
+}
+
+if(ogMeta){
+  metaData.og = genMetaOG(info!);
+}
+
+const run = function * (object:{[k: string]: number|string|{};}, prefix:string[]=[]){
+  for (const [key, value] of Object.entries(object)) {
+    if(key === "*") {
+      let propname:string;
+      let content:object;
+      if(Array.isArray(value)){
+        propname = value[0];
+        content = value[1] || {};
+      }else{
+        propname = 'property';
+        content = {content:value};
+      }
+      yield {
+        [propname]: prefix.join(':'),
+        ...content,
+      }
+    }
+    else if(typeof value === "string" || typeof value === "number" || Array.isArray(value)){
+      let propname:string;
+      let content:{[k: string]: number|string;};
+      if(Array.isArray(value)){
+        propname = value[0];
+        content = value[1] || {};
+      }else{
+        propname = 'property';
+        content = {content:value};
+      }
+      yield {
+        [propname]:  prefix.concat(key).join(':'),
+        ...content,
+      }
+    }
+    else {
+      yield * run(value,  prefix.concat(key));
+    }
+  }
+};
+
+---
+{[...run(metaData), ].map(value => {
+    return (
+      <meta {...value} />)
+})}
+
+

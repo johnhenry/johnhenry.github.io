@@ -9,8 +9,8 @@ import SitePage from "../components/SitePage.astro";
 // Content
 import projects from "../content/projects.mjs";
 import headerLinks from "../content/headerlinks.mjs";
-const { latest=undefined, tags=[] } = sortPosts(
-await Astro.glob('./blog/posts/*.md'));
+const postModules = import.meta.glob("./blog/posts/*.md", { eager: true });
+const { latest=undefined, tags=[] } = sortPosts(Object.values(postModules));
 ---
 <SitePage
   serviceWorkerScript={SITE_SERVICE_WORKER}

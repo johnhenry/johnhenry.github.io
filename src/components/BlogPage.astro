@@ -8,22 +8,22 @@ SITE_CANONICAL_URL} from "../SETTINGS.mjs";
 import SitePage from "./SitePage.astro";
 // Content
 import headerLinks from "../content/headerlinks.mjs";
+const { frontmatter } = Astro.props;
 const {
     description,
     date,
     author,
     heroImage,
-    permalink,
     alt,
     title,
-    tags } = Astro.props.content;
+    tags } = frontmatter;
 ---
 <SitePage
   subtitle={`Blog -- ${title}`}
   description={description}
   keywords={SITE_KEYWORDS.concat(tags)}
   author={author}
-  canonical={SITE_CANONICAL_URL + permalink}
+  canonical={new URL(frontmatter.url, SITE_CANONICAL_URL).href}
   headerLinks={headerLinks}
   meta={{og:{image:heroImage}}}
   >
