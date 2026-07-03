@@ -12,10 +12,8 @@ import Pagination from "../../components/Pagination.astro";
 const { page } = Astro.props;
 // Misc.
 export async function getStaticPaths({ paginate }) {
-  const { sorted } =
-        sortPosts(
-          await Astro
-          .glob('./posts/*.md'));
+  const postModules = import.meta.glob("./posts/*.md", { eager: true });
+  const { sorted } = sortPosts(Object.values(postModules));
   return paginate(sorted, { pageSize: SITE_BLOG_PAGE_SIZE });
 }
 ---

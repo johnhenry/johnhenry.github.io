@@ -2,6 +2,9 @@
   "name": "johnhenry.github.io",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "doppler:config:dev": "doppler setup -c dev",
     "doppler:config:prod": "doppler setup -c prod",
@@ -12,26 +15,21 @@
     "start:lib": "PUBLIC_SITE_LIB_URL=https://johnhenry.github.io/lib/ npm start -s",
     "set:hash": "echo \"export default \\\"$(git rev-parse HEAD)\\\";\" > src/HASH.mjs",
     "build:html": "astro build",
-    "build:deno": "astro build --config ./astro.config/deno.mjs",
     "build:sw": "mkdir -p dist/ && workbox generateSW config/workbox.config.js",
     "build:wbn": "mkdir -p dist/ sh scripts/gen-bundle.sh http://localhost/",
     "build:-sw": "npm run set:hash && npm run build:html && npm run reset:hash  && npm run build:sw",
-    "build:deno:-sw": "npm run set:hash && npm run build:deno && npm run reset:hash  && npm run build:sw",
     "build:-wbn": "npm run set:hash && npm run build:html && npm run reset:hash && npm run build:sw && npm run build:wbn",
-    "build:deno:-wbn": "npm run set:hash && npm run build:html && npm run reset:hash && npm run build:sw && npm run build:wbn",
     "build": "npm run build:-sw",
     "build:doppler": "doppler run -- npm run build:-sw",
     "preview": "astro preview",
     "lint": "prettier --write . "
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^0.1.0"
+    "@astrojs/sitemap": "^3"
   },
   "dependencies": {
-    "@astrojs/deno": "^0.1.2",
-    "@astrojs/rss": "^0.2.1",
-    "astro": "^1.0.0-beta.72",
-    "astro-plain": "^0.0.6",
+    "@astrojs/rss": "^4",
+    "astro": "^5",
     "prettier": "^2.5.0",
     "workbox-cli": "^6.5.3"
   }

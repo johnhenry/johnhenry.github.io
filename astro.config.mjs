@@ -1,18 +1,18 @@
 import { defineConfig } from "astro/config"; // @ts-check
-// import { SITE_CANONICAL_URL } from "./src/SETTINGS.mjs";
-import { SITE_LIB_URL, SITE_CANONICAL_URL } from "./astro.config/DEFAULTS.mjs";
-
-/** @type {import('astro').AstroUserConfig} */
 
 import sitemap from "@astrojs/sitemap";
+
+const SITE_CANONICAL_URL =
+  process.env.PUBLIC_SITE_CANONICAL_URL || "https://johnhenry.github.io/";
+const SITE_LIB_URL =
+  process.env.PUBLIC_SITE_LIB_URL || "http://localhost:3001/";
+
+/** @type {import('astro').AstroUserConfig} */
 
 // https://astro.build/config
 export default defineConfig({
   site: SITE_CANONICAL_URL,
   integrations: [sitemap()],
-  vite: {
-    plugins: [],
-  },
   outDir: "./dist/static",
   vite: {
     server: {

@@ -11,10 +11,8 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 // Misc.
 export async function getStaticPaths() {
-const { byTag } =
-    sortPosts(
-      await Astro
-      .glob('../posts/*.md'));
+const postModules = import.meta.glob("../posts/*.md", { eager: true });
+const { byTag } = sortPosts(Object.values(postModules));
     return byTag.map(([tag, posts]) => ({
       params: { tag },
       props: {

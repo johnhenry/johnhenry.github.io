@@ -1,0 +1,83 @@
+---
+// Vendored from astro-plain@0.1.3 (index.astro).
+// Local changes for output parity with astro-plain@0.0.6 (the version this
+// site was built against):
+// - stray trailing text after </html> stripped
+// - untyped destructuring (no ./astro-plain.d.ts import)
+// - no <body> wrapper: the site's SiteBody component supplies its own <body>
+// - meta aggregate matches 0.0.6 ({description, keywords, author, ...meta})
+// - html class attribute omitted when empty (0.0.6 did not emit it)
+// Settings
+// Components
+
+import Head from "./Head.astro";
+import {
+  DEFAULT_FAVICON,
+  DEFAULT_FAVICON_TYPE,
+  DEFAULT_LANG,
+  DEFAULT_CHARSET,
+  DEFAULT_TITLE_JOINER,
+} from "./defaults.ts";
+
+const {
+  title = "",
+  titleJoiner = DEFAULT_TITLE_JOINER,
+  charSet = DEFAULT_CHARSET,
+  description = "",
+  keywords = "",
+  author = "",
+  canonical = "",
+  class: htmlClass = "",
+  serviceWorkerScript = "",
+  favicon = DEFAULT_FAVICON,
+  faviconType = DEFAULT_FAVICON_TYPE,
+  tmid = "",
+  manifest = "",
+  criticalStyles = "",
+  criticalScripts = "",
+  externalStyles = [],
+  externalScripts = [],
+  appleTouchIcons = [],
+  webComponents = [],
+  meta = {},
+  image = "",
+  lang = DEFAULT_LANG,
+  twitterMeta = false,
+  ogMeta = false,
+} = Astro.props;
+
+const aggregateMeta = {
+  description,
+  keywords,
+  author,
+  ...meta,
+};
+---
+<!DOCTYPE html>
+<html lang={lang} class={htmlClass || undefined}>
+    <Head
+    charSet={charSet}
+    title={title}
+    titleJoiner={titleJoiner}
+    author={author}
+    canonical={canonical}
+    serviceWorkerScript={serviceWorkerScript}
+    manifest={manifest}
+    favicon={favicon}
+    faviconType={faviconType}
+    tmid={tmid}
+    appleTouchIcons={appleTouchIcons}
+    webComponents={webComponents}
+    externalStyles={externalStyles}
+    externalScripts={externalScripts}
+    criticalStyles={criticalStyles}
+    criticalScripts={criticalScripts}
+    image={image}
+    meta={aggregateMeta}
+    lang={lang}
+    twitterMeta={twitterMeta}
+    ogMeta={ogMeta}
+> <slot name="append-to-head"></slot></Head>
+	<slot />
+  <slot name="append-to-body"></slot>
+</html>
