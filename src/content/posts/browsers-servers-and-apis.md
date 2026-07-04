@@ -1,4 +1,6 @@
 ---
+publishedAt: "2019-05-01T07:00:00.000Z"
+status: "published"
 title: "Browsers, Servers, and APIs"
 description: "Using servers in the browsers"
 date: "1 May 2019"

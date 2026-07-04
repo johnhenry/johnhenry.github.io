@@ -1,4 +1,6 @@
 ---
+publishedAt: "2022-06-18T07:00:00.000Z"
+status: "published"
 title: "Cascading Document Type Definitions"
 description: "An introduction to CDTDs"
 date: "18 June 2022"

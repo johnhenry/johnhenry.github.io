@@ -1,4 +1,6 @@
 ---
+publishedAt: "2026-07-03T07:00:00.000Z"
+status: "published"
 title: "CSS Inheritance for JavaScript Programmers"
 description: "Classical inheritance, mixins, and prototypal inheritance in JavaScript, and what each one teaches us about how CSS inheritance and specificity actually work."
 date: "3 July 2026"

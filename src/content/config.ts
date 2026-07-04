@@ -34,11 +34,19 @@ const projects = defineCollection({
   }),
 });
 
-// New CMS-authored posts land here going forward; the 11 existing posts stay
-// as plain pages in src/pages/blog/posts/ (see src/utils/get-all-posts.mjs).
+// All blog posts live here, editable via Outstatic (see get-all-posts.mjs,
+// which also merges in any future file-based pages if ever added again).
 const posts = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/posts" }),
   schema: z.object({
+    // Outstatic's own document editor/list UI requires these two on every
+    // document in every collection, independent of our own schema -- without
+    // them the CMS dashboard shows "Invalid date" and editing fails
+    // validation. Not used by this site's own rendering (which keys off
+    // `date` below for sort/display/RSS-inclusion), only by Outstatic itself.
+    publishedAt: z.coerce.date(),
+    status: z.enum(["published", "draft"]).default("published"),
+
     title: z.string(),
     description: z.string().optional(),
     // Free-text to match legacy posts' non-ISO dates ("1 August 2013"); new

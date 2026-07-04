@@ -1,4 +1,6 @@
 ---
+publishedAt: "2021-10-23T23:17:43.000Z"
+status: "published"
 title: "My new website"
 description: "A thorough guide to the techniques and tools used to build my website"
 author: "John Henry"

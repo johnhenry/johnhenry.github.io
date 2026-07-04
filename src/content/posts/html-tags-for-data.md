@@ -1,4 +1,6 @@
 ---
+publishedAt: "2021-11-10T02:31:50.000Z"
+status: "published"
 title: "HTML Tags for Data"
 description: "The first in a series on how to use Angular 1.0"
 author: "John Henry"

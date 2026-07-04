@@ -1,4 +1,6 @@
 ---
+publishedAt: "2021-11-04T07:00:00.000Z"
+status: "published"
 title: "Semantics Versus Accessibility"
 description: "We explore an issue plaguing modern development and propose a solution"
 date: "4 November 2021"
