@@ -1,4 +1,11 @@
-# Monad
+---
+title: "Monad"
+description: "A playful introduction to monads through a small thought experiment about a blog"
+author: "John Henry"
+heroImage: "/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"
+alt: "Astro"
+tags: ["programming"]
+---
 
 ## Scenario
 
