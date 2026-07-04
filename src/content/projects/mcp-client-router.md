@@ -2,7 +2,7 @@
 author:
   name: "John Henry"
   picture: "https://avatars.githubusercontent.com/u/393817?v=4"
-coverImage: ""
+coverImage: "/image/projects/mcp-client-router.png"
 title: "MCP Client Router"
 status: "published"
 slug: "memoryhttps-github-com-johnhenry-memory-lane-lane"

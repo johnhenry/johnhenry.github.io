@@ -2,7 +2,7 @@
 author:
   name: 'John Henry'
   picture: 'https://avatars.githubusercontent.com/u/393817?v=4'
-coverImage: ''
+coverImage: '/image/projects/antisocial-network.png'
 title: 'Antisocial Network'
 status: 'published'
 slug: 'antisocial-network'

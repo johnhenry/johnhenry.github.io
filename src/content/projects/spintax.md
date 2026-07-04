@@ -6,7 +6,7 @@ author:
   picture: 'https://avatars.githubusercontent.com/u/393817?v=4'
 slug: 'spintax'
 description: ''
-coverImage: ''
+coverImage: '/image/projects/spintax.png'
 url: 'https://github.com/johnhenry/spintax'
 video: ''
 type: '::library::'

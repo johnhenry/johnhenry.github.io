@@ -2,7 +2,7 @@
 author:
   name: "John Henry"
   picture: "https://avatars.githubusercontent.com/u/393817?v=4"
-coverImage: ""
+coverImage: "/image/projects/astro-photo-gallery.png"
 title: "Astro Photo Gallery"
 status: "published"
 slug: "astro-photo-gallery"
