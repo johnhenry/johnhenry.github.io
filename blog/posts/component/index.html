@@ -1,119 +1,28 @@
-<!DOCTYPE html><meta charset="utf-8"><ol>
-<li>Build HTML APP</li>
-<li>Extend individual components with CSS</li>
-<li>Extend individual components with JS
-<ol>
-<li>Extend CSS with JS (CSS custom Property Sets)</li>
-<li>Extend HTML with JS (Web Component Extensions)</li>
-<li>Extend HTML with JS (Targeting DOM Elements)</li>
-</ol>
-</li>
-</ol>
-<h1 id="components">Components</h1>
-<p>What is a component?
-A component is a set of markup associated
-with a specific set of behaviors —
-incuding everyghing from mouse clicks to visusal representation.
-They are an essential part of declarative programming.</p>
-<p>A component’s properties are not meant
-for said component’s children.
-They may tell a component how to arrange
-a group of generic children within itself,
-but only on rare occasions should a component
-be aware of it’s children’s content.</p>
-<h2 id="html-elements">HTML Elements</h2>
-<p>HTML elements are the simplest components on the web.
-They consist of basic element tags.</p>
-<p>It’s important to understand what already exists.</p>
-<h2 id="html-components">HTML Components</h2>
-<p>Facts</p>
-<p>Pros:</p>
-<ul>
-<li>encapsulation</li>
-<li></li>
-</ul>
-<p>Cons:</p>
-<ul>
-<li>importing is akward (can be fixed)</li>
-<li>always creates outer element.
-<ul>
-<li>can extend components to remove this
-<ul>
-<li>safari does not support this
-<ul>
-<li>…without a polyfill</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><a href="https://minze.dev/api/#version-1">https://minze.dev/api/#version-1</a></p>
-<h2 id="css">CSS</h2>
-<p>CSS is used to add (and remove) visual (and interactive )
-behaviors to existing html components.</p>
-<p>CSS components are represented by selectors and properties are added to them.</p>
-<h3 id="css-modules">CSS Modules</h3>
-<h3 id="css-models">CSS Models</h3>
-<p>Enhance existing CSS selectors by providing
-Javascipt-driven custom properties
-on the DOM.</p>
-<h2 id="native-dom-components">Native DOM Components</h2>
-<p>Facts:</p>
-<ul>
-<li>Uses document api (document.addChild, etc.)</li>
-</ul>
-<p>Pros:</p>
-<p>Cons:</p>
-<ul>
-<li>Cumbersom API
-<ul>
-<li>Specifically adding children/attributes is
-separate from construction.</li>
-<li>Specifically, can add children in bulk,
-but modifying them in bulk</li>
-</ul>
-</li>
-</ul>
-<h3 id="jsx">JSX</h3>
-<p>Many frameworks use Javascript for XML (JSX).
-This is an XML-like language within avascript
-that can be used to transform a XML into nested functions
-that produce DOM elements</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">tagname</span><span style="color:#F97583">:</span><span style="color:#79B8FF">string</span><span style="color:#E1E4E8">, {</span><span style="color:#FFAB70">children</span><span style="color:#E1E4E8">, }</span><span style="color:#F97583">:</span><span style="color:#E1E4E8">{[string]</span><span style="color:#F97583">:</span><span style="color:#79B8FF">any</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">children</span><span style="color:#F97583">:</span><span style="color:#B392F0">Element</span><span style="color:#E1E4E8">[]})</span><span style="color:#F97583">:=></span><span style="color:#E1E4E8"> Element</span></span>
-<span class="line"></span></code></pre>
-<h3 id="attribute-based">Attribute Based</h3>
-<ul>
-<li>HTMX</li>
-</ul>
-<h1 id="component-inheritence">Component Inheritence</h1>
-<p>This is Part 1 in a series.
-We learn what it takes to create a framework
-in which we build components using
-clean and uncomplied styles along with organized and meanigful markup.</p>
-<p>Inheritance is a useful concept.
-It allows programmers to streamline the way in which they
-design objects by reusing code.</p>
-<p>In this article, we take a look at how inheritance works
-through the eyes of a JavaScript programmer
-and understand how it applies when applying CSS.</p>
+<!DOCTYPE html><html lang="en"> <head><title>John Henry : Blog -- CSS Inheritance for JavaScript Programmers</title><link rel="canonical" href="https://johnhenry.github.io/blog/posts/component"><meta charset="utf-8"><meta property="description" content="Classical inheritance, mixins, and prototypal inheritance in JavaScript, and what each one teaches us about how CSS inheritance and specificity actually work."><meta 0="e" 1="x" 2="p" 3="e" 4="r" 5="i" 6="m" 7="e" 8="n" 9="t" 10="i" 11="n" 12="g" programming="keywords"><meta property="author" content="John Henry"><meta property="defaultMeta:robots" content="index, follow"><meta property="defaultMeta:theme-color" content="#343233"><meta property="defaultMeta:viewport" content="width=device-width, initial-scale=1.0"><meta property="og:image" content="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"><link rel="icon" href="https://johnhenry.github.io/image/iajh.png" type="image/png"><link rel="stylesheet" href="https://johnhenry.github.io/lib/vendor/css/reset/2.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-unstyled-links/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-box-sizing/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/universal-no-margins/0.0.0/index.css"><link rel="stylesheet" href="https://johnhenry.github.io/lib/css/hide-n-show/0.0.0/landscape.css"><link rel="stylesheet" href="https://dte59pvkgd75m.cloudfront.net/style/index.css"><script type="module" src="https://johnhenry.github.io/lib/js/css-variables-mouse/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/css-variables-scroll/0.0.0/index.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/js/until-window-load/0.0.0/global.mjs"></script><script type="module" src="https://johnhenry.github.io/lib/vendor/js/custom-elements/1.1.0/index.js"></script><link rel="apple-touch-icon" sizes="512x512" href="https://dte59pvkgd75m.cloudfront.net/image/iajh.512.png"><link rel="apple-touch-icon" sizes="384x384" href="https://dte59pvkgd75m.cloudfront.net/image/iajh.384.png"><link rel="apple-touch-icon" sizes="256x256" href="https://dte59pvkgd75m.cloudfront.net/image/iajh.256.png"><link rel="apple-touch-icon" sizes="192x192" href="https://dte59pvkgd75m.cloudfront.net/image/iajh.192.png"><link rel="apple-touch-icon" sizes="128x128" href="https://dte59pvkgd75m.cloudfront.net/image/iajh.128.png"><script type="module">const components = [["animate-paths","https://johnhenry.github.io/lib/js/animate-paths.component/0.0.0/index.mjs"],["class-cycler-button","https://johnhenry.github.io/lib/js/class-cycler.button.component/0.0.0/index.mjs","default",{"extends":"button"}]];
+
+  for (const [name, href, exportName="default", properties={}] of components){
+    const elementClass = await import(href).then(module => module[exportName]);
+    globalThis.customElements.define(name, elementClass, properties);
+  }
+</script><meta name="generator" content="Astro v5.18.2"></head> <body class="color-theme-dark"> <header> <a href="/#"><img src="https://dte59pvkgd75m.cloudfront.net/image/iajh.png" width="32" height="32" alt="logo"> <p class="hide-n-show-landscape-inline">John Henry Blog -- CSS Inheritance for JavaScript Programmers</p></a> <nav class="hide show-landscape-flex"> <a href="/blog">Blog</a><a href="/#me">Me</a><a href="/#projects">Projects</a> </nav> </header> <!-- the good stuff -->   <section class="blog-top"> <header><p>CSS Inheritance for JavaScript Programmers</p></header> <a class="link-untracked" href="/blog">back to blog</a> <img width="360" height="210" loading="lazy" src="/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg" alt="Astro"> <article class="blog-content"> <p class="publish-date">3 July 2026</p> <h1>CSS Inheritance for JavaScript Programmers</h1> <div class="author"> <p><a href="#">John Henry</a></p> </div> <p>Inheritance is a useful concept. It lets programmers streamline the way they
+design objects by reusing code. In this article, we look at how inheritance
+works through the eyes of a JavaScript programmer, and use that lens to
+understand how CSS inheritance and specificity work.</p>
 <h2 id="normalize-and-reset">Normalize and Reset</h2>
-<p>While they mostly work the same,
-different apply some browser-based styles
-to each page.
-For consistency,
-it is always a good idea to use a <a href="">normalize</a>
-any time you work with CSS.</p>
-<p>We separate concerns — meaning and style —
-by handing each with HTML and CSS respectively.
-We go beyond using a normalize and use a <a href="">reset</a>
-to strip <strong>all</strong> styles associated with the HTML.</p>
-<h2 id="type-classical-inheritence">Type: Classical Inheritence</h2>
-<p>A <em>class</em> is a basic object that acts as a blueprint
-to crete other objects.</p>
-<p>In javascript we create a class with a number of
-property definitions<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>.</p>
+<p>Before any of this matters, it helps to start from the same baseline in
+every browser. Different browsers apply different default styles to the
+same elements, so it’s always a good idea to use a
+<a href="https://necolas.github.io/normalize.css/">normalize</a> stylesheet any time
+you work with CSS.</p>
+<p>We separate concerns — meaning and style — by handling each with HTML and
+CSS respectively. We go a step further than a normalize and use a
+<a href="https://meyerweb.com/eric/tools/css/reset/">reset</a> to strip <strong>all</strong> styles
+associated with the HTML, so everything that follows is explicit and
+intentional.</p>
+<h2 id="classical-inheritance">Classical Inheritance</h2>
+<p>A <em>class</em> is a basic object that acts as a blueprint for creating other
+objects. In JavaScript, we create a class with a number of property
+definitions<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> House</span><span style="color:#F97583"> =</span><span style="color:#F97583"> class</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#6A737D">  // "House" is like a blueprint for an actual house</span></span>
 <span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">color</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> "red"</span><span style="color:#E1E4E8">) {</span></span>
@@ -126,49 +35,42 @@ property definitions<sup><a href="#user-content-fn-1" id="user-content-fnref-1" 
 <span class="line"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.color;</span></span>
 <span class="line"><span style="color:#E1E4E8">  }</span></span>
 <span class="line"><span style="color:#E1E4E8">};</span></span></code></pre>
-<p>In a way, <em>selectors</em> in CSS behave like classes.</p>
+<p>In a way, <em>selectors</em> in CSS behave like classes:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">section</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--color</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">red</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <h3 id="instantiation-and-application">Instantiation and application</h3>
-<p>Most languages use the “new” keyword to create
-an “instance” of the class.
-This is an object with the properties defined by the class.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> house</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Class</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"red"</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// "house" is like the actual house</span></span>
+<p>Most languages use the <code>new</code> keyword to create an “instance” of a class —
+an object with the properties defined by the class:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> house</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> House</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"red"</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">// "house" is like the actual house</span></span>
 <span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(house.</span><span style="color:#B392F0">getColor</span><span style="color:#E1E4E8">()); </span><span style="color:#6A737D">// logs "red"</span></span>
 <span class="line"><span style="color:#E1E4E8">house.</span><span style="color:#B392F0">paint</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"blue"</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(house.</span><span style="color:#B392F0">getColor</span><span style="color:#E1E4E8">()); </span><span style="color:#6A737D">// logs "blue"</span></span></code></pre>
-<p>Rather than creating a new object,
-properties defined by a selector are
-automatically applied to HTML elements
-that they match.</p>
+<p>Rather than creating a new object, properties defined by a selector are
+automatically applied to every HTML element that matches it:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">section</span><span style="color:#E1E4E8">>This has a red background&#x3C;/</span><span style="color:#85E89D">section</span><span style="color:#E1E4E8">></span></span>
 <span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">section</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"--color:blue"</span><span style="color:#E1E4E8">>This has a blue background&#x3C;/</span><span style="color:#85E89D">section</span><span style="color:#E1E4E8">></span></span></code></pre>
 <h3 id="extension">Extension</h3>
-<p>Classes can be “extended”.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> BigRedHouse</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> House</span><span style="color:#F97583"> class</span><span style="color:#E1E4E8"> {</span></span>
+<p>Classes can be “extended”:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> BigRedHouse</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> House</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#79B8FF">    super</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"red"</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.isBig </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> true</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.isBig </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">  }</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
-<p>Property definitons from the original class
-are included in the new class.
-We say the properties are “inherited”.</p>
+<p>Property definitions from the original class are included in the new
+class. We say the properties are “inherited”:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> bigRedHouse</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> BigRedHouse</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(bigRedHouse.</span><span style="color:#B392F0">getColor</span><span style="color:#E1E4E8">()); </span><span style="color:#6A737D">// logs "red"</span></span>
 <span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(bigRedHouse.isBig); </span><span style="color:#6A737D">// logs "true"</span></span></code></pre>
-<p>Some CSS preprocessors use a similar
-<a href="https://sass-lang.com/documentation/at-rules/extend">concept of extension</a>,
-This is not a feature of uncompiled CSS,
-so we will find another way.</p>
-<p>We can simulate this by defining and applying
-another typer of selector, a CSS class.
-(To avoid ambiguity, I always refer to the selector
-as a “CSS class”.)</p>
-<p>Placing two selectors together (with no space between)
-creates a new selector.
-Both selectors much match an element to be applied.</p>
+<p>Some CSS preprocessors have a similar
+<a href="https://sass-lang.com/documentation/at-rules/extend">concept of extension</a>.
+That isn’t a feature of plain, uncompiled CSS, so we find another way: we
+simulate it by defining and applying another type of selector, a CSS
+class. (To avoid ambiguity, I always refer to this kind of selector as a
+“CSS class”.)</p>
+<p>Placing two selectors together, with no space between them, creates a new
+selector. Both selectors must match an element for it to apply:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">section</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">red</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
@@ -178,7 +80,7 @@ Both selectors much match an element to be applied.</p>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">section</span><span style="color:#E1E4E8">>This has a red background&#x3C;/</span><span style="color:#85E89D">section</span><span style="color:#E1E4E8">></span></span>
 <span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">section</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"big"</span><span style="color:#E1E4E8">>This has a red background and big text.&#x3C;/</span><span style="color:#85E89D">section</span><span style="color:#E1E4E8">></span></span></code></pre>
-<p>Chains of objects can inherit from eachother.</p>
+<p>Chains of classes can inherit from each other:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">section</span><span style="color:#B392F0">.big.fancy_blue</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#79B8FF">  font-style</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">italic</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">;</span></span>
@@ -186,26 +88,25 @@ Both selectors much match an element to be applied.</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">section</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"big fancy_blue"</span><span style="color:#E1E4E8">></span></span>
 <span class="line"><span style="color:#E1E4E8">  This has a blue background and big italicized text.</span></span>
 <span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">section</span><span style="color:#E1E4E8">></span></span></code></pre>
-<h2 id="type-mixins">Type: Mixins</h2>
-<p>Mixins are a way to give an object with properties directly.
-They are less formal and there is not sanctioned syntax
-in javascript.</p>
-<p>We can use <code>Object.assign</code> to give an object properties.</p>
+<h2 id="mixins">Mixins</h2>
+<p>Mixins give an object properties directly. They’re less formal than
+classes, and JavaScript has no dedicated syntax for them — but we can use
+<code>Object.assign</code> to combine properties from several objects into one:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> collegeStudent</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  canRead:</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">  canRead: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
 <span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> surgeon</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#B392F0">  preformSurgery</span><span style="color:#E1E4E8">(){</span></span>
-<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> Math.</span><span style="color:#B392F0">random</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 0.9</span><span style="color:#9ECBFF"> "success"</span><span style="color:#E1E4E8"> : </span><span style="color:#9ECBFF">"..."</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">  performSurgery</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> Math.</span><span style="color:#B392F0">random</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 0.9</span><span style="color:#F97583"> ?</span><span style="color:#9ECBFF"> "success"</span><span style="color:#F97583"> :</span><span style="color:#9ECBFF"> "..."</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> person</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Person</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> person</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {};</span></span>
 <span class="line"><span style="color:#E1E4E8">Object.</span><span style="color:#B392F0">assign</span><span style="color:#E1E4E8">(person, surgeon, collegeStudent);</span></span>
 <span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(person.canRead); </span><span style="color:#6A737D">// logs "true"</span></span>
-<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(person.</span><span style="color:#B392F0">preformSurgery</span><span style="color:#E1E4E8">()); </span><span style="color:#6A737D">// logs "success" (I hope)</span></span></code></pre>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(person.</span><span style="color:#B392F0">performSurgery</span><span style="color:#E1E4E8">()); </span><span style="color:#6A737D">// logs "success" (I hope)</span></span></code></pre>
 <p>Notice that with mixins, an object can inherit from multiple objects
-without them having to inherit from one another.</p>
+without any of those objects inheriting from one another.</p>
 <p>Recall the styles and markup from the previous “Extension” section:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">section</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">red</span><span style="color:#E1E4E8">;</span></span>
@@ -223,10 +124,10 @@ without them having to inherit from one another.</p>
 <span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">section</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"big fancy_blue"</span><span style="color:#E1E4E8">></span></span>
 <span class="line"><span style="color:#E1E4E8">  This has a blue background and big italicized text.</span></span>
 <span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">section</span><span style="color:#E1E4E8">></span></span></code></pre>
-<p>We used the selectors together forming a heirchy,
-but we could have split them apart.
-This would allow them to apply to additional
-elements outside of said heirachy, in additon to the ones we defined</p>
+<p>We used those selectors together, forming a hierarchy — but we could just
+as easily split them apart. That would let each one apply to additional
+elements outside that hierarchy, in addition to the ones we already
+defined:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">section</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">red</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
@@ -243,22 +144,21 @@ elements outside of said heirachy, in additon to the ones we defined</p>
 <span class="line"><span style="color:#E1E4E8">  This has a blue background and big italicized text.</span></span>
 <span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">section</span><span style="color:#E1E4E8">></span></span>
 <span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"big"</span><span style="color:#E1E4E8">>This has big text, but no background defined.&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">section</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"fancy_blue"</span><span style="color:#E1E4E8">>This has a blue background and italicized, but regular sized text.&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre>
-<p>Defining CSS selectors separately
-allows properties associated
-with multiple to be mixed in
-to an HTML element.</p>
-<h2 id="prototypal">Prototypal</h2>
-<p>With prototypal inheritance,
-we creaete a new object referencing another object —
-a “prototype”.
-We give the new object properties.
-When we attempt to access properties on the new object,
-if they do not exist; the request is proxied to the prototype.
-Objects that exist on on object’s prototype, but not on the object itself,
-are considered “inherited”.</p>
-<p>In javascript, we use object <code>Object.create</code> to create an object,
-with another object as it’s prototype.</p>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">section</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"fancy_blue"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  This has a blue background and italicized, but regular sized text.</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">section</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p>Defining CSS classes separately, like this, lets properties from multiple
+classes mix into a single HTML element — the same idea as <code>Object.assign</code>,
+just expressed through the cascade instead of a function call.</p>
+<h2 id="prototypal-inheritance">Prototypal Inheritance</h2>
+<p>With prototypal inheritance, we create a new object that references
+another object — its “prototype” — and give the new object properties of
+its own. When we try to access a property on the new object and it
+doesn’t exist there, the request is proxied to the prototype. Properties
+that exist on an object’s prototype, but not on the object itself, are
+considered “inherited”.</p>
+<p>In JavaScript, we use <code>Object.create</code> to create an object with another
+object as its prototype:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> John</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#E1E4E8">  name: </span><span style="color:#9ECBFF">"John"</span><span style="color:#E1E4E8">,</span></span>
 <span class="line"><span style="color:#E1E4E8">  age: </span><span style="color:#79B8FF">30</span><span style="color:#E1E4E8">,</span></span>
@@ -276,14 +176,14 @@ with another object as it’s prototype.</p>
 <span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(clone.</span><span style="color:#B392F0">sayName</span><span style="color:#E1E4E8">()); </span><span style="color:#6A737D">// logs "N'Hoj"</span></span>
 <span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">!!</span><span style="color:#E1E4E8">John.isEvil); </span><span style="color:#6A737D">// logs "false"</span></span>
 <span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">!!</span><span style="color:#E1E4E8">clone.isEvil); </span><span style="color:#6A737D">// logs "true"</span></span></code></pre>
-<p>When not defined by a selector targeting an element,
-some CSS properties assume a default value.
-Others take on the value of their parent.</p>
-<p>It’s not completely intuitive to figure out which
-properties are inherited.
-Checkout <a href="https://stackoverflow.com/a/5612360/1290781">this stackoverflow answer</a>
+<p>This is the closest analogy to how CSS inheritance actually works. When a
+property isn’t set directly on an element, some CSS properties fall back
+to a default value; others take on the value of their parent element
+instead. It’s not always intuitive which properties are inherited by
+default — check out
+<a href="https://stackoverflow.com/a/5612360/1290781">this Stack Overflow answer</a>
 for guidance.</p>
-<p>In this case elements inherit properties from thier parent elements.</p>
+<p>In this case, elements inherit properties from their parent elements:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">section</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">red</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
@@ -292,29 +192,39 @@ for guidance.</p>
 <span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">>Text is here is red because it's inherited from above.&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
 <span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">section</span><span style="color:#E1E4E8">></span></span></code></pre>
 <h2 id="summary">Summary</h2>
-<p>Once cleard of initial styles, HTML elements can be applied</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>1. via style selector or directly</span></span>
-<span class="line"><span>2. via</span></span></code></pre>
-<h2 id="problems">Problems</h2>
-<p>A lot of problems stem from misunderstanings of
-css specificity and inheritence.</p>
-<p>Mental tree model for inhheritne and spefificity
-Create components in increating specificity.
-Use BEM for sub components?
-From what I know about rocket science, it’s honestly a bit harder
-Rocket science isn’t actually that difficult onve</p>
-<p>When a class extends another class,
-it’s said to inherit the</p>
-<p>We” learn more about specificity
-and how you can structure your style sheets
-to avoid shooing yousself in the foot.</p>
+<p>Once you’ve cleared away a browser’s default styles, an element’s final
+appearance comes from three places, and each one maps onto a pattern of
+inheritance we just covered:</p>
+<ul>
+<li><strong>A directly matching selector</strong> — the classical pattern. A chain of
+selectors like <code>section.big.fancy_blue</code> behaves like a chain of <code>extends</code>:
+each link adds more specific properties on top of the last.</li>
+<li><strong>Several independent selectors matching at once</strong> — the mixin pattern.
+<code>.big</code> and <code>.fancy_blue</code> don’t know about each other, but both apply to
+the same element, the same way <code>Object.assign</code> combines unrelated
+objects.</li>
+<li><strong>A value inherited from a parent element</strong> — the prototypal pattern.
+Nothing matched the element directly, so the browser walks up to the
+parent, the same way a JavaScript object walks up its prototype chain.</li>
+</ul>
+<h2 id="specificity">Specificity</h2>
+<p>Most of the confusion around CSS comes down to specificity: when more
+than one of the rules above could apply, which one wins? As a rule of
+thumb, more specific selectors (more classes, IDs, or chained selectors)
+beat more general ones, and rules that appear later in the stylesheet win
+ties.</p>
+<p>A naming convention like <a href="https://getbem.com/">BEM</a> can help keep
+specificity predictable as a component tree grows, since it favors flat,
+single-class selectors over long chains that are easy to lose track of.</p>
+<p>Thinking in terms of these three patterns — a direct match, a combination
+of independent classes, and inheritance from a parent — is what finally
+made CSS specificity click for me. I hope it does the same for you.</p>
 <h2 id="footnotes">Footnotes</h2>
 <section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
 <ol>
 <li id="user-content-fn-1">
-<p>not “properties”,
-though we often use these interchangeably
-when dealing whit chasses) <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<p>Not strictly “properties” in the CSS sense — we just use the word for
+both, since the concepts are so similar. <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
-</section>
+</section> </article> <a class="link-untracked" href="/blog">back to blog</a> </section>   <!-- the good stuff --> <span class="mouse-chaser"></span> <footer> <a href="https://github.com/johnhenry/johnhenry.github.io" target="_blank">© 2026  John Henry</a> <a href="https://github.com/johnhenry/johnhenry" target="_blank">/profile</a> <a href="https://github.com/johnhenry/lib" target="_blank">/lib</a> <!-- Todo: Astro whitespace may be fixed in Astro 0.21? --> <nav> <button is="class-cycler-button" select="body" class="mouse-chaser-toggler" storage-key="mouse-chaser-preference" classes=",mouse-chaser-logo,mouse-chaser-coordinates"></button> <button is="class-cycler-button" select="body" class="color-theme-toggler" storage-key="color-theme-preference" classes="color-theme-dark,,color-theme-light"></button> </nav> </footer>   </body> </html>
