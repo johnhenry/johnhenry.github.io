@@ -1,10 +1,10 @@
 # Monad
 
-## Secnario
+## Scenario
 
-Jimmy has a small blog wher he writes about nature.
+Jimmy has a small blog where he writes about nature.
 
-Each `post` in his blog is a simple stirng.
+Each `post` in his blog is a simple string.
 
 ```javascript
 post[0] = `# A dae in the life ...`;
@@ -12,9 +12,9 @@ post[2] = `# Once upon a place ...`;
 ...
 ```
 
-He has set up a some functions that allow him run with his blog.
+He has set up a few functions that allow him to work with his blog.
 
-One of these functions is `spellcheck`. It takes `post` and returns the first mispelled word. If there are no mispelled words, it returns the empty string, `""`.
+One of these functions is `spellcheck`. It takes `post` and returns the first misspelled word. If there are no misspelled words, it returns the empty string, `""`.
 
 ```javascript
 spellcheck(post[0]); // returns `"dae"`
@@ -24,10 +24,11 @@ spellcheck(post[2]); // returns `""`
 Another of these functions is `border`. It takes a `post` and puts a cool border around it.
 
 ```javascript
-border(post[0]) = `
-╔════════════  ═════════╗
- # A dae in the life ...
-╚════════════  ═════════╝`;
+border(post[0]);
+// returns `
+// ╔════════════  ═════════╗
+//  # A dae in the life ...
+// ╚════════════  ═════════╝`
 ```
 
 Jimmy has decided to take on Kate and Leo as co-authors of his blog. Unfortunately, using the current system, the strings lack author information.
@@ -41,7 +42,7 @@ type authoredPost = {
 };
 ```
 
-Now; when Jimmy, Kate, or Leo create a blog post, they can
+Now, when Jimmy, Kate, or Leo create a blog post, they can
 be sure to add an author.
 
 ```javascript
@@ -67,10 +68,10 @@ for (let i = 0; i < post.length; i++) {
 ```
 
 `Authored posts` have functionality not present in regular posts.
-Namey, the ability to have an autor added.
+Namely, the ability to have an author added.
 
 ```javascript
-const addAuthorJimmy = (post) => ({
+const addAuthorJimmy = ({ post, authors }) => ({
   post,
   authors: [...authors, "Jimmy"],
 });
@@ -85,16 +86,12 @@ Remember that Jimmy's blog has a number of functions to manage it, including `sp
 
 Jimmy worries that he'll have to re-write all of these functions. This time, Leo has an idea.
 
-Rather than individually constructing a special "authored" editon of each function (`spellcheckAuthored`, `borderAuthored`, etc.), he wants to create a single new function that takes a _transformation_ between `posts` and converts it into a transformation between `authored posts`.
-
-new function that takes an `authored post` and returns a new `authored post`.
+Rather than individually constructing a special "authored" edition of each function (`spellcheckAuthored`, `borderAuthored`, etc.), he wants to create a single new function that takes a _transformation_ between `posts` and converts it into a transformation between `authored posts`.
 
 ```javascript
-const convertAuthored = (postFunc) => {
-  (authoredPost) => {
-    const { post } = authoredPost;
-    return upgrade(postFunc(post));
-  };
+const convertAuthored = (postFunc) => (authoredPost) => {
+  const { post } = authoredPost;
+  return upgradePost(postFunc(post));
 };
 const spellcheckAuthored = convertAuthored(spellcheck);
 ```
@@ -105,26 +102,26 @@ Now, Jimmy can use `spellcheckAuthored` to check the spelling of new blogposts.
 
 The scenario above is an example of a monad.
 
-A monad is a way to give additional functioality to a group of things, while preserving functionality of the original group.
+A monad is a way to give additional functionality to a group of things, while preserving functionality of the original group.
 
 We construct a monad by:
 
 - first defining a type (call it **a**) that represents our original group of things. This was the `post` in the example above.
 
-- We then define a type (calle it **Ma**) that represents a new group,
+- We then define a type (call it **Ma**) that represents a new group,
   where these members are like those of "a", but wrapped with additional functionality. This was `authored post` in the example above.
 
-- We then define a way (call this **unit**) to transform a member of **a** into a member of **Ma**. This was the `upgrade` function in the example above.
+- We then define a way (call this **unit**) to transform a member of **a** into a member of **Ma**. This was the `upgradePost` function in the example above.
 
-- Finally, we define a way (call this **bind**) to convert any function that maps a member of **a** to **a** into a function that maps **Ma** to **Ma**. This was the `convert` function in the example above.
+- Finally, we define a way (call this **bind**) to convert any function that maps a member of **a** to **a** into a function that maps **Ma** to **Ma**. This was the `convertAuthored` function in the example above.
 
-Having defined all **a**, **Ma**, **unit**, and **bind**, we see that the secnario above formally represents a monad.
+Having defined all **a**, **Ma**, **unit**, and **bind**, we see that the scenario above formally represents a monad.
 
 ## Monad Factory
 
 We can create generic monads to better study them.
 
-We'll simplify things by chosing **a** to be the set of numbers (representable in Javascript).
+We'll simplify things by choosing **a** to be the set of numbers (representable in Javascript).
 
 As a mapping function between **a** and **a** , we choose:
 
@@ -137,10 +134,10 @@ const f = (x) => x + 1;
 
 Although **a**, **Ma** are necessary to represent a monad, they are usually implied by **unit** and **bind**.
 
-As such, all we need to define a mondad as an object is to create an object with methods represeting **unit** and **bind**.
+As such, all we need to define a monad as an object is to create an object with methods representing **unit** and **bind**.
 
-Below we creat a function that when passed a unit and a bind function,
-returns and object with them attached as methods.
+Below we create a function that, when passed a unit and a bind function,
+returns an object with them attached as methods.
 
 ```javascript
 const makeMonad = (unit, bind) => ({
@@ -162,13 +159,13 @@ const identityMonad = makeMonad(
   (x) => x,
   (x) => x
 );
-const one = monad.unit(1);
+const one = identityMonad.unit(1);
 // plusOne : a ↦ a + 1
-const plusOne = monad.bind(f);
+const plusOne = identityMonad.bind(f);
 console.log(plusOne(one)); // 2
 ```
 
-Note that no addional functionaly is provided by the identity monad.
+Note that no additional functionality is provided by the identity monad.
 
 ### List Monad
 
@@ -194,8 +191,8 @@ const ListMethods = {
     return x.filter((x) => y.includes(x));
   },
 };
-console.log(ListMethods.concat(array.unit(4), altArray.atom(5)));
-console.log(ListMethods.intersect(array.unit(4), altArray.unit(5)));
+console.log(ListMethods.concat(monad.unit(4), monad.unit(5)));
+console.log(ListMethods.intersect(monad.unit(4), monad.unit(5)));
 console.log(
   ListMethods.intersect(
     ListMethods.concat(monad.unit(4), monad.unit(5)),
@@ -235,7 +232,7 @@ const LogMethods = {
   },
   multiply(...args) {
     return {
-    value: args.reduce((p, c) => p \* c.value, 1),
+    value: args.reduce((p, c) => p * c.value, 1),
     logs: [...args.map((x) => x.logs).reverse().flat(),
       args.map((x) => x.value).join(" multiplied by "),],
     };
@@ -291,21 +288,21 @@ console.log(
 );
 ```
 
-## Inveresion
+## Inversion
 
 Monads may have a strict formal definition,
-but their usage is such that their.
+but their usage is such that there's more than one way to build one.
 
 This is similar to the previous 'makeMonad' function -- we use a similar 'unit' function, but replace the 'bind' function with a function called 'deunit' that takes a value from **Ma** and converts into a value from **a**.
 
 ```javascript
 const createMonad = (unit = (x) => x, deunit = (x) => x) => ({
-  promote,
-  deunit,
+  promote: unit,
+  demote: deunit,
 });
 ```
 
-We then create function, bindToMonad that takes our monad object, and creates **bind** from it.
+We then create a function, bindFromMonad, that takes our monad object, and creates **bind** from it.
 
 ```javascript
 const bindFromMonad = (monad) => (func) => (arg) => {
@@ -321,9 +318,9 @@ we create a slightly more complicated monad factory.
 ```javascript
 const identity = createMonad();
 const bindToIdentity = bindFromMonad(identity);
-const one = identity.unit(1);
+const one = identity.promote(1);
 const plusOne = bindToIdentity(f);
-console.log(plusOne(1)); // 2
+console.log(plusOne(one)); // 2
 ```
 
 We can modify the "bindFromMonad" function to use a function's context object (this) rather than an explicitly passed one.
@@ -344,11 +341,11 @@ This creates a function that is generically "bindable" monads created in the way
 const F = monadBindable(f);
 const identity = createMonad();
 const plusOne = F.bind(identity);
-const one = identity.unit(1);
-console.log(plusOne(1)); // 2
+const one = identity.promote(1);
+console.log(plusOne(one)); // 2
 ```
 
-This methods works for other monads as well,
+This method works for other monads as well,
 but ensure that you use a "deunit" in place of a "bind" function.
 
 ### List Monad
@@ -359,8 +356,8 @@ const list = createMonad(
   (x) => x[0]
 );
 const plusOne = F.bind(list);
-const one = list.unit(1);
-console.log(plusOne(1)); // 2
+const one = list.promote(1);
+console.log(plusOne(one)); // [2]
 ```
 
 ### Log Monad
@@ -371,8 +368,8 @@ const log = createMonad(
   (x) => x.value
 );
 const plusOne = F.bind(log);
-const one = log.unit(1);
-console.log(plusOne(1)); // {value:2, logs:[]}
+const one = log.promote(1);
+console.log(plusOne(one)); // {value:2, logs:[]}
 ```
 
 ### Maybe Monad
@@ -383,16 +380,6 @@ const maybe = createMonad(
   (x) => x.value
 );
 const plusOne = F.bind(maybe);
-const one = maybe.unit(1);
-console.log(plusOne(1)); // {value:2, null:false}
-```
-
-```javascript
-const monad = makeMonad(
-  (x) => ({ value: x, null: false }),
-  (f) => (x) => ({ value: f(x.value), null: false })
-);
-const one = monad.unit(1);
-const plusOne = monad.bind(f);
+const one = maybe.promote(1);
 console.log(plusOne(one)); // {value:2, null:false}
 ```

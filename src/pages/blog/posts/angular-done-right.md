@@ -15,7 +15,7 @@ Author’s Note: While I no longer program heavily using angular, in favor of us
 
 Angular is hard, right?
 
-Well, one thing that’s for sure is that Angular is a massive. It’s a full application framework made of components including directives, controllers, services, and much much more. It’s shrouded in strange new concepts such as “_Dependency Injection_” and “_Transclausion_”. Despite it’s overall allure, anyone creating an angular app for the first time must accept that he or she is in for a steep learning curve due before being able to build anything fun or useful.
+Well, one thing that’s for sure is that Angular is a massive framework. It’s a full application framework made of components including directives, controllers, services, and much much more. It’s shrouded in strange new concepts such as “_Dependency Injection_” and “_Transclusion_”. Despite it’s overall allure, anyone creating an angular app for the first time must accept that he or she is in for a steep learning curve before being able to build anything fun or useful.
 
 That’s the approach that most tutorials on the web take. In this series we take different approach. We’ll gradually build upon the most basic concepts in angular; first introducing the bare minimum needed to build an application and building upon it as we go along.
 
@@ -30,7 +30,7 @@ We’ll start with a very basic HTML page. Create a basic html page with the fol
 </html>
 ```
 
-The next thing that you need to do is to download and include the angular.js file. You can download it directly from the [Angular JS homepage](https://angularjs.org/), or, if you perfer, using the [Bower package manager](http://bower.io/). I won’t go into specifics, on how exactly how to do that, but having made it this far, I doubt that you’ll have any trouble :).
+The next thing that you need to do is to download and include the angular.js file. You can download it directly from the [Angular JS homepage](https://angularjs.org/), or, if you prefer, using the [Bower package manager](http://bower.io/). I won’t go into specifics, on how exactly how to do that, but having made it this far, I doubt that you’ll have any trouble :).
 
 Once you’ve included the angular file in your app, your file should look something like this:
 
@@ -38,7 +38,7 @@ Once you’ve included the angular file in your app, your file should look somet
     <!doctype html>
     <html>
      <body>
-     <script src=”path/to/angular.js”></script>
+     <script src="path/to/angular.js"></script>
      </body>
     </html>
 ```
@@ -49,7 +49,7 @@ Once you’ve included the angular file in your app, your file should look somet
 
 There are two ways of bootstrapping an application. The easiest and most reliable way is to add the **ng-app \***directive\* to an html element. That element and all of it’s children will be part of your angular app.
 
-“_What are directives?_”, you must be wondering… Well, for now, just think of them as attibues that you can add to your html that let your app interact with angular. We’ll learn more about directives very soon, and in a later part of the series.
+“_What are directives?_”, you must be wondering… Well, for now, just think of them as attributes that you can add to your html that let your app interact with angular. We’ll learn more about directives very soon, and in a later part of the series.
 
 We could put it on any element — the **`<body>`** tag; a **`<div>`** tag — but lets go ahead and put it on the top level “html” element. This way, the entire page will be available to our application.
 
@@ -57,12 +57,12 @@ We could put it on any element — the **`<body>`** tag; a **`<div>`** tag — b
     <!doctype html>
     <html ng-app>
      <body>
-     <script src=”path/to/angular.js”></script>
+     <script src="path/to/angular.js"></script>
      </body>
     </html>
 ```
 
-There is another way to bootstrap your application (it actually uses the [angular.bootstrap](https://docs.angularjs.org/api/ng/function/angular.bootstrap) method!), but I have found it to be much more error-prone, so I wont at least into that method… at least not today.
+There is another way to bootstrap your application (it actually uses the [angular.bootstrap](https://docs.angularjs.org/api/ng/function/angular.bootstrap) method!), but I have found it to be much more error-prone, so I won't go into that method… at least not today.
 
 ### Binding
 
@@ -74,15 +74,15 @@ Now that you’ve set up the application, binding data is the simplest thing tha
     <!doctype html>
     <html ng-app>
      <body >
-     <input ng-model=”input”> <span ng-bind=”input”></span>
-     <script src=”path/to/angular.js”></script>
+     <input ng-model="input"> <span ng-bind="input"></span>
+     <script src="path/to/angular.js"></script>
      </body>
     </html>
 ```
 
 You’ve added two new directives. The** ng-model \***directives\* allows you to bind a variable to a standard html element that receives user input. This can be either an input element, a textarea element, or select element. (If you’re familiar with jQuery, this might remind you of the [val](http://api.jquery.com/val/) method.)
 
-The **ng-bind** directive does something similar, but but it works by replacing the inner html of any html element with the bound variable. (If you’re familiar with jQuery, this might remind you of the [html](http://api.jquery.com/html/) method.)
+The **ng-bind** directive does something similar, but it works by replacing the inner html of any html element with the bound variable. (If you’re familiar with jQuery, this might remind you of the [html](http://api.jquery.com/html/) method.)
 
 **input** is the name that we have chosen for the name of the variable to be bound, but we could have chosen pretty much anything.
 
@@ -90,7 +90,7 @@ Note: the variables exist within the scope of the application and not on the pag
 
 ```html
 <script>
-  var input = “Sorry, I’m not available for binding.”
+  var input = "Sorry, I'm not available for binding."
 </script>
 ```
 
@@ -100,8 +100,8 @@ You can also use the double curly braces syntax, `“[[input]]”`, instead of *
     <!doctype html>
     <html ng-app>
      <body >
-     <input ng-model=”input”><span>[[input]]</span>
-     <script src=”path/to/angular.js”></script>
+     <input ng-model="input"><span>[[input]]</span>
+     <script src="path/to/angular.js"></script>
      </body>
     </html>
 ```
@@ -112,38 +112,38 @@ This might be useful for, say, a form:
 
 ```html
 <form>
-  Name:<input ng-model="”user.name”" ng-required="”true”" />
+  Name:<input ng-model="user.name" ng-required="true" />
   <br />
   Favorite Color:
-  <select ng-model="”user.color”">
-    <option value="”not" available”>N/A</option>
-    <option value="”red”">Red</option>
-    <option value="”green”">Green</option>
-    <option value="”blue”">Blue</option>
+  <select ng-model="user.color">
+    <option value="not available">N/A</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
   </select>
-  <div style="”background-color:[[user.color]]”"></div>
+  <div style="background-color:[[user.color]]"></div>
   <button>Submit</button>
 </form>
 <p>
   Your name is
-  <b ng-bind="”user.name" || ‘Blank’”></b>
+  <b ng-bind="user.name || 'Blank'"></b>
   and your favorite color is
-  <b ng-bind="”user.color”"></b>.
+  <b ng-bind="user.color"></b>.
 </p>
 ```
 
 Notice that the **user.name** and the **user.color** properties are bound to other parts of the form.
 
-You may have spotted the **ng-required** directive on the input tag. That’s prevents a form from being submitted unless the required value is filled out. Try submitting the form below without typing in a name. (Be Warned: This may not work in all browsers.)
+You may have spotted the **ng-required** directive on the input tag. That prevents a form from being submitted unless the required value is filled out. Try submitting the form below without typing in a name. (Be Warned: This may not work in all browsers.)
 
-It’s also useful to be able to perform calculations on the page. Here’s a simple tip calculator. It a bit off (check out those rounding errors!), but it starts to show you what you can do with an angular app.
+It’s also useful to be able to perform calculations on the page. Here’s a simple tip calculator. It's a bit off (check out those rounding errors!), but it starts to show you what you can do with an angular app.
 
 ```html
-    Bill: <input ng-model=”bill”>
+    Bill: <input ng-model="bill">
     <br/>
-    Tip Percentage: <input type=”number” ng-model=”tip”> %
+    Tip Percentage: <input type="number" ng-model="tip"> %
     <br/>
-    Total: $<span ng-bind=”(1 + (tip/100) ) * bill”></span>
+    Total: $<span ng-bind="(1 + (tip/100) ) * bill"></span>
 ```
 
 ### A Few More Directives
@@ -153,10 +153,10 @@ It’s also useful to be able to perform calculations on the page. Here’s a si
 Conveniently, attaching the **ng-model** to a checkbox or radio allows you to bind to its **checked** property rather than it’s value.
 
 ```html
-<input type="”checkbox”" ng-init="”checked" ="true”" ng-model="”checked”" />
-<span ng-show="”checked”">The box is checked</span>
-<span ng-hide="”checked”">The box is not checked</span>
-<span ng-if="”checked”"> :) </span>
+<input type="checkbox" ng-init="checked=true" ng-model="checked" />
+<span ng-show="checked">The box is checked</span>
+<span ng-hide="checked">The box is not checked</span>
+<span ng-if="checked"> :) </span>
 ```
 
 And we can use this fact to demonstrate a few new directives.
@@ -172,24 +172,10 @@ A final useful directive is the **ng-repeat** directive that allows one to itera
 
 ```html
 <ul
-  ng-init="”beatles"
-  ="["
-  [name
-  :
-  ‘John’],
-  [name
-  :
-  ‘Paul’],
-  [name
-  :
-  ‘George’],
-  [name
-  :
-  ‘Ringo’]
-  ]”
+  ng-init="beatles=[{name:'John'},{name:'Paul'},{name:'George'},{name:'Ringo'}]"
 >
-  <li ng-repeat="”beatle" in beatles”>
-    <span ng-bind="”$index”"></span>.<span ng-bind="”beatle.name”"></span>
+  <li ng-repeat="beatle in beatles">
+    <span ng-bind="$index"></span>.<span ng-bind="beatle.name"></span>
   </li>
 </ul>
 ```
@@ -201,8 +187,8 @@ You’ll notice that in addition to the **_beatle_** property, the **ng-repeat *
 Just for the heck of it, let’s take a sneak preview of filters.
 
 ```html
-<li ng-repeat="”beatle" in beatles | orderBy:’name’”>
-  <span ng-bind="”$index”"></span>.<span ng-bind="”beatle.name”"></span>
+<li ng-repeat="beatle in beatles | orderBy:'name'">
+  <span ng-bind="$index"></span>.<span ng-bind="beatle.name"></span>
 </li>
 ```
 
@@ -212,4 +198,4 @@ Filters, like Directives, are one of the core components of angular. And we’ll
 
 ### Conclusion
 
-With just few basic built built in components, you can start creating interesting apps with barely any code. I’ll be back soon with another update to this series, but in the meantime, start using Angular to make something cool!
+With just a few basic built-in components, you can start creating interesting apps with barely any code. I’ll be back soon with another update to this series, but in the meantime, start using Angular to make something cool!

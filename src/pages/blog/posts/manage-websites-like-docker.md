@@ -77,9 +77,9 @@ in like an image is enticing.
 
 Now that we've covered the "what" and the "why", let's look at the "how".
 
-### Prerequesites
+### Prerequisites
 
-In order complete do this tutorial, you'll need the following installed:
+In order to complete this tutorial, you'll need the following installed:
 
 #### go
 
@@ -135,7 +135,7 @@ We want a process
 that mirrors the one
 outlined above for Docker:
 
-1. Convert a file tree into an "image-like" artifact. (using `gen-bungle`)
+1. Convert a file tree into an "image-like" artifact. (using `gen-bundle`)
 2. Publish said artifact to a registry. (Github via `wasm-to-oci`)
 3. When necessary, retrieve said image from the registry and view it. (with `wasm-to-oci` and Google Chrome)
 
@@ -192,7 +192,7 @@ named "hello-world.wbn".
 This is equivalent to a Docker image.
 (Note that when you interact with docker,
 you use commands like `build`, `push`, and `pull`.
-You do not ususually interact directly
+You do not usually interact directly
 with image files themselves.)
 
 #### View Artifact
@@ -206,7 +206,7 @@ Using Chrome, visit `chrome://flags/#web-bundles`.
 Enable the feature and restart your browser.
 
 Using Chrome, open the `hello-world.wbn` file
-that you previoiusly created.
+that you previously created.
 The url will look something like
 `file:///.../hello-world.wbn?http://localhost/`.
 
@@ -237,7 +237,7 @@ to enable the distribution
 of more cloud native artifacts.
 
 There are no existing tools
-to push bundles (specificaly)
+to push bundles (specifically)
 to OCI registries.
 Fortunately, we can ~abuse~ use WASM to OCI
 -- a tool for doing something
@@ -250,13 +250,13 @@ Notably, Docker Hub does not support this.
 
 #### Login to Github with Docker
 
-We will use Docker )only\_ to authenticate
+We will use Docker _only_ to authenticate
 
 First obtain a
 [github access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 with, permissions to read and write to the registry.
 
-User `docker login` to login to the github container registry at `ghcr.io`,
+Use `docker login` to login to the github container registry at `ghcr.io`,
 
 ```bash
 echo $GITHUB_ACCESS_TOKEN | docker login ghcr.io -u $GITHUB_USERNAME --password-stdin
@@ -272,7 +272,7 @@ wasm-to-oci push ./hello-world.wbn ghcr.io/$GITHUB_USERNAME/hello-world:0.0.0
 
 If the registry at
 `https://github.com/users/$GITHUB_USERNAME/packages/container/package/hello-world`
-doest not exist, it will be created automatically.
+does not exist, it will be created automatically.
 
 You can view and manage artifacts in your repository at `https://github.com/$GITHUB_USERNAME?tab=packages`.
 
@@ -291,24 +291,16 @@ There are still a few main things missing from this work flow:
    for managing bundles
    or generic OCI images.
 
-2. The `docker run` command provides way to
-   to create a "running" container
+2. The `docker run` command provides a way to
+   create a "running" container
    by combining an image with a linux kernel.
 
    The equivalent would be
    hosting a bundle as a static asset
    such that a user can interact with it.
 
-3. The `docker run` command provides way to
-   to create a "running" container
-   by combining an image with a linux kernel.
-
-   The equivalent would be
-   hosting a bundle as a static asset
-   such that a user can interact with it.
-
-4. The `docker build` incrementally builds
-   images from other, protypal images.
+3. The `docker build` incrementally builds
+   images from other, prototypal images.
 
    The equivalent would be
    a templating system that can pull

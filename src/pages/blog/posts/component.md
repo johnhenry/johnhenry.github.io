@@ -1,134 +1,38 @@
-1. Build HTML APP
-2. Extend individual components with CSS
-3. Extend individual components with JS
-   1. Extend CSS with JS (CSS custom Property Sets)
-   2. Extend HTML with JS (Web Component Extensions)
-   3. Extend HTML with JS (Targeting DOM Elements)
+---
+title: "CSS Inheritance for JavaScript Programmers"
+description: "Classical inheritance, mixins, and prototypal inheritance in JavaScript, and what each one teaches us about how CSS inheritance and specificity actually work."
+date: "3 July 2026"
+author: "John Henry"
+heroImage: "/vendor/img/www.pexels.com/pixabay/view-of-street-from-a-glass-window.jpg"
+alt: "Astro"
+layout: "../../../components/BlogPage.astro"
+tags: ["programming", "experimenting"]
+---
 
-# Components
-
-What is a component?
-A component is a set of markup associated
-with a specific set of behaviors --
-incuding everyghing from mouse clicks to visusal representation.
-They are an essential part of declarative programming.
-
-A component's properties are not meant
-for said component's children.
-They may tell a component how to arrange
-a group of generic children within itself,
-but only on rare occasions should a component
-be aware of it's children's content.
-
-## HTML Elements
-
-HTML elements are the simplest components on the web.
-They consist of basic element tags.
-
-It's important to understand what already exists.
-
-## HTML Components
-
-Facts
-
-Pros:
-
-- encapsulation
--
-
-Cons:
-
-- importing is akward (can be fixed)
-- always creates outer element.
-  - can extend components to remove this
-    - safari does not support this
-      - ...without a polyfill
-
-https://minze.dev/api/#version-1
-
-## CSS
-
-CSS is used to add (and remove) visual (and interactive )
-behaviors to existing html components.
-
-CSS components are represented by selectors and properties are added to them.
-
-### CSS Modules
-
-### CSS Models
-
-Enhance existing CSS selectors by providing
-Javascipt-driven custom properties
-on the DOM.
-
-## Native DOM Components
-
-Facts:
-
-- Uses document api (document.addChild, etc.)
-
-Pros:
-
-Cons:
-
-- Cumbersom API
-  - Specifically adding children/attributes is
-    separate from construction.
-  - Specifically, can add children in bulk,
-    but modifying them in bulk
-
-### JSX
-
-Many frameworks use Javascript for XML (JSX).
-This is an XML-like language within avascript
-that can be used to transform a XML into nested functions
-that produce DOM elements
-
-```typescript
-(tagname:string, {children, }:{[string]:any, children:Element[]}):=> Element
-
-```
-
-### Attribute Based
-
-- HTMX
-
-# Component Inheritence
-
-This is Part 1 in a series.
-We learn what it takes to create a framework
-in which we build components using
-clean and uncomplied styles along with organized and meanigful markup.
-
-Inheritance is a useful concept.
-It allows programmers to streamline the way in which they
-design objects by reusing code.
-
-In this article, we take a look at how inheritance works
-through the eyes of a JavaScript programmer
-and understand how it applies when applying CSS.
+Inheritance is a useful concept. It lets programmers streamline the way they
+design objects by reusing code. In this article, we look at how inheritance
+works through the eyes of a JavaScript programmer, and use that lens to
+understand how CSS inheritance and specificity work.
 
 ## Normalize and Reset
 
-While they mostly work the same,
-different apply some browser-based styles
-to each page.
-For consistency,
-it is always a good idea to use a [normalize]()
-any time you work with CSS.
+Before any of this matters, it helps to start from the same baseline in
+every browser. Different browsers apply different default styles to the
+same elements, so it's always a good idea to use a
+[normalize](https://necolas.github.io/normalize.css/) stylesheet any time
+you work with CSS.
 
-We separate concerns -- meaning and style --
-by handing each with HTML and CSS respectively.
-We go beyond using a normalize and use a [reset]()
-to strip **all** styles associated with the HTML.
+We separate concerns — meaning and style — by handling each with HTML and
+CSS respectively. We go a step further than a normalize and use a
+[reset](https://meyerweb.com/eric/tools/css/reset/) to strip **all** styles
+associated with the HTML, so everything that follows is explicit and
+intentional.
 
-## Type: Classical Inheritence
+## Classical Inheritance
 
-A _class_ is a basic object that acts as a blueprint
-to crete other objects.
-
-In javascript we create a class with a number of
-property definitions[^1].
+A _class_ is a basic object that acts as a blueprint for creating other
+objects. In JavaScript, we create a class with a number of property
+definitions[^1]:
 
 ```javascript
 const House = class {
@@ -145,7 +49,7 @@ const House = class {
 };
 ```
 
-In a way, _selectors_ in CSS behave like classes.
+In a way, _selectors_ in CSS behave like classes:
 
 ```css
 section {
@@ -155,21 +59,18 @@ section {
 
 ### Instantiation and application
 
-Most languages use the "new" keyword to create
-an "instance" of the class.
-This is an object with the properties defined by the class.
+Most languages use the `new` keyword to create an "instance" of a class —
+an object with the properties defined by the class:
 
 ```javascript
-const house = new Class("red"); // "house" is like the actual house
+const house = new House("red"); // "house" is like the actual house
 console.log(house.getColor()); // logs "red"
 house.paint("blue");
 console.log(house.getColor()); // logs "blue"
 ```
 
-Rather than creating a new object,
-properties defined by a selector are
-automatically applied to HTML elements
-that they match.
+Rather than creating a new object, properties defined by a selector are
+automatically applied to every HTML element that matches it:
 
 ```html
 <section>This has a red background</section>
@@ -178,20 +79,19 @@ that they match.
 
 ### Extension
 
-Classes can be "extended".
+Classes can be "extended":
 
 ```javascript
-class BigRedHouse extends House class {
+class BigRedHouse extends House {
   constructor() {
     super("red");
-    this.isBig === true
+    this.isBig = true;
   }
 }
 ```
 
-Property definitons from the original class
-are included in the new class.
-We say the properties are "inherited".
+Property definitions from the original class are included in the new
+class. We say the properties are "inherited":
 
 ```javascript
 const bigRedHouse = new BigRedHouse();
@@ -199,19 +99,15 @@ console.log(bigRedHouse.getColor()); // logs "red"
 console.log(bigRedHouse.isBig); // logs "true"
 ```
 
-Some CSS preprocessors use a similar
-[concept of extension](https://sass-lang.com/documentation/at-rules/extend),
-This is not a feature of uncompiled CSS,
-so we will find another way.
+Some CSS preprocessors have a similar
+[concept of extension](https://sass-lang.com/documentation/at-rules/extend).
+That isn't a feature of plain, uncompiled CSS, so we find another way: we
+simulate it by defining and applying another type of selector, a CSS
+class. (To avoid ambiguity, I always refer to this kind of selector as a
+"CSS class".)
 
-We can simulate this by defining and applying
-another typer of selector, a CSS class.
-(To avoid ambiguity, I always refer to the selector
-as a "CSS class".)
-
-Placing two selectors together (with no space between)
-creates a new selector.
-Both selectors much match an element to be applied.
+Placing two selectors together, with no space between them, creates a new
+selector. Both selectors must match an element for it to apply:
 
 ```css
 section {
@@ -228,7 +124,7 @@ section.big {
 <section class="big">This has a red background and big text.</section>
 ```
 
-Chains of objects can inherit from eachother.
+Chains of classes can inherit from each other:
 
 ```css
 section.big.fancy_blue {
@@ -243,32 +139,30 @@ section.big.fancy_blue {
 </section>
 ```
 
-## Type: Mixins
+## Mixins
 
-Mixins are a way to give an object with properties directly.
-They are less formal and there is not sanctioned syntax
-in javascript.
-
-We can use `Object.assign` to give an object properties.
+Mixins give an object properties directly. They're less formal than
+classes, and JavaScript has no dedicated syntax for them — but we can use
+`Object.assign` to combine properties from several objects into one:
 
 ```javascript
 const collegeStudent = {
-  canRead:true;
-}
+  canRead: true,
+};
 const surgeon = {
-  preformSurgery(){
-    return Math.random() > 0.9 "success" : "...";
-  }
-}
+  performSurgery() {
+    return Math.random() > 0.9 ? "success" : "...";
+  },
+};
 
-const person = new Person();
+const person = {};
 Object.assign(person, surgeon, collegeStudent);
 console.log(person.canRead); // logs "true"
-console.log(person.preformSurgery()); // logs "success" (I hope)
+console.log(person.performSurgery()); // logs "success" (I hope)
 ```
 
 Notice that with mixins, an object can inherit from multiple objects
-without them having to inherit from one another.
+without any of those objects inheriting from one another.
 
 Recall the styles and markup from the previous "Extension" section:
 
@@ -294,10 +188,10 @@ section.big.fancy_blue {
 </section>
 ```
 
-We used the selectors together forming a heirchy,
-but we could have split them apart.
-This would allow them to apply to additional
-elements outside of said heirachy, in additon to the ones we defined
+We used those selectors together, forming a hierarchy — but we could just
+as easily split them apart. That would let each one apply to additional
+elements outside that hierarchy, in addition to the ones we already
+defined:
 
 ```css
 section {
@@ -319,27 +213,26 @@ section {
   This has a blue background and big italicized text.
 </section>
 <div class="big">This has big text, but no background defined.</div>
-<section class="fancy_blue">This has a blue background and italicized, but regular sized text.</div>
+<section class="fancy_blue">
+  This has a blue background and italicized, but regular sized text.
+</section>
 ```
 
-Defining CSS selectors separately
-allows properties associated
-with multiple to be mixed in
-to an HTML element.
+Defining CSS classes separately, like this, lets properties from multiple
+classes mix into a single HTML element — the same idea as `Object.assign`,
+just expressed through the cascade instead of a function call.
 
-## Prototypal
+## Prototypal Inheritance
 
-With prototypal inheritance,
-we creaete a new object referencing another object --
-a "prototype".
-We give the new object properties.
-When we attempt to access properties on the new object,
-if they do not exist; the request is proxied to the prototype.
-Objects that exist on on object's prototype, but not on the object itself,
-are considered "inherited".
+With prototypal inheritance, we create a new object that references
+another object — its "prototype" — and give the new object properties of
+its own. When we try to access a property on the new object and it
+doesn't exist there, the request is proxied to the prototype. Properties
+that exist on an object's prototype, but not on the object itself, are
+considered "inherited".
 
-In javascript, we use object `Object.create` to create an object,
-with another object as it's prototype.
+In JavaScript, we use `Object.create` to create an object with another
+object as its prototype:
 
 ```javascript
 const John = {
@@ -361,16 +254,15 @@ console.log(!!John.isEvil); // logs "false"
 console.log(!!clone.isEvil); // logs "true"
 ```
 
-When not defined by a selector targeting an element,
-some CSS properties assume a default value.
-Others take on the value of their parent.
-
-It's not completely intuitive to figure out which
-properties are inherited.
-Checkout [this stackoverflow answer](https://stackoverflow.com/a/5612360/1290781)
+This is the closest analogy to how CSS inheritance actually works. When a
+property isn't set directly on an element, some CSS properties fall back
+to a default value; others take on the value of their parent element
+instead. It's not always intuitive which properties are inherited by
+default — check out
+[this Stack Overflow answer](https://stackoverflow.com/a/5612360/1290781)
 for guidance.
 
-In this case elements inherit properties from thier parent elements.
+In this case, elements inherit properties from their parent elements:
 
 ```css
 section {
@@ -387,32 +279,39 @@ section {
 
 ## Summary
 
-Once cleard of initial styles, HTML elements can be applied
+Once you've cleared away a browser's default styles, an element's final
+appearance comes from three places, and each one maps onto a pattern of
+inheritance we just covered:
 
-    1. via style selector or directly
-    2. via
+- **A directly matching selector** — the classical pattern. A chain of
+  selectors like `section.big.fancy_blue` behaves like a chain of `extends`:
+  each link adds more specific properties on top of the last.
+- **Several independent selectors matching at once** — the mixin pattern.
+  `.big` and `.fancy_blue` don't know about each other, but both apply to
+  the same element, the same way `Object.assign` combines unrelated
+  objects.
+- **A value inherited from a parent element** — the prototypal pattern.
+  Nothing matched the element directly, so the browser walks up to the
+  parent, the same way a JavaScript object walks up its prototype chain.
 
-## Problems
+## Specificity
 
-A lot of problems stem from misunderstanings of
-css specificity and inheritence.
+Most of the confusion around CSS comes down to specificity: when more
+than one of the rules above could apply, which one wins? As a rule of
+thumb, more specific selectors (more classes, IDs, or chained selectors)
+beat more general ones, and rules that appear later in the stylesheet win
+ties.
 
-Mental tree model for inhheritne and spefificity
-Create components in increating specificity.
-Use BEM for sub components?
-From what I know about rocket science, it's honestly a bit harder
-Rocket science isn't actually that difficult onve
+A naming convention like [BEM](https://getbem.com/) can help keep
+specificity predictable as a component tree grows, since it favors flat,
+single-class selectors over long chains that are easy to lose track of.
 
-When a class extends another class,
-it's said to inherit the
-
-We'' learn more about specificity
-and how you can structure your style sheets
-to avoid shooing yousself in the foot.
+Thinking in terms of these three patterns — a direct match, a combination
+of independent classes, and inheritance from a parent — is what finally
+made CSS specificity click for me. I hope it does the same for you.
 
 ## Footnotes
 
 [^1]:
-    not "properties",
-    though we often use these interchangeably
-    when dealing whit chasses)
+    Not strictly "properties" in the CSS sense — we just use the word for
+    both, since the concepts are so similar.
