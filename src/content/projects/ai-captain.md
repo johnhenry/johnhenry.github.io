@@ -2,7 +2,7 @@
 author:
   name: 'John Henry'
   picture: 'https://avatars.githubusercontent.com/u/393817?v=4'
-coverImage: ''
+coverImage: '/image/projects/ai-captain.png'
 title: 'AI Captain'
 status: 'published'
 slug: 'ai-captain'

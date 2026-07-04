@@ -6,7 +6,7 @@ author:
   picture: 'https://avatars.githubusercontent.com/u/393817?v=4'
 slug: 'vimble-mhttps-github-com-johnhenry-vimble-mcpcp'
 description: ''
-coverImage: ''
+coverImage: '/image/projects/vimble-mcp.png'
 url: 'https://github.com/johnhenry/vimble-mcp'
 video: ''
 type: '::code::'
