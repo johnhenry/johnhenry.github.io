@@ -213,6 +213,7 @@ section.blog-preview header {
 
 section.blog-preview img {
   border-radius: 8px;
+  width: 192px;
 }
 
 section.blog-preview article {
@@ -234,10 +235,6 @@ section.blog-preview article header {
     padding-right: var(--padding-side);
     flex-direction: row;
   }
-}
-
-section.blog-preview img {
-  width: 192px;
 }
 
 section.blog > article {

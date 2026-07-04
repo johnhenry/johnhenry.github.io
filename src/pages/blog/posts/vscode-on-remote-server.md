@@ -21,9 +21,9 @@ It is not difficult to do this using secure shell alone, but here are a few meth
 
 ## Pre-Requisites
 
-This tutorial assumes that you are already famaliar with using [secure shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell).
+This tutorial assumes that you are already familiar with using [secure shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell).
 
-You _should_ at least be famaliar with logging into a remote server using [key-based authentication](https://www.ssh.com/ssh/key/).
+You _should_ at least be familiar with logging into a remote server using [key-based authentication](https://www.ssh.com/ssh/key/).
 
 ## Method 1 : code-server
 
@@ -36,7 +36,7 @@ You _should_ at least be famaliar with logging into a remote server using [key-b
 
 ## Method 2 : sshcode
 
-[Sshcode](https://github.com/cdr/sshcode) works similarly to code-server (it's actually built on top of it) but uses a client program to set up the web server. Additionally, if you're using chrome, it will open a customized window with Visual Studio Code keybinding in tact.
+[Sshcode](https://github.com/cdr/sshcode) works similarly to code-server (it's actually built on top of it) but uses a client program to set up the web server. Additionally, if you're using chrome, it will open a customized window with Visual Studio Code keybinding intact.
 
 0. Install chrome and sshcode on client
 1. On client, run `sshcode <user>@<serveraddress>`
@@ -55,6 +55,6 @@ You _should_ at least be famaliar with logging into a remote server using [key-b
 To supplement the above methods, you may want to learn about:
 
 - mounting file remote folders locally and using any editor you want using [sshfs](https://github.com/libfuse/sshfs)
-- accessing other resources on your remote maching via [tunneling](https://www.ssh.com/ssh/tunneling/example).
+- accessing other resources on your remote machine via [tunneling](https://www.ssh.com/ssh/tunneling/example).
 - mitigating unstable remote [mobile] connections with [mosh](https://mosh.org/).
-- customizations and pitfalls of above programs by reading their documetion.
+- customizations and pitfalls of above programs by reading their documentation.

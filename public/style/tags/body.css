@@ -52,7 +52,7 @@ body > :is(header, footer) a:visited {
 
 body > :is(header, footer) a:hover,
 body > :is(header, footer) a:active {
-  color: var(--color-text-highlight);
+  color: var(--color-text--highlight);
 }
 
 body > :is(header, footer) > a > img {

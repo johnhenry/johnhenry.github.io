@@ -31,10 +31,10 @@ For instance, a server within a service worker would be able to intercept and re
     //example -- service worker
     const server = …;//define later
 
-    self.addEventListener(‘fetch’, function(event) {
+    self.addEventListener('fetch', function(event) {
      return event.respondWith(new Promise((resolve, reject)=>{
        const response = server.respondTo(event.request);
-       response.on(“finish”, ()=>{
+       response.on("finish", ()=>{
          resolve(req);
        });
      }));
@@ -45,7 +45,7 @@ We’ll come back to this idea...
 
 ## **Competing Standards**
 
-So, I want to put a server in the browser — what are my options? Not long ago, I learned about the new [FlyWeb](https://hacks.mozilla.org/2016/09/flyweb-pure-web-cross-device-interaction/) standard that [Mozilla](https://blog.mozilla.org/) is pushing for creating servers within the browser. I was pretty excited until i realized how different it was from anything that already existed in node.
+So, I want to put a server in the browser — what are my options? Not long ago, I learned about the new [FlyWeb](https://hacks.mozilla.org/2016/09/flyweb-pure-web-cross-device-interaction/) standard that [Mozilla](https://blog.mozilla.org/) is pushing for creating servers within the browser. I was pretty excited until I realized how different it was from anything that already existed in node.
 
 Every other server that I’ve seen follows a particular pattern…
 
@@ -56,7 +56,7 @@ Node already has a built in simple API for creating servers via [http](https://n
 ```javascript
     //example -- http
     //create server and define action
-    const server = require(“http”)
+    const server = require("http")
      .createServer((request, response)=>{
       ...//process request
       response.end();//end response
@@ -76,7 +76,7 @@ As the http module is quite simplistic, the [express](https://github.com/express
     //example -- express
 
     //create server
-    const server = require(“express”)();
+    const server = require("express")();
 
     //register middleware
     server.use((request, response, next)=>{
@@ -114,7 +114,7 @@ Koa makes use of [asynchronous functions](https://github.com/tc39/ecmascript-asy
 ```javascript
     //example -- koa
 
-    const server = require(“koa”)();
+    const server = require("koa")();
 
     server.use(async (context, next)=>{
       ...//process request
@@ -140,7 +140,7 @@ Please be aware that Koa 2 is still in alpha, but since its API is so much clean
 ```javascript
     //example -- rill
 
-    const server = require(“rill”)();
+    const server = require("rill")();
 
     server.use((context, next)=>{
       context.res.end();//end response
@@ -176,7 +176,7 @@ While rill or koa would have been a great starting point for a server in the bro
     };
 ```
 
-This breaks the pattern of everything we’ve seen so far! Here the server is created and started first. Only afterwards are actions actions added.
+This breaks the pattern of everything we’ve seen so far! Here the server is created and started first. Only afterwards are actions added.
 
 Do we really need an entirely new way of doing basically the same thing?
 
@@ -192,14 +192,14 @@ Revisiting the service worker example above, we have:
 
 ```javascript
     //example -- koa-2-browser
-    const server = require(‘koa-2-browser’)();
+    const server = require('koa-2-browser')();
     server.use(/*middleware*/);
     server.listen(()=>{
 
     self.onfetch(function(event) {
         return event.respondWith(new Promise((resolve, reject)=>{
           const response = server.respondTo(event.request,{browserResponse:true});
-          response.on(“finish”, (res)=>{
+          response.on("finish", (res)=>{
             resolve(res);
           });
         }));
@@ -227,21 +227,21 @@ And this is true for open source software as a whole; if two different APIs do t
 
 Servers aren’t the only competing standards across environments.
 
-[\*\*Buffers](https://nodejs.org/api/buffer.html)** are standardized in node and [**ArrayBuffers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)\*\* are standardized in the browser. They are both containers for binary data, but they work slightly differently. This is particularly annoying when attempting to create isomorphic applications. Even worse, some objects that have a “buffer” method, may return an ArrayBuffer instead, meaning that you may have to apply special logic to work with them in different environments.
+**[Buffers](https://nodejs.org/api/buffer.html)** are standardized in node and **[ArrayBuffers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)** are standardized in the browser. They are both containers for binary data, but they work slightly differently. This is particularly annoying when attempting to create isomorphic applications. Even worse, some objects that have a “buffer” method, may return an ArrayBuffer instead, meaning that you may have to apply special logic to work with them in different environments.
 
-After many revisions, [\*\*Streams](https://nodejs.org/api/stream.html)** are close to full standardization in node. Unfortunately, [**Browser Streams](https://streams.spec.whatwg.org/)\*\*, an emerging standard, introduce new and incompatible parts of the API. Hopefully, the groups involved can come to an agreement at some point.
+After many revisions, **[Streams](https://nodejs.org/api/stream.html)** are close to full standardization in node. Unfortunately, **[Browser Streams](https://streams.spec.whatwg.org/)**, an emerging standard, introduce new and incompatible parts of the API. Hopefully, the groups involved can come to an agreement at some point.
 
-There are some other similar topics like **importing modules**, but that situation is way more complicated to go into her.
+There are some other similar topics like **importing modules**, but that situation is way more complicated to go into here.
 
 ## Bonus Library!!!
 
 But trying new things is fun! I actually prefer the [way that FlyWeb creates servers](https://github.com/flyweb/spec). Since it [it appears that I’m not the only one](https://github.com/koajs/koa/issues/482), I’ve created another library, [flyweb-koa](https://github.com/johnhenry/flyweb-koa). It allows you to use koa in a manner similar to the FlyWeb, while maintaining everything that koa has to offer.
 
 ```javascript
-    const koa = require(“koa-2-browser”);
+    const koa = require("koa-2-browser");
     //This also works with koa;
 
-    const publishServer = require(‘flyweb-koa’)(‘koa’);
+    const publishServer = require('flyweb-koa')('koa');
 
     const server = await publishServer(/*listening address*/);
     server.use(/*middleware*/);
