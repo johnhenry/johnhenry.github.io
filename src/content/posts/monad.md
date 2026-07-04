@@ -1,4 +1,6 @@
 ---
+publishedAt: "2022-07-28T05:14:49.000Z"
+status: "published"
 title: "Monad"
 description: "A playful introduction to monads through a small thought experiment about a blog"
 author: "John Henry"

@@ -1,4 +1,6 @@
 ---
+publishedAt: "2021-10-26T07:00:00.000Z"
+status: "published"
 title: "Manage Websites Like Docker"
 description: Manage static websites like you manage Docker images
 author: "John Henry"

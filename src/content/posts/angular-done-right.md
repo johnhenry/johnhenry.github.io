@@ -1,4 +1,6 @@
 ---
+publishedAt: "2013-08-01T07:00:00.000Z"
+status: "published"
 title: "Angular Done Right: Part 1"
 description: "The first in a series on how to use Angular 1.0"
 date: "1 August 2013"

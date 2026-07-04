@@ -1,4 +1,6 @@
 ---
+publishedAt: "2019-09-07T07:00:00.000Z"
+status: "published"
 title: "VS Code on a Remote Server"
 description: "How to run Visual Studio Code on a remote server"
 date: "7 September 2019"
