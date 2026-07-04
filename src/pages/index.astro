@@ -7,10 +7,22 @@ import sortPosts from "../utils/sort-posts.mjs";
 import JH from "../components/jh/index.astro";
 import SitePage from "../components/SitePage.astro";
 // Content
-import projects from "../content/projects.mjs";
+import { getCollection } from "astro:content";
 import headerLinks from "../content/headerlinks.mjs";
-const postModules = import.meta.glob("./blog/posts/*.md", { eager: true });
-const { latest=undefined, tags=[] } = sortPosts(Object.values(postModules));
+import getAllPosts from "../utils/get-all-posts.mjs";
+
+const projects = (await getCollection("projects"))
+  .filter((p) => p.data.status === "published")
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const TYPE_LABELS = {
+  "::app::": "App",
+  "::code::": "Code",
+  "::library::": "Library",
+  "::design::": "Design",
+};
+
+const { latest=undefined, tags=[] } = sortPosts(await getAllPosts());
 ---
 <SitePage
   serviceWorkerScript={SITE_SERVICE_WORKER}
@@ -79,11 +91,11 @@ const { latest=undefined, tags=[] } = sortPosts(Object.values(postModules));
   <section id="projects" class="projects">
     <header>Projects</header>
     <article class="glowey-background-container link-surprise-container">
-      {projects.map(({title, description, href, image}) => (
-        <a href={href} >
-          <div style={image ? `background-image: url('${image}');`: ''}>
-            <header>{title}</header>
-            <footer>{description}</footer>
+      {projects.map(({data, body}) => (
+        <a href={data.url} target="_blank" rel="noreferrer">
+          <div style={data.coverImage ? `background-image: url('${data.coverImage}');`: ''}>
+            <header>{data.title} <small>{TYPE_LABELS[data.type] ?? data.type}</small></header>
+            <footer>{body}</footer>
           </div>
         </a>
       ))}
