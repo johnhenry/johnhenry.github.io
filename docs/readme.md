@@ -16,7 +16,7 @@ This site is published at [https://johnhenry.github.io/) via the [static branch]
 
 [Astro](https://astro.build) -- Framework used to compose HTML.
 
-[astro-plain](https://www.npmjs.com/package/astro-plain) -- Generic astro template upon which all pages are based.
+[astro-plain](https://github.com/johnhenry/astro-plain) -- Generic astro template upon which all pages are based. Vendored locally at [src/components/plain/](../src/components/plain/) rather than an npm dependency (the published package is unmaintained).
 
 [johnhenry/lib](https://johnhenry.github.io/lib) -- exerimental library with various utilities for building web and javascript applications.
 
