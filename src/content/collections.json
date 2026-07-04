@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Posts",
+    "slug": "posts",
+    "path": "src/content/posts",
+    "parent": null
+  },
+  {
+    "title": "Projects",
+    "slug": "projects",
+    "path": "src/content/projects",
+    "parent": null
+  }
+]
