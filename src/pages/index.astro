@@ -15,6 +15,10 @@ const projects = (await getCollection("projects"))
   .filter((p) => p.data.status === "published")
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 
+// None of the CMS-authored project entries have a coverImage set yet; fall
+// back to the same default thumbnail the old hardcoded projects list used.
+const DEFAULT_PROJECT_IMAGE = `${SITE_CDN_URL}vendor/img/www.pexels.com/pixabay/turned-on-computer-monitor-displaying-text-300.jpg`;
+
 const TYPE_LABELS = {
   "::app::": "App",
   "::code::": "Code",
@@ -93,7 +97,7 @@ const { latest=undefined, tags=[] } = sortPosts(await getAllPosts());
     <article class="glowey-background-container link-surprise-container">
       {projects.map(({data, body}) => (
         <a href={data.url} target="_blank" rel="noreferrer">
-          <div style={data.coverImage ? `background-image: url('${data.coverImage}');`: ''}>
+          <div style={`background-image: url('${data.coverImage || DEFAULT_PROJECT_IMAGE}');`}>
             <header>{data.title} <small>{TYPE_LABELS[data.type] ?? data.type}</small></header>
             <footer>{body}</footer>
           </div>
