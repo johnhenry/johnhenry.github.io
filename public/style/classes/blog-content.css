@@ -65,11 +65,13 @@
   line-height: 1.5;
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape), screen and (min-width: 768px) {
   .blog-content {
     /* 80% alone meant ~3600px-wide lines of text on a 4K/ultra-wide
        screen -- min() keeps the existing 80% behavior on moderate screens
-       while capping line length to something readable on very large ones. */
+       while capping line length to something readable on very large ones.
+       min-width means a portrait tablet also gets this instead of full-
+       width text just because it isn't landscape. */
     max-width: min(80%, var(--prose-max-width));
   }
 }
