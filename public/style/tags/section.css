@@ -1,7 +1,9 @@
 /* base */
 section {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  /* dvh accounts for mobile browser chrome (address bar) showing/hiding;
+     100vh causes content to jump or clip on mobile as that chrome animates. */
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -76,6 +78,11 @@ section.me > article {
   justify-content: center;
   padding-left: 6.25%;
   padding-right: 6.25%;
+  /* Without a cap, paragraph text stretches to the full viewport width on
+     large/ultra-wide screens -- each grid column ends up with unreadably
+     long lines. */
+  max-width: var(--content-max-width);
+  margin-inline: auto;
 }
 
 section.me article article > p {
@@ -125,18 +132,30 @@ section.me div:hover > header img {
 }
 /* projects variant */
 section.projects > article {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  /* A responsive grid distributes cards evenly across the available width
+     instead of flex-wrap's ragged rows with large gaps of empty space on
+     wide screens. max-width keeps cards from thinning out to nothing on
+     ultra-wide screens by capping how many extra tracks can form. */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  /* auto-fit needs a *definite* inline-size to divide into tracks. Without
+     this, `article` is an unsized flex item (section.projects is
+     display:flex) and sizes itself to fit as many 240px columns as it
+     wants, ignoring the actual viewport -- confirmed: caused real
+     horizontal page overflow on narrow screens. */
+  width: 100%;
 }
 section.projects div {
   border: 2px solid var(--color-border-highlight);
   background-size: cover;
-  width: 256px;
-  height: 192px;
+  /* Replaces the old fixed 256x192 (same 4:3 ratio) so cards scale with
+     their grid track instead of staying a fixed size on every screen. */
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: auto;
 }
 section.projects div :is(header, footer) {
   padding: 4px;
@@ -234,6 +253,11 @@ section.blog-preview article header {
     padding-left: var(--padding-side);
     padding-right: var(--padding-side);
     flex-direction: row;
+    /* Without a cap, the preview description text stretches to the full
+       viewport width on large/ultra-wide screens, same issue as
+       .blog-content on individual post pages. */
+    max-width: var(--content-max-width);
+    margin-inline: auto;
   }
 }
 
