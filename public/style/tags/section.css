@@ -1,16 +1,37 @@
 /* base */
 section {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  /* dvh accounts for mobile browser chrome (address bar) showing/hiding;
+     100vh causes content to jump or clip on mobile as that chrome animates.
+     Capped at 900px (a typical laptop screen height) -- this is a floor, not
+     a ceiling, so content-heavy sections (e.g. projects) still grow past it
+     naturally. Uncapped, any window taller than ~900px forces sections with
+     shorter, width-driven content (e.g. the hero's logo+widget) to center
+     that content inside a much taller box than it needs, leaving a visibly
+     empty band above and below -- confirmed: 200px of dead space per side at
+     980x1100, worse still at more extreme aspect ratios. */
+  min-height: min(100dvh, 900px);
   display: flex;
   flex-direction: column;
+  /* Centers the (content-sized) header+article as one block within the
+     section's full height, instead of letting article's own flex-grow (see
+     below) stretch it to fill the section and hide the leftover space
+     inconsistently inside it -- flex centers it symmetrically for a
+     flex-based article (hero) but grid rows don't stretch the same way,
+     so the same leftover space sat entirely at the bottom for a grid-based
+     article ("me") instead. Confirmed both cases empirically. */
+  justify-content: center;
   gap: 32px;
   /* padding-left: var(--padding-side);
   padding-right: var(--padding-side);
   padding-top: calc(var(--header-height) + var(--header-padding));
   padding-bottom: calc(var(--footer-height) + var(--header-padding)); */
 }
-@media (orientation: landscape) {
+/* orientation:landscape alone treats a portrait tablet (e.g. 768x1024)
+   identically to a narrow phone, even though it has plenty of width to
+   spare -- min-width triggers the same "wide" treatment whenever there's
+   room for it, regardless of orientation. */
+@media (orientation: landscape), (min-width: 768px) {
   section {
     --padding-side: var(--padding-4x);
     padding-left: var(--padding-side);
@@ -27,7 +48,14 @@ section > header {
 }
 
 section > article {
-  flex: 1 1 auto;
+  /* Was flex: 1 1 auto -- forcing article to grow into all leftover
+     vertical space in the section is what created the dead space (it just
+     sizes to its own content now; the section's justify-content:center
+     above centers the resulting compact block instead). Content-heavy
+     sections (projects, blog post bodies) are unaffected: their content
+     already exceeds the section's min-height, so there's no leftover space
+     to grow into either way. */
+  flex: 0 1 auto;
 }
 
 section div {
@@ -44,7 +72,7 @@ section.hero > article {
   align-items: center;
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape), (min-width: 768px) {
   section.hero > article {
     flex-direction: row-reverse;
   }
@@ -58,7 +86,7 @@ section.hero > article .logo {
   width: 75vw;
   height: 75vw;
 }
-@media (orientation: landscape) {
+@media (orientation: landscape), (min-width: 768px) {
   section.hero > article .logo {
     width: 512px;
     height: 512px;
@@ -76,6 +104,11 @@ section.me > article {
   justify-content: center;
   padding-left: 6.25%;
   padding-right: 6.25%;
+  /* Without a cap, paragraph text stretches to the full viewport width on
+     large/ultra-wide screens -- each grid column ends up with unreadably
+     long lines. */
+  max-width: var(--content-max-width);
+  margin-inline: auto;
 }
 
 section.me article article > p {
@@ -110,7 +143,7 @@ section.me div:hover > header img {
   filter: sepia(100);
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape), (min-width: 768px) {
   section.me > article {
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: initial;
@@ -125,18 +158,30 @@ section.me div:hover > header img {
 }
 /* projects variant */
 section.projects > article {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  /* A responsive grid distributes cards evenly across the available width
+     instead of flex-wrap's ragged rows with large gaps of empty space on
+     wide screens. max-width keeps cards from thinning out to nothing on
+     ultra-wide screens by capping how many extra tracks can form. */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  /* auto-fit needs a *definite* inline-size to divide into tracks. Without
+     this, `article` is an unsized flex item (section.projects is
+     display:flex) and sizes itself to fit as many 240px columns as it
+     wants, ignoring the actual viewport -- confirmed: caused real
+     horizontal page overflow on narrow screens. */
+  width: 100%;
 }
 section.projects div {
   border: 2px solid var(--color-border-highlight);
   background-size: cover;
-  width: 256px;
-  height: 192px;
+  /* Replaces the old fixed 256x192 (same 4:3 ratio) so cards scale with
+     their grid track instead of staying a fixed size on every screen. */
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: auto;
 }
 section.projects div :is(header, footer) {
   padding: 4px;
@@ -228,12 +273,26 @@ section.blog-preview article header {
   font-size: 1.5rem;
 }
 
+/* The row layout (image beside text, instead of stacked) only needs enough
+   width to fit both -- a portrait tablet already has that, even though
+   it's not landscape. The extra-large side padding below is a separate,
+   much-larger-screen concern and stays orientation-gated: at 256px a side
+   it would crush a 768px-wide tablet down to a ~256px content column. */
+@media (orientation: landscape), (min-width: 768px) {
+  section.blog-preview {
+    flex-direction: row;
+    /* Without a cap, the preview description text stretches to the full
+       viewport width on large/ultra-wide screens, same issue as
+       .blog-content on individual post pages. */
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+  }
+}
 @media screen and (orientation: landscape) {
   section.blog-preview {
     --padding-side: calc(var(--padding) * 16);
     padding-left: var(--padding-side);
     padding-right: var(--padding-side);
-    flex-direction: row;
   }
 }
 
