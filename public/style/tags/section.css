@@ -2,10 +2,25 @@
 section {
   width: 100%;
   /* dvh accounts for mobile browser chrome (address bar) showing/hiding;
-     100vh causes content to jump or clip on mobile as that chrome animates. */
-  min-height: 100dvh;
+     100vh causes content to jump or clip on mobile as that chrome animates.
+     Capped at 900px (a typical laptop screen height) -- this is a floor, not
+     a ceiling, so content-heavy sections (e.g. projects) still grow past it
+     naturally. Uncapped, any window taller than ~900px forces sections with
+     shorter, width-driven content (e.g. the hero's logo+widget) to center
+     that content inside a much taller box than it needs, leaving a visibly
+     empty band above and below -- confirmed: 200px of dead space per side at
+     980x1100, worse still at more extreme aspect ratios. */
+  min-height: min(100dvh, 900px);
   display: flex;
   flex-direction: column;
+  /* Centers the (content-sized) header+article as one block within the
+     section's full height, instead of letting article's own flex-grow (see
+     below) stretch it to fill the section and hide the leftover space
+     inconsistently inside it -- flex centers it symmetrically for a
+     flex-based article (hero) but grid rows don't stretch the same way,
+     so the same leftover space sat entirely at the bottom for a grid-based
+     article ("me") instead. Confirmed both cases empirically. */
+  justify-content: center;
   gap: 32px;
   /* padding-left: var(--padding-side);
   padding-right: var(--padding-side);
@@ -33,7 +48,14 @@ section > header {
 }
 
 section > article {
-  flex: 1 1 auto;
+  /* Was flex: 1 1 auto -- forcing article to grow into all leftover
+     vertical space in the section is what created the dead space (it just
+     sizes to its own content now; the section's justify-content:center
+     above centers the resulting compact block instead). Content-heavy
+     sections (projects, blog post bodies) are unaffected: their content
+     already exceeds the section's min-height, so there's no leftover space
+     to grow into either way. */
+  flex: 0 1 auto;
 }
 
 section div {
