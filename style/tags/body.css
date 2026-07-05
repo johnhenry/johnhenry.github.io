@@ -1,13 +1,15 @@
 body {
   font-size: var(--base-font-size);
-  width: 100vw;
+  /* 100vw ignores scrollbar width and causes horizontal overflow; a
+     block-level element is already 100% of its container by default. */
+  width: 100%;
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family);
 }
 
 body > :is(header, footer) {
-  width: 100vw;
+  width: 100%;
   position: fixed;
   background-color: var(--color-foreground);
   display: flex;
