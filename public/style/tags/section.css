@@ -241,6 +241,13 @@ section.blog-nav {
 section.blog-preview {
   min-height: 0;
   flex-direction: column;
+  /* The base section rule centers its flex line (added for the hero/me
+     full-height sections), but blog-preview's row layout only has leftover
+     horizontal space to distribute because each entry's title/date is a
+     different length -- centering it made every entry land at a different
+     x-offset, reading as a cascading staircase down the blog list. This
+     needs to stay left-aligned regardless of content width. */
+  justify-content: flex-start;
   /* padding-top: 16px; */
 }
 section.blog-preview:not(:last-of-type) {
