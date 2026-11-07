@@ -6,15 +6,13 @@ import sortPosts from "../../../utils/sort-posts.mjs";
 import JH from "../../../components/jh/index.astro";
 import SitePage from "../../../components/SitePage.astro";
 import BlogPreview from "../../../components/BlogPreview.astro";
+import getAllPosts from "../../../utils/get-all-posts.mjs";
 // Content;
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 // Misc.
 export async function getStaticPaths() {
-const { byTag } =
-    sortPosts(
-      await Astro
-      .glob('../posts/*.md'));
+const { byTag } = sortPosts(await getAllPosts());
     return byTag.map(([tag, posts]) => ({
       params: { tag },
       props: {

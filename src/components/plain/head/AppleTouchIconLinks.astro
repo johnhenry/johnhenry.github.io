@@ -1,0 +1,10 @@
+---
+type Props = {
+  icons: string[];
+};
+const { icons }:Props = Astro.props;
+---
+{icons.map(([sizes, href]) => {
+    return (
+      <link rel="apple-touch-icon" sizes={sizes} href={href} />);
+})}

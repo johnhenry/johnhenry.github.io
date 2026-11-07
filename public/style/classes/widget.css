@@ -5,7 +5,10 @@
   white-space: break-spaces;
 }
 
-@media screen and (orientation: landscape) {
+/* Paired with the hero's row-reverse layout (section.css), which now also
+   triggers at min-width:768px so a portrait tablet gets the side-by-side
+   treatment instead of being lumped in with phones just for being portrait. */
+@media screen and (orientation: landscape), screen and (min-width: 768px) {
   .widget {
     width: 30vw;
   }
@@ -76,7 +79,7 @@
   width: 100%;
   align-content: stretch;
 }
-@media screen and (orientation: Landscape) {
+@media screen and (orientation: landscape), screen and (min-width: 768px) {
   .widget .tags {
     font-size: 0.75rem;
   }

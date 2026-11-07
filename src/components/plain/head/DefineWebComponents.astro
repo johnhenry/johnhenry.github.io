@@ -1,0 +1,16 @@
+---
+type Props = {
+  components: string[]
+}
+const {components}:Props = Astro.props;
+---
+<script type="module" is:inline define:vars={{components}} >
+  for (const [name, href, exportName="default", properties={}] of components){
+    const elementClass = await import(href).then(module => module[exportName]);
+    globalThis.customElements.define(name, elementClass, properties);
+  }
+</script>
+
+
+
+

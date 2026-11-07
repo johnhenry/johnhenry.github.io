@@ -1,30 +1,20 @@
 import rss from "@astrojs/rss";
-import {
-  SITE_TITLE,
-  SITE_CANONICAL_URL,
-  SITE_DESCRIPTION,
-  SITE_AUTHOR,
-} from "../../SETTINGS.mjs";
-const postImportResult = import.meta.globEager("./posts/*.md");
-const posts = Object.values(postImportResult);
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../SETTINGS.mjs";
+import getAllPosts from "../../utils/get-all-posts.mjs";
 
-console.log({
-  SITE_TITLE,
-  SITE_CANONICAL_URL,
-  SITE_DESCRIPTION,
-  SITE_AUTHOR,
-});
-export const get = () =>
-  rss({
+export const GET = async (context) => {
+  const posts = await getAllPosts();
+  return rss({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    site: SITE_CANONICAL_URL,
-    author: SITE_AUTHOR,
+    site: context.site,
     items: posts
-      .filter((b) => b.frontmatter.date)
+      .filter((post) => post.frontmatter.date)
       .map((post) => ({
-        link: post.frontmatter.description,
+        link: post.url,
         title: post.frontmatter.title,
-        pubDate: post.frontmatter.date,
+        description: post.frontmatter.description,
+        pubDate: new Date(post.frontmatter.date),
       })),
   });
+};
