@@ -21,4 +21,13 @@
 
   --header-padding: 32px;
   --padding-side: var(--padding-2x, var(--header-padding));
+
+  /* Caps how wide section-level content (project grids, the "me" columns)
+     grows on very large/ultra-wide screens -- without this, content
+     stretches edge-to-edge on a 4K display. */
+  --content-max-width: 1600px;
+  /* Readable line-length cap for prose (blog posts). ch is tied to the
+     font's average character width, so it stays a sane line length
+     regardless of font-size or viewport. */
+  --prose-max-width: 70ch;
 }

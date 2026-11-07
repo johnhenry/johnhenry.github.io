@@ -32,11 +32,11 @@ a.link-inverted {
   color: var(--color-link-alt);
 }
 a.link-inverted:visited {
-  color: var(--color-link-alt-visited);
+  color: var(--color-link-alt--visited);
 }
 a.link-inverted:active,
 a.link-inverted:hover {
-  color: var(--color-link-alt-interaction);
+  color: var(--color-link-alt--interaction);
 }
 
 a.link-inverted.link-untracked,
@@ -51,7 +51,7 @@ a.link-inverted.link-untracked:active,
 a.link-inverted.link-untracked:hover,
 .link-inverted.link-untracked > *:active,
 .link-inverted.link-untracked > *:hover {
-  color: var(--color-link-alt-interaction);
+  color: var(--color-link-alt--interaction);
 }
 
 a.link-surprise {

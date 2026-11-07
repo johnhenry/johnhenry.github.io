@@ -1,11 +1,10 @@
 import rss from "@astrojs/rss";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../SETTINGS.mjs";
+import getAllPosts from "../../utils/get-all-posts.mjs";
 
-const postImportResult = import.meta.glob("./posts/*.md", { eager: true });
-const posts = Object.values(postImportResult);
-
-export const GET = (context) =>
-  rss({
+export const GET = async (context) => {
+  const posts = await getAllPosts();
+  return rss({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     site: context.site,
@@ -18,3 +17,4 @@ export const GET = (context) =>
         pubDate: new Date(post.frontmatter.date),
       })),
   });
+};

@@ -8,12 +8,12 @@ import JH from "../../components/jh/index.astro";
 import BlogPreview from "../../components/BlogPreview.astro";
 import SitePage from "../../components/SitePage.astro";
 import Pagination from "../../components/Pagination.astro";
+import getAllPosts from "../../utils/get-all-posts.mjs";
 // Content
 const { page } = Astro.props;
 // Misc.
 export async function getStaticPaths({ paginate }) {
-  const postModules = import.meta.glob("./posts/*.md", { eager: true });
-  const { sorted } = sortPosts(Object.values(postModules));
+  const { sorted } = sortPosts(await getAllPosts());
   return paginate(sorted, { pageSize: SITE_BLOG_PAGE_SIZE });
 }
 ---

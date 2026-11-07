@@ -2,8 +2,8 @@
 // Settings
 // Components
 import {SITE_CDN_URL} from "../SETTINGS.mjs";
-import GDPRRequest from './GDPRRequest.astro';
-import TagManagerBody from './plain/TagManagerBody.astro';
+import GDPRRequest from "./GDPRRequest.astro";
+import TagManagerBody from "./plain/TagManagerBody.astro";
 import headerLinks from "../content/headerlinks.mjs";
 // Content
 const { title, headerClass, footerClass, author, tmid} = Astro.props;
@@ -13,7 +13,7 @@ const headerLogo = `${SITE_CDN_URL}image/iajh.png`;
   <header class={headerClass}>
     <a href="/#" >{headerLogo && <img src={headerLogo} width="32" height="32" alt="logo" />}
     <p class="hide-n-show-landscape-inline">{title}</p></a>
-    <nav class="hide show-landscape-flex">
+    <nav>
       {headerLinks.map(({url, text}) => (
           <a href={`${url}`}>{text}</a>
         ))}

@@ -2,13 +2,12 @@
 // Settings
 // Components
 import {SITE_TITLE, TAG_MANAGER_ID, SITE_FAVICON, SITE_FAVICON_TYPE, SITE_CANONICAL_URL, SITE_DESCRIPTION, SITE_KEYWORDS, SITE_AUTHOR} from "../SETTINGS.mjs";
-import headerLinks from "../content/headerlinks.mjs";
 // Content
-import externalStyles from '../external/styles.mjs';
-import externalScripts from '../external/scripts.mjs';
-import webComponents from '../external/components.mjs';
-import appleTouchIcons from '../external/apple-touch-icons.mjs';
-import defaultMeta from '../external/meta.mjs';
+import externalStyles from "../external/styles.mjs";
+import externalScripts from "../external/scripts.mjs";
+import webComponents from "../external/components.mjs";
+import appleTouchIcons from "../external/apple-touch-icons.mjs";
+import defaultMeta from "../external/meta.mjs";
 import GenericPage from "./plain/GenericPage.astro";
 import SiteBody from "./SiteBody.astro";
 const {
@@ -29,8 +28,7 @@ author,
 externalStyles,
 externalScripts,
 webComponents,
-appleTouchIcons,
-headerLinks
+appleTouchIcons
 }
 const titles = [SITE_TITLE];
 if(subtitle){

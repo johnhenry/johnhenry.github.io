@@ -96,8 +96,8 @@ const { message, accept, decline } = Astro.props;
     globalThis.location.reload();
   }
 </script>
-<footer class="fixed bottom-0 flex p-4 justify-end items-center" style="display: var(--gdpr-consent, none);">
-  <div class="mr-auto">{message ?? DEFAULT_MESSAGE}</div>
+<footer class="gdpr-request" style="display: var(--gdpr-consent, none);">
+  <div>{message ?? DEFAULT_MESSAGE}</div>
   <a href="#" onclick="globalThis.dispatchEvent(new Event('gdpr-consent-provided'));">{accept ?? DEFAULT_ACCEPT}</a>
   <a href="#" onclick="globalThis.dispatchEvent(new Event('gdpr-consent-withheld'));">{decline ?? DEFAULT_DECLINE}</a>
 </footer>

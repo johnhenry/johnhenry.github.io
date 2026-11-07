@@ -1,4 +1,6 @@
 ---
+publishedAt: "2022-06-26T05:21:15.000Z"
+status: "published"
 title: "Native DOM Nodes"
 description: A novel approach to using traditional methods in web develoment
 author: "John Henry"

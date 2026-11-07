@@ -1,4 +1,6 @@
 ---
+publishedAt: "2021-11-04T07:00:00.000Z"
+status: "published"
 title: "Semantics Versus Accessibility"
 description: "We explore an issue plaguing modern development and propose a solution"
 date: "4 November 2021"
@@ -55,7 +57,7 @@ create components that are unaware of their containers.
 
 Semantically, a top level heading within a component shouldn't depend upon the headings of its ancestors.
 
-You would be tempted do this:
+You would be tempted to do this:
 
 ```html
 <body>
@@ -87,7 +89,7 @@ Sadly, it was [never implemented](https://adrianroselli.com/2016/08/there-is-no-
 But, in the case of HTML headings; if a section has a heading of "h2",
 it must be the child of a section with an "h1".
 A section with an "h3"
-must have a parent with and "h2" and so on.
+must have a parent with an "h2" and so on.
 
 The problem arises in that _using sensical **semantics** to create components is at odds with how screenreaders interpret **accessibility** cues in HTML_... or...
 
@@ -108,8 +110,8 @@ to other environments.
 ```astro
 ---
 // file:///./boring-section.astro
-const parentLevel = Astro.props.paerentLevel || 0;
-const currentLevel = Astro.props.currentLevel = parentLevel + 1;
+const parentLevel = Astro.props.parentLevel || 0;
+const currentLevel = parentLevel + 1;
 ---
 <style>
 section {
@@ -126,8 +128,8 @@ section {
 ```astro
 ---
 // file:///./fancy-section.astro
-const parentLevel = Astro.props.paerentLevel || 0;
-const currentLevel = Astro.props.currentLevel = parentLevel + 1;
+const parentLevel = Astro.props.parentLevel || 0;
+const currentLevel = parentLevel + 1;
 ---
 <style>
   section {
@@ -145,7 +147,6 @@ const currentLevel = Astro.props.currentLevel = parentLevel + 1;
 ---
 import BoringSection from "./boring-section.astro";
 import FancySection from "./fancy-section.astro";
----
 ---
 <body>
   <BoringSection>
@@ -171,7 +172,7 @@ This will produce the following HTML:
 ```
 
 You can use a utility function
-to make the code a bit cleaner a bit cleaner.
+to make the code a bit cleaner.
 
 ```javascript
 // file:///./get-level.mjs
@@ -202,7 +203,7 @@ to manually pass the parentLevel property
 through to each child.
 
 Using nested, indexed for loops may help,
-but I can already imagine being convoluted.
+but I can already imagine it being convoluted.
 
 The [React Context API](https://reactjs.org/docs/context.html) and the
 [Vue Provide/Inject API](https://v3.vuejs.org/guide/component-provide-inject.htm)
